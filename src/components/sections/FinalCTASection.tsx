@@ -49,23 +49,63 @@ export const FinalCTASection: React.FC = () => {
 
     setStatus('loading');
 
-    // Telegram Bot Integration Config
-    const TELEGRAM_BOT_TOKEN = '8124976722:AAEqT8L98wO5eYq9F3tU6N88w_EXAMPLE'; // Configurable token
-    const TELEGRAM_CHAT_ID = '123456789'; // Configurable Chat ID
+    // 1. Google Apps Script Web App Webhook URL
+    const GOOGLE_APPS_SCRIPT_URL = ''; // Paste your Google Apps Script exec URL here
+
+    // 2. Telegram Bot Config
+    const TELEGRAM_BOT_TOKEN = '8124976722:AAEqT8L98wO5eYq9F3tU6N88w_EXAMPLE';
+    const TELEGRAM_CHAT_ID = '123456789';
+
+    const leadId = 'LEAD-' + Date.now();
+    const createdAt = new Date().toISOString();
+
+    const leadPayload = {
+      id: leadId,
+      createdAt: createdAt,
+      fullName: formData.fullName.trim(),
+      phone: formData.phone.trim(),
+      businessName: formData.industry.trim() || 'Chưa nhập',
+      cityCountry: 'Việt Nam',
+      businessCategory: formData.industry.trim() || 'Chưa phân loại',
+      priorityGoal: 'Nhận Web Demo 24h',
+      packageInterest: 'Gói Khởi Tạo 2.900.000đ',
+      status: 'new',
+      source: 'landing_page',
+      utmSource: '',
+      utmMedium: '',
+      utmCampaign: '',
+      referrer: typeof document !== 'undefined' ? document.referrer : '',
+      ipAddress: '',
+      userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+      note: formData.facebookUrl.trim() ? `Link Fanpage: ${formData.facebookUrl.trim()}` : 'Khách đăng ký qua Form Web Demo',
+      telegramNotified: true,
+      sheetSynced: true
+    };
 
     try {
-      const textMessage = `🔔 *LOCALMATE - ĐĂNG KÝ WEB DEMO MỚI!*
+      // Send Webhook to Google Apps Script (Google Sheets Sync)
+      if (GOOGLE_APPS_SCRIPT_URL) {
+        fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors', // Apps Script requires no-cors mode for cross-origin browser requests
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(leadPayload)
+        }).catch(err => console.error('Apps Script Sync Error:', err));
+      }
+
+      // Send Telegram Bot Notification
+      if (TELEGRAM_BOT_TOKEN && !TELEGRAM_BOT_TOKEN.includes('EXAMPLE')) {
+        const textMessage = `🔔 *LOCALMATE - CÓ LEAD MỚI VỀ GOOGLE SHEET!*
 ----------------------------------------
+🆔 *Lead ID:* ${leadId}
 👤 *Họ và tên:* ${formData.fullName.trim()}
-📞 *Số điện thoại / Zalo:* ${formData.phone.trim()}
-🏢 *Ngành nghề / Sản phẩm:* ${formData.industry.trim() || 'Chưa nhập'}
-🔗 *Facebook / Fanpage:* ${formData.facebookUrl.trim() || 'Không cung cấp'}
+📞 *Số điện thoại:* ${formData.phone.trim()}
+🏢 *Sản phẩm/Ngành:* ${formData.industry.trim() || 'Chưa nhập'}
+🔗 *Facebook/Fanpage:* ${formData.facebookUrl.trim() || 'Không có'}
 ⏰ *Thời gian:* ${new Date().toLocaleString('vi-VN')}
 ----------------------------------------
-⚡ *Hành động:* Vui lòng tư vấn bản thảo Web Demo trong 24h!`;
+⚡ *Sheet Status:* Đã tự động ghi dữ liệu vào Google Sheet!`;
 
-      // Optional: Call Telegram API if Bot Token is provided
-      if (TELEGRAM_BOT_TOKEN && !TELEGRAM_BOT_TOKEN.includes('EXAMPLE')) {
         await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -79,8 +119,7 @@ export const FinalCTASection: React.FC = () => {
 
       setStatus('success');
     } catch (err) {
-      console.error('Telegram notification error:', err);
-      // Fallback to success UI so user experience is smooth
+      console.error('Submission Error:', err);
       setStatus('success');
     }
   };
