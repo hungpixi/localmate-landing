@@ -17,7 +17,7 @@ export const PainPointsSection: React.FC = () => {
     <section id="thuc-trang" style={{ padding: '5.5rem 0', backgroundColor: 'var(--color-surface)' }}>
       <Container size="lg">
         <SectionHeader
-          eyebrow="THỰC TRẠNG DOANH NGHIỆP THỰC TẾ"
+          eyebrow="THỰC TRẠNG DOANH NGHIỆP"
           title="Bạn có sản phẩm tốt, nhưng khách hàng chưa nhìn thấy bạn?"
           subtitle="Rất nhiều chủ cửa hàng, người làm nghề, nhà thầu xây dựng đang gặp phải rào cản này mỗi ngày."
         />

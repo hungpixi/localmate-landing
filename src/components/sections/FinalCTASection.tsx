@@ -164,32 +164,32 @@ export const FinalCTASection: React.FC = () => {
               Đừng bắt đầu bằng một hệ thống đắt tiền.
             </h2>
 
-            <p style={{ fontSize: '1.1rem', color: '#e3f0f4', lineHeight: 1.65 }}>
+            <p style={{ fontSize: '1.05rem', color: '#e3f0f4', lineHeight: 1.65, margin: 0 }}>
               Hãy bắt đầu bằng một nơi để khách hàng nhìn thấy bạn, hiểu bạn đang làm gì và biết cách liên hệ.
             </p>
 
-            <div style={{ backgroundColor: '#0a465a', border: '1px solid #14596f', borderRadius: 'var(--radius-lg)', padding: '1.25rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-teal-soft)', fontWeight: 700, marginBottom: '0.5rem' }}>
-                <ShieldCheck size={20} />
+            <div style={{ backgroundColor: 'rgba(10, 70, 90, 0.75)', border: '1px solid rgba(15, 169, 154, 0.35)', borderRadius: 'var(--radius-lg)', padding: '1.25rem 1.35rem', backdropFilter: 'blur(8px)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', color: 'var(--color-teal-soft)', fontWeight: 700, marginBottom: '0.5rem' }}>
+                <ShieldCheck size={20} style={{ flexShrink: 0 }} />
                 <span>CAM KẾT AN TÂM 100%</span>
               </div>
-              <p style={{ fontSize: '0.9rem', color: '#d4e5ea', margin: 0, textWrap: 'balance' as any }}>
+              <p style={{ fontSize: '0.925rem', color: '#d4e5ea', margin: 0, lineHeight: 1.6 }}>
                 2.900.000đ · Nhận Demo trong 24h kể từ khi đủ thông tin · Bàn giao xong mới thanh toán (0đ rủi ro).
               </p>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.9)' }}>
-                <CheckCircle2 size={18} color="var(--color-teal-soft)" />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginTop: '0.35rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.925rem', color: 'rgba(255, 255, 255, 0.95)', lineHeight: 1.5 }}>
+                <CheckCircle2 size={18} color="var(--color-teal-soft)" style={{ flexShrink: 0 }} />
                 <span>Miễn phí 100% việc tạo bản thảo Web Demo ban đầu</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.9)' }}>
-                <Clock size={18} color="var(--color-teal-soft)" />
-                <span>Phản hồi & tư vấn giải pháp trong 24 giờ làm việc</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.925rem', color: 'rgba(255, 255, 255, 0.95)', lineHeight: 1.5 }}>
+                <Clock size={18} color="var(--color-teal-soft)" style={{ flexShrink: 0 }} />
+                <span>Phản hồi &amp; tư vấn giải pháp trong 24 giờ làm việc</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.9)' }}>
-                <Sparkles size={18} color="var(--color-orange-soft)" />
-                <span>Tối ưu hiển thị chuẩn trên mọi thiết bị di động & máy tính</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.925rem', color: 'rgba(255, 255, 255, 0.95)', lineHeight: 1.5 }}>
+                <Sparkles size={18} color="var(--color-teal-soft)" style={{ flexShrink: 0 }} />
+                <span>Tối ưu hiển thị chuẩn trên mọi thiết bị di động &amp; máy tính</span>
               </div>
             </div>
           </div>

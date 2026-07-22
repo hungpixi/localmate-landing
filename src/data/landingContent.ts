@@ -307,3 +307,13 @@ export const FAQ_ITEMS = [
     answer: 'Có! LocalMate đồng hành lâu dài cùng bạn, hỗ trợ giải đáp thắc mắc kỹ thuật và bảo hành hệ thống liên tục.'
   }
 ];
+
+export const CONTACT_INFO = {
+  phone: '0834422439',
+  phoneDisplay: '0834.422.439',
+  zaloUrl: 'https://zalo.me/0834422439',
+  email: 'hungphamphunguyen@gmail.com',
+  mailtoUrl: 'mailto:hungphamphunguyen@gmail.com',
+  address: 'Hà Nội & TP. Hồ Chí Minh'
+};
+

@@ -36,7 +36,8 @@ export const DemoShowcaseSection: React.FC = () => {
             paddingBottom: '0.5rem',
             marginBottom: '2.5rem',
             maxWidth: '100%',
-            justifyContent: 'flex-start'
+            justifyContent: 'flex-start',
+            WebkitOverflowScrolling: 'touch'
           }}
         >
           <button
@@ -51,6 +52,8 @@ export const DemoShowcaseSection: React.FC = () => {
               cursor: 'pointer',
               backgroundColor: activeTab === 'all' ? 'var(--color-navy)' : 'var(--color-bg)',
               color: activeTab === 'all' ? '#ffffff' : 'var(--color-text)',
+              whiteSpace: 'nowrap',
+              flexShrink: 0,
               transition: 'all var(--transition-fast)'
             }}
           >
@@ -71,6 +74,7 @@ export const DemoShowcaseSection: React.FC = () => {
                 backgroundColor: activeTab === demo.id ? 'var(--color-navy)' : 'var(--color-bg)',
                 color: activeTab === demo.id ? '#ffffff' : 'var(--color-text)',
                 whiteSpace: 'nowrap',
+                flexShrink: 0,
                 transition: 'all var(--transition-fast)'
               }}
             >
@@ -83,7 +87,7 @@ export const DemoShowcaseSection: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '1.75rem'
           }}
         >

@@ -114,12 +114,12 @@ export const BeforeAfterSection: React.FC = () => {
               borderRadius: 'var(--radius-lg)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', minWidth: 0 }}>
                 <div
                   style={{
-                    width: 36,
-                    height: 36,
+                    width: 32,
+                    height: 32,
                     borderRadius: '50%',
                     backgroundColor: '#fee2e2',
                     display: 'flex',
@@ -128,21 +128,23 @@ export const BeforeAfterSection: React.FC = () => {
                     flexShrink: 0
                   }}
                 >
-                  <XCircle size={22} color="#dc2626" />
+                  <XCircle size={20} color="#dc2626" />
                 </div>
-                <h3 style={{ fontSize: '1.25rem', color: '#1f2937', fontWeight: 700 }}>Khi chưa có LocalMate</h3>
+                <h3 style={{ fontSize: 'clamp(1rem, 3vw, 1.25rem)', color: '#1f2937', fontWeight: 700, whiteSpace: 'nowrap' }}>Khi chưa có LocalMate</h3>
               </div>
               <span
                 style={{
-                  fontSize: '0.75rem',
+                  fontSize: 'clamp(0.65rem, 2vw, 0.75rem)',
                   fontWeight: 700,
                   color: '#991b1b',
                   backgroundColor: '#fee2e2',
-                  padding: '0.25rem 0.65rem',
+                  padding: '0.25rem 0.6rem',
                   borderRadius: 12,
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.25rem'
+                  gap: '0.25rem',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0
                 }}
               >
                 <ShieldAlert size={12} /> Cách cũ
@@ -198,12 +200,12 @@ export const BeforeAfterSection: React.FC = () => {
               boxShadow: 'var(--shadow-md)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', minWidth: 0 }}>
                 <div
                   style={{
-                    width: 36,
-                    height: 36,
+                    width: 32,
+                    height: 32,
                     borderRadius: '50%',
                     backgroundColor: 'var(--color-teal-soft)',
                     display: 'flex',
@@ -212,24 +214,26 @@ export const BeforeAfterSection: React.FC = () => {
                     flexShrink: 0
                   }}
                 >
-                  <CheckCircle2 size={22} color="var(--color-teal)" />
+                  <CheckCircle2 size={20} color="var(--color-teal)" />
                 </div>
-                <h3 style={{ fontSize: '1.25rem', color: 'var(--color-navy)', fontWeight: 800 }}>Sau khi có LocalMate</h3>
+                <h3 style={{ fontSize: 'clamp(1rem, 3vw, 1.25rem)', color: 'var(--color-navy)', fontWeight: 800, whiteSpace: 'nowrap' }}>Sau khi có LocalMate</h3>
               </div>
               <span
                 style={{
-                  fontSize: '0.75rem',
+                  fontSize: 'clamp(0.65rem, 2vw, 0.75rem)',
                   fontWeight: 700,
                   color: 'var(--color-teal-dark)',
                   backgroundColor: 'var(--color-teal-soft)',
-                  padding: '0.25rem 0.65rem',
+                  padding: '0.25rem 0.6rem',
                   borderRadius: 12,
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.25rem'
+                  gap: '0.25rem',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0
                 }}
               >
-                <Sparkles size={12} /> Hiện đại & Rõ ràng
+                <Sparkles size={12} /> Hiện đại &amp; Rõ ràng
               </span>
             </div>
 

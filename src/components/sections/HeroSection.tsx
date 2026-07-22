@@ -117,25 +117,14 @@ export const HeroSection: React.FC = () => {
             </p>
 
             {/* Action Buttons (CTAs) */}
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '1rem',
-                alignItems: 'center',
-                marginTop: '0.5rem'
-              }}
-            >
+            <div className="hero-cta-group">
               <Button
                 variant="primary"
                 size="lg"
                 onClick={scrollToForm}
-                style={{
-                  fontSize: '1.05rem',
-                  padding: '0.9rem 2.2rem'
-                }}
+                className="btn-primary"
               >
-                Nhận web demo <ArrowRight size={20} style={{ marginLeft: 2 }} />
+                <span>Nhận web demo</span> <ArrowRight size={18} style={{ flexShrink: 0 }} />
               </Button>
               
               <Button
@@ -145,8 +134,6 @@ export const HeroSection: React.FC = () => {
                 style={{
                   borderColor: 'var(--color-border)',
                   color: 'var(--color-navy)',
-                  fontSize: '1rem',
-                  padding: '0.9rem 1.8rem'
                 }}
               >
                 Xem gói 2.900.000đ
@@ -154,26 +141,17 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Trust Badges Bar */}
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '1.5rem',
-                marginTop: '0.75rem',
-                paddingTop: '1.35rem',
-                borderTop: '1px dashed #d0e0dc'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-navy)' }}>
-                <CheckCircle2 size={18} color="var(--color-teal)" />
+            <div className="hero-trust-badges">
+              <div className="hero-trust-item">
+                <CheckCircle2 size={18} color="var(--color-teal)" style={{ flexShrink: 0 }} />
                 <span>Bàn giao rồi mới thanh toán</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-navy)' }}>
-                <CheckCircle2 size={18} color="var(--color-teal)" />
+              <div className="hero-trust-item">
+                <CheckCircle2 size={18} color="var(--color-teal)" style={{ flexShrink: 0 }} />
                 <span>Không phát sinh phí ẩn</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-navy)' }}>
-                <ShieldCheck size={18} color="var(--color-teal)" />
+              <div className="hero-trust-item">
+                <ShieldCheck size={18} color="var(--color-teal)" style={{ flexShrink: 0 }} />
                 <span>Khách giữ toàn bộ tài khoản</span>
               </div>
             </div>
@@ -193,62 +171,22 @@ export const HeroSection: React.FC = () => {
               }}
             >
               {/* Browser Bar */}
-              <div
-                style={{
-                  backgroundColor: '#eaf3f0',
-                  padding: '0.75rem 1.1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  gap: '0.75rem',
-                  borderBottom: '1px solid #d2e4e0'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexGrow: 1 }}>
-                  <div style={{ display: 'flex', gap: '0.4rem', flexShrink: 0 }}>
-                    <span style={{ width: 11, height: 11, borderRadius: '50%', backgroundColor: '#ff5f56', display: 'inline-block' }}></span>
-                    <span style={{ width: 11, height: 11, borderRadius: '50%', backgroundColor: '#ffbd2e', display: 'inline-block' }}></span>
-                    <span style={{ width: 11, height: 11, borderRadius: '50%', backgroundColor: '#27c93f', display: 'inline-block' }}></span>
+              <div className="mockup-top-bar">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexGrow: 1, minWidth: 0 }}>
+                  <div style={{ display: 'flex', gap: '0.35rem', flexShrink: 0 }}>
+                    <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#ff5f56', display: 'inline-block' }}></span>
+                    <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#ffbd2e', display: 'inline-block' }}></span>
+                    <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#27c93f', display: 'inline-block' }}></span>
                   </div>
-                  <div
-                    style={{
-                      backgroundColor: '#ffffff',
-                      borderRadius: 'var(--radius-full)',
-                      padding: '0.3rem 0.85rem',
-                      fontSize: '0.775rem',
-                      color: 'var(--color-navy)',
-                      fontWeight: 600,
-                      flexGrow: 1,
-                      textAlign: 'center',
-                      border: '1px solid #d2e4e0',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.35rem'
-                    }}
-                  >
-                    <Lock size={12} color="var(--color-teal)" />
-                    <span>demo-cokhituantiem.localmate.vn</span>
+                  <div className="mockup-url-box">
+                    <Lock size={11} color="var(--color-teal)" style={{ flexShrink: 0 }} />
+                    <span className="mockup-url-text">demo-cokhituantiem.localmate.vn</span>
                   </div>
                 </div>
 
                 {/* Integrated Clean Tag */}
-                <div
-                  style={{
-                    backgroundColor: 'var(--btn-primary-bg)',
-                    color: '#ffffff',
-                    fontSize: '0.725rem',
-                    fontWeight: 700,
-                    padding: '0.25rem 0.65rem',
-                    borderRadius: 'var(--radius-full)',
-                    whiteSpace: 'nowrap',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.25rem',
-                    flexShrink: 0
-                  }}
-                >
-                  <Zap size={12} fill="#ffffff" />
+                <div className="mockup-demo-tag">
+                  <Zap size={11} fill="#ffffff" style={{ flexShrink: 0 }} />
                   <span>Demo trước 0đ</span>
                 </div>
               </div>
@@ -278,7 +216,9 @@ export const HeroSection: React.FC = () => {
                       color: 'var(--color-teal-dark)',
                       padding: '0.25rem 0.6rem',
                       borderRadius: 'var(--radius-full)',
-                      border: '1px solid rgba(15, 169, 154, 0.3)'
+                      border: '1px solid rgba(15, 169, 154, 0.3)',
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0
                     }}
                   >
                     Đã xác minh
@@ -300,7 +240,7 @@ export const HeroSection: React.FC = () => {
                     <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', color: 'var(--color-teal-soft)', fontWeight: 700, letterSpacing: '0.04em' }}>
                       Xưởng Cơ Khí Uy Tín Q.9 &amp; Thủ Đức
                     </span>
-                    <span style={{ fontSize: '0.65rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#fff', padding: '2px 6px', borderRadius: 4 }}>Phục vụ 24/7</span>
+                    <span style={{ fontSize: '0.65rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#fff', padding: '2px 6px', borderRadius: 4, flexShrink: 0 }}>Phục vụ 24/7</span>
                   </div>
                   
                   <h4 style={{ color: '#ffffff', fontSize: '1.15rem', fontWeight: 700, margin: '0.3rem 0 0.6rem 0', lineHeight: 1.3 }}>
@@ -308,10 +248,10 @@ export const HeroSection: React.FC = () => {
                   </h4>
                   
                   <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                    <span style={{ backgroundColor: 'var(--color-orange)', color: 'var(--color-navy-deep)', fontSize: '0.75rem', padding: '0.25rem 0.6rem', borderRadius: 20, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 4 }}>
+                    <span style={{ backgroundColor: 'var(--color-orange)', color: 'var(--color-navy-deep)', fontSize: '0.75rem', padding: '0.25rem 0.6rem', borderRadius: 20, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 4, whiteSpace: 'nowrap' }}>
                       <Phone size={12} /> 0988.xxx.888
                     </span>
-                    <span style={{ backgroundColor: 'var(--color-teal)', color: '#fff', fontSize: '0.75rem', padding: '0.3rem 0.7rem', borderRadius: 'var(--radius-full)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: 5 }}>
+                    <span style={{ backgroundColor: 'var(--color-teal)', color: '#fff', fontSize: '0.75rem', padding: '0.3rem 0.7rem', borderRadius: 'var(--radius-full)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: 5, whiteSpace: 'nowrap' }}>
                       <MessageSquare size={12} /> Zalo Nhận Báo Giá
                     </span>
                   </div>
@@ -320,7 +260,7 @@ export const HeroSection: React.FC = () => {
                 {/* Mockup Product Service Grid */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '0.85rem' }}>
                   <div style={{ border: '1px solid #d2e4e0', padding: '0.75rem', borderRadius: '10px', backgroundColor: '#f9fcfb' }}>
-                    <div style={{ height: 42, backgroundColor: '#dcf0eb', borderRadius: 6, marginBottom: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-navy)', fontWeight: 700 }}>
+                    <div style={{ height: 42, backgroundColor: '#dcf0eb', borderRadius: 6, marginBottom: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-navy)', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden' }}>
                       🛠️ Mái Tôn Nhanh 24h
                     </div>
                     <div style={{ fontSize: '0.825rem', fontWeight: 700, color: 'var(--color-navy)' }}>Thi công mái tôn &amp; xưởng</div>
@@ -328,7 +268,7 @@ export const HeroSection: React.FC = () => {
                   </div>
 
                   <div style={{ border: '1px solid #d2e4e0', padding: '0.75rem', borderRadius: '10px', backgroundColor: '#f9fcfb' }}>
-                    <div style={{ height: 42, backgroundColor: '#dcf0eb', borderRadius: 6, marginBottom: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-navy)', fontWeight: 700 }}>
+                    <div style={{ height: 42, backgroundColor: '#dcf0eb', borderRadius: 6, marginBottom: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-navy)', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden' }}>
                       🚪 Cổng Sắt Mỹ Thuật
                     </div>
                     <div style={{ fontSize: '0.825rem', fontWeight: 700, color: 'var(--color-navy)' }}>Cửa sắt &amp; hàng rào đẹp</div>
@@ -337,24 +277,14 @@ export const HeroSection: React.FC = () => {
                 </div>
 
                 {/* Live Customer Inquiry Notification Card */}
-                <div
-                  style={{
-                    backgroundColor: '#eef8f6',
-                    border: '1px solid var(--color-teal)',
-                    borderRadius: '10px',
-                    padding: '0.65rem 0.85rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
-                    <span style={{ width: 9, height: 9, borderRadius: '50%', backgroundColor: '#27c93f', display: 'inline-block', boxShadow: '0 0 0 3px rgba(39, 201, 63, 0.2)' }}></span>
-                    <span style={{ fontSize: '0.775rem', fontWeight: 600, color: 'var(--color-navy)' }}>
-                      💬 <strong>Khách vừa gửi yêu cầu:</strong> "Báo giá làm cửa 25m² tại Thủ Đức"
+                <div className="mockup-notification-pill">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', minWidth: 0 }}>
+                    <span style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#27c93f', display: 'inline-block', flexShrink: 0, boxShadow: '0 0 0 3px rgba(39, 201, 63, 0.2)' }}></span>
+                    <span className="mockup-notification-text">
+                      💬 <strong>Khách gửi yêu cầu:</strong> "Báo giá làm cửa 25m² tại Thủ Đức"
                     </span>
                   </div>
-                  <span style={{ fontSize: '0.68rem', color: 'var(--color-teal-dark)', fontWeight: 700 }}>Vừa xong</span>
+                  <span className="mockup-notification-badge">Vừa xong</span>
                 </div>
               </div>
             </div>

@@ -506,3 +506,50 @@ Yêu cầu:
 10. Không dùng overflow-x: auto để che lỗi khi bảng hoàn toàn có thể vừa card.
 11. Báo chính xác CSS nào đã gây scroll ngang.
 ```
+
+---
+
+## 4. CHỐNG RỚT CHỮ (TEXT WRAPPING) & TỐI ƯU 2 NÚT CTA CÙNG DÒNG TRÊN MOBILE
+
+### A. 2 Nút Action (CTA) Cùng Dòng Không Rớt Chữ
+Màn hình mobile (< 640px) luôn dùng `flex: 1 1 0px` kết hợp `white-space: nowrap` và `font-size: clamp(...)`:
+
+```css
+.hero-cta-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-cta-group .btn-custom {
+  flex: 1 1 0px;
+  white-space: nowrap !important;
+  text-align: center;
+  justify-content: center;
+  font-size: clamp(0.775rem, 3.2vw, 1.05rem) !important;
+  padding: clamp(0.65rem, 2.5vw, 0.9rem) clamp(0.4rem, 1.8vw, 1.5rem) !important;
+  min-width: 0;
+}
+```
+
+### B. Badge & Header Tags Không Bao Giờ Rớt Chữ (Ví dụ: "✨ Hiện đại & Rõ ràng")
+Mọi badge, tag trạng thái nằm trong flex header bắt buộc có 2 thuộc tính:
+- `white-space: nowrap;`
+- `flex-shrink: 0;`
+
+```tsx
+<span
+  style={{
+    whiteSpace: 'nowrap',
+    flexShrink: 0,
+    fontSize: 'clamp(0.65rem, 2vw, 0.75rem)',
+    padding: '0.25rem 0.6rem'
+  }}
+>
+  <Sparkles size={12} /> Hiện đại &amp; Rõ ràng
+</span>
+```
+

@@ -276,6 +276,8 @@ button, input, textarea, select {
   cursor: pointer;
   padding: 0.35rem 0.65rem;
   border-radius: var(--radius-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -383,5 +385,157 @@ button, input, textarea, select {
     scroll-behavior: auto !important;
   }
 }
+
+/* Hero Responsive Action Buttons & Auto Sizing */
+.hero-cta-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: 560px;
+}
+
+.hero-cta-group .btn-custom {
+  flex: 1 1 0px;
+  white-space: nowrap !important;
+  text-align: center;
+  justify-content: center;
+  font-size: clamp(0.775rem, 3.2vw, 1.05rem) !important;
+  padding: clamp(0.65rem, 2.5vw, 0.9rem) clamp(0.4rem, 1.8vw, 1.5rem) !important;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .hero-cta-group {
+    width: auto;
+    gap: 1rem;
+  }
+  .hero-cta-group .btn-custom {
+    flex: 0 0 auto;
+    font-size: 1rem !important;
+    padding: 0.9rem 1.8rem !important;
+  }
+  .hero-cta-group .btn-primary {
+    font-size: 1.05rem !important;
+    padding: 0.9rem 2.2rem !important;
+  }
+}
+
+/* Trust Badges Bar Sizing */
+.hero-trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  margin-top: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed #d0e0dc;
+}
+
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: clamp(0.775rem, 2.5vw, 0.875rem);
+  font-weight: 600;
+  color: var(--color-navy);
+  white-space: nowrap;
+}
+
+/* Mockup Top Bar Responsive Utilities */
+.mockup-top-bar {
+  background-color: #eaf3f0;
+  padding: 0.65rem clamp(0.5rem, 1.8vw, 1.1rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.35rem, 1.5vw, 0.75rem);
+  border-bottom: 1px solid #d2e4e0;
+}
+
+.mockup-url-box {
+  background-color: #ffffff;
+  border-radius: var(--radius-full);
+  padding: 0.3rem clamp(0.4rem, 1.5vw, 0.85rem);
+  font-size: clamp(0.65rem, 2.3vw, 0.775rem);
+  color: var(--color-navy);
+  font-weight: 600;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: center;
+  border: 1px solid #d2e4e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  overflow: hidden;
+}
+
+.mockup-url-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mockup-demo-tag {
+  background-color: var(--btn-primary-bg);
+  color: #ffffff;
+  font-size: clamp(0.625rem, 2.2vw, 0.725rem);
+  font-weight: 700;
+  padding: 0.25rem clamp(0.35rem, 1.5vw, 0.65rem);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.mockup-notification-pill {
+  background-color: #eef8f6;
+  border: 1px solid var(--color-teal);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.mockup-notification-text {
+  font-size: clamp(0.68rem, 2.2vw, 0.775rem);
+  font-weight: 600;
+  color: var(--color-navy);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.mockup-notification-badge {
+  font-size: clamp(0.625rem, 2vw, 0.68rem);
+  color: var(--color-teal-dark);
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Footer Premium Hover & Mobile Responsive Utility */
+.footer-link:hover {
+  color: var(--color-teal-soft) !important;
+  transform: translateX(4px);
+}
+
+.footer-contact-card:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: var(--color-teal) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+
 
 
