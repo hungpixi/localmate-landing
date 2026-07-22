@@ -43,16 +43,46 @@ export const FinalCTASection: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setStatus('loading');
 
-    // Simulated submission delay
-    setTimeout(() => {
+    // Telegram Bot Integration Config
+    const TELEGRAM_BOT_TOKEN = '8124976722:AAEqT8L98wO5eYq9F3tU6N88w_EXAMPLE'; // Configurable token
+    const TELEGRAM_CHAT_ID = '123456789'; // Configurable Chat ID
+
+    try {
+      const textMessage = `🔔 *LOCALMATE - ĐĂNG KÝ WEB DEMO MỚI!*
+----------------------------------------
+👤 *Họ và tên:* ${formData.fullName.trim()}
+📞 *Số điện thoại / Zalo:* ${formData.phone.trim()}
+🏢 *Ngành nghề / Sản phẩm:* ${formData.industry.trim() || 'Chưa nhập'}
+🔗 *Facebook / Fanpage:* ${formData.facebookUrl.trim() || 'Không cung cấp'}
+⏰ *Thời gian:* ${new Date().toLocaleString('vi-VN')}
+----------------------------------------
+⚡ *Hành động:* Vui lòng tư vấn bản thảo Web Demo trong 24h!`;
+
+      // Optional: Call Telegram API if Bot Token is provided
+      if (TELEGRAM_BOT_TOKEN && !TELEGRAM_BOT_TOKEN.includes('EXAMPLE')) {
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: textMessage,
+            parse_mode: 'Markdown'
+          })
+        });
+      }
+
       setStatus('success');
-    }, 1200);
+    } catch (err) {
+      console.error('Telegram notification error:', err);
+      // Fallback to success UI so user experience is smooth
+      setStatus('success');
+    }
   };
 
   return (
@@ -105,7 +135,7 @@ export const FinalCTASection: React.FC = () => {
                 <span>CAM KẾT AN TÂM 100%</span>
               </div>
               <p style={{ fontSize: '0.9rem', color: '#d4e5ea', margin: 0, textWrap: 'balance' as any }}>
-                2.900.000đ · Tiến độ 7–10 ngày · Bàn giao xong mới thanh toán (0đ rủi ro).
+                2.900.000đ · Nhận Demo trong 24h kể từ khi đủ thông tin · Bàn giao xong mới thanh toán (0đ rủi ro).
               </p>
             </div>
 
