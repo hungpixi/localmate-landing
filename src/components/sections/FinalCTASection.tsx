@@ -50,7 +50,7 @@ export const FinalCTASection: React.FC = () => {
     setStatus('loading');
 
     // 1. Google Apps Script Web App Webhook URL
-    const GOOGLE_APPS_SCRIPT_URL = ''; // Paste your Google Apps Script exec URL here
+    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxH5cdJvXwsQZ0wvIfY5SW1MU_JwYdPQz0izBPiOezapBIZnlu1WmwEXTItIA1mKnwg/exec';
 
     // 2. Telegram Bot Config
     const TELEGRAM_BOT_TOKEN = '8124976722:AAEqT8L98wO5eYq9F3tU6N88w_EXAMPLE';
