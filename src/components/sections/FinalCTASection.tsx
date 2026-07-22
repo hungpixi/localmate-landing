@@ -304,6 +304,7 @@ export const FinalCTASection: React.FC = () => {
                         backgroundColor: errors.fullName ? '#fef2f2' : '#ffffff',
                         outline: 'none',
                         fontSize: '0.95rem',
+                        fontFamily: 'var(--font-family)',
                         color: 'var(--color-text)'
                       }}
                     />
@@ -334,6 +335,7 @@ export const FinalCTASection: React.FC = () => {
                         backgroundColor: errors.phone ? '#fef2f2' : '#ffffff',
                         outline: 'none',
                         fontSize: '0.95rem',
+                        fontFamily: 'var(--font-family)',
                         color: 'var(--color-text)'
                       }}
                     />
@@ -363,6 +365,7 @@ export const FinalCTASection: React.FC = () => {
                         border: '1px solid var(--color-border)',
                         outline: 'none',
                         fontSize: '0.95rem',
+                        fontFamily: 'var(--font-family)',
                         color: 'var(--color-text)'
                       }}
                     />
@@ -387,6 +390,7 @@ export const FinalCTASection: React.FC = () => {
                         border: '1px solid var(--color-border)',
                         outline: 'none',
                         fontSize: '0.95rem',
+                        fontFamily: 'var(--font-family)',
                         color: 'var(--color-text)'
                       }}
                     />

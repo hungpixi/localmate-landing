@@ -94,7 +94,10 @@ img, svg {
 }
 
 button, input, textarea, select {
-  font: inherit;
+  font-family: var(--font-family) !important;
+  font-size: inherit;
+  color: inherit;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Accessibility Focus States */
