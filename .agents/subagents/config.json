@@ -1,0 +1,281 @@
+{
+  "project": "ExportMate.AI",
+  "founder_team": {
+    "hung": "Product Strategy, System Architecture, Tech, Code",
+    "oanh": "Nghiệp vụ xuất khẩu, kiểm tra nội dung chuyên môn, vấn đề thị trường",
+    "truc": "Phát triển khách hàng, go-to-market, đối tác, tài chính, doanh thu",
+    "sang": "Truyền thông, nội dung, trải nghiệm người dùng (UX/UI)"
+  },
+  "subagents": [
+    {
+      "id": "01_agile_po_ba",
+      "role": "Agile Product Owner & Business Analyst",
+      "phase": "Plan",
+      "committee": "Product & Strategy",
+      "description": "Viết User Stories và Tiêu chí nghiệm thu (Acceptance Criteria) cho bài đánh giá Readiness và tạo Supplier Page song ngữ.",
+      "inputs": ["briefing.md", "mvp_definition.md"],
+      "outputs": ["user_stories.md"]
+    },
+    {
+      "id": "02_tech_architect",
+      "role": "Technical Architect & Lead Developer",
+      "phase": "Plan",
+      "committee": "Design & Architecture",
+      "description": "Viết Đặc tả kỹ thuật (Tech Spec), thiết kế cấu trúc DB SQLite cho 6 nhóm năng lực và API trích xuất OCR.",
+      "inputs": ["user_stories.md", "use_cases.md"],
+      "outputs": ["tech_spec.md"]
+    },
+    {
+      "id": "03_systems_analyst",
+      "role": "Systems Analyst & Lead Business Analyst",
+      "phase": "Plan",
+      "committee": "Design & Architecture",
+      "description": "Thiết lập ca sử dụng chi tiết (Use Case Specification) cho luồng Đánh giá năng lực và Tạo Supplier Page.",
+      "inputs": ["user_stories.md"],
+      "outputs": ["use_cases.md"]
+    },
+    {
+      "id": "04_lean_product_consultant",
+      "role": "Lean Product Consultant & Startup Mentor",
+      "phase": "Plan",
+      "committee": "Product & Strategy",
+      "description": "Định nghĩa phạm vi MVP giới hạn ở 6 nhóm năng lực đánh giá và lộ trình hành động 7/30 ngày.",
+      "inputs": ["briefing.md", "competitor_matrix.md"],
+      "outputs": ["mvp_definition.md"]
+    },
+    {
+      "id": "05_systems_quality_engineer",
+      "role": "Systems Quality Engineer & Security Auditor",
+      "phase": "Plan",
+      "committee": "Design & Architecture",
+      "description": "Đặc tả các yêu cầu phi chức năng (NFR) cho Supplier Page và lưu trữ tài liệu chứng nhận doanh nghiệp.",
+      "inputs": ["tech_spec.md"],
+      "outputs": ["nfr_spec.md"]
+    },
+    {
+      "id": "06_information_architect",
+      "role": "Information Architect & UX Designer",
+      "phase": "Plan",
+      "committee": "Design & Architecture",
+      "description": "Thiết lập cấu trúc thông tin (IA Map) cho trang đánh giá Readiness, Action Plan và Supplier Page song ngữ.",
+      "inputs": ["user_stories.md", "card_sorting_results.md"],
+      "outputs": ["ia_map.md"]
+    },
+    {
+      "id": "07_product_localization_manager",
+      "role": "Product Localization Manager & Global Expansion Advisor",
+      "phase": "Do",
+      "committee": "Development & Integration",
+      "description": "Thiết lập tài liệu đặc tả Bản địa hóa song ngữ VN-EN cho Supplier Page gửi buyers quốc tế.",
+      "inputs": ["ia_map.md", "user_stories.md"],
+      "outputs": ["localization_spec.md"]
+    },
+    {
+      "id": "08_product_manager_deprecation",
+      "role": "Product Manager & Customer Retention Specialist",
+      "phase": "Act",
+      "committee": "Release & Life-cycle",
+      "description": "Lập kế hoạch khai tử các tính năng thủ công, cồng kềnh khi chuyển dịch sang giai đoạn Productization.",
+      "inputs": ["churn_analysis.md"],
+      "outputs": ["sunset_plan.md"]
+    },
+    {
+      "id": "09_iot_systems_engineer",
+      "role": "IoT Systems Engineer & Product Specialist",
+      "phase": "Do",
+      "committee": "Development & Integration",
+      "description": "Đặc tả tích hợp phần cứng cảm biến kiểm định bao bì xuất khẩu và tem chống giả vùng nguyên liệu.",
+      "inputs": ["tech_spec.md"],
+      "outputs": ["hardware_integration_spec.md"]
+    },
+    {
+      "id": "10_market_intelligence_analyst",
+      "role": "Market Intelligence Analyst & Product Strategist",
+      "phase": "Plan",
+      "committee": "Product & Strategy",
+      "description": "Thiết lập Ma trận so sánh tính năng đối thủ cạnh tranh (các phần mềm logistics vs Supplier Page của ExportMate).",
+      "inputs": ["briefing.md"],
+      "outputs": ["competitor_matrix.md"]
+    },
+    {
+      "id": "11_user_researcher",
+      "role": "User Researcher & Ethnographer",
+      "phase": "Plan",
+      "committee": "Product & Strategy",
+      "description": "Thiết lập Kịch bản phỏng vấn sâu người dùng (SME, Hợp tác xã) để khai thác nỗi đau quản lý tài liệu xuất khẩu.",
+      "inputs": ["briefing.md"],
+      "outputs": ["user_interview_guide.md"]
+    },
+    {
+      "id": "12_cx_analyst",
+      "role": "Customer Experience (CX) Analyst & Support Specialist",
+      "phase": "Check",
+      "committee": "Quality & Feedback",
+      "description": "Phân tích phản hồi tiêu cực từ khảo sát ban đầu và các buổi demo sản phẩm thực tế.",
+      "inputs": ["raw_reviews.txt"],
+      "outputs": ["cx_improvement_plan.md"]
+    },
+    {
+      "id": "13_growth_product_manager",
+      "role": "Growth Product Manager & Startup Analyst",
+      "phase": "Check",
+      "committee": "Quality & Feedback",
+      "description": "Thiết kế bảng khảo sát đo lường Product-Market Fit (PMF) dựa trên Sean Ellis Test cho các doanh nghiệp pilot.",
+      "inputs": ["mvp_definition.md"],
+      "outputs": ["pmf_survey.md"]
+    },
+    {
+      "id": "14_market_research_consultant",
+      "role": "Market Research Consultant & Financial Analyst",
+      "phase": "Plan",
+      "committee": "Product & Strategy",
+      "description": "Tính toán dung lượng thị trường (TAM, SAM, SOM) dựa trên 930,000 SME Việt Nam.",
+      "inputs": ["briefing.md"],
+      "outputs": ["market_sizing_report.md"]
+    },
+    {
+      "id": "15_customer_retention_manager",
+      "role": "Customer Retention Manager & Data Analyst",
+      "phase": "Act",
+      "committee": "Release & Life-cycle",
+      "description": "Phân tích lý do rời bỏ của các doanh nghiệp trong chương trình pilot 30 ngày.",
+      "inputs": ["raw_churn_data.csv"],
+      "outputs": ["churn_analysis.md"]
+    },
+    {
+      "id": "16_pricing_strategist",
+      "role": "Pricing Strategist & Consumer Research Specialist",
+      "phase": "Act",
+      "committee": "Release & Life-cycle",
+      "description": "Khảo sát định giá các gói dịch vụ (2.9M - 9.9M) theo phương pháp Van Westendorp PSM.",
+      "inputs": ["market_sizing_report.md", "mvp_definition.md"],
+      "outputs": ["pricing_survey.md"]
+    },
+    {
+      "id": "17_usability_researcher",
+      "role": "Usability Researcher & User Test Moderator",
+      "phase": "Check",
+      "committee": "Quality & Feedback",
+      "description": "Thiết lập Kịch bản Usability Testing cho giao diện điền form đánh giá Readiness và chỉnh sửa Supplier Page.",
+      "inputs": ["ia_map.md", "user_stories.md"],
+      "outputs": ["usability_test_script.md"]
+    },
+    {
+      "id": "18_card_sorting_consultant",
+      "role": "User Researcher & Information Architecture Consultant",
+      "phase": "Check",
+      "committee": "Quality & Feedback",
+      "description": "Tổ chức Card Sorting để nhóm các chỉ số đánh giá năng lực xuất khẩu vào 6 nhóm năng lực cốt lõi.",
+      "inputs": ["ia_map.md"],
+      "outputs": ["card_sorting_results.md"]
+    },
+    {
+      "id": "19_focus_group_moderator",
+      "role": "Focus Group Moderator & Qualitative Research Expert",
+      "phase": "Plan",
+      "committee": "Product & Strategy",
+      "description": "Thiết lập kịch bản FGD với các chủ doanh nghiệp nông sản để thu thập ý kiến về Supplier Page.",
+      "inputs": ["briefing.md", "mvp_definition.md"],
+      "outputs": ["fgd_guide.md"]
+    },
+    {
+      "id": "20_product_director",
+      "role": "Product Director & Strategic Product Planner",
+      "phase": "Plan",
+      "committee": "Product & Strategy",
+      "description": "Thiết lập Lộ trình phát triển sản phẩm (Product Roadmap) 3 giai đoạn của Alex Hormozi.",
+      "inputs": ["mvp_definition.md", "rice_backlog.md"],
+      "outputs": ["product_roadmap.md"]
+    },
+    {
+      "id": "21_rice_prioritization_expert",
+      "role": "Data-driven Product Manager & Prioritization Expert",
+      "phase": "Plan",
+      "committee": "Product & Strategy",
+      "description": "Áp dụng RICE để chấm điểm ưu tiên cho các đầu việc hoàn thiện tài liệu Supplier Page.",
+      "inputs": ["user_stories.md"],
+      "outputs": ["rice_backlog.md"]
+    },
+    {
+      "id": "22_moscow_prioritization_expert",
+      "role": "Agile Product Owner & Project Manager",
+      "phase": "Plan",
+      "committee": "Product & Strategy",
+      "description": "Phân loại các đầu việc triển khai pilot 10 doanh nghiệp theo MoSCoW.",
+      "inputs": ["user_stories.md"],
+      "outputs": ["moscow_backlog.md"]
+    },
+    {
+      "id": "23_release_manager",
+      "role": "Release Manager & DevOps Lead",
+      "phase": "Act",
+      "committee": "Release & Life-cycle",
+      "description": "Xây dựng kế hoạch phát hành phiên bản Concierge MVP thử nghiệm và kịch bản rollback hạ tầng.",
+      "inputs": ["tech_spec.md", "qa_report.md"],
+      "outputs": ["release_plan.md"]
+    },
+    {
+      "id": "24_user_story_mapper",
+      "role": "Agile Product Consultant & UX Architect",
+      "phase": "Plan",
+      "committee": "Product & Strategy",
+      "description": "Thiết lập User Story Map cho hành trình tự phục vụ (Self-onboarding) của chủ doanh nghiệp.",
+      "inputs": ["user_stories.md"],
+      "outputs": ["user_story_map.md"]
+    },
+    {
+      "id": "25_backend_api_engineer",
+      "role": "Backend API & Core Logic Engineer",
+      "phase": "Do",
+      "committee": "Development & Integration",
+      "description": "Lập trình APIs tính toán điểm Readiness tự động dựa trên 6 nhóm năng lực và lưu trữ DB.",
+      "inputs": ["tech_spec.md"],
+      "outputs": ["server/index.js", "server/routes/"]
+    },
+    {
+      "id": "26_frontend_ui_engineer",
+      "role": "Frontend UI & Component Engineer",
+      "phase": "Do",
+      "committee": "Development & Integration",
+      "description": "Xây dựng các components giao diện điền form đánh giá, hiển thị radar chart 6 nhóm năng lực và trang Supplier Page.",
+      "inputs": ["ia_map.md", "tech_spec.md"],
+      "outputs": ["src/pages/", "src/components/"]
+    },
+    {
+      "id": "27_db_migration_engineer",
+      "role": "Prisma & DB Migration Engineer",
+      "phase": "Do",
+      "committee": "Development & Integration",
+      "description": "Quản lý DB SQLite, nạp seed data cho 6 nhóm năng lực đánh giá và thông tin rủi ro.",
+      "inputs": ["tech_spec.md"],
+      "outputs": ["server/prisma/schema.prisma", "server/seed.js"]
+    },
+    {
+      "id": "28_qa_automation_engineer",
+      "role": "QA Automation & Integration Test Engineer",
+      "phase": "Check",
+      "committee": "Quality & Feedback",
+      "description": "Viết kiểm thử tự động cho thuật toán tính toán điểm Readiness và lưu thông tin file đính kèm chứng nhận.",
+      "inputs": ["tech_spec.md"],
+      "outputs": ["qa_report.md"]
+    },
+    {
+      "id": "29_security_iam_specialist",
+      "role": "Security IAM & Data Protection Specialist",
+      "phase": "Do",
+      "committee": "Development & Integration",
+      "description": "Thiết lập mã hóa AES-256 cho dữ liệu nhạy cảm của doanh nghiệp gửi cho buyers.",
+      "inputs": ["tech_spec.md", "nfr_spec.md"],
+      "outputs": ["security_report.md"]
+    },
+    {
+      "id": "30_legal_tech_auditor",
+      "role": "Legal Tech Export Compliance Auditor",
+      "phase": "Check",
+      "committee": "Quality & Feedback",
+      "description": "Kiểm tra tính pháp lý của hồ sơ đính kèm (Catalogue, Spec Sheet, Certificate) trên Supplier Page.",
+      "inputs": ["tech_spec.md"],
+      "outputs": ["docs/legal_tech_audit_report.md"]
+    }
+  ]
+}

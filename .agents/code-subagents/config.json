@@ -1,0 +1,85 @@
+{
+  "project": "ExportMate.AI Code Integration",
+  "subagents": [
+    {
+      "id": "01_lead_architect",
+      "role": "Lead Architect & Technical Coordinator",
+      "phase": "Architecture & Integration Review",
+      "branch": "agent/01-architecture",
+      "inputs": ["docs/architecture/**"],
+      "outputs": ["docs/architecture/system-architecture.md", "src/shared/contracts/**"]
+    },
+    {
+      "id": "02_database_architect",
+      "role": "Database Architect & Data Integrity Engineer",
+      "phase": "Database & ORM Setup",
+      "branch": "agent/02-database",
+      "inputs": ["docs/architecture/system-architecture.md"],
+      "outputs": ["prisma/**", "drizzle/**", "database/**", "docs/database/erd.md"]
+    },
+    {
+      "id": "03_backend_engineer",
+      "role": "Backend API & Business Logic Engineer",
+      "phase": "Business Logic & API Development",
+      "branch": "agent/03-backend",
+      "inputs": ["src/shared/contracts/**"],
+      "outputs": ["src/server/modules/**", "src/app/api/**", "src/api/**"]
+    },
+    {
+      "id": "04_security_engineer",
+      "role": "Authentication, RBAC & Security Engineer",
+      "phase": "Security Hardening & IAM",
+      "branch": "agent/04-security",
+      "inputs": ["src/server/modules/**"],
+      "outputs": ["src/auth/**", "middleware.ts"]
+    },
+    {
+      "id": "05_frontend_foundation_engineer",
+      "role": "Frontend Foundation & Design System Engineer",
+      "phase": "App Layout & UI Components",
+      "branch": "agent/05-frontend-foundation",
+      "inputs": ["docs/architecture/system-architecture.md"],
+      "outputs": ["src/components/ui/**", "src/components/layout/**", "src/styles/**"]
+    },
+    {
+      "id": "06_company_product_supplier_page_engineer",
+      "role": "Frontend Feature Engineer: Company, Product & Supplier Page",
+      "phase": "Company & Product Features",
+      "branch": "agent/06-company-product",
+      "inputs": ["src/components/ui/**"],
+      "outputs": ["src/pages/company/**", "src/pages/product/**", "src/pages/supplier-page/**"]
+    },
+    {
+      "id": "07_readiness_roadmap_dashboard_engineer",
+      "role": "Frontend Feature Engineer: Readiness, Roadmap & Dashboard",
+      "phase": "Readiness & Roadmap Features",
+      "branch": "agent/07-readiness-roadmap",
+      "inputs": ["src/components/ui/**"],
+      "outputs": ["src/pages/dashboard/**", "src/pages/readiness/**", "src/pages/roadmap/**"]
+    },
+    {
+      "id": "08_storage_workflow_engineer",
+      "role": "Document, R2 Storage & Background Workflow Engineer",
+      "phase": "R2 Uploads & Background Tasks",
+      "branch": "agent/08-storage-workflows",
+      "inputs": ["src/server/modules/**"],
+      "outputs": ["src/server/storage/**", "src/server/jobs/**"]
+    },
+    {
+      "id": "09_cloudflare_devops_engineer",
+      "role": "Cloudflare DevOps, CI/CD & Observability Engineer",
+      "phase": "Cloudflare Deployments & Observability",
+      "branch": "agent/09-cloudflare-devops",
+      "inputs": ["wrangler.*"],
+      "outputs": [".github/workflows/**", "wrangler.jsonc"]
+    },
+    {
+      "id": "10_qa_release_gatekeeper",
+      "role": "QA, Integration & Release Gatekeeper",
+      "phase": "E2E Testing & Release Validation",
+      "branch": "agent/10-qa-release",
+      "inputs": ["src/**"],
+      "outputs": ["tests/**", "e2e/**", "qa_report.md"]
+    }
+  ]
+}

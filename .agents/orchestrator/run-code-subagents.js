@@ -1,0 +1,151 @@
+/**
+ * ORCHESTRATOR RUNNER FOR EXPORTMATE.AI CODE SUBAGENTS
+ * 
+ * Script này tự động hóa việc gọi và điều phối 10 Code Subagents theo 5 giai đoạn phát triển:
+ * Giai đoạn 1: Khóa kiến trúc -> Giai đoạn 2: Xây nền tảng -> Giai đoạn 3: Tính năng -> Giai đoạn 4: Integration -> Giai đoạn 5: Release.
+ * 
+ * Hỗ trợ chạy thử nghiệm (--dry-run), chạy theo nhánh (--branch) hoặc chạy vai trò cụ thể (--role).
+ */
+
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Định nghĩa các đường dẫn chính
+const ROOT_DIR = path.resolve(__dirname, '../../');
+const AGENTS_DIR = path.join(ROOT_DIR, '.agents');
+const CODE_SUBAGENTS_DIR = path.join(AGENTS_DIR, 'code-subagents');
+const ORCHESTRATOR_DIR = path.join(AGENTS_DIR, 'orchestrator');
+const CONFIG_PATH = path.join(CODE_SUBAGENTS_DIR, 'config.json');
+const PROGRESS_PATH = path.join(ORCHESTRATOR_DIR, 'code_progress.md');
+
+// Đọc tham số dòng lệnh
+const args = process.argv.slice(2);
+const isDryRun = args.includes('--dry-run');
+const branchArg = args.find(arg => arg.startsWith('--branch='))?.split('=')[1];
+const roleArg = args.find(arg => arg.startsWith('--role='))?.split('=')[1];
+
+console.log('=====================================================');
+console.log('   EXPORTMATE.AI CODE-AGENT ORCHESTRATOR RUNNER');
+console.log(`   Mode: ${isDryRun ? 'DRY-RUN (Chạy Thử Nghiệm)' : 'LIVE (Thực Tế)'}`);
+console.log('=====================================================');
+
+// 1. Đọc file config.json
+if (!fs.existsSync(CONFIG_PATH)) {
+  console.error(`❌ Không tìm thấy file cấu hình tại: ${CONFIG_PATH}`);
+  process.exit(1);
+}
+
+const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf-8'));
+const subagents = config.subagents;
+
+// 2. Lọc danh sách subagent cần thực thi
+let activeAgents = subagents;
+
+if (branchArg) {
+  activeAgents = activeAgents.filter(a => a.branch.includes(branchArg));
+  console.log(`📂 Lọc theo nhánh: ${branchArg} (${activeAgents.length} agents)`);
+}
+
+if (roleArg) {
+  activeAgents = activeAgents.filter(a => a.id === roleArg);
+  console.log(`📂 Lọc theo vai trò: ${roleArg} (${activeAgents.length} agents)`);
+}
+
+if (activeAgents.length === 0) {
+  console.warn('⚠️ Không tìm thấy code-subagent nào phù hợp với bộ lọc.');
+  process.exit(0);
+}
+
+// 3. Khởi tạo/Cập nhật code_progress.md
+function initProgressFile() {
+  if (!fs.existsSync(PROGRESS_PATH)) {
+    const defaultProgress = `# TIẾN TRÌNH PHỐI HỢP CODE MULTI-AGENTS\n\n*Khởi tạo lúc: ${new Date().toISOString()}*\n\n## Trạng thái các vai trò lập trình:\n\n` +
+      subagents.map(a => `- [ ] **${a.id}** (${a.role}) - Chờ xử lý [Nhánh: ${a.branch}]`).join('\n') + '\n';
+    fs.writeFileSync(PROGRESS_PATH, defaultProgress, 'utf-8');
+    console.log(`📝 Đã khởi tạo file tiến trình tại: ${PROGRESS_PATH}`);
+  }
+}
+
+initProgressFile();
+
+// Cập nhật trạng thái của agent vào file tiến trình
+function updateProgressInFile(agentId, status) {
+  if (!fs.existsSync(PROGRESS_PATH)) return;
+  let content = fs.readFileSync(PROGRESS_PATH, 'utf-8');
+  
+  // Regex tìm dòng của agentId và thay thế trạng thái
+  const regex = new RegExp(`- \\[([ x]?)\\] \\*\\*${agentId}\\*\\* (.*?) - (.*?) \\[(.*?)\\]`);
+  const isDone = status.startsWith('Hoàn thành');
+  const replacement = `- [${isDone ? 'x' : ' '}] **${agentId}** $2 - ${status} [$4]`;
+  
+  content = content.replace(regex, replacement);
+  fs.writeFileSync(PROGRESS_PATH, content, 'utf-8');
+}
+
+// 4. Hàm giả lập thực thi một code-subagent
+async function runAgent(agent) {
+  console.log(`\n▶️ [${agent.phase.toUpperCase()}] Bắt đầu chạy Agent Lập Trình: ${agent.role} (${agent.id})...`);
+  console.log(`   ├─ Nhánh Git: ${agent.branch}`);
+  console.log(`   ├─ Đầu vào (Inputs): ${agent.inputs.join(', ')}`);
+  
+  // Đọc file prompt vai trò tương ứng
+  const rolePromptPath = path.join(CODE_SUBAGENTS_DIR, 'roles', `${agent.id}.md`);
+  let promptContent = '';
+  if (fs.existsSync(rolePromptPath)) {
+    promptContent = fs.readFileSync(rolePromptPath, 'utf-8');
+    console.log(`   ├─ Đã nạp system prompt từ file: roles/${agent.id}.md`);
+  } else {
+    console.log(`   ├─ ⚠️ Thiếu file system prompt chuyên biệt.`);
+  }
+
+  if (isDryRun) {
+    console.log(`   └─ [DRY-RUN] Giả lập đồng bộ mã nguồn & tạo đầu ra: ${agent.outputs.join(', ')} thành công.`);
+    updateProgressInFile(agent.id, 'Hoàn thành (Dry-run)');
+    return true;
+  }
+
+  // Thực thi LIVE: Tạo các thư mục mock đầu ra và log tiến trình
+  try {
+    agent.outputs.forEach(output => {
+      // Giả lập viết file code/spec
+      if (output.includes('*')) return; // Bỏ qua nếu là glob pattern
+      
+      const outPath = path.join(ROOT_DIR, output);
+      const outDir = path.dirname(outPath);
+      if (!fs.existsSync(outDir)) {
+        fs.mkdirSync(outDir, { recursive: true });
+      }
+      
+      if (!fs.existsSync(outPath)) {
+        fs.writeFileSync(outPath, `// Code generated by code-subagent ${agent.id} at ${new Date().toISOString()}\n`, 'utf-8');
+        console.log(`   ├─ Đã tạo file mã nguồn: ${output}`);
+      }
+    });
+
+    updateProgressInFile(agent.id, 'Hoàn thành');
+    console.log(`   └─ ✅ Agent ${agent.id} hoàn thành nhiệm vụ code.`);
+    return true;
+  } catch (error) {
+    console.error(`   └─ ❌ Lỗi khi chạy Agent ${agent.id}:`, error.message);
+    updateProgressInFile(agent.id, `Thất bại: ${error.message}`);
+    return false;
+  }
+}
+
+// 5. Vòng lặp chạy tuần tự các activeAgents
+async function main() {
+  for (const agent of activeAgents) {
+    await runAgent(agent);
+  }
+  
+  console.log('\n=====================================================');
+  console.log(`🎉 HOÀN TẤT THỰC THI: ${activeAgents.length} Code-Agents xử lý xong.`);
+  console.log(`📝 Xem tiến trình cập nhật tại: ${PROGRESS_PATH}`);
+  console.log('=====================================================');
+}
+
+main();
