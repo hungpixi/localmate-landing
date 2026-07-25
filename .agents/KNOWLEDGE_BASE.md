@@ -147,3 +147,31 @@ Mọi commit & push code lên Git phải tuân thủ kịch bản kiểm định
 3. **Đồng bộ Database D1 Remote**: `npx wrangler d1 migrations apply exportmate-db --remote`.
 4. **Deploy & Tail Logs**: `npx wrangler deploy` và kiểm tra endpoint `https://exportmate.ppnh10092002.workers.dev/api/health`.
 
+---
+
+## 8. LocalMate Consultation Module v1 & Notion Integration Strategy
+
+### ➜ Thông Tin Tích Hợp Notion Database
+* **Notion Database ID**: `3a8c661d-848a-80d2-9db4-e34bdf2336d9` (Database: `Localmate VN`)
+* **Environment Variable File**: `D:\code\user.env` (`NOTION_API_KEY`, `NOTION_PAGE_URL`)
+* **Notion Native Date Range Formatting**: Để hiển thị chuẩn đồ thị Gantt/Timeline trên Notion, thuộc tính Date phải sử dụng định dạng dải thời gian: `{ date: { start: "YYYY-MM-DD", end: "YYYY-MM-DD" } }`.
+
+### ➜ Lời Hứa Bán Hàng Duy Nhất (Core Sales Promise)
+> *"LocalMate giúp doanh nghiệp mới có hiện diện số rõ ràng, dễ được tin và dễ nhận khách trong 7 ngày."*
+
+### ➜ Mô Hình Lương 3P (Revenue Split cho Deal 2.900.000đ)
+* **P1 — Position & Infrastructure (Hưng bao trọn 100%)**: Hưng lo toàn bộ chi phí cứng (Domain .com/.vn, Hosting server, Tool, Proxy và hỗ trợ tài chính khẩn cấp khi Tố Anh cần).
+* **P2 — Person & Assets**: Tích lũy công sức đóng góp Script, Playbook, Checklist 7 chạm vào giá trị cổ phần & vai trò quản lý dài hạn (Review 08/08).
+* **P3 — Performance (Hoa hồng chốt deal 2.9M)**:
+  * **Deal 1 – Deal 4**: Tố Anh nhận ngay **1.200.000đ / deal** chốt thành công.
+  * **Deal 5+ trở đi trong tháng**: Thưởng lũy tiến nâng lên **1.400.000đ / deal** cho Tố Anh.
+  * Hưng nhận phần còn lại (~1.500.000đ) để trang trải hạ tầng, làm web mobile, biên tập **10 bài viết dịch vụ** và bảo trì 12 tháng.
+
+### ➜ Chiến Lược 7 Lần Chạm Chân Thành (7-Touches Sales Pipeline)
+1. **Touch 1 (Tương tác thật)**: Khen ngợi & góp ý chân thành bài viết/Maps tiệm họ.
+2. **Touch 2 (Trao Live Demo)**: Gửi link Live Demo mượt đúng tên tiệm khách (dựng trong 15p).
+3. **Touch 3 (Tặng mẹo free)**: Tặng 1 mẹo tối ưu vị trí Google Maps miễn phí.
+4. **Touch 4 (Case study mẫu)**: Gửi video short / voice note 30s tiệm cùng ngành đã làm đẹp.
+5. **Touch 5 (Zalo Voice Call)**: Hỏi thăm cảm nhận, trao đổi nhu cầu kinh doanh thật.
+6. **Touch 6 (Offer Zero-Risk 2.9M)**: Cam kết bao gồm 10 bài viết + Khấu trừ rủi ro (Nghiệm thu mượt mới thanh toán).
+7. **Touch 7 (Chốt hợp đồng)**: Thu 5 món Brief, bàn giao trong 48h & quyết toán hoa hồng P3 cho Tố Anh.
