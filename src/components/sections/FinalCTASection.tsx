@@ -161,14 +161,14 @@ export const FinalCTASection: React.FC = () => {
                 margin: 0
               }}
             >
-              Đừng bắt đầu bằng một hệ thống đắt tiền.
+              Chuẩn bị cho hiện diện số của bạn ngay hôm nay.
             </h2>
 
             <p style={{ fontSize: '1.05rem', color: '#e3f0f4', lineHeight: 1.65, margin: 0 }}>
-              Hãy bắt đầu bằng một nơi để khách hàng nhìn thấy bạn, hiểu bạn đang làm gì và biết cách liên hệ.
+              Một hiện diện số đủ tốt để cả khách hàng lẫn AI hiểu: <strong>Bạn là ai — bạn làm gì — và vì sao nên chọn bạn.</strong>
             </p>
 
-            <div style={{ backgroundColor: 'rgba(10, 70, 90, 0.75)', border: '1px solid rgba(15, 169, 154, 0.35)', borderRadius: 'var(--radius-lg)', padding: '1.25rem 1.35rem', backdropFilter: 'blur(8px)' }}>
+            <div style={{ backgroundColor: 'rgba(10, 70, 90, 0.75)', border: '1px solid rgba(15, 169, 154, 0.35)', borderRadius: 'var(--radius-lg)', padding: '1.25rem 1.35rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', color: 'var(--color-teal-soft)', fontWeight: 700, marginBottom: '0.5rem' }}>
                 <ShieldCheck size={20} style={{ flexShrink: 0 }} />
                 <span>CAM KẾT AN TÂM 100%</span>
@@ -410,7 +410,7 @@ export const FinalCTASection: React.FC = () => {
                       </span>
                     ) : (
                       <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-                        <Send size={18} /> Nhận web demo cho doanh nghiệp
+                        <Send size={18} /> Bắt đầu hiện diện số ngay
                       </span>
                     )}
                   </Button>
