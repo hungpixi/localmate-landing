@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
-import { CheckCircle2, Phone, MessageSquare, ShieldCheck, Sparkles, ArrowRight, Star, Zap, Lock, Search, Bot } from 'lucide-react';
+import { Badge } from '../ui/Badge';
+import { CheckCircle2, Phone, MessageSquare, ShieldCheck, Sparkles, ArrowRight, Star, Zap, Lock, ExternalLink } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
   const scrollToPricing = () => {
@@ -62,7 +63,7 @@ export const HeroSection: React.FC = () => {
           }}
         >
           {/* Left Column Content */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.35rem' }}>
             {/* Eyebrow Badge */}
             <div>
               <span
@@ -83,7 +84,7 @@ export const HeroSection: React.FC = () => {
                 }}
               >
                 <Sparkles size={15} color="var(--color-teal)" />
-                LOCALMATE · CHUẨN BỊ CHO KỶ NGUYÊN TÌM KIẾM AI
+                LOCALMATE · DÀNH CHO DOANH NGHIỆP MỘT NGƯỜI
               </span>
             </div>
 
@@ -91,104 +92,39 @@ export const HeroSection: React.FC = () => {
             <h1
               style={{
                 color: 'var(--color-navy)',
-                fontSize: 'clamp(1.75rem, 3.5vw, 2.35rem)',
+                fontSize: 'var(--font-size-h1)',
                 fontWeight: 800,
                 lineHeight: 1.25,
                 letterSpacing: '-0.03em',
                 textWrap: 'balance'
               }}
             >
-              Khách hàng tiếp theo có thể <span style={{ color: 'var(--color-orange)' }}>không tìm bạn</span> trên Google.
+              Bạn tập trung làm nghề.<br />
+              <span style={{ color: 'var(--color-teal)' }}>LocalMate</span> giúp khách hàng tìm thấy &amp; tin tưởng bạn.
             </h1>
 
-            {/* AI Search Prompt Container (High contrast, light theme card, 0% glassmorphism) */}
-            <div
+            {/* Paragraph */}
+            <p
               style={{
-                backgroundColor: '#ffffff',
-                border: '1px solid #cce5e1',
-                borderRadius: '14px',
-                padding: '1.15rem 1.25rem',
-                boxShadow: '0 4px 16px rgba(8, 59, 76, 0.06)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.65rem'
+                fontSize: 'var(--font-size-subtitle)',
+                color: 'var(--color-text-muted)',
+                lineHeight: 1.65,
+                fontWeight: 400,
+                maxWidth: '560px'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-teal-dark)', fontWeight: 700, fontSize: '0.875rem' }}>
-                <Bot size={18} color="var(--color-teal)" />
-                <span>Họ chỉ cần hỏi AI:</span>
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
-                <div style={{ backgroundColor: '#f0f9f8', padding: '0.5rem 0.85rem', borderRadius: '8px', borderLeft: '3px solid var(--color-teal)', fontSize: '0.875rem', color: 'var(--color-navy)', fontWeight: 600 }}>
-                  “Tìm cho tôi một tiệm nail gần đây, giá hợp lý, có thể đặt lịch chiều nay.”
-                </div>
-                <div style={{ backgroundColor: '#f0f9f8', padding: '0.5rem 0.85rem', borderRadius: '8px', borderLeft: '3px solid var(--color-teal)', fontSize: '0.875rem', color: 'var(--color-navy)', fontWeight: 600 }}>
-                  “Tìm một thợ sửa điện uy tín ở Hóc Môn.”
-                </div>
-                <div style={{ backgroundColor: '#f0f9f8', padding: '0.5rem 0.85rem', borderRadius: '8px', borderLeft: '3px solid var(--color-teal)', fontSize: '0.875rem', color: 'var(--color-navy)', fontWeight: 600 }}>
-                  “Tìm một nhiếp ảnh gia chụp sản phẩm cho cửa hàng của tôi.”
-                </div>
-              </div>
-
-              <p style={{ margin: '0.35rem 0 0 0', fontSize: '0.875rem', color: '#334155', lineHeight: 1.55 }}>
-                <strong style={{ color: 'var(--color-navy)' }}>AI sẽ giúp họ lọc và lựa chọn.</strong> Nhưng để được tìm thấy, doanh nghiệp của bạn trước hết phải <strong style={{ color: 'var(--color-teal-dark)' }}>hiện diện trên Internet một cách rõ ràng, đáng tin cậy và luôn được cập nhật.</strong>
-              </p>
-            </div>
-
-            {/* Subheading & Core Value Statement */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-navy)', margin: 0 }}>
-                LocalMate giúp bạn chuẩn bị cho cách khách hàng sẽ tìm kiếm trong tương lai.
-              </h3>
-
-              {/* 7 Channels Tag Bar */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', alignItems: 'center' }}>
-                {['Website', 'Google', 'Social', 'Nội dung', 'Thông tin dịch vụ', 'Booking', 'Liên hệ'].map((tag, idx) => (
-                  <span
-                    key={idx}
-                    style={{
-                      fontSize: '0.775rem',
-                      fontWeight: 700,
-                      backgroundColor: '#e6f4f1',
-                      color: 'var(--color-teal-dark)',
-                      padding: '0.2rem 0.6rem',
-                      borderRadius: '6px',
-                      border: '1px solid #bde3dc'
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Core Thesis Highlight */}
-              <div
-                style={{
-                  backgroundColor: '#083b4c',
-                  color: '#ffffff',
-                  padding: '0.9rem 1.15rem',
-                  borderRadius: '10px',
-                  fontSize: '0.925rem',
-                  fontWeight: 600,
-                  lineHeight: 1.5,
-                  marginTop: '0.2rem'
-                }}
-              >
-                Một hiện diện số đủ tốt để cả khách hàng lẫn AI hiểu:<br />
-                <span style={{ color: '#ff8a00', fontWeight: 800 }}>Bạn là ai — bạn làm gì — và vì sao nên chọn bạn.</span>
-              </div>
-            </div>
+              Làm website chuẩn hóa nội dung, xây kênh online và đồng hành truyền thông chuyên sâu cho hộ kinh doanh, người làm nghề, nhà thầu, cửa hàng nhỏ và doanh nghiệp một người.
+            </p>
 
             {/* Action Buttons (CTAs) */}
-            <div className="hero-cta-group" style={{ marginTop: '0.3rem' }}>
+            <div className="hero-cta-group">
               <Button
                 variant="primary"
                 size="lg"
                 onClick={scrollToForm}
                 className="btn-primary"
               >
-                <span>Bắt đầu hiện diện số</span> <ArrowRight size={18} style={{ flexShrink: 0 }} />
+                <span>Nhận web demo</span> <ArrowRight size={18} style={{ flexShrink: 0 }} />
               </Button>
               
               <Button
