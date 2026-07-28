@@ -6,7 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cf:auth": "wrangler whoami",
+    "cf:types": "wrangler types",
+    "cf:dry-run": "npm run build && wrangler deploy --dry-run",
+    "cf:deploy:staging": "npm run build && wrangler deploy --env staging",
+    "cf:deploy:production": "npm run build && wrangler deploy --env production",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:staging": "wrangler d1 migrations apply DB --env staging --remote",
+    "db:migrate:production": "wrangler d1 migrations apply DB --env production --remote",
+    "db:seed:local": "wrangler d1 execute DB --local --file ./db/seed.sql",
+    "db:seed:staging": "wrangler d1 execute DB --env staging --remote --file ./db/seed.sql"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",
@@ -18,6 +28,7 @@
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
     "typescript": "^5.2.2",
-    "vite": "^5.1.6"
+    "vite": "^5.1.6",
+    "wrangler": "^4.114.0"
   }
 }
