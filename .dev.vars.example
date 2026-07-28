@@ -1,0 +1,5 @@
+# Copy to .dev.vars for local Worker/API development. Do not commit .dev.vars.
+# Values here are examples/placeholders, never production credentials.
+ENVIRONMENT=development
+# Turnstile/API secrets belong in Wrangler secrets, not this file.
+# TURNSTILE_SECRET_KEY=<local-only-secret>
