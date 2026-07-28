@@ -13,8 +13,10 @@ import { TrustSection } from './components/sections/TrustSection';
 import { DemoShowcaseSection } from './components/sections/DemoShowcaseSection';
 import { FAQSection } from './components/sections/FAQSection';
 import { FinalCTASection } from './components/sections/FinalCTASection';
+import { CrmApp } from './crm/CrmApp';
 
 export const App: React.FC = () => {
+  if (window.location.pathname.startsWith('/crm')) return <CrmApp />;
   const scrollToForm = () => {
     const el = document.querySelector('#register-form');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
