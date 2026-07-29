@@ -8,6 +8,7 @@
     <meta name="description" content="LocalMate giúp hộ kinh doanh, người làm nghề, nhà thầu xây dựng website, hiện diện online và tiếp nhận khách hàng với chi phí rõ ràng 2.900.000đ. Bàn giao rồi mới thanh toán." />
     <meta name="keywords" content="LocalMate, làm website hộ kinh doanh, website doanh nghiệp 1 người, dịch vụ số hóa, thiết kế web giá rẻ, người đồng hành số" />
     <link rel="canonical" href="https://localmate.vn/" />
+    <link rel="alternate" type="text/plain" href="https://localmate.vn/llms.txt" title="LLM & AI Agent Documentation" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -28,28 +29,104 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
 
-    <!-- Schema.org JSON-LD -->
+    <!-- Schema.org JSON-LD (ProfessionalService + FAQPage) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "LocalMate",
-      "image": "https://localmate.vn/logo.png",
-      "url": "https://localmate.vn",
-      "description": "Người đồng hành số cho hộ kinh doanh & doanh nghiệp một người. Thiết kế website, chuẩn hóa nội dung, tối ưu kênh online.",
-      "priceRange": "2.900.000 VNĐ",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "VN"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "LocalMate",
+        "image": "https://localmate.vn/logo.png",
+        "url": "https://localmate.vn",
+        "telephone": "+84834422439",
+        "email": "hungphamphunguyen@gmail.com",
+        "description": "Người đồng hành số cho hộ kinh doanh & doanh nghiệp một người. Thiết kế website, chuẩn hóa nội dung, tối ưu kênh online với hình thức bàn giao rồi mới thanh toán.",
+        "priceRange": "2.900.000 VNĐ",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "VN"
+        },
+        "knowsAbout": [
+          "Làm website hộ kinh doanh",
+          "Dịch vụ số hóa doanh nghiệp nhỏ",
+          "Thiết kế landing page",
+          "Tối ưu Google Maps địa phương",
+          "Xây dựng kênh online cho người làm nghề"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Dịch Vụ LocalMate",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Gói Khởi Tạo Hiện Diện Số",
+                "description": "Tư vấn chuẩn hóa, làm Landing Page chuẩn SEO di động, tối ưu 3 kênh online, bàn giao 100% tài khoản."
+              },
+              "price": "2900000",
+              "priceCurrency": "VND"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Gói Đồng Hành Nội Dung",
+                "description": "15 bài viết, 15 thiết kế ảnh, 02 video ngắn, 02 giờ hỗ trợ kỹ thuật hàng tháng."
+              },
+              "price": "990000",
+              "priceCurrency": "VND"
+            }
+          ]
+        }
       },
-      "offers": {
-        "@type": "Offer",
-        "name": "Gói Khởi Tạo Hiện Diện Số",
-        "price": "2900000",
-        "priceCurrency": "VND",
-        "availability": "https://schema.org/InStock"
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "LocalMate là gì?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "LocalMate là người đồng hành số giúp hộ kinh doanh, nhà thầu, cửa hàng nhỏ và doanh nghiệp một người làm website, chuẩn hóa nội dung và phát triển kênh online."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Demo trước có mất phí không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hoàn toàn không mất phí. LocalMate làm bản web demo trước cho khách duyệt cấu trúc và giao diện."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Khi nào mới phải thanh toán?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Khách hàng chỉ thanh toán khi đã duyệt web demo, nghiệm thu sản phẩm hoàn thiện và nhận bàn giao toàn bộ tài khoản."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Giá gói dịch vụ LocalMate là bao nhiêu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Gói Khởi Tạo Hiện Diện Số có giá trọn gói 2.900.000 VNĐ / lần. Gói Đồng Hành Nội Dung có giá 990.000 VNĐ / tháng."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Tôi có nắm giữ toàn bộ tài khoản không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cam kết 100%. Sau khi bàn giao, toàn bộ quyền quản trị tên miền, website, Fanpage Facebook và Google Maps đều thuộc sở hữu của khách hàng."
+            }
+          }
+        ]
       }
-    }
+    ]
     </script>
   </head>
   <body>
