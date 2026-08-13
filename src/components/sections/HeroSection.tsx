@@ -6,11 +6,9 @@ import {
   ShieldCheck,
   Zap,
   Globe,
-  TrendingUp,
-  BarChart2,
-  Cpu,
   Eye,
-  CheckCircle2
+  CheckCircle2,
+  Sparkles
 } from 'lucide-react';
 import { useRouter } from '../layout/Router';
 
@@ -76,7 +74,7 @@ export const HeroSection: React.FC = () => {
               margin: '0 auto 2rem auto'
             }}
           >
-            <strong>Website · Google Maps · Quảng cáo · CRM · Tự động hóa</strong>. Sửa lỗi kỹ thuật từ <strong>99.000đ</strong>. Website chuẩn hóa từ <strong>590.000đ</strong>. Không biết bắt đầu từ đâu? Trả lời 4 câu hỏi, LocalMate lập tức chẩn đoán &amp; báo giá trọn gói.
+            <strong>Website · Google Maps · Quảng cáo · CRM · Tự động hóa</strong>. Sửa lỗi kỹ thuật từ <strong>99.000đ</strong>. Website từ <strong>590.000đ</strong>. Xem định hướng giao diện miễn phí trước khi quyết định — chỉ đặt cọc 50% khi chính thức triển khai.
           </p>
 
           {/* Main Action Buttons (CTAs) */}
@@ -93,11 +91,19 @@ export const HeroSection: React.FC = () => {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => navigate('/advisor')}
+              onClick={() => {
+                const el = document.getElementById('concept-generator');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  navigate('/advisor');
+                }
+              }}
               className="btn-primary"
               style={{ padding: '0.85rem 1.8rem', fontSize: '1rem' }}
             >
-              <span>Tìm giải pháp phù hợp 0đ</span>
+              <Sparkles size={18} />
+              <span>Tạo concept giao diện 0đ</span>
               <ArrowRight size={18} />
             </Button>
 
@@ -116,7 +122,7 @@ export const HeroSection: React.FC = () => {
             </Button>
           </div>
 
-          {/* Risk Reversal Trust Bar */}
+          {/* Fair Risk Sharing Trust Bar */}
           <div
             style={{
               backgroundColor: '#f8fbfa',
@@ -135,12 +141,12 @@ export const HeroSection: React.FC = () => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <Eye size={16} color="var(--color-teal-dark)" />
-              <span>Xem demo trước</span>
+              <span>Xem định hướng trước</span>
             </div>
             <span style={{ color: 'var(--color-border)' }}>•</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <ShieldCheck size={16} color="var(--color-teal-dark)" />
-              <span>Bàn giao rồi mới thanh toán</span>
+              <span>Cọc 50% khi triển khai</span>
             </div>
             <span style={{ color: 'var(--color-border)' }}>•</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>

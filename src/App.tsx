@@ -13,13 +13,15 @@ import { ContactPage } from './pages/ContactPage';
 import { AdminPricingPage } from './pages/AdminPricingPage';
 import { AdvisorPage } from './pages/AdvisorPage';
 import { AdvisorModal } from './components/advisor/AdvisorModal';
+import { ConceptModal } from './components/concept/ConceptModal';
 
 const MainContent: React.FC = () => {
   const { currentPath, navigate } = useRouter();
   const [isAdvisorModalOpen, setIsAdvisorModalOpen] = useState(false);
+  const [isConceptModalOpen, setIsConceptModalOpen] = useState(false);
 
   const handleOpenDemoForm = () => {
-    navigate('/advisor');
+    setIsConceptModalOpen(true);
   };
 
   const renderPage = () => {
@@ -63,8 +65,9 @@ const MainContent: React.FC = () => {
       <main>{renderPage()}</main>
       <Footer />
 
-      {/* Global Advisor Modal */}
+      {/* Global Advisor & Concept Modals */}
       <AdvisorModal isOpen={isAdvisorModalOpen} onClose={() => setIsAdvisorModalOpen(false)} />
+      <ConceptModal isOpen={isConceptModalOpen} onClose={() => setIsConceptModalOpen(false)} />
     </div>
   );
 };

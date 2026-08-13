@@ -520,10 +520,10 @@ export const DEMO_SHOWCASES = [
 ];
 
 export const TRUST_COMMITMENTS = [
-  { title: 'Bàn giao rồi mới thanh toán', desc: 'Duyệt web demo mượt mà, kiểm tra đầy đủ tính năng rồi khách mới chuyển tiền.' },
+  { title: 'Xem định hướng trước & Cọc 50%', desc: 'Duyệt bản concept mockup 0đ, chốt scope rồi mới cọc 50% triển khai. Hoàn thiện nghiệm thu mới thanh toán phần còn lại.' },
   { title: 'Không phí ẩn phát sinh', desc: 'Mọi chi phí đều báo trước minh bạch, không âm thầm thu thêm phụ phí.' },
   { title: 'Khách sở hữu 100% tài khoản', desc: 'Bàn giao quyền quản trị tên miền, website, fanpage và Google Maps cho khách nắm giữ.' },
-  { title: 'Có demo xem trước 0đ', desc: 'Dựng trước khung web demo thực tế đúng ngành nghề để khách hàng đánh giá trước khi ký kết.' },
+  { title: 'Có concept xem trước 0đ', desc: 'Dựng trước khung mockup giao diện đúng phong cách thương hiệu trước khi bạn chốt làm.' },
   { title: 'Phạm vi công việc rõ ràng', desc: 'Ghi chi tiết số lượng sản phẩm, bài viết và tính năng trong cam kết dịch vụ.' },
   { title: 'Mở rộng linh hoạt theo quy mô', desc: 'Bắt đầu từ gói nhỏ cơ bản, khi kinh doanh phát triển có thể nâng cấp thêm tính năng.' }
 ];
