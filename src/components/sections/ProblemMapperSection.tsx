@@ -1,8 +1,16 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { PROBLEM_MAPPER } from '../../data/landingContent';
-import { ArrowRight, HelpCircle, CheckCircle2 } from 'lucide-react';
+import { GOAL_CATEGORIES } from '../../data/servicesCatalog';
+import { ArrowRight, HelpCircle, Globe, TrendingUp, BarChart2, Cpu, ShieldCheck } from 'lucide-react';
 import { useRouter } from '../layout/Router';
+
+const ICON_MAP: Record<string, React.ComponentType<any>> = {
+  Globe,
+  TrendingUp,
+  BarChart2,
+  Cpu,
+  ShieldCheck
+};
 
 export const ProblemMapperSection: React.FC = () => {
   const { navigate } = useRouter();
@@ -10,7 +18,7 @@ export const ProblemMapperSection: React.FC = () => {
   return (
     <section
       style={{
-        padding: '4.5rem 0',
+        padding: '5rem 0',
         backgroundColor: '#f8fbfa',
         borderBottom: '1px solid var(--color-border)'
       }}
@@ -18,7 +26,7 @@ export const ProblemMapperSection: React.FC = () => {
     >
       <Container size="lg">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3rem auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 3rem auto' }}>
           <span
             style={{
               display: 'inline-flex',
@@ -35,114 +43,107 @@ export const ProblemMapperSection: React.FC = () => {
               marginBottom: '0.75rem'
             }}
           >
-            <HelpCircle size={14} /> DỄ ĐÀNG CHỌN ĐÚNG DỊCH VỤ
+            <HelpCircle size={14} /> CHỌN THEO MỤC TIÊU KINH DOANH (WIIFM)
           </span>
           <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-navy)', fontWeight: 800 }}>
-            Bạn đang cần giải quyết vấn đề gì?
+            Bạn đang muốn làm gì tiếp theo?
           </h2>
           <p className="subtitle" style={{ marginTop: '0.5rem' }}>
-            Không bắt bạn phải hiểu các thuật ngữ kỹ thuật phức tạp. Chọn đúng nhu cầu thực tế của bạn để nhận lộ trình phù hợp nhất.
+            Không cần hiểu công nghệ phức tạp. Hãy chọn đúng nhu cầu thực tế của bạn để LocalMate chỉ ra chính xác công việc và chi phí tối ưu nhất.
           </p>
         </div>
 
-        {/* 6 Problem Mapper Cards Grid */}
+        {/* 5 Goal Categories Grid */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
-            gap: '1.5rem'
+            gap: '1.75rem'
           }}
         >
-          {PROBLEM_MAPPER.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => navigate(item.link)}
-              className="interactive-card"
-              style={{
-                backgroundColor: '#ffffff',
-                border: '1px solid var(--color-border)',
-                borderRadius: 'var(--radius-xl)',
-                padding: '1.75rem',
-                cursor: 'pointer',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                gap: '1.25rem',
-                position: 'relative'
-              }}
-            >
-              <div>
-                {/* Badge Header */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-                  <span
-                    style={{
-                      fontSize: '0.725rem',
-                      fontWeight: 700,
-                      color: 'var(--color-orange-dark)',
-                      backgroundColor: '#fff4eb',
-                      padding: '0.25rem 0.65rem',
-                      borderRadius: 'var(--radius-full)',
-                      border: '1px solid #ffd8be'
-                    }}
-                  >
-                    {item.badge}
-                  </span>
-                  <CheckCircle2 size={18} color="var(--color-teal)" />
-                </div>
-
-                {/* Problem Statement */}
-                <h3
-                  style={{
-                    fontSize: '1.1rem',
-                    fontWeight: 800,
-                    color: 'var(--color-navy)',
-                    marginBottom: '0.5rem',
-                    lineHeight: 1.35
-                  }}
-                >
-                  "{item.problem}"
-                </h3>
-
-                {/* Arrow Solution mapping */}
-                <div
-                  style={{
-                    fontSize: '0.925rem',
-                    fontWeight: 700,
-                    color: 'var(--color-teal-dark)',
-                    marginBottom: '0.65rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem'
-                  }}
-                >
-                  <span>→</span>
-                  <span>{item.solution}</span>
-                </div>
-
-                {/* Description */}
-                <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: 1.55 }}>
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Card Footer CTA Link */}
+          {GOAL_CATEGORIES.map((goal) => {
+            const Icon = ICON_MAP[goal.iconName] || Globe;
+            return (
               <div
+                key={goal.key}
+                onClick={() => navigate('/bang-gia')}
+                className="interactive-card"
                 style={{
+                  backgroundColor: '#ffffff',
+                  border: '1px solid var(--color-border)',
+                  borderRadius: 'var(--radius-xl)',
+                  padding: '2rem',
+                  cursor: 'pointer',
                   display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.35rem',
-                  fontSize: '0.85rem',
-                  fontWeight: 700,
-                  color: 'var(--color-navy)',
-                  paddingTop: '0.75rem',
-                  borderTop: '1px dashed var(--color-border)'
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  gap: '1.5rem',
+                  boxShadow: 'var(--shadow-sm)'
                 }}
               >
-                <span>Xem lộ trình dịch vụ</span>
-                <ArrowRight size={15} color="var(--color-teal-dark)" />
+                <div>
+                  {/* Card Header Icon & Price Pill */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                    <div
+                      style={{
+                        width: 48,
+                        height: 48,
+                        borderRadius: 'var(--radius-md)',
+                        backgroundColor: 'var(--color-teal-soft)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      <Icon size={24} color="var(--color-teal-dark)" />
+                    </div>
+
+                    <span
+                      style={{
+                        fontSize: '0.8rem',
+                        fontWeight: 700,
+                        color: 'var(--color-orange-dark)',
+                        backgroundColor: '#fff4eb',
+                        border: '1px solid #ffd8be',
+                        padding: '0.3rem 0.75rem',
+                        borderRadius: 'var(--radius-full)'
+                      }}
+                    >
+                      {goal.startingPrice}
+                    </span>
+                  </div>
+
+                  {/* Title & User Question */}
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.4rem' }}>
+                    {goal.title}
+                  </h3>
+                  <p style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-teal-dark)', marginBottom: '0.75rem' }}>
+                    "{goal.question}"
+                  </p>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
+                    {goal.description}
+                  </p>
+                </div>
+
+                {/* Footer Action */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    paddingTop: '1rem',
+                    borderTop: '1px dashed var(--color-border)',
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    color: 'var(--color-navy)'
+                  }}
+                >
+                  <span>Xem lộ trình dịch vụ &amp; giá</span>
+                  <ArrowRight size={16} color="var(--color-teal-dark)" />
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>

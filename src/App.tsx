@@ -10,6 +10,7 @@ import { PricingPage } from './pages/PricingPage';
 import { KnowledgePage } from './pages/KnowledgePage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { AdminPricingPage } from './pages/AdminPricingPage';
 
 const MainContent: React.FC = () => {
   const { currentPath, navigate } = useRouter();
@@ -21,6 +22,9 @@ const MainContent: React.FC = () => {
   const renderPage = () => {
     if (currentPath === '/' || currentPath === '') {
       return <HomePage />;
+    }
+    if (currentPath.startsWith('/admin/pricing')) {
+      return <AdminPricingPage />;
     }
     if (currentPath.startsWith('/dich-vu')) {
       return <ServicesPage />;

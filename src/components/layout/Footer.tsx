@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { ShieldCheck, Phone, Mail, MapPin } from 'lucide-react';
+import { ShieldCheck, Phone, Mail, MapPin, Settings } from 'lucide-react';
 import { CONTACT_INFO } from '../../data/landingContent';
+import { Link } from '../layout/Router';
 
 export const Footer: React.FC = () => {
   return (
@@ -42,7 +43,7 @@ export const Footer: React.FC = () => {
               />
             </div>
             <p style={{ fontSize: '0.925rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.6, margin: 0 }}>
-              Người đồng hành số giúp hộ kinh doanh, người làm nghề, nhà thầu xây dựng website và hiện diện online chuyên nghiệp với chi phí minh bạch.
+              Đội digital gọn nhẹ cho doanh nghiệp nhỏ. Thiết kế website, SEO Google Maps, chạy quảng cáo và tự động hóa công việc online với chi phí tối ưu.
             </p>
             <div
               style={{
@@ -66,33 +67,33 @@ export const Footer: React.FC = () => {
           {/* Quick Navigation Links */}
           <div>
             <h4 style={{ color: '#ffffff', fontSize: '1.05rem', fontWeight: 700, marginBottom: '1.1rem', letterSpacing: '-0.01em' }}>
-              Về LocalMate
+              Điều Hướng Nhanh
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: 0, margin: 0, fontSize: '0.925rem' }}>
               <li>
-                <a href="#dich-vu" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)', transition: 'all 0.2s ease' }} className="footer-link">
-                  → Giải pháp tinh gọn
-                </a>
+                <Link to="/dich-vu" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)' }} className="footer-link">
+                  → 6 Nhóm Dịch Vụ Cốt Lõi
+                </Link>
               </li>
               <li>
-                <a href="#quy-trinh" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)', transition: 'all 0.2s ease' }} className="footer-link">
-                  → Quy trình 5 bước minh bạch
-                </a>
+                <Link to="/giai-phap" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)' }} className="footer-link">
+                  → Giải Pháp Theo Ngành Nghề
+                </Link>
               </li>
               <li>
-                <a href="#bang-gia" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)', transition: 'all 0.2s ease' }} className="footer-link">
-                  → Gói khởi tạo 2.900.000đ
-                </a>
+                <Link to="/bang-gia" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)' }} className="footer-link">
+                  → Bảng Giá 40 Dịch Vụ Niêm Yết
+                </Link>
               </li>
               <li>
-                <a href="#cam-ket" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)', transition: 'all 0.2s ease' }} className="footer-link">
-                  → Cam kết không phí ẩn
-                </a>
+                <Link to="/du-an" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)' }} className="footer-link">
+                  → Dự Án Thực Tế &amp; Case Studies
+                </Link>
               </li>
               <li>
-                <a href="#faq" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)', transition: 'all 0.2s ease' }} className="footer-link">
-                  → Câu hỏi thường gặp
-                </a>
+                <Link to="/admin/pricing" style={{ textDecoration: 'none', color: 'var(--color-teal-soft)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 4 }} className="footer-link">
+                  <Settings size={14} /> Quản Trị CMS Bảng Giá
+                </Link>
               </li>
             </ul>
           </div>
@@ -185,9 +186,9 @@ export const Footer: React.FC = () => {
             color: 'rgba(255, 255, 255, 0.65)'
           }}
         >
-          <span>© 2026 LocalMate. Bản quyền thuộc về LocalMate — Người Đồng Hành Số.</span>
+          <span>© 2026 LocalMate. Bản quyền thuộc về LocalMate — Đội Digital Cho Doanh Nghiệp Nhỏ.</span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
-            <span>Phát triển &amp; Triển khai bởi <strong style={{ color: '#ffffff' }}>hungpixi</strong></span>
+            <span>Phát triển bởi <strong style={{ color: '#ffffff' }}>hungpixi</strong></span>
             <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>|</span>
             <a
               href="http://phamphunguyenhung.com/"
@@ -196,15 +197,6 @@ export const Footer: React.FC = () => {
               style={{ color: 'var(--color-teal-soft)', textDecoration: 'underline', whiteSpace: 'nowrap' }}
             >
               phamphunguyenhung.com
-            </a>
-            <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>·</span>
-            <a
-              href="https://github.com/hungpixi/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: 'var(--color-teal-soft)', textDecoration: 'underline', whiteSpace: 'nowrap' }}
-            >
-              GitHub: @hungpixi
             </a>
           </div>
         </div>

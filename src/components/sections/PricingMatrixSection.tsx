@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from '../ui/Container';
-import { PRICING_TABLE } from '../../data/landingContent';
-import { CheckCircle2, ArrowRight, Tag, ShieldCheck } from 'lucide-react';
+import { CatalogServiceItem, TECH_CATEGORIES, TechCategoryKey } from '../../data/servicesCatalog';
+import { getCatalogServices, subscribeCatalogChanges } from '../../services/pricingStorage';
+import { ArrowRight, Tag, ShieldCheck, Check, Sparkles } from 'lucide-react';
 import { useRouter } from '../layout/Router';
 
 export const PricingMatrixSection: React.FC = () => {
   const { navigate } = useRouter();
+  const [services, setServices] = useState<CatalogServiceItem[]>([]);
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+
+  useEffect(() => {
+    setServices(getCatalogServices());
+    const unsubscribe = subscribeCatalogChanges((updated) => {
+      setServices(updated);
+    });
+    return unsubscribe;
+  }, []);
+
+  const activeServices = services.filter((s) => s.isActive);
+
+  const displayedServices = activeServices.filter((srv) => {
+    if (activeCategory === 'all') return true;
+    return srv.categoryGroup === activeCategory;
+  });
 
   return (
     <section
@@ -18,10 +36,12 @@ export const PricingMatrixSection: React.FC = () => {
     >
       <Container size="lg">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 3rem auto' }}>
           <span
             style={{
-              display: 'inline-block',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
               fontSize: '0.8rem',
               fontWeight: 700,
               textTransform: 'uppercase',
@@ -33,121 +53,160 @@ export const PricingMatrixSection: React.FC = () => {
               marginBottom: '0.75rem'
             }}
           >
-            BẢNG GIÁ KHỞI ĐIỂM MINH BẠCH
+            <Sparkles size={14} color="var(--color-teal)" /> BẢNG GIÁ DỊCH VỤ 40 MÓN MINH BẠCH
           </span>
           <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-navy)', fontWeight: 800 }}>
-            Chi Phí Rõ Ràng — Không Phát Sinh Phí Ẩn
+            Chi Phí Niêm Yết — Không Phát Sinh Phí Ẩn
           </h2>
           <p className="subtitle" style={{ marginTop: '0.5rem' }}>
-            Lựa chọn sản phẩm hoặc gói dịch vụ phù hợp với giai đoạn phát triển của doanh nghiệp bạn. Báo giá minh bạch trước khi triển khai.
+            LocalMate chia nhỏ dịch vụ với chi phí linh hoạt từ 99.000đ (sửa lỗi), 490.000đ (landing page) đến gói tự động hóa nghiệp vụ.
           </p>
         </div>
 
-        {/* Pricing Matrix Grid */}
+        {/* Technical Category Filter Pills */}
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '0.5rem',
+            justifyContent: 'center',
+            marginBottom: '3rem'
+          }}
+        >
+          <button
+            onClick={() => setActiveCategory('all')}
+            style={{
+              padding: '0.55rem 1.1rem',
+              borderRadius: 'var(--radius-full)',
+              fontSize: '0.85rem',
+              fontWeight: activeCategory === 'all' ? 700 : 600,
+              backgroundColor: activeCategory === 'all' ? 'var(--color-navy)' : '#ffffff',
+              color: activeCategory === 'all' ? '#ffffff' : 'var(--color-navy)',
+              border: '1px solid var(--color-border)',
+              cursor: 'pointer'
+            }}
+          >
+            Tất cả 40 dịch vụ ({activeServices.length})
+          </button>
+          {TECH_CATEGORIES.map((cat) => {
+            const count = activeServices.filter((s) => s.categoryGroup === cat.key).length;
+            const isActive = activeCategory === cat.key;
+            return (
+              <button
+                key={cat.key}
+                onClick={() => setActiveCategory(cat.key)}
+                style={{
+                  padding: '0.55rem 1.1rem',
+                  borderRadius: 'var(--radius-full)',
+                  fontSize: '0.85rem',
+                  fontWeight: isActive ? 700 : 600,
+                  backgroundColor: isActive ? 'var(--color-navy)' : '#ffffff',
+                  color: isActive ? '#ffffff' : 'var(--color-navy)',
+                  border: '1px solid var(--color-border)',
+                  cursor: 'pointer'
+                }}
+              >
+                {cat.title.split('. ')[1]} ({count})
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Pricing Items Grid */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem',
+            gap: '1.75rem',
             marginBottom: '3rem'
           }}
         >
-          {PRICING_TABLE.map((group, idx) => (
+          {displayedServices.map((srv) => (
             <div
-              key={idx}
+              key={srv.id}
               style={{
                 backgroundColor: '#ffffff',
-                border: '1px solid var(--color-border)',
+                border: srv.isPopular ? '2px solid var(--color-teal)' : '1px solid var(--color-border)',
                 borderRadius: 'var(--radius-xl)',
-                padding: '2rem',
-                boxShadow: 'var(--shadow-sm)',
+                padding: '1.75rem',
+                boxShadow: srv.isPopular ? 'var(--shadow-md)' : 'var(--shadow-sm)',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                gap: '1.25rem',
+                position: 'relative'
               }}
             >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
-                  <Tag size={20} color="var(--color-teal-dark)" />
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-navy)' }}>
-                    {group.category}
-                  </h3>
+                {/* Header Tag */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                  <span style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--color-teal-dark)', backgroundColor: 'var(--color-teal-soft)', padding: '0.2rem 0.5rem', borderRadius: 4 }}>
+                    #{srv.id} [{srv.code}]
+                  </span>
+                  {srv.isPopular && (
+                    <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--color-orange-dark)', backgroundColor: '#fff4eb', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-full)' }}>
+                      Khuyên dùng
+                    </span>
+                  )}
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                  {group.services.map((srv, sIdx) => (
-                    <div
-                      key={sIdx}
-                      style={{
-                        paddingBottom: '1rem',
-                        borderBottom: sIdx === group.services.length - 1 ? 'none' : '1px dashed var(--color-border)'
-                      }}
-                    >
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
-                        <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-navy)' }}>
-                          {srv.name}
-                        </h4>
-                        <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                          <span style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-orange-dark)' }}>
-                            {srv.price}
-                          </span>
-                          <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', display: 'block' }}>
-                            / {srv.period}
-                          </span>
-                        </div>
-                      </div>
-                      <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '0.35rem' }}>
-                        {srv.note}
-                      </p>
-                    </div>
-                  ))}
+                {/* Service Name & Scope */}
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.5rem', lineHeight: 1.35 }}>
+                  {srv.name}
+                </h3>
+                <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '1rem' }}>
+                  {srv.scope}
+                </p>
+
+                {/* Effort Badge */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.775rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>
+                  <Check size={14} color="var(--color-teal-dark)" /> Effort mục tiêu: {srv.effort}
                 </div>
               </div>
 
-              <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid var(--color-border)' }}>
+              {/* Price & Action */}
+              <div style={{ paddingTop: '1rem', borderTop: '1px dashed var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-orange-dark)' }}>
+                    {srv.priceDisplay}
+                  </span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', display: 'block' }}>
+                    / {srv.unit}
+                  </span>
+                </div>
+
                 <button
                   onClick={() => navigate('/lien-he')}
                   style={{
-                    width: '100%',
-                    padding: '0.75rem 1rem',
-                    backgroundColor: 'var(--color-teal-soft)',
-                    border: '1px solid rgba(15, 169, 154, 0.3)',
-                    borderRadius: 'var(--radius-md)',
-                    color: 'var(--color-teal-dark)',
+                    padding: '0.55rem 1.1rem',
+                    backgroundColor: 'var(--color-navy)',
+                    color: '#ffffff',
+                    borderRadius: 'var(--radius-full)',
+                    border: 'none',
                     fontWeight: 700,
-                    fontSize: '0.875rem',
+                    fontSize: '0.825rem',
                     cursor: 'pointer',
-                    display: 'flex',
+                    display: 'inline-flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.5rem',
-                    transition: 'all var(--transition-fast)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--color-navy)';
-                    e.currentTarget.style.color = '#ffffff';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--color-teal-soft)';
-                    e.currentTarget.style.color = 'var(--color-teal-dark)';
+                    gap: '0.4rem'
                   }}
                 >
-                  <span>Nhận báo giá theo nghiệp vụ</span>
-                  <ArrowRight size={16} />
+                  <span>Chọn gói</span>
+                  <ArrowRight size={14} />
                 </button>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Pricing Guarantee Note */}
+        {/* Guarantee Callout */}
         <div
           style={{
             backgroundColor: '#f0f7f5',
             border: '1px solid #d2e4e0',
             borderRadius: 'var(--radius-lg)',
             padding: '1.5rem 2rem',
-            maxWidth: '840px',
+            maxWidth: '860px',
             margin: '0 auto',
             display: 'flex',
             alignItems: 'center',
@@ -158,27 +217,27 @@ export const PricingMatrixSection: React.FC = () => {
           <ShieldCheck size={32} color="var(--color-teal-dark)" style={{ flexShrink: 0 }} />
           <div style={{ flex: '1 1 300px' }}>
             <h4 style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--color-navy)' }}>
-              Cam kết giá niêm yết — Nghiệm thu xong mới thanh toán
+              Nghiệm thu thực tế mới thanh toán — Khách hàng làm chủ 100% dữ liệu
             </h4>
             <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', margin: 0 }}>
-              Mọi báo giá đều ghi rõ từng mục tài khoản, số lượng bài viết, lượt hỗ trợ. LocalMate cam kết 100% không phát sinh chi phí ngoài hợp đồng.
+              Duyệt web demo mượt trước 0đ. Bàn giao đầy đủ quyền quản trị tên miền, website, fanpage và Google Maps.
             </p>
           </div>
           <button
-            onClick={() => navigate('/bang-gia')}
+            onClick={() => navigate('/admin/pricing')}
             style={{
               padding: '0.65rem 1.25rem',
-              backgroundColor: 'var(--color-navy)',
+              backgroundColor: 'var(--color-teal-dark)',
               color: '#ffffff',
               borderRadius: 'var(--radius-full)',
               border: 'none',
               fontWeight: 700,
-              fontSize: '0.85rem',
+              fontSize: '0.825rem',
               cursor: 'pointer',
               whiteSpace: 'nowrap'
             }}
           >
-            Xem bảng giá đầy đủ →
+            Quản trị CMS Bảng giá ⚙️
           </button>
         </div>
       </Container>

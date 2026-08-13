@@ -5,6 +5,7 @@ import { ServiceHubSection } from '../components/sections/ServiceHubSection';
 import { IndustrySolutionSection } from '../components/sections/IndustrySolutionSection';
 import { DemoShowcaseSection } from '../components/sections/DemoShowcaseSection';
 import { PricingMatrixSection } from '../components/sections/PricingMatrixSection';
+import { DigitalCareSection } from '../components/sections/DigitalCareSection';
 import { FreeAuditSection } from '../components/sections/FreeAuditSection';
 import { TrustSection } from '../components/sections/TrustSection';
 import { ProcessSection } from '../components/sections/ProcessSection';
@@ -17,7 +18,7 @@ export const HomePage: React.FC = () => {
       {/* 1. Hero — Nói thẳng LocalMate làm gì */}
       <HeroSection />
 
-      {/* 2. Bạn đang cần làm gì? — Problem to Service Mapper */}
+      {/* 2. Bạn đang muốn làm gì? — 5 Goal Categories (WIIFM) */}
       <ProblemMapperSection />
 
       {/* 3. Các dịch vụ LocalMate — 6 nhóm dịch vụ chính */}
@@ -29,8 +30,11 @@ export const HomePage: React.FC = () => {
       {/* 5. Dự án thực tế / Case Studies */}
       <DemoShowcaseSection />
 
-      {/* 6. Bảng giá khởi điểm — Service Pricing Matrix */}
+      {/* 6. Bảng giá 40 món minh bạch */}
       <PricingMatrixSection />
+
+      {/* Dịch vụ #40 — LocalMate Digital Care */}
+      <DigitalCareSection />
 
       {/* 7. Không biết chọn dịch vụ nào? — USP Free Audit & Consultation */}
       <FreeAuditSection />
