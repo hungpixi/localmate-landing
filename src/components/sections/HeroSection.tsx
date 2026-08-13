@@ -95,14 +95,14 @@ export const HeroSection: React.FC = () => {
             </p>
 
             {/* Action Buttons (CTAs) */}
-            <div className="hero-cta-group" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="hero-cta-group" style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
               <Button
                 variant="primary"
                 size="lg"
-                onClick={() => navigate('/lien-he')}
+                onClick={() => navigate('/advisor')}
                 className="btn-primary"
               >
-                <span>Nhận tư vấn miễn phí</span> <ArrowRight size={18} style={{ flexShrink: 0 }} />
+                <span>Tìm gói phù hợp với bạn 0đ</span> <ArrowRight size={18} style={{ flexShrink: 0 }} />
               </Button>
 
               <Button

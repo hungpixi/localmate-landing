@@ -50,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
     if (onOpenDemoForm) {
       onOpenDemoForm();
     } else {
-      navigate('/lien-he');
+      navigate('/advisor');
     }
   };
 

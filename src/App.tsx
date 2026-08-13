@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RouterProvider, useRouter } from './components/layout/Router';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
@@ -11,17 +11,23 @@ import { KnowledgePage } from './pages/KnowledgePage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { AdminPricingPage } from './pages/AdminPricingPage';
+import { AdvisorPage } from './pages/AdvisorPage';
+import { AdvisorModal } from './components/advisor/AdvisorModal';
 
 const MainContent: React.FC = () => {
   const { currentPath, navigate } = useRouter();
+  const [isAdvisorModalOpen, setIsAdvisorModalOpen] = useState(false);
 
   const handleOpenDemoForm = () => {
-    navigate('/lien-he');
+    navigate('/advisor');
   };
 
   const renderPage = () => {
     if (currentPath === '/' || currentPath === '') {
       return <HomePage />;
+    }
+    if (currentPath.startsWith('/advisor')) {
+      return <AdvisorPage />;
     }
     if (currentPath.startsWith('/admin/pricing')) {
       return <AdminPricingPage />;
@@ -56,6 +62,9 @@ const MainContent: React.FC = () => {
       <Header onOpenDemoForm={handleOpenDemoForm} />
       <main>{renderPage()}</main>
       <Footer />
+
+      {/* Global Advisor Modal */}
+      <AdvisorModal isOpen={isAdvisorModalOpen} onClose={() => setIsAdvisorModalOpen(false)} />
     </div>
   );
 };
