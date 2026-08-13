@@ -60,6 +60,11 @@ export const PROBLEM_OPTIONS: ProblemOption[] = [
     targetServiceIds: ['08', '02', '10']
   },
   {
+    id: 'bct_compliance',
+    label: 'Cần hoàn thiện thủ tục thông báo website với Bộ Công Thương',
+    targetServiceIds: ['41e', '41c', '41d']
+  },
+  {
     id: 'no_leads',
     label: 'Website có nhưng không ra khách/cuộc gọi',
     targetServiceIds: ['03', '25', '31']
@@ -90,11 +95,6 @@ export const PROBLEM_OPTIONS: ProblemOption[] = [
     targetServiceIds: ['33', '35', '38']
   },
   {
-    id: 'ai_bot',
-    label: 'Tôi muốn có AI trả lời khách 24/7',
-    targetServiceIds: ['37', '38']
-  },
-  {
     id: 'dont_know',
     label: 'Tôi chưa biết mình cần gì, nhờ LocalMate chọn giúp',
     targetServiceIds: ['02', '19', '27']
@@ -104,8 +104,8 @@ export const PROBLEM_OPTIONS: ProblemOption[] = [
 export const GOAL_OPTIONS: GoalOption[] = [
   {
     id: 'online_presence',
-    label: 'Có hiện diện online uy tín, chuyên nghiệp',
-    targetServiceIds: ['02', '12', '19']
+    label: 'Có hiện diện online uy tín & hoàn thiện BCT',
+    targetServiceIds: ['02', '12', '19', '41e']
   },
   {
     id: 'more_customers',
@@ -176,7 +176,7 @@ export const generateAdvisorRoadmap = (answers: AdvisorAnswers): AdvisorRoadmapR
   if (hasGoodWebsite) {
     notRecommended.push({
       serviceName: 'Thiết kế lại toàn bộ Website',
-      reason: 'Website hiện tại của anh/chị đã có thể tận dụng tốt, chưa cần đập đi làm lại. Ưu tiên cài Tracking + Google Maps.'
+      reason: 'Website hiện tại của anh/chị đã có thể tận dụng tốt, chưa cần đập đi làm lại. Ưu tiên cài Tracking + Google Maps + BCT Compliance.'
     });
   }
 
@@ -194,7 +194,7 @@ export const generateAdvisorRoadmap = (answers: AdvisorAnswers): AdvisorRoadmapR
   const gmapsOpt = activeServices.find((s) => s.id === '20') || activeServices[0]; // 390k
   const gbpSetup = activeServices.find((s) => s.id === '19') || activeServices[0]; // 299k
   const gadsSetup = activeServices.find((s) => s.id === '28') || activeServices[0]; // 390k
-  const telegramBot = activeServices.find((s) => s.id === '34') || activeServices[0]; // 299k
+  const bctPack = activeServices.find((s) => s.id === '41e') || activeServices.find((s) => s.id === '41c') || activeServices[0]; // 590k
 
   const formatPriceVND = (num: number) => {
     if (num >= 1000000) {
@@ -224,11 +224,11 @@ export const generateAdvisorRoadmap = (answers: AdvisorAnswers): AdvisorRoadmapR
 
   const recommendedTotal = recommendedServices.reduce((sum, i) => sum + (i.service.numericPrice || 0), 0);
 
-  // 3. Growth Tier (Tăng trưởng)
+  // 3. Growth Tier (Tăng trưởng & Compliance)
   const growthServices = [
     ...recommendedServices,
-    { service: gadsSetup, reason: 'Thiết lập chiến dịch Google Ads tìm kiếm để thu hút khách ngay' },
-    { service: telegramBot, reason: 'Tự động gửi thông báo khách điền form về Telegram 24/7' }
+    { service: bctPack, reason: 'Website Compliance Pack: Bộ chính sách pháp lý & hỗ trợ thủ tục Bộ Công Thương' },
+    { service: gadsSetup, reason: 'Thiết lập chiến dịch Google Ads tìm kiếm thu hút khách ngay' }
   ];
 
   const growthTotal = growthServices.reduce((sum, i) => sum + (i.service.numericPrice || 0), 0);
@@ -256,9 +256,9 @@ export const generateAdvisorRoadmap = (answers: AdvisorAnswers): AdvisorRoadmapR
     },
     {
       id: 'growth',
-      title: 'Tăng trưởng (Growth)',
-      badge: 'Đầy đủ hệ thống',
-      description: 'Trọn gói từ website, quảng cáo đến tự động hóa thông báo khách hàng.',
+      title: 'Tăng trưởng & Compliance',
+      badge: 'Đầy đủ hệ thống & BCT',
+      description: 'Trọn gói từ website, quảng cáo đến hoàn thiện chuẩn pháp lý Bộ Công Thương.',
       services: growthServices,
       totalCost: growthTotal,
       totalDisplay: formatPriceVND(growthTotal),

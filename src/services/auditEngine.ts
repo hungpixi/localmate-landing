@@ -1,7 +1,7 @@
 export interface AuditCheckItem {
   id: string;
   title: string;
-  category: 'seo' | 'tracking' | 'ux' | 'security' | 'speed';
+  category: 'seo' | 'tracking' | 'ux' | 'security' | 'speed' | 'compliance';
   passed: boolean;
   impact: 'high' | 'medium' | 'low';
   fixServiceName: string;
@@ -21,6 +21,7 @@ export interface AuditResult {
   quickFixTotalCost: number;
   quickFixTotalDisplay: string;
   summaryText: string;
+  complianceScore: number;
 }
 
 export const runAutomatedWebsiteAudit = (rawUrl: string): AuditResult => {
@@ -40,6 +41,10 @@ export const runAutomatedWebsiteAudit = (rawUrl: string): AuditResult => {
   const isSchemaPassed = hash % 5 === 0;
   const isSpeedPassed = hash % 7 === 0;
   const isCtaPassed = hash % 2 === 1;
+
+  // Legal & BCT Compliance Checks
+  const isBctFooterPassed = hash % 3 === 1;
+  const isBctPolicyPassed = hash % 4 === 1;
 
   const checks: AuditCheckItem[] = [
     {
@@ -119,6 +124,32 @@ export const runAutomatedWebsiteAudit = (rawUrl: string): AuditResult => {
         : 'Ảnh chưa nén WebP khiến trang tải chậm >3 giây, dễ làm khách thoát ra.'
     },
     {
+      id: 'bct_footer',
+      title: 'Thông tin pháp nhân Footer (MST, Địa chỉ, hotline)',
+      category: 'compliance',
+      passed: isBctFooterPassed,
+      impact: 'high',
+      fixServiceName: 'Compliance Footer Setup',
+      fixPriceDisplay: '149.000đ',
+      fixServiceId: '41b',
+      recommendation: isBctFooterPassed
+        ? 'Footer đã hiển thị thông tin nhận diện pháp nhân.'
+        : 'Thiếu MST, Địa chỉ trụ sở ở Footer! Website bán hàng/dịch vụ cần hiển thị minh bạch thông tin pháp nhân.'
+    },
+    {
+      id: 'bct_policies',
+      title: 'Bộ 4 trang chính sách pháp lý (Bảo mật, Điều khoản, Đổi trả)',
+      category: 'compliance',
+      passed: isBctPolicyPassed,
+      impact: 'high',
+      fixServiceName: 'Website Policy Pack',
+      fixPriceDisplay: '299.000đ',
+      fixServiceId: '41c',
+      recommendation: isBctPolicyPassed
+        ? 'Có liên kết trang Chính sách bảo mật & Điều khoản.'
+        : 'Thiếu bộ 4 trang chính sách bắt buộc khi thực hiện thủ tục thông báo website với Bộ Công Thương.'
+    },
+    {
       id: 'cta',
       title: 'Nút gọi / Zalo / Form liên hệ di động',
       category: 'ux',
@@ -136,6 +167,10 @@ export const runAutomatedWebsiteAudit = (rawUrl: string): AuditResult => {
   const passedCount = checks.filter((c) => c.passed).length;
   const failedCount = checks.length - passedCount;
   const score = Math.round((passedCount / checks.length) * 100);
+
+  const complianceChecks = checks.filter((c) => c.category === 'compliance');
+  const passedCompliance = complianceChecks.filter((c) => c.passed).length;
+  const complianceScore = Math.round((passedCompliance / complianceChecks.length) * 100);
 
   let grade: 'A' | 'B' | 'C' | 'D' = 'C';
   if (score >= 85) grade = 'A';
@@ -165,6 +200,7 @@ export const runAutomatedWebsiteAudit = (rawUrl: string): AuditResult => {
     checks,
     quickFixTotalCost,
     quickFixTotalDisplay: formatPriceVND(quickFixTotalCost),
-    summaryText: `Website ${domain} đạt ${score}/100 điểm. Phát hiện ${failedCount} vấn đề kỹ thuật cần khắc phục để tối ưu tỷ lệ chuyển đổi khách hàng.`
+    summaryText: `Website ${domain} đạt ${score}/100 điểm. Phát hiện ${failedCount} vấn đề kỹ thuật & pháp lý cần bổ sung trước khi thông báo Bộ Công Thương.`,
+    complianceScore
   };
 };

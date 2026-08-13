@@ -1,5 +1,5 @@
 export interface CatalogServiceItem {
-  id: string; // 01 to 40
+  id: string; // 01 to 41
   code: string;
   name: string;
   categoryGroup: TechCategoryKey;
@@ -13,6 +13,7 @@ export interface CatalogServiceItem {
   isPopular?: boolean;
   notes?: string;
   includedFreeAddons?: string[];
+  disclaimer?: string;
 }
 
 export type TechCategoryKey =
@@ -23,6 +24,7 @@ export type TechCategoryKey =
   | 'ads-conversion'
   | 'crm-automation'
   | 'ai-software'
+  | 'legal-compliance'
   | 'digital-care';
 
 export type GoalCategoryKey =
@@ -105,8 +107,14 @@ export const TECH_CATEGORIES: TechCategoryMeta[] = [
     badge: '3 dịch vụ'
   },
   {
+    key: 'legal-compliance',
+    title: '8. Dịch vụ #41: Pháp Lý & Compliance Digital',
+    description: 'BCT Compliance Check, khởi tạo trang chính sách 299k & Hỗ trợ thủ tục thông báo website với Bộ Công Thương.',
+    badge: '5 dịch vụ'
+  },
+  {
     key: 'digital-care',
-    title: '8. Recurring Digital Operations',
+    title: '9. Recurring Digital Operations',
     description: 'Dịch vụ chăm sóc, bảo trì và đồng hành vận hành digital hàng tháng cho doanh nghiệp nhỏ.',
     badge: 'Dịch vụ #40'
   }
@@ -151,12 +159,12 @@ export const GOAL_CATEGORIES: GoalCategoryMeta[] = [
   },
   {
     key: 'van-hanh-lau-dai',
-    title: '5. Vận hành lâu dài',
-    question: 'Tôi cần người chăm sóc digital hàng tháng',
+    title: '5. Vận hành lâu dài & Pháp lý BCT',
+    question: 'Tôi cần chăm sóc website & hoàn thiện thủ tục pháp lý BCT',
     startingPrice: 'Từ 290.000đ/tháng',
-    description: 'Gói chăm sóc website, bảo trì kỹ thuật, sao lưu và hỗ trợ ưu tiên với hạn mức task rõ ràng.',
+    description: 'Gói chăm sóc website, bảo trì kỹ thuật và hỗ trợ thủ tục thông báo website với Bộ Công Thương.',
     iconName: 'ShieldCheck',
-    featuredServiceIds: ['40-mini', '40-business', '40-growth', '40-partner', '22']
+    featuredServiceIds: ['40-mini', '40-business', '41-bct-pack', '41-policy']
   }
 ];
 
@@ -293,7 +301,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     unit: 'lần',
     isActive: true,
     isPopular: true,
-    includedFreeAddons: ['GA4 Setup (99k)', 'GTM Setup (99k)', 'Search Console (99k)', 'Schema Basic (199k)']
+    includedFreeAddons: ['GA4 Setup (99k)', 'GTM Setup (99k)', 'Search Console (99k)', 'Schema Basic (199k)', 'BCT Check (99k)']
   },
   {
     id: '06',
@@ -755,7 +763,79 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     isActive: true
   },
 
-  // 8. RECURRING DIGITAL OPERATIONS (#40)
+  // 8. DỊCH VỤ #41: PHÁP LÝ & COMPLIANCE DIGITAL (41a - 41e)
+  {
+    id: '41a',
+    code: 'COMP-CHECK',
+    name: 'BCT Website Compliance Check',
+    categoryGroup: 'legal-compliance',
+    goalGroup: 'van-hanh-lau-dai',
+    scope: 'Kiểm tra loại hình website (bán hàng/dịch vụ/booking), thông tin pháp nhân & các trang chính sách bắt buộc',
+    effort: '30m',
+    priceDisplay: '0đ – 99.000đ',
+    numericPrice: 99000,
+    unit: 'lần',
+    isActive: true,
+    disclaimer: 'Bản báo cáo rà soát tiêu chí kỹ thuật chuẩn bị thủ tục với Bộ Công Thương'
+  },
+  {
+    id: '41b',
+    code: 'COMP-FOOTER',
+    name: 'Gắn Thông Tin Pháp Nhân & Compliance Footer',
+    categoryGroup: 'legal-compliance',
+    goalGroup: 'van-hanh-lau-dai',
+    scope: 'Chuẩn hóa chân trang (Footer): Mã số thuế, Giấy ĐKKD, đại diện pháp luật, địa chỉ trụ sở & hotline',
+    effort: '30–60m',
+    priceDisplay: '149.000đ',
+    numericPrice: 149000,
+    unit: 'lần',
+    isActive: true
+  },
+  {
+    id: '41c',
+    code: 'COMP-POLICY',
+    name: 'Website Policy Pack (Bộ 4 Trang Chính Sách)',
+    categoryGroup: 'legal-compliance',
+    goalGroup: 'van-hanh-lau-dai',
+    scope: 'Khởi tạo 4 trang chuẩn: Chính sách bảo mật, Điều khoản dịch vụ, Chính sách thanh toán & Giao nhận/Đổi trả',
+    effort: '1–1.5h',
+    priceDisplay: '299.000đ',
+    numericPrice: 299000,
+    unit: 'lần',
+    isActive: true,
+    isPopular: true
+  },
+  {
+    id: '41d',
+    code: 'COMP-BCT-SUPP',
+    name: 'Hỗ Trợ Thủ Tục Thông Báo Website Bộ Công Thương',
+    categoryGroup: 'legal-compliance',
+    goalGroup: 'van-hanh-lau-dai',
+    scope: 'Checklist hồ sơ, chuẩn hóa website, hướng dẫn thao tác khai báo online.gov.vn & kiểm tra trước khi gửi',
+    effort: '1–2h',
+    priceDisplay: '390.000đ',
+    numericPrice: 390000,
+    unit: 'lần',
+    isActive: true,
+    disclaimer: 'LocalMate hỗ trợ hoàn thiện kỹ thuật & thủ tục khai báo trực tuyến trên online.gov.vn'
+  },
+  {
+    id: '41e',
+    code: 'COMP-BCT-PACK',
+    name: 'Trọn Gói Website Compliance & BCT Pack',
+    categoryGroup: 'legal-compliance',
+    goalGroup: 'van-hanh-lau-dai',
+    scope: 'Combo trọn gói: Audit BCT + Bộ 4 trang chính sách + Compliance Footer + Hỗ trợ khai báo BCT + Gắn logo/link xác nhận sau khi duyệt',
+    effort: '2–3h',
+    priceDisplay: '590.000đ',
+    numericPrice: 590000,
+    unit: 'lần',
+    isActive: true,
+    isPopular: true,
+    disclaimer: 'Bao gồm hỗ trợ điều chỉnh kỹ thuật hồ sơ theo yêu cầu Bộ Công Thương & gắn mốc xác nhận sau cấp phép'
+  },
+
+  // 9. RECURRING DIGITAL OPERATIONS (#40)
   {
     id: '40',
     code: 'CARE-ALL',
