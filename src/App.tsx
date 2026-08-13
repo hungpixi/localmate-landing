@@ -1,44 +1,66 @@
 import React from 'react';
+import { RouterProvider, useRouter } from './components/layout/Router';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
-import { HeroSection } from './components/sections/HeroSection';
-import { PainPointsSection } from './components/sections/PainPointsSection';
-import { SolutionJourneySection } from './components/sections/SolutionJourneySection';
-import { BeforeAfterSection } from './components/sections/BeforeAfterSection';
-import { StarterPackageSection } from './components/sections/StarterPackageSection';
-import { ProcessSection } from './components/sections/ProcessSection';
-import { ContentPackageSection } from './components/sections/ContentPackageSection';
-import { SpecializedServicesSection } from './components/sections/SpecializedServicesSection';
-import { TrustSection } from './components/sections/TrustSection';
-import { DemoShowcaseSection } from './components/sections/DemoShowcaseSection';
-import { FAQSection } from './components/sections/FAQSection';
-import { FinalCTASection } from './components/sections/FinalCTASection';
+import { HomePage } from './pages/HomePage';
+import { ServicesPage } from './pages/ServicesPage';
+import { SolutionsPage } from './pages/SolutionsPage';
+import { ProjectsPage } from './pages/ProjectsPage';
+import { PricingPage } from './pages/PricingPage';
+import { KnowledgePage } from './pages/KnowledgePage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 
-export const App: React.FC = () => {
-  const scrollToForm = () => {
-    const el = document.querySelector('#register-form');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+const MainContent: React.FC = () => {
+  const { currentPath, navigate } = useRouter();
+
+  const handleOpenDemoForm = () => {
+    navigate('/lien-he');
+  };
+
+  const renderPage = () => {
+    if (currentPath === '/' || currentPath === '') {
+      return <HomePage />;
+    }
+    if (currentPath.startsWith('/dich-vu')) {
+      return <ServicesPage />;
+    }
+    if (currentPath.startsWith('/giai-phap')) {
+      return <SolutionsPage />;
+    }
+    if (currentPath.startsWith('/du-an')) {
+      return <ProjectsPage />;
+    }
+    if (currentPath.startsWith('/bang-gia')) {
+      return <PricingPage />;
+    }
+    if (currentPath.startsWith('/kien-thuc')) {
+      return <KnowledgePage />;
+    }
+    if (currentPath.startsWith('/gioi-thieu')) {
+      return <AboutPage />;
+    }
+    if (currentPath.startsWith('/lien-he')) {
+      return <ContactPage />;
+    }
+
+    return <HomePage />;
   };
 
   return (
     <div className="localmate-app">
-      <Header onOpenDemoForm={scrollToForm} />
-      <main>
-        <HeroSection />
-        <PainPointsSection />
-        <SolutionJourneySection />
-        <BeforeAfterSection />
-        <StarterPackageSection />
-        <ProcessSection />
-        <ContentPackageSection />
-        <SpecializedServicesSection />
-        <TrustSection />
-        <DemoShowcaseSection />
-        <FAQSection />
-        <FinalCTASection />
-      </main>
+      <Header onOpenDemoForm={handleOpenDemoForm} />
+      <main>{renderPage()}</main>
       <Footer />
     </div>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <RouterProvider>
+      <MainContent />
+    </RouterProvider>
   );
 };
 
