@@ -70,11 +70,11 @@ export const HeroSection: React.FC = () => {
               color: 'var(--color-text-muted)',
               lineHeight: 1.6,
               marginBottom: '2rem',
-              maxWidth: '720px',
+              maxWidth: '740px',
               margin: '0 auto 2rem auto'
             }}
           >
-            <strong>Website · Google Maps · Quảng cáo · CRM · Tự động hóa</strong>. Sửa lỗi kỹ thuật từ <strong>99.000đ</strong>. Website từ <strong>590.000đ</strong>. Xem định hướng giao diện miễn phí trước khi quyết định — chỉ đặt cọc 50% khi chính thức triển khai.
+            Không chỉ làm website. LocalMate chẩn đoán doanh nghiệp của bạn và làm đúng những thứ cần thiết để bắt đầu có khách từ <strong>99.000đ</strong>. Website chuẩn hóa từ <strong>590.000đ</strong>. Xem định hướng thiết kế 0đ trước khi quyết định — cọc 50% khi chính thức triển khai.
           </p>
 
           {/* Main Action Buttons (CTAs) */}

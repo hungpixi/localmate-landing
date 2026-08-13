@@ -2,29 +2,31 @@ import React from 'react';
 import { Container } from '../ui/Container';
 import { SectionHeader } from '../ui/SectionHeader';
 import { TRUST_COMMITMENTS } from '../../data/landingContent';
-import { ShieldCheck, Lock, FileCheck, CheckCircle2, Key, AlertCircle, AlertTriangle, Clock, FileSpreadsheet, ExternalLink } from 'lucide-react';
+import { ShieldCheck, Eye, FileCheck, CheckCircle2, Key, Zap, Layers, HeartHandshake, ExternalLink } from 'lucide-react';
 
 export const TrustSection: React.FC = () => {
   const icons = [
-    <ShieldCheck key="1" size={24} color="#2dd4bf" />,
-    <Lock key="2" size={24} color="#2dd4bf" />,
-    <FileCheck key="3" size={24} color="#2dd4bf" />,
-    <CheckCircle2 key="4" size={24} color="#2dd4bf" />,
-    <Key key="5" size={24} color="#2dd4bf" />,
-    <AlertCircle key="6" size={24} color="#2dd4bf" />
+    <Eye key="1" size={24} color="#2dd4bf" />,
+    <ShieldCheck key="2" size={24} color="#2dd4bf" />,
+    <Zap key="3" size={24} color="#2dd4bf" />,
+    <FileCheck key="4" size={24} color="#2dd4bf" />,
+    <CheckCircle2 key="5" size={24} color="#2dd4bf" />,
+    <Key key="6" size={24} color="#2dd4bf" />,
+    <Layers key="7" size={24} color="#2dd4bf" />,
+    <HeartHandshake key="8" size={24} color="#2dd4bf" />
   ];
 
   return (
     <section id="cam-ket" style={{ padding: '5.5rem 0', backgroundColor: 'var(--color-navy)', color: '#ffffff' }}>
       <Container size="lg">
         <SectionHeader
-          eyebrow="TẬN TÂM & NGUYÊN TẮC HỢP TÁC"
-          title="Rõ ngay từ đầu để không ai phải khó xử về sau."
-          subtitle="Sự minh bạch và tôn trọng là nền tảng để LocalMate đồng hành lâu dài cùng bạn."
+          eyebrow="8 TRỤ CỘT NIỀM TIN (TRUST FRAMEWORK)"
+          title="Rõ Ngay Từ Đầu Để Không Ai Phải Khó Xử Về Sau"
+          subtitle="Sự minh bạch, hiệu quả thực tế và sự tôn trọng khách hàng là nền tảng để LocalMate đồng hành lâu dài cùng bạn."
           dark
         />
 
-        {/* 6 Commitments Grid */}
+        {/* 8 Commitments Grid */}
         <div
           style={{
             display: 'grid',
@@ -48,13 +50,13 @@ export const TrustSection: React.FC = () => {
               }}
             >
               <div style={{ backgroundColor: '#0a5a54', padding: '0.5rem', borderRadius: 'var(--radius-md)', flexShrink: 0 }}>
-                {icons[idx]}
+                {icons[idx] || <ShieldCheck size={24} color="#2dd4bf" />}
               </div>
               <div>
-                <h4 style={{ color: '#ffffff', fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.25rem' }}>
+                <h4 style={{ color: '#ffffff', fontSize: '1.025rem', fontWeight: 700, marginBottom: '0.35rem' }}>
                   {item.title}
                 </h4>
-                <p style={{ color: '#cde2e8', fontSize: '0.875rem', lineHeight: 1.5 }}>
+                <p style={{ color: '#cde2e8', fontSize: '0.875rem', lineHeight: 1.55 }}>
                   {item.desc}
                 </p>
               </div>
@@ -138,4 +140,3 @@ export const TrustSection: React.FC = () => {
     </section>
   );
 };
-

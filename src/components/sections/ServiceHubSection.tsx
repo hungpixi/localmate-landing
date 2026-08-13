@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { SERVICE_GROUPS } from '../../data/landingContent';
-import { Layout, Search, TrendingUp, FileText, Cpu, ShieldCheck, ArrowRight, Check } from 'lucide-react';
+import { Layout, Search, TrendingUp, FileText, Cpu, ShieldCheck, ArrowRight, Check, Sparkles, Layers } from 'lucide-react';
 import { useRouter } from '../layout/Router';
 
 const ICON_MAP: Record<string, React.ComponentType<any>> = {
@@ -27,10 +27,12 @@ export const ServiceHubSection: React.FC = () => {
     >
       <Container size="lg">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '740px', margin: '0 auto 3.5rem auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 3rem auto' }}>
           <span
             style={{
-              display: 'inline-block',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
               fontSize: '0.8rem',
               fontWeight: 700,
               textTransform: 'uppercase',
@@ -42,14 +44,63 @@ export const ServiceHubSection: React.FC = () => {
               marginBottom: '0.75rem'
             }}
           >
-            HỆ SINH THÁI DỊCH VỤ TRỌN GÓI
+            <Layers size={14} color="var(--color-teal)" /> LOCALMATE ADD-ONS — APP STORE DỊCH VỤ DIGITAL
           </span>
           <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-navy)', fontWeight: 800 }}>
-            6 Nhóm Dịch Vụ Cốt Lõi Cho Doanh Nghiệp Nhỏ
+            Website Là Cửa Vào · Mô Đun Dịch Vụ Mở Rộng Linh Hoạt
           </h2>
           <p className="subtitle" style={{ marginTop: '0.5rem' }}>
-            Tất cả những gì bạn cần để hiện diện chuyên nghiệp, thu hút khách hàng và vận hành tự động online — từ một đối tác duy nhất.
+            Không chỉ làm website. Bạn có thể tự do gắn thêm mô đun Google Maps, Tracking Ads, CRM, Booking &amp; BCT Compliance như xếp hình Lego theo từng giai đoạn phát triển.
           </p>
+        </div>
+
+        {/* LocalMate Add-ons Feature Callout Box */}
+        <div
+          style={{
+            backgroundColor: '#f8fbfa',
+            border: '2px solid var(--color-teal)',
+            borderRadius: 'var(--radius-xl)',
+            padding: '1.5rem 2rem',
+            marginBottom: '3rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '1.25rem',
+            boxShadow: 'var(--shadow-sm)'
+          }}
+        >
+          <div style={{ flex: '1 1 340px' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--color-orange-dark)', textTransform: 'uppercase' }}>
+              ✦ LEGO-STYLE DIGITAL STACK
+            </span>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: '0.2rem', marginBottom: '0.35rem' }}>
+              Xây dựng giải pháp theo nhu cầu thực tế của bạn
+            </h3>
+            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', margin: 0 }}>
+              Bắt đầu với <strong>Website Business (1,99m)</strong>, dễ dàng chọn thêm: <code>Google Maps (+299k)</code> • <code>Tracking Pack (+390k)</code> • <code>Telegram Bot (+299k)</code> • <code>Compliance BCT (+390k)</code>.
+            </p>
+          </div>
+
+          <button
+            onClick={() => navigate('/advisor')}
+            style={{
+              padding: '0.75rem 1.4rem',
+              backgroundColor: 'var(--color-navy)',
+              color: '#ffffff',
+              borderRadius: 'var(--radius-full)',
+              border: 'none',
+              fontWeight: 700,
+              fontSize: '0.875rem',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            <Sparkles size={16} /> Lắp ghép cùng Advisor 0đ
+          </button>
         </div>
 
         {/* 6 Service Groups Grid */}
@@ -135,7 +186,7 @@ export const ServiceHubSection: React.FC = () => {
                 {/* Footer Action */}
                 <div style={{ paddingTop: '1rem', borderTop: '1px solid var(--color-border)' }}>
                   <button
-                    onClick={() => navigate(group.slug)}
+                    onClick={() => navigate('/dich-vu')}
                     style={{
                       width: '100%',
                       padding: '0.75rem 1rem',
@@ -152,18 +203,8 @@ export const ServiceHubSection: React.FC = () => {
                       gap: '0.5rem',
                       transition: 'all var(--transition-fast)'
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--color-teal-soft)';
-                      e.currentTarget.style.borderColor = 'var(--color-teal)';
-                      e.currentTarget.style.color = 'var(--color-teal-dark)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--color-bg)';
-                      e.currentTarget.style.borderColor = 'var(--color-border)';
-                      e.currentTarget.style.color = 'var(--color-navy)';
-                    }}
                   >
-                    <span>Khám phá chi tiết {group.title}</span>
+                    <span>Xem chi tiết danh mục {group.title}</span>
                     <ArrowRight size={16} />
                   </button>
                 </div>
@@ -188,13 +229,10 @@ export const ServiceHubSection: React.FC = () => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.6rem',
-              boxShadow: 'var(--shadow-md)',
-              transition: 'transform var(--transition-fast)'
+              boxShadow: 'var(--shadow-md)'
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-2px)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
           >
-            <span>Xem tất cả danh mục &amp; báo giá dịch vụ</span>
+            <span>Khám phá 40+ LocalMate Add-ons &amp; Báo giá</span>
             <ArrowRight size={18} />
           </button>
         </div>
