@@ -1,30 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from '../components/ui/Container';
-import { SERVICE_GROUPS } from '../data/landingContent';
-import { Layout, Search, TrendingUp, FileText, Cpu, ShieldCheck, ArrowRight, Check, Sparkles } from 'lucide-react';
+import { getCatalogServices } from '../services/pricingStorage';
+import { TECH_CATEGORIES, CatalogServiceItem } from '../data/servicesCatalog';
+import { Sparkles, Check, Ban, ArrowRight, Clock, HelpCircle, ShieldCheck } from 'lucide-react';
 import { useRouter } from '../components/layout/Router';
 
-const ICON_MAP: Record<string, React.ComponentType<any>> = {
-  Layout,
-  Search,
-  TrendingUp,
-  FileText,
-  Cpu,
-  ShieldCheck
-};
-
 export const ServicesPage: React.FC = () => {
-  const { currentPath, navigate } = useRouter();
-
-  // Find if a sub-service detail path is active
-  const activeSubSlug = currentPath.replace('/dich-vu/', '');
-  const activeGroup = SERVICE_GROUPS.find((g) => g.id === activeSubSlug) || null;
+  const { navigate } = useRouter();
+  const services = getCatalogServices().filter((s) => s.isActive);
+  const [selectedService, setSelectedService] = useState<CatalogServiceItem>(services[1] || services[0]);
 
   return (
-    <div style={{ backgroundColor: '#f8fbfa', padding: '3.5rem 0 5rem 0' }}>
+    <div style={{ backgroundColor: '#ffffff', padding: '3.5rem 0 5rem 0' }}>
       <Container size="lg">
         {/* Page Header */}
-        <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 3.5rem auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 3rem auto' }}>
           <span
             style={{
               display: 'inline-flex',
@@ -38,209 +28,187 @@ export const ServicesPage: React.FC = () => {
               backgroundColor: 'var(--color-teal-soft)',
               padding: '0.4rem 0.9rem',
               borderRadius: 'var(--radius-full)',
-              marginBottom: '1rem'
+              marginBottom: '0.75rem'
             }}
           >
-            <Sparkles size={15} color="var(--color-teal)" /> LOCALMATE SERVICES HUB
+            <Sparkles size={15} color="var(--color-teal)" /> KHUNG 7 CÂU HỎI CHUYỂN ĐỔI CHI TIẾT
           </span>
           <h1 style={{ fontSize: 'var(--font-size-h1)', color: 'var(--color-navy)', fontWeight: 800 }}>
-            {activeGroup ? activeGroup.title : 'Tất Cả Dịch Vụ Digital & Marketing'}
+            Chi Tiết Danh Mục 40 Dịch Vụ LocalMate
           </h1>
-          <p className="subtitle" style={{ marginTop: '0.75rem' }}>
-            {activeGroup
-              ? activeGroup.description
-              : 'Trọn bộ dịch vụ thiết kế website, SEO Google, chạy quảng cáo, sáng tạo nội dung và tự động hóa quy trình dành riêng cho doanh nghiệp nhỏ.'}
+          <p className="subtitle" style={{ marginTop: '0.5rem' }}>
+            Minh bạch tuyệt đối từ phạm vi công việc, thời gian hoàn thành đến giá niêm yết trước khi triển khai.
           </p>
         </div>
 
-        {/* Category Pills Navigation */}
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '0.6rem',
-            justifyContent: 'center',
-            marginBottom: '3rem'
-          }}
-        >
-          <button
-            onClick={() => navigate('/dich-vu')}
-            style={{
-              padding: '0.6rem 1.25rem',
-              borderRadius: 'var(--radius-full)',
-              fontSize: '0.875rem',
-              fontWeight: !activeGroup ? 700 : 600,
-              backgroundColor: !activeGroup ? 'var(--color-navy)' : '#ffffff',
-              color: !activeGroup ? '#ffffff' : 'var(--color-navy)',
-              border: '1px solid var(--color-border)',
-              cursor: 'pointer'
-            }}
-          >
-            Tất cả dịch vụ
-          </button>
-          {SERVICE_GROUPS.map((group) => {
-            const isActive = activeGroup?.id === group.id;
-            return (
-              <button
-                key={group.id}
-                onClick={() => navigate(group.slug)}
-                style={{
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: 'var(--radius-full)',
-                  fontSize: '0.875rem',
-                  fontWeight: isActive ? 700 : 600,
-                  backgroundColor: isActive ? 'var(--color-navy)' : '#ffffff',
-                  color: isActive ? '#ffffff' : 'var(--color-navy)',
-                  border: '1px solid var(--color-border)',
-                  cursor: 'pointer'
-                }}
-              >
-                {group.title}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Detailed Service Display */}
-        {activeGroup ? (
-          <div
-            style={{
-              backgroundColor: '#ffffff',
-              border: '1px solid var(--color-border)',
-              borderRadius: 'var(--radius-xl)',
-              padding: '3rem',
-              boxShadow: 'var(--shadow-md)'
-            }}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2rem' }}>
-              <div>
-                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-teal-dark)', backgroundColor: 'var(--color-teal-soft)', padding: '0.35rem 0.85rem', borderRadius: 'var(--radius-full)' }}>
-                  {activeGroup.startingPrice}
-                </span>
-                <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: '0.75rem' }}>
-                  {activeGroup.title}
-                </h2>
-                <p style={{ fontSize: '1rem', color: 'var(--color-teal-dark)', fontWeight: 600, marginTop: '0.25rem' }}>
-                  {activeGroup.tagline}
-                </p>
-              </div>
-              <button
-                onClick={() => navigate('/lien-he')}
-                style={{
-                  padding: '0.85rem 1.8rem',
-                  backgroundColor: 'var(--color-orange)',
-                  color: '#ffffff',
-                  borderRadius: 'var(--radius-full)',
-                  border: 'none',
-                  fontWeight: 700,
-                  fontSize: '0.925rem',
-                  cursor: 'pointer',
-                  boxShadow: 'var(--shadow-orange)'
-                }}
-              >
-                Nhận tư vấn dịch vụ này
-              </button>
-            </div>
-
-            <p style={{ fontSize: '1rem', color: 'var(--color-text-muted)', lineHeight: 1.7, marginBottom: '2rem' }}>
-              {activeGroup.description}
-            </p>
-
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '1.25rem' }}>
-              Các hạng mục triển khai thực tế:
+        {/* 2-Column Master-Detail Layout */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', alignItems: 'start' }}>
+          {/* Left Column: Service Selector List */}
+          <div style={{ backgroundColor: '#f8fbfa', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-xl)', padding: '1.25rem' }}>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '1rem', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border)' }}>
+              Danh sách 40 dịch vụ ({services.length})
             </h3>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginBottom: '2.5rem' }}>
-              {activeGroup.services.map((item, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    backgroundColor: '#f8fbfa',
-                    border: '1px solid var(--color-border)',
-                    borderRadius: 'var(--radius-md)',
-                    padding: '1rem 1.25rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.75rem',
-                    fontSize: '0.925rem',
-                    fontWeight: 600,
-                    color: 'var(--color-navy)'
-                  }}
-                >
-                  <Check size={18} color="var(--color-teal-dark)" />
-                  <span>{item}</span>
-                </div>
-              ))}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', maxHeight: '650px', overflowY: 'auto' }}>
+              {services.map((srv) => {
+                const isSelected = selectedService.id === srv.id;
+                return (
+                  <button
+                    key={srv.id}
+                    onClick={() => setSelectedService(srv)}
+                    style={{
+                      textAlign: 'left',
+                      padding: '0.65rem 0.85rem',
+                      borderRadius: 'var(--radius-md)',
+                      backgroundColor: isSelected ? '#ffffff' : 'transparent',
+                      border: isSelected ? '1px solid var(--color-teal)' : '1px solid transparent',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      boxShadow: isSelected ? 'var(--shadow-sm)' : 'none'
+                    }}
+                  >
+                    <div>
+                      <span style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--color-teal-dark)', display: 'block' }}>
+                        #{srv.id} [{srv.code}]
+                      </span>
+                      <strong style={{ fontSize: '0.85rem', color: 'var(--color-navy)' }}>{srv.name}</strong>
+                    </div>
+                    <span style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--color-orange-dark)' }}>
+                      {srv.priceDisplay}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
-        ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
-            {SERVICE_GROUPS.map((group) => {
-              const IconComponent = ICON_MAP[group.iconName] || Layout;
-              return (
-                <div
-                  key={group.id}
-                  style={{
-                    backgroundColor: '#ffffff',
-                    border: '1px solid var(--color-border)',
-                    borderRadius: 'var(--radius-xl)',
-                    padding: '2rem',
-                    boxShadow: 'var(--shadow-sm)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    gap: '1.5rem'
-                  }}
-                >
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                      <div style={{ width: 48, height: 48, borderRadius: 'var(--radius-md)', backgroundColor: 'var(--color-teal-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <IconComponent size={24} color="var(--color-teal-dark)" />
-                      </div>
-                      <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-navy)', backgroundColor: '#f0f7f5', padding: '0.3rem 0.75rem', borderRadius: 'var(--radius-full)' }}>
-                        {group.startingPrice}
-                      </span>
-                    </div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
-                      {group.title}
-                    </h3>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '1rem' }}>
-                      {group.description}
-                    </p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                      {group.services.slice(0, 4).map((srv, idx) => (
-                        <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'var(--color-text)' }}>
-                          <Check size={14} color="var(--color-teal-dark)" />
-                          <span>{srv}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+
+          {/* Right Column: 7 Conversion Questions Detail Card */}
+          <div style={{ backgroundColor: '#ffffff', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-xl)', padding: '2rem', boxShadow: 'var(--shadow-md)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.85rem' }}>
+              <div>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--color-teal-dark)', backgroundColor: 'var(--color-teal-soft)', padding: '0.2rem 0.6rem', borderRadius: 4 }}>
+                  #{selectedService.id} · {selectedService.code}
+                </span>
+                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: '0.35rem', margin: 0 }}>
+                  {selectedService.name}
+                </h2>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--color-orange-dark)' }}>
+                  {selectedService.priceDisplay}
+                </span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', display: 'block' }}>/ {selectedService.unit}</span>
+              </div>
+            </div>
+
+            {/* 7 Questions Grid */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              {/* Q1 */}
+              <div>
+                <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-navy)', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                  <HelpCircle size={16} color="var(--color-teal-dark)" /> 1. Dịch vụ này giải quyết vấn đề gì?
+                </h4>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', margin: 0, paddingLeft: '1.4rem', lineHeight: 1.55 }}>
+                  {selectedService.scope}
+                </p>
+              </div>
+
+              {/* Q2 */}
+              <div>
+                <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-navy)', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                  <Check size={16} color="var(--color-teal-dark)" /> 2. Ai nên dùng?
+                </h4>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', margin: 0, paddingLeft: '1.4rem', lineHeight: 1.55 }}>
+                  Doanh nghiệp nhỏ, cửa hàng F&amp;B, spa, dịch vụ cần khởi tạo hoặc tối ưu hiệu quả chuyển đổi online.
+                </p>
+              </div>
+
+              {/* Q3 */}
+              <div>
+                <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#c62828', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                  <Ban size={16} color="#c62828" /> 3. Ai CHƯA cần dùng?
+                </h4>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', margin: 0, paddingLeft: '1.4rem', lineHeight: 1.55 }}>
+                  Doanh nghiệp đã có hệ thống đo lường hoặc website vận hành ổn định không phát sinh lỗi.
+                </p>
+              </div>
+
+              {/* Q4 */}
+              <div>
+                <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-navy)', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                  <ShieldCheck size={16} color="var(--color-teal-dark)" /> 4. Bạn nhận được gì (Deliverables)?
+                </h4>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', margin: 0, paddingLeft: '1.4rem', lineHeight: 1.55 }}>
+                  Bàn giao 100% quyền quản trị, mã nguồn/mã tracking đã được nghiệm thu chạy mượt trên thực tế.
+                </p>
+              </div>
+
+              {/* Q5 */}
+              <div>
+                <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-navy)', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                  <Sparkles size={16} color="var(--color-orange-dark)" /> 5. Giá bao nhiêu?
+                </h4>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', margin: 0, paddingLeft: '1.4rem', lineHeight: 1.55 }}>
+                  Niêm yết cố định <strong>{selectedService.priceDisplay}</strong> /{selectedService.unit}. Cam kết không phát sinh bất kỳ phí ẩn nào.
+                </p>
+              </div>
+
+              {/* Q6 */}
+              <div>
+                <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-navy)', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                  <Clock size={16} color="var(--color-teal-dark)" /> 6. Bao lâu có kết quả?
+                </h4>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', margin: 0, paddingLeft: '1.4rem', lineHeight: 1.55 }}>
+                  Effort dự kiến: {selectedService.effort}. Hoàn thành bàn giao thường trong 1-2 ngày làm việc.
+                </p>
+              </div>
+
+              {/* Q7 */}
+              <div style={{ marginTop: '0.5rem', paddingTop: '1rem', borderTop: '1px dashed var(--color-border)' }}>
+                <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.5rem' }}>
+                  7. Bước tiếp theo là gì?
+                </h4>
+                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                   <button
-                    onClick={() => navigate(group.slug)}
+                    onClick={() => navigate('/advisor')}
                     style={{
-                      padding: '0.7rem 1rem',
-                      backgroundColor: 'var(--color-navy)',
+                      padding: '0.65rem 1.25rem',
+                      backgroundColor: 'var(--color-orange)',
                       color: '#ffffff',
-                      borderRadius: 'var(--radius-md)',
                       border: 'none',
+                      borderRadius: 'var(--radius-full)',
                       fontWeight: 700,
                       fontSize: '0.85rem',
                       cursor: 'pointer',
-                      display: 'flex',
+                      display: 'inline-flex',
                       alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.5rem'
+                      gap: 4
                     }}
                   >
-                    <span>Xem chi tiết dịch vụ</span>
-                    <ArrowRight size={16} />
+                    <span>Lên lộ trình cùng Advisor</span> <ArrowRight size={14} />
+                  </button>
+
+                  <button
+                    onClick={() => navigate('/lien-he')}
+                    style={{
+                      padding: '0.65rem 1.25rem',
+                      backgroundColor: 'var(--color-teal-soft)',
+                      color: 'var(--color-teal-dark)',
+                      border: 'none',
+                      borderRadius: 'var(--radius-full)',
+                      fontWeight: 700,
+                      fontSize: '0.85rem',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Đăng ký gói {selectedService.name}
                   </button>
                 </div>
-              );
-            })}
+              </div>
+            </div>
           </div>
-        )}
+        </div>
       </Container>
     </div>
   );

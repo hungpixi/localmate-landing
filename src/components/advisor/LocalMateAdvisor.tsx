@@ -6,7 +6,6 @@ import {
   EXISTING_ASSETS,
   PROBLEM_OPTIONS,
   GOAL_OPTIONS,
-  BUDGET_OPTIONS,
   AdvisorAnswers,
   generateAdvisorRoadmap
 } from '../../services/advisorEngine';
@@ -21,7 +20,7 @@ import {
   Ban,
   Clock,
   Check,
-  ChevronRight
+  Star
 } from 'lucide-react';
 
 interface LocalMateAdvisorProps {
@@ -35,14 +34,14 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
     businessType: 'fnb',
     existingAssets: ['facebook'],
     problems: ['no_website', 'unmeasured_ads'],
-    goal: 'online_presence',
-    budget: 'b_1m_3m'
+    goal: 'online_presence'
   });
+
+  const [selectedTierId, setSelectedTierId] = useState<string>('recommended');
 
   const [leadForm, setLeadForm] = useState({
     fullName: '',
-    phone: '',
-    note: ''
+    phone: ''
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -52,11 +51,15 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
     return generateAdvisorRoadmap(answers);
   }, [answers]);
 
+  const activeTier = useMemo(() => {
+    return roadmap.tiers.find((t) => t.id === selectedTierId) || roadmap.tiers[1] || roadmap.tiers[0];
+  }, [roadmap, selectedTierId]);
+
   const handleNextStep = () => {
-    if (currentStep < 5) {
+    if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
     } else {
-      setCurrentStep(6); // Proposal & Lead Form
+      setCurrentStep(5); // Proposal & Lead Form
     }
   };
 
@@ -145,10 +148,10 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
               gap: 4
             }}
           >
-            <Sparkles size={13} /> LOCALMATE ADVISOR (SOLUTIONS COMPOSER)
+            <Sparkles size={13} /> LOCALMATE ADVISOR (SOLUTION COMPOSER)
           </span>
           <h2 style={{ fontSize: compact ? '1.25rem' : '1.5rem', fontWeight: 800, color: '#ffffff', marginTop: '0.35rem', margin: 0 }}>
-            Tìm Gói Phù Hợp Với Doanh Nghiệp Của Bạn
+            Tìm Gói Phù Hợp Với Bạn (Trả Lời 4 Câu Hỏi)
           </h2>
         </div>
 
@@ -164,7 +167,7 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
             color: 'var(--color-teal-soft)'
           }}
         >
-          {currentStep <= 5 ? `Bước ${currentStep} / 5` : 'Lộ Trình Đề Xuất'}
+          {currentStep <= 4 ? `Bước ${currentStep} / 4` : 'Đề Xuất 3 Phương Án'}
         </div>
       </div>
 
@@ -181,13 +184,13 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
           {currentStep === 1 && (
             <div>
               <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-teal-dark)', textTransform: 'uppercase' }}>
-                BƯỚC 1 CỦA 5
+                BƯỚC 1 CỦA 4
               </span>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: '0.25rem', marginBottom: '0.5rem' }}>
                 1. Bạn đang kinh doanh trong lĩnh vực nào?
               </h3>
               <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '1.25rem' }}>
-                Chọn đúng ngành nghề để LocalMate kích hoạt mô hình tối ưu chuẩn xác.
+                Chọn đúng ngành nghề để LocalMate kích hoạt mô hình tối ưu phù hợp.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.65rem' }}>
@@ -210,8 +213,7 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
                         cursor: 'pointer',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'space-between',
-                        transition: 'all var(--transition-fast)'
+                        justifyContent: 'space-between'
                       }}
                     >
                       <span>{b.label}</span>
@@ -226,13 +228,13 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
           {currentStep === 2 && (
             <div>
               <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-teal-dark)', textTransform: 'uppercase' }}>
-                BƯỚC 2 CỦA 5
+                BƯỚC 2 CỦA 4
               </span>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: '0.25rem', marginBottom: '0.5rem' }}>
                 2. Hiện tại bạn đã có sẵn những kênh nào?
               </h3>
               <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '1.25rem' }}>
-                Chọn tất cả tài sản sẵn có (LocalMate tuyệt đối không ép bạn làm lại thứ đã có).
+                Chọn tài sản sẵn có (LocalMate tuyệt đối không ép bạn làm lại thứ đã có tốt).
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.65rem' }}>
@@ -270,10 +272,10 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
           {currentStep === 3 && (
             <div>
               <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-teal-dark)', textTransform: 'uppercase' }}>
-                BƯỚC 3 CỦA 5 (QUAN TRỌNG NHẤT)
+                BƯỚC 3 CỦA 4 (QUAN TRỌNG NHẤT)
               </span>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: '0.25rem', marginBottom: '0.5rem' }}>
-                3. Vấn đề lớn nhất bạn muốn tìm LocalMate giải quyết?
+                3. Vấn đề khiến bạn muốn tìm LocalMate hôm nay?
               </h3>
               <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '1.25rem' }}>
                 Bạn có thể chọn nhiều vấn đề đang gặp phải.
@@ -314,13 +316,13 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
           {currentStep === 4 && (
             <div>
               <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-teal-dark)', textTransform: 'uppercase' }}>
-                BƯỚC 4 CỦA 5
+                BƯỚC 4 CỦA 4
               </span>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: '0.25rem', marginBottom: '0.5rem' }}>
                 4. Trong 3–6 tháng tới, mục tiêu quan trọng nhất là gì?
               </h3>
               <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '1.25rem' }}>
-                LocalMate sẽ định hướng dịch vụ phù hợp nhất để đạt mục tiêu này.
+                LocalMate sẽ đề xuất phương án tối ưu để đạt mục tiêu này.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
@@ -357,60 +359,16 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
 
           {currentStep === 5 && (
             <div>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-teal-dark)', textTransform: 'uppercase' }}>
-                BƯỚC 5 CỦA 5
-              </span>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: '0.25rem', marginBottom: '0.5rem' }}>
-                5. Bạn muốn bắt đầu ở mức đầu tư nào?
-              </h3>
-              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '1.25rem' }}>
-                Mức ngân sách giúp LocalMate phân bổ thứ tự ưu tiên Phase 1 vừa sức nhất.
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                {BUDGET_OPTIONS.map((b) => {
-                  const isSelected = answers.budget === b.id;
-                  return (
-                    <button
-                      key={b.id}
-                      onClick={() => setAnswers({ ...answers, budget: b.id })}
-                      style={{
-                        textAlign: 'left',
-                        padding: '0.85rem 1.1rem',
-                        borderRadius: 'var(--radius-md)',
-                        fontSize: '0.9rem',
-                        fontWeight: isSelected ? 700 : 600,
-                        backgroundColor: isSelected ? '#fff4eb' : '#f8fbfa',
-                        color: isSelected ? 'var(--color-orange-dark)' : 'var(--color-navy)',
-                        border: '1px solid',
-                        borderColor: isSelected ? '#ffd8be' : 'var(--color-border)',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between'
-                      }}
-                    >
-                      <span>{b.label}</span>
-                      {isSelected && <Check size={18} color="var(--color-orange-dark)" />}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {currentStep === 6 && (
-            <div>
               {isSubmitted ? (
                 <div style={{ textAlign: 'center', padding: '2.5rem 1rem' }}>
                   <div style={{ width: 64, height: 64, borderRadius: '50%', backgroundColor: 'var(--color-teal-soft)', color: 'var(--color-teal-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>
                     <CheckCircle2 size={36} />
                   </div>
                   <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.5rem' }}>
-                    Đã Gửi Kế Hoạch &amp; Yêu Cầu!
+                    Đã Gửi Yêu Cầu Thành Công!
                   </h3>
                   <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                    Chuyên viên LocalMate sẽ liên hệ qua Zalo/Điện thoại trong 1-2 giờ để gửi bản Demo 0đ và bản Proposal chi tiết theo đúng lộ trình này.
+                    LocalMate sẽ liên hệ qua Zalo trong 1-2 giờ để gửi bản Web Demo 0đ theo đúng gói phương án bạn chọn.
                   </p>
                   <button
                     onClick={() => {
@@ -427,38 +385,38 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
                       cursor: 'pointer'
                     }}
                   >
-                    Tạo lộ trình mới
+                    Tạo đề xuất khác
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleLeadSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <form onSubmit={handleLeadSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-teal-dark)', textTransform: 'uppercase' }}>
-                    HOÀN TẤT ĐỂ NHẬN BẢN DEMO 0Đ
+                    FORM 2 TRƯỜNG SIÊU GỌN — KHÔNG MA SÁT
                   </span>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', margin: 0 }}>
-                    Nhận Kế Hoạch Đề Xuất Chi Tiết
+                    Nhận Kế Hoạch &amp; Web Demo 0đ
                   </h3>
                   <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', margin: 0 }}>
-                    Nhập thông tin liên hệ để LocalMate gửi bản Proposal chính thức và dựng khung Web Demo mượt đúng tên thương hiệu của bạn.
+                    Nhập tên &amp; SĐT để LocalMate gửi bản dựng Web Demo trước khi bạn quyết định thanh toán.
                   </p>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.3rem' }}>
-                      Họ và tên của bạn *
+                    <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
+                      1. Họ và tên của bạn *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Nguyễn Văn A"
+                      placeholder="VD: Anh Nam / Chị Hồng"
                       value={leadForm.fullName}
                       onChange={(e) => setLeadForm({ ...leadForm, fullName: e.target.value })}
-                      style={{ width: '100%', padding: '0.7rem 0.9rem', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', fontSize: '0.875rem' }}
+                      style={{ width: '100%', padding: '0.8rem 1rem', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', fontSize: '0.9rem' }}
                     />
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.3rem' }}>
-                      Số điện thoại / Zalo nhận kế hoạch *
+                    <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
+                      2. Số điện thoại / Zalo *
                     </label>
                     <input
                       type="tel"
@@ -466,26 +424,13 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
                       placeholder="0988.xxx.xxx"
                       value={leadForm.phone}
                       onChange={(e) => setLeadForm({ ...leadForm, phone: e.target.value })}
-                      style={{ width: '100%', padding: '0.7rem 0.9rem', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', fontSize: '0.875rem' }}
+                      style={{ width: '100%', padding: '0.8rem 1rem', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', fontSize: '0.9rem' }}
                     />
                   </div>
 
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.3rem' }}>
-                      Tên thương hiệu / Địa chỉ kinh doanh
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="VD: Tiệm Bánh Xèo Bà Tám Q.1..."
-                      value={leadForm.note}
-                      onChange={(e) => setLeadForm({ ...leadForm, note: e.target.value })}
-                      style={{ width: '100%', padding: '0.7rem 0.9rem', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', fontSize: '0.875rem' }}
-                    />
-                  </div>
-
-                  <Button variant="primary" size="lg" type="submit" fullWidth className="btn-primary">
+                  <Button variant="primary" size="lg" type="submit" fullWidth className="btn-primary" style={{ marginTop: '0.5rem' }}>
                     <Send size={18} />
-                    <span>Nhận Kế Hoạch &amp; Web Demo 0đ</span>
+                    <span>Nhận Kế Hoạch Gói {activeTier.totalDisplay} &amp; Demo 0đ</span>
                   </Button>
                 </form>
               )}
@@ -493,7 +438,7 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
           )}
 
           {/* Navigation Controls Bar */}
-          {currentStep <= 5 && (
+          {currentStep <= 4 && (
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border)' }}>
               {currentStep > 1 ? (
                 <button
@@ -535,79 +480,91 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
                   boxShadow: 'var(--shadow-orange)'
                 }}
               >
-                <span>{currentStep === 5 ? 'Xem Lộ Trình & Báo Giá' : 'Tiếp theo'}</span>
+                <span>{currentStep === 4 ? 'Xem 3 Phương Án & Báo Giá' : 'Tiếp theo'}</span>
                 <ArrowRight size={16} />
               </button>
             </div>
           )}
         </div>
 
-        {/* Right Column: Realtime Live Plan Breakdown */}
+        {/* Right Column: 3-Tier Good/Better/Best Realtime Options */}
         <div style={{ backgroundColor: '#f8fbfa', padding: compact ? '1.5rem' : '2.25rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.75rem' }}>
               <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-navy)', margin: 0 }}>
-                Lộ Trình Đề Xuất Cho Bạn
+                3 Phương Án Đề Xuất Cho Bạn
               </h4>
               <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--color-teal-dark)', backgroundColor: 'var(--color-teal-soft)', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-full)' }}>
-                Realtime Update ⚡
+                Realtime Solution ⭐
               </span>
             </div>
 
-            <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginBottom: '1.25rem' }}>
+            <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginBottom: '1rem' }}>
               {roadmap.businessSummary}
             </p>
 
-            {/* Phase 1: Làm Ngay (P0) */}
-            <div style={{ backgroundColor: '#ffffff', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '1.25rem', marginBottom: '1rem', boxShadow: 'var(--shadow-sm)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.825rem', fontWeight: 800, color: 'var(--color-orange-dark)', marginBottom: '0.75rem' }}>
-                <Zap size={15} /> GIAI ĐOẠN 1 — LÀM NGAY (CẤP THIẾT)
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                {roadmap.phase1.map((item, idx) => (
-                  <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.85rem' }}>
-                    <div>
-                      <strong style={{ color: 'var(--color-navy)' }}>{item.service.name}</strong>
-                      <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>{item.reason}</span>
+            {/* 3 Tier Selector Buttons */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.25rem' }}>
+              {roadmap.tiers.map((tier) => {
+                const isSelected = selectedTierId === tier.id;
+                return (
+                  <div
+                    key={tier.id}
+                    onClick={() => setSelectedTierId(tier.id)}
+                    style={{
+                      backgroundColor: isSelected ? '#ffffff' : 'rgba(255, 255, 255, 0.6)',
+                      border: isSelected ? '2px solid var(--color-teal)' : '1px solid var(--color-border)',
+                      borderRadius: 'var(--radius-lg)',
+                      padding: '0.9rem 1.1rem',
+                      cursor: 'pointer',
+                      boxShadow: isSelected ? 'var(--shadow-sm)' : 'none',
+                      transition: 'all var(--transition-fast)'
+                    }}
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                        <span style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-navy)' }}>
+                          {tier.title}
+                        </span>
+                        {tier.badge && (
+                          <span style={{ fontSize: '0.675rem', fontWeight: 800, color: 'var(--color-orange-dark)', backgroundColor: '#fff4eb', padding: '0.15rem 0.45rem', borderRadius: 'var(--radius-full)' }}>
+                            {tier.badge}
+                          </span>
+                        )}
+                      </div>
+                      <span style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-orange-dark)' }}>
+                        {tier.totalDisplay}
+                      </span>
                     </div>
-                    <span style={{ fontWeight: 800, color: 'var(--color-navy)', flexShrink: 0 }}>{item.service.priceDisplay}</span>
+
+                    <p style={{ fontSize: '0.775rem', color: 'var(--color-text-muted)', margin: 0 }}>
+                      {tier.description}
+                    </p>
+
+                    {isSelected && (
+                      <div style={{ marginTop: '0.65rem', paddingTop: '0.5rem', borderTop: '1px dashed var(--color-border)', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                        {tier.services.map((item, idx) => (
+                          <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.775rem', color: 'var(--color-navy)' }}>
+                            <span>• {item.service.name}</span>
+                            <span style={{ fontWeight: 700 }}>{item.service.priceDisplay}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                ))}
-              </div>
-
-              <div style={{ marginTop: '0.85rem', paddingTop: '0.75rem', borderTop: '1px dashed var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '0.825rem', fontWeight: 700, color: 'var(--color-navy)' }}>Tổng đầu tư Phase 1:</span>
-                <span style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-orange-dark)' }}>{roadmap.phase1TotalDisplay}</span>
-              </div>
+                );
+              })}
             </div>
-
-            {/* Phase 2: Khi Nền Tảng Ổn */}
-            {roadmap.phase2.length > 0 && (
-              <div style={{ backgroundColor: '#ffffff', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '1rem 1.25rem', marginBottom: '1rem' }}>
-                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <Clock size={14} color="var(--color-teal-dark)" /> Giai đoạn 2 — Khi nền tảng đã ổn (Nên làm sau)
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  {roadmap.phase2.slice(0, 2).map((item, idx) => (
-                    <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
-                      <span>• {item.service.name}</span>
-                      <span style={{ fontWeight: 600 }}>{item.service.priceDisplay}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {/* "Chưa Cần Làm" Trust Section */}
             {roadmap.notRecommended.length > 0 && (
-              <div style={{ backgroundColor: '#fff8f8', border: '1px solid #ffcdd2', borderRadius: 'var(--radius-lg)', padding: '1rem 1.25rem' }}>
-                <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#c62828', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <Ban size={14} /> CHƯA CẦN LÀM Ở QUY MÔ HIỆN TẠI
+              <div style={{ backgroundColor: '#fff8f8', border: '1px solid #ffcdd2', borderRadius: 'var(--radius-lg)', padding: '0.85rem 1rem' }}>
+                <div style={{ fontSize: '0.775rem', fontWeight: 800, color: '#c62828', marginBottom: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <Ban size={13} /> CHƯA CẦN THIẾT Ở QUY MÔ HIỆN TẠI
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
                   {roadmap.notRecommended.map((item, idx) => (
-                    <div key={idx} style={{ fontSize: '0.775rem', color: 'var(--color-text-muted)' }}>
+                    <div key={idx} style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
                       <strong style={{ color: 'var(--color-navy)' }}>{item.serviceName}:</strong> {item.reason}
                     </div>
                   ))}
@@ -616,10 +573,29 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
             )}
           </div>
 
-          {/* Bottom Guarantee */}
-          <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid var(--color-border)', fontSize: '0.775rem', color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <ShieldCheck size={18} color="var(--color-teal-dark)" style={{ flexShrink: 0 }} />
-            <span>Thời gian triển khai Phase 1: {roadmap.deliveryDaysEstimate}. Bàn giao mới thanh toán.</span>
+          {/* Bottom Action Footer */}
+          <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--color-border)' }}>
+            <button
+              onClick={() => setCurrentStep(5)}
+              style={{
+                width: '100%',
+                padding: '0.75rem 1rem',
+                backgroundColor: 'var(--color-navy)',
+                color: '#ffffff',
+                border: 'none',
+                borderRadius: 'var(--radius-md)',
+                fontWeight: 700,
+                fontSize: '0.875rem',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem'
+              }}
+            >
+              <span>Chọn Gói {activeTier.totalDisplay} &amp; Nhận Demo 0đ</span>
+              <ArrowRight size={16} />
+            </button>
           </div>
         </div>
       </div>
