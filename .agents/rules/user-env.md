@@ -1,6 +1,3 @@
----
-trigger: always_on
----
-
-t cần m lấy user env và các docs liên quan để sử dụng nhanh các tài nguyên hiện tại của t mà không cần phải hỏi env api key các thứ nhé 
+# User Env Rule
+Lấy user env và các docs liên quan để sử dụng nhanh các tài nguyên hiện tại mà không cần phải hỏi env api key:
 "D:\code\user.env"
