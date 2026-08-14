@@ -24,6 +24,11 @@
   - Checklist 6 thông tin cơ bản với green checkmarks & dotted leader lines.
   - Khối Cấu trúc trang 3 bước trực quan (01 Giới thiệu -> 02 Sản phẩm & Lợi ích -> 03 Liên hệ).
   - Ưu đãi Gói Landing Page 490.000đ trọn gói kèm các badge tính năng & nút CTA.
-- [x] **Build & Verification**: `npm run build` pass 100% không lỗi (2.61s).
+- [x] **Trang Landing Page 490K Hoàn Chỉnh (Standalone HTML/CSS/JS + React Page)**:
+  - Tạo `public/landing-490k.html` và `landing-490k.html` (root) độc lập với đầy đủ HTML, CSS, JS tương tác (Form tự động mở Zalo, Lightbox phóng to ảnh, FAQ Accordion, Floating Action Bar).
+  - Tích hợp đầy đủ 5 section từ các assets thiết kế: `hero-490k.png`, `why-tracking.png`, `ga4-gtm-explanation.png`, `package-includes.png`, `client-requirements.png`.
+  - Thêm page component `Landing490kPage.tsx` và route `/landing-490k`, `/goi-490k` trong `src/App.tsx`.
+- [x] **Build & Verification**: `npm run build` pass 100% không lỗi (2.93s).
+
 
 

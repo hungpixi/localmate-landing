@@ -15,6 +15,8 @@ import { AdvisorPage } from './pages/AdvisorPage';
 import { AdvisorModal } from './components/advisor/AdvisorModal';
 import { ConceptModal } from './components/concept/ConceptModal';
 
+import { Landing490kPage } from './pages/Landing490kPage';
+
 const MainContent: React.FC = () => {
   const { currentPath, navigate } = useRouter();
   const [isAdvisorModalOpen, setIsAdvisorModalOpen] = useState(false);
@@ -27,6 +29,9 @@ const MainContent: React.FC = () => {
   const renderPage = () => {
     if (currentPath === '/' || currentPath === '') {
       return <HomePage />;
+    }
+    if (currentPath.startsWith('/landing-490k') || currentPath.startsWith('/goi-490k')) {
+      return <Landing490kPage />;
     }
     if (currentPath.startsWith('/advisor')) {
       return <AdvisorPage />;

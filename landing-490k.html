@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gói Landing Page Chạy Quảng Cáo 490.000đ | LocalMate - Người Đồng Hành Số</title>
+  <meta name="description" content="Thiết kế Landing Page chuẩn chạy quảng cáo chỉ 490.000đ trọn gói. Tích hợp sẵn GA4, GTM, đo lường nút gọi, chat, form và bàn giao siêu tốc trong 24 giờ.">
+  <meta name="keywords" content="landing page 490k, thiết kế landing page quảng cáo, landing page google ads, ga4 gtm tracking, localmate">
+  <link rel="icon" type="image/png" href="/logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gói Landing Page Chạy Quảng Cáo 490.000đ | LocalMate">
+  <meta property="og:description" content="Có trang bán hàng gọn gàng để bắt đầu chạy quảng cáo. Tích hợp GA4, GTM, tracking chuyển đổi, bàn giao trong 24h.">
+  <meta property="og:image" content="/assets/landing-490k/hero-490k.png">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Design Tokens - LocalMate Light Theme (No Glassmorphism) */
+    :root {
+      --color-primary: #0d7647;
+      --color-primary-hover: #0a5d37;
+      --color-primary-dark: #074528;
+      --color-primary-light: #16a34a;
+      --color-primary-soft: #e8f5ed;
+      --color-primary-border: #bbf7d0;
+
+      --color-accent: #f59e0b;
+      --color-accent-hover: #d97706;
+      --color-accent-soft: #fef3c7;
+
+      --color-bg: #f8faf8;
+      --color-surface: #ffffff;
+      --color-surface-subtle: #f1f6f2;
+      --color-surface-card: #ffffff;
+      
+      --color-text-main: #0f172a;
+      --color-text-body: #334155;
+      --color-text-muted: #64748b;
+      --color-border: #e2e8f0;
+      --color-border-accent: #cbd5e1;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 12px rgba(13, 118, 71, 0.08);
+      --shadow-lg: 0 10px 30px rgba(13, 118, 71, 0.12);
+      --shadow-button: 0 4px 14px rgba(13, 118, 71, 0.28);
+
+      --font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    /* Top Banner Announcement */
+    .top-bar {
+      background-color: var(--color-primary-dark);
+      color: #ffffff;
+      font-size: 0.85rem;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .top-bar .badge-fast {
+      background-color: var(--color-accent);
+      color: #000;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--color-primary);
+    }
+    .brand-logo img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+    .brand-tagline {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      margin-top: -2px;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      background-color: var(--color-primary-soft);
+      transition: all 0.2s ease;
+    }
+    .nav-phone:hover {
+      background-color: var(--color-primary-border);
+    }
+    .btn-nav-cta {
+      background-color: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-button);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-nav-cta:hover {
+      background-color: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Section Base */
+    .section {
+      padding: clamp(3rem, 6vw, 5.5rem) 0;
+    }
+    .section-light {
+      background-color: var(--color-bg);
+    }
+    .section-white {
+      background-color: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .section-soft-green {
+      background-color: var(--color-primary-soft);
+      border-top: 1px solid var(--color-primary-border);
+      border-bottom: 1px solid var(--color-primary-border);
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto clamp(2rem, 4vw, 3.25rem) auto;
+    }
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      background-color: var(--color-primary-soft);
+      border: 1px solid var(--color-primary-border);
+      color: var(--color-primary-dark);
+      font-size: 0.825rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .section-title {
+      font-size: clamp(1.65rem, 3.2vw, 2.5rem);
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    .section-subtitle {
+      font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+      color: var(--color-text-body);
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      padding: 14px 28px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: #ffffff;
+      box-shadow: var(--shadow-button);
+    }
+    .btn-primary:hover {
+      background-color: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(13, 118, 71, 0.35);
+    }
+    .btn-secondary {
+      background-color: var(--color-surface);
+      color: var(--color-primary-dark);
+      border: 1.5px solid var(--color-primary);
+    }
+    .btn-secondary:hover {
+      background-color: var(--color-primary-soft);
+      transform: translateY(-2px);
+    }
+    .btn-accent {
+      background-color: var(--color-accent);
+      color: #1a1a1a;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+    }
+    .btn-accent:hover {
+      background-color: var(--color-accent-hover);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .btn-lg {
+      padding: 16px 32px;
+      font-size: 1.1rem;
+    }
+    .btn-block {
+      width: 100%;
+    }
+
+    /* HERO SECTION */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(2rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1.18;
+    }
+    .hero-title span.highlight-price {
+      color: var(--color-primary);
+      display: inline-block;
+      position: relative;
+    }
+    .hero-lead {
+      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      font-weight: 600;
+      color: #1e293b;
+      line-height: 1.45;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--color-text-body);
+      line-height: 1.65;
+    }
+    .hero-delivery-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background-color: #e6f7ef;
+      border: 1.5px solid #a7f3d0;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      color: var(--color-primary-dark);
+      width: fit-content;
+    }
+    .hero-delivery-badge strong {
+      color: var(--color-primary);
+      font-weight: 800;
+    }
+
+    /* 5 Quick Features Grid */
+    .hero-features-bar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1rem 0.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-top: 0.5rem;
+      gap: 0.5rem;
+    }
+    .hf-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0.25rem;
+      position: relative;
+    }
+    .hf-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background-color: var(--color-border);
+    }
+    .hf-icon {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+    .hf-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.3;
+    }
+    .hf-sub {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 0.5rem;
+    }
+
+    .hero-trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-body);
+      margin-top: 0.25rem;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Hero Visual Card */
+    .hero-visual-box {
+      background-color: var(--color-surface);
+      border: 2px solid var(--color-primary-border);
+      border-radius: var(--radius-xl);
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero-visual-box img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      transition: transform 0.3s ease;
+    }
+    .hero-visual-box:hover img {
+      transform: scale(1.02);
+    }
+    .hero-visual-caption {
+      margin-top: 12px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-primary-dark);
+      background-color: var(--color-primary-soft);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+    }
+
+    /* SECTION: WHY TRACKING */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 3.5vw, 3rem);
+      align-items: start;
+    }
+    .tracking-phone-card {
+      background-color: var(--color-surface);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .tracking-phone-card img {
+      max-height: 460px;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    .tracking-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .tracking-item-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .tracking-item-card:hover {
+      border-color: var(--color-primary-border);
+      background-color: #fafffc;
+      transform: translateX(4px);
+    }
+    .tracking-icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+    .bg-green-soft { background-color: #e8f5ed; color: #0d7647; }
+    .bg-blue-soft { background-color: #e0f2fe; color: #0284c7; }
+    .bg-amber-soft { background-color: #fef3c7; color: #d97706; }
+    .bg-purple-soft { background-color: #f3e8ff; color: #9333ea; }
+    .bg-teal-soft { background-color: #ccfbf1; color: #0f766e; }
+
+    .tracking-item-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 2px;
+    }
+    .tracking-item-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-body);
+    }
+
+    /* Comparison VS Box */
+    .vs-container {
+      margin-top: 2rem;
+      background-color: var(--color-surface);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .vs-side {
+      text-align: center;
+      padding: 1rem;
+      border-radius: var(--radius-md);
+    }
+    .vs-side-old {
+      background-color: #f8fafc;
+      border: 1px dashed #cbd5e1;
+    }
+    .vs-side-new {
+      background-color: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .vs-badge {
+      background-color: var(--color-primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.9rem;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .vs-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .vs-title-old { color: #64748b; }
+    .vs-title-new { color: #166534; }
+    .vs-detail {
+      font-size: 0.85rem;
+      color: var(--color-text-body);
+    }
+
+    /* Takeaway Box */
+    .takeaway-banner {
+      margin-top: 1.75rem;
+      background-color: #ecfdf5;
+      border: 1.5px solid #a7f3d0;
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .takeaway-icon {
+      font-size: 1.75rem;
+      flex-shrink: 0;
+    }
+    .takeaway-text h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #065f46;
+      margin-bottom: 4px;
+    }
+    .takeaway-text p {
+      font-size: 0.9rem;
+      color: #047857;
+      line-height: 1.5;
+    }
+
+    /* SECTION: GA4 & GTM EXPLANATION */
+    .ga4-gtm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1.25rem, 3vw, 2rem);
+      margin-bottom: 2.5rem;
+    }
+    .def-card {
+      background-color: var(--color-surface);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3vw, 2rem);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .def-card:hover {
+      border-color: var(--color-primary-border);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .def-card-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.25rem auto;
+      background-color: var(--color-primary-soft);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.25rem;
+    }
+    .def-card-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      margin-bottom: 0.75rem;
+    }
+    .def-card-desc {
+      font-size: 0.95rem;
+      color: var(--color-text-body);
+      line-height: 1.6;
+    }
+
+    /* Process Flow Ads Optimization */
+    .flow-card-full {
+      background-color: var(--color-surface);
+      border: 2px solid var(--color-primary-border);
+      border-radius: var(--radius-xl);
+      padding: clamp(1.75rem, 3vw, 2.5rem);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .flow-heading {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      margin-bottom: 0.5rem;
+    }
+    .flow-subheading {
+      font-size: 0.95rem;
+      color: var(--color-text-body);
+      margin-bottom: 2rem;
+    }
+    .flow-steps-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      position: relative;
+      align-items: stretch;
+    }
+    .flow-step-item {
+      background-color: #f8faf9;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .flow-step-item:not(:last-child)::after {
+      content: '➔';
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      color: var(--color-primary);
+      font-weight: 800;
+      z-index: 2;
+    }
+    .flow-step-icon {
+      font-size: 1.85rem;
+      margin-bottom: 8px;
+    }
+    .flow-step-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      line-height: 1.3;
+    }
+    .flow-step-desc {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+
+    .flow-loop-badge {
+      margin-top: 1.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--color-primary-soft);
+      color: var(--color-primary-dark);
+      font-size: 0.875rem;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      border: 1px dashed var(--color-primary);
+    }
+
+    /* SECTION: PACKAGE INCLUDES */
+    .package-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: center;
+    }
+    .inclusions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .inc-card {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.15rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .inc-card:hover {
+      border-color: var(--color-primary-border);
+      background-color: #fafffc;
+      transform: translateY(-2px);
+    }
+    .inc-icon {
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .inc-text h4 {
+      font-size: 0.925rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+    .inc-text p {
+      font-size: 0.8rem;
+      color: var(--color-text-body);
+      line-height: 1.4;
+    }
+
+    .fit-box {
+      background-color: #f0fdf4;
+      border: 2px solid #bbf7d0;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .fit-box h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #166534;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .fit-list li {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #15803d;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .package-visual-box {
+      background-color: var(--color-surface);
+      border: 2px solid var(--color-primary-border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .package-visual-box img {
+      max-height: 480px;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    /* SECTION: CLIENT REQUIREMENTS */
+    .req-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: start;
+    }
+    .req-card-white {
+      background-color: var(--color-surface);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      box-shadow: var(--shadow-md);
+    }
+    .req-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 1.25rem;
+    }
+    .req-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background-color: #f8faf9;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-text-main);
+    }
+    .req-item-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .req-check {
+      color: var(--color-primary);
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    .req-tag-opt {
+      font-size: 0.75rem;
+      background-color: #e2e8f0;
+      color: #475569;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-weight: 500;
+    }
+
+    /* 3 Structure Steps */
+    .struct-section-box {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1.5px dashed var(--color-border);
+    }
+    .struct-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      text-align: center;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .struct-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+    .struct-step-item {
+      background-color: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: var(--radius-md);
+      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .struct-num {
+      width: 26px;
+      height: 26px;
+      background-color: var(--color-primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .struct-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      line-height: 1.3;
+    }
+
+    .struct-note {
+      margin-top: 1rem;
+      background-color: #fefce8;
+      border: 1px solid #fef08a;
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 0.825rem;
+      color: #854d0e;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Pricing Card in Requirements */
+    .pricing-hero-card {
+      background-color: var(--color-surface);
+      border: 2.5px solid var(--color-primary);
+      border-radius: var(--radius-xl);
+      padding: clamp(1.75rem, 3.5vw, 2.5rem);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      position: sticky;
+      top: 90px;
+    }
+    .price-badge-top {
+      background-color: var(--color-primary-soft);
+      color: var(--color-primary-dark);
+      border: 1px solid var(--color-primary-border);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .main-price-display {
+      font-size: clamp(2.25rem, 4vw, 3.25rem);
+      font-weight: 900;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .main-price-display small {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+    .price-includes-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin: 1.25rem 0 1.75rem 0;
+    }
+    .p-chip {
+      background-color: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    /* Fast Order Form */
+    .order-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+      margin-top: 1.25rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .form-label {
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--color-text-main);
+      background-color: #ffffff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(13, 118, 71, 0.15);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    /* Trust Footer in Form */
+    .form-trust-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    /* SECTION: FAQ ACCORDION */
+    .faq-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+    .faq-item.active {
+      border-color: var(--color-primary-border);
+    }
+    .faq-question {
+      padding: 18px 20px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-toggle-icon {
+      font-size: 1.25rem;
+      color: var(--color-primary);
+      transition: transform 0.25s ease;
+    }
+    .faq-item.active .faq-toggle-icon {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      padding: 0 20px 18px 20px;
+      font-size: 0.95rem;
+      color: var(--color-text-body);
+      line-height: 1.6;
+      display: none;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: #083b4c;
+      color: #ffffff;
+      padding: 3.5rem 0 2rem 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .footer-logo img {
+      width: 40px;
+      height: 40px;
+    }
+    .footer-desc {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .footer-heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+    .footer-contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+    .footer-contact-list a {
+      color: #ffffff;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    .footer-contact-list a:hover {
+      color: var(--color-accent);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* FLOATING STICKY ACTION BAR (Mobile & Desktop) */
+    .floating-bar {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-primary);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      border-radius: var(--radius-full);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 999;
+      max-width: 92%;
+    }
+    .floating-bar .float-price {
+      font-weight: 800;
+      color: var(--color-primary);
+      font-size: 0.95rem;
+      padding-left: 8px;
+    }
+    .floating-bar .btn-float-action {
+      background-color: var(--color-primary);
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .floating-bar .btn-float-action:hover {
+      background-color: var(--color-primary-hover);
+    }
+    .floating-bar .btn-float-zalo {
+      background-color: #0068ff;
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Modal Image Lightbox */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: #ffffff;
+      font-size: 2.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* Success Message Toast */
+    .toast-msg {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: var(--color-primary-dark);
+      color: #ffffff;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 10001;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      animation: slideIn 0.3s ease;
+    }
+    .toast-msg.show {
+      display: flex;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* RESPONSIVE MEDIA QUERIES */
+    @media (max-width: 960px) {
+      .hero-grid, .why-grid, .package-grid, .req-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-hero-card {
+        position: static;
+        margin-top: 1.5rem;
+      }
+      .flow-steps-row {
+        grid-template-columns: 1fr;
+      }
+      .flow-step-item:not(:last-child)::after {
+        content: '⬇';
+        right: auto;
+        bottom: -16px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+      .hero-features-bar {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .hf-item:nth-child(3)::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-features-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .inclusions-grid {
+        grid-template-columns: 1fr;
+      }
+      .ga4-gtm-grid {
+        grid-template-columns: 1fr;
+      }
+      .vs-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .vs-badge {
+        margin: 0 auto;
+      }
+      .nav-phone {
+        display: none;
+      }
+      .floating-bar .float-price {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <span class="badge-fast">Gói Siêu Tốc</span>
+    <span>⚡ Bàn giao hoàn thiện & sẵn sàng chạy quảng cáo trong <strong>24 giờ</strong>!</span>
+  </div>
+
+  <!-- Navbar Header -->
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo" title="LocalMate - Người Đồng Hành Số">
+          <img src="/logo.png" alt="LocalMate Logo">
+          <div>
+            LocalMate
+            <span class="brand-tagline">Người đồng hành số</span>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <a href="tel:0834422439" class="nav-phone" title="Gọi Hotline tư vấn">
+            <span>📞</span> 0834.422.439
+          </a>
+          <a href="#order-form" class="btn-nav-cta">Làm Landing 490K</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="section section-light" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Hero Left Content -->
+          <div class="hero-content">
+            <div class="hero-eyebrow">
+              <span>🌿</span> DÀNH CHO CỬA HÀNG & DOANH NGHIỆP ĐỊA PHƯƠNG
+            </div>
+
+            <h1 class="hero-title">
+              LANDING PAGE CHẠY QUẢNG CÁO – <span class="highlight-price">490.000Đ</span>
+            </h1>
+
+            <p class="hero-lead">
+              Có trang bán hàng gọn gàng để bắt đầu chạy quảng cáo ngay hôm nay.
+            </p>
+
+            <p class="hero-desc">
+              Bạn gửi 1 sản phẩm hoặc dịch vụ, LocalMate sẽ thiết kế landing page đơn giản, rõ ràng, tối ưu cho quảng cáo và sẵn sàng thu hút khách hàng.
+            </p>
+
+            <!-- Delivery Time Badge -->
+            <div class="hero-delivery-badge">
+              <span style="font-size: 1.25rem;">⏱️</span>
+              <span>Bàn giao hoàn thiện trong <strong>24 giờ</strong></span>
+            </div>
+
+            <!-- 5 Quick Stats / Inclusions -->
+            <div class="hero-features-bar">
+              <div class="hf-item">
+                <span class="hf-icon">📑</span>
+                <span class="hf-label">3 Section</span>
+                <span class="hf-sub">Nội dung gọn</span>
+              </div>
+              <div class="hf-item">
+                <span class="hf-icon">📊</span>
+                <span class="hf-label">GA4</span>
+                <span class="hf-sub">Analytics chuẩn</span>
+              </div>
+              <div class="hf-item">
+                <span class="hf-icon">💠</span>
+                <span class="hf-label">GTM</span>
+                <span class="hf-sub">Tag Manager</span>
+              </div>
+              <div class="hf-item">
+                <span class="hf-icon">🎯</span>
+                <span class="hf-label">Tracking</span>
+                <span class="hf-sub">Đo Call & Form</span>
+              </div>
+              <div class="hf-item">
+                <span class="hf-icon">🔄</span>
+                <span class="hf-label">1 Vòng</span>
+                <span class="hf-sub">Chỉnh sửa kỹ</span>
+              </div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="hero-ctas">
+              <a href="#order-form" class="btn btn-primary btn-lg">
+                🚀 Làm Landing Page 490K
+              </a>
+              <a href="#package-includes" class="btn btn-secondary btn-lg">
+                Xem chi tiết gói ➔
+              </a>
+            </div>
+
+            <!-- Trust Row -->
+            <div class="hero-trust-row">
+              <div class="trust-item">
+                <span style="color: var(--color-primary);">🛡️</span> Giá rõ ràng 490k
+              </div>
+              <div class="trust-item">
+                <span style="color: var(--color-primary);">🚀</span> Dễ triển khai
+              </div>
+              <div class="trust-item">
+                <span style="color: var(--color-primary);">✅</span> Sẵn sàng chạy ads
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right Visual -->
+          <div class="hero-visual-box">
+            <img 
+              src="/assets/landing-490k/hero-490k.png" 
+              alt="Gói Landing Page 490K LocalMate" 
+              class="clickable-preview"
+              title="Bấm để xem ảnh phóng to"
+            >
+            <div class="hero-visual-caption">
+              ✨ Giao diện tối ưu Mobile-First cho khách bấm gọi & để lại thông tin
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: WHY TRACKING -->
+    <section class="section section-white" id="why-tracking">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="pill-badge">Đo Lường Hiệu Quả</div>
+          <h2 class="section-title">Tracking để làm gì?</h2>
+          <p class="section-subtitle">
+            Hiểu đơn giản: LocalMate giúp bạn biết <strong>khách đã làm gì</strong> trên trang để không bị lãng phí tiền quảng cáo.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          
+          <!-- Left Visual Phone Card -->
+          <div class="tracking-phone-card">
+            <img 
+              src="/assets/landing-490k/why-tracking.png" 
+              alt="Minh họa Tracking LocalMate" 
+              class="clickable-preview"
+              title="Bấm để xem ảnh phóng to"
+            >
+          </div>
+
+          <!-- Right 5 Tracking Actions -->
+          <div class="tracking-list">
+            
+            <div class="tracking-item-card">
+              <div class="tracking-icon-badge bg-green-soft">👁️</div>
+              <div>
+                <div class="tracking-item-title">Bao nhiêu người vào trang</div>
+                <div class="tracking-item-desc">Biết chính xác có bao nhiêu người đã xem trang bán hàng của bạn.</div>
+              </div>
+            </div>
+
+            <div class="tracking-item-card">
+              <div class="tracking-icon-badge bg-blue-soft">📞</div>
+              <div>
+                <div class="tracking-item-title">Bao nhiêu người bấm gọi điện</div>
+                <div class="tracking-item-desc">Biết có bao nhiêu người thực sự quan tâm và bấm nút gọi Hotline ngay.</div>
+              </div>
+            </div>
+
+            <div class="tracking-item-card">
+              <div class="tracking-icon-badge bg-teal-soft">💬</div>
+              <div>
+                <div class="tracking-item-title">Bao nhiêu người bấm chat</div>
+                <div class="tracking-item-desc">Biết có bao nhiêu người bấm mở Zalo hoặc Messenger để trao đổi.</div>
+              </div>
+            </div>
+
+            <div class="tracking-item-card">
+              <div class="tracking-icon-badge bg-amber-soft">📝</div>
+              <div>
+                <div class="tracking-item-title">Bao nhiêu người bắt đầu điền form</div>
+                <div class="tracking-item-desc">Biết có bao nhiêu khách hàng bắt đầu chạm tay vào form để lại thông tin.</div>
+              </div>
+            </div>
+
+            <div class="tracking-item-card">
+              <div class="tracking-icon-badge bg-purple-soft">🚀</div>
+              <div>
+                <div class="tracking-item-title">Bao nhiêu người gửi thông tin</div>
+                <div class="tracking-item-desc">Ghi nhận chính xác số lượng đơn đăng ký hoặc yêu cầu tư vấn thành công.</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- VS Comparison Block -->
+        <div class="vs-container">
+          <div class="vs-side vs-side-old">
+            <div class="vs-title vs-title-old">❌ Chỉ biết lượt truy cập</div>
+            <div style="font-size: 2rem; margin: 6px 0;">👁️ 1,254 ❓ 😞</div>
+            <div class="vs-detail">Biết có người vào xem nhưng mù mờ không rõ có ai gọi hay đặt hàng hay không.</div>
+          </div>
+
+          <div class="vs-badge">VS</div>
+
+          <div class="vs-side vs-side-new">
+            <div class="vs-title vs-title-new">✅ Biết quảng cáo nào tạo ra khách thật</div>
+            <div style="font-size: 2rem; margin: 6px 0;">👁️ 📞 💬 📝 🚀 😄</div>
+            <div class="vs-detail">Nhìn thấy từng chuyển đổi (Call, Chat, Form) để tập trung ngân sách vào kênh hiệu quả nhất.</div>
+          </div>
+        </div>
+
+        <!-- Takeaway Banner -->
+        <div class="takeaway-banner">
+          <div class="takeaway-icon">💡</div>
+          <div class="takeaway-text">
+            <h4>Nhờ tracking, sau này tối ưu quảng cáo dễ hơn</h4>
+            <p>Biết rõ nhóm từ khóa hoặc chiến dịch nào hiệu quả để đầu tư đúng chỗ, tiết kiệm ngân sách và tăng lượng khách hàng thực tế.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: GA4 & GTM EXPLANATION -->
+    <section class="section section-light" id="ga4-gtm">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="pill-badge">Hạ Tầng Đo Lường</div>
+          <h2 class="section-title">GA4 và GTM là gì?</h2>
+          <p class="section-subtitle">
+            Hiểu đơn giản để bắt đầu làm landing page chuẩn chỉ và tối ưu quảng cáo hiệu quả hơn.
+          </p>
+        </div>
+
+        <!-- 2 Definition Cards -->
+        <div class="ga4-gtm-grid">
+          
+          <div class="def-card">
+            <div class="def-card-icon">📊</div>
+            <h3 class="def-card-title">Google Analytics 4 (GA4)</h3>
+            <p class="def-card-desc">
+              Hệ thống phân tích của Google giúp bạn theo dõi khách vào website từ đâu, xem những nội dung gì và tương tác như thế nào.
+            </p>
+          </div>
+
+          <div class="def-card">
+            <div class="def-card-icon">🏷️</div>
+            <h3 class="def-card-title">Google Tag Manager (GTM)</h3>
+            <p class="def-card-desc">
+              Công cụ quản lý thẻ giúp cài đặt và điều chỉnh các mã tracking (Pixel, Google Tag) linh hoạt mà <strong>không cần phải sửa mã nguồn website mỗi lần</strong>.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Process Flow Card -->
+        <div class="flow-card-full">
+          <h3 class="flow-heading">Có tự tối ưu quảng cáo luôn không?</h3>
+          <p class="flow-subheading">
+            Có nền tracking sẵn để máy học Google Ads / Meta Ads tự động tìm đúng người có khả năng mua hàng nhất:
+          </p>
+
+          <div class="flow-steps-row">
+            
+            <div class="flow-step-item">
+              <div class="flow-step-icon">💻</div>
+              <div class="flow-step-name">1. Landing Page</div>
+              <div class="flow-step-desc">Trang bán hàng rõ ràng</div>
+            </div>
+
+            <div class="flow-step-item">
+              <div class="flow-step-icon">👥</div>
+              <div class="flow-step-name">2. Khách truy cập</div>
+              <div class="flow-step-desc">Khách vào từ quảng cáo</div>
+            </div>
+
+            <div class="flow-step-item">
+              <div class="flow-step-icon">🔍</div>
+              <div class="flow-step-name">3. Tracking ghi nhận</div>
+              <div class="flow-step-desc">Ghi nhận Call/Chat/Form</div>
+            </div>
+
+            <div class="flow-step-item">
+              <div class="flow-step-icon">📢</div>
+              <div class="flow-step-name">4. Google Ads nhận data</div>
+              <div class="flow-step-desc">Thu thập dữ liệu conversion</div>
+            </div>
+
+            <div class="flow-step-item">
+              <div class="flow-step-icon">📈</div>
+              <div class="flow-step-name">5. Tối ưu quảng cáo</div>
+              <div class="flow-step-desc">Tự động tăng hiệu quả</div>
+            </div>
+
+          </div>
+
+          <div>
+            <div class="flow-loop-badge">
+              🔄 Chu trình tối ưu khép kín giúp giảm chi phí cho mỗi đơn hàng
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <a href="#order-form" class="btn btn-primary btn-lg">
+              Hiểu rồi, bắt đầu làm landing page ➔
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: PACKAGE INCLUDES -->
+    <section class="section section-white" id="package-includes">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="pill-badge">Phạm Vi Công Việc</div>
+          <h2 class="section-title">490.000đ bao gồm những gì?</h2>
+          <p class="section-subtitle">
+            Một mức giá minh bạch, trọn gói đầy đủ tính năng kỹ thuật cốt lõi để bạn bán hàng.
+          </p>
+        </div>
+
+        <div class="package-grid">
+          
+          <!-- Inclusions Cards List -->
+          <div>
+            <div class="inclusions-grid">
+              
+              <div class="inc-card">
+                <div class="inc-icon">📑</div>
+                <div class="inc-text">
+                  <h4>01 Landing Page (3 section)</h4>
+                  <p>Cấu trúc tinh gọn: Giới thiệu ➔ Sản phẩm/Lợi ích ➔ Liên hệ mua hàng.</p>
+                </div>
+              </div>
+
+              <div class="inc-card">
+                <div class="inc-icon">📱</div>
+                <div class="inc-text">
+                  <h4>Tối ưu Mobile & PC</h4>
+                  <p>Hiển thị đẹp, tải trang cực nhanh trên điện thoại và máy tính.</p>
+                </div>
+              </div>
+
+              <div class="inc-card">
+                <div class="inc-icon">📞</div>
+                <div class="inc-text">
+                  <h4>Nút Gọi, Chat & Form</h4>
+                  <p>Nút bấm gọi hotline, mở Zalo và form thu thập thông tin khách.</p>
+                </div>
+              </div>
+
+              <div class="inc-card">
+                <div class="inc-icon">📊</div>
+                <div class="inc-text">
+                  <h4>Google Analytics 4 (GA4)</h4>
+                  <p>Cài đặt tài khoản và luồng dữ liệu GA4 chuẩn chỉnh.</p>
+                </div>
+              </div>
+
+              <div class="inc-card">
+                <div class="inc-icon">💠</div>
+                <div class="inc-text">
+                  <h4>Google Tag Manager (GTM)</h4>
+                  <p>Khởi tạo container GTM để quản lý toàn bộ thẻ đo lường.</p>
+                </div>
+              </div>
+
+              <div class="inc-card">
+                <div class="inc-icon">🎯</div>
+                <div class="inc-text">
+                  <h4>Cài Tracking Chuyển Đổi</h4>
+                  <p>Cài đặt sự kiện click call, click chat, submit form hoàn tất.</p>
+                </div>
+              </div>
+
+              <div class="inc-card">
+                <div class="inc-icon">🌐</div>
+                <div class="inc-text">
+                  <h4>Kết nối Domain có sẵn</h4>
+                  <p>Hỗ trợ trỏ domain hoặc subdomain (ví dụ: khuyenmai.tenmien.vn).</p>
+                </div>
+              </div>
+
+              <div class="inc-card">
+                <div class="inc-icon">🔒</div>
+                <div class="inc-text">
+                  <h4>Chứng chỉ bảo mật SSL</h4>
+                  <p>Bảo mật HTTPS miễn phí, an tâm cho khách truy cập.</p>
+                </div>
+              </div>
+
+              <div class="inc-card">
+                <div class="inc-icon">✍️</div>
+                <div class="inc-text">
+                  <h4>01 Vòng chỉnh sửa</h4>
+                  <p>Điều chỉnh text, màu sắc và hình ảnh theo ý kiến phản hồi.</p>
+                </div>
+              </div>
+
+              <div class="inc-card">
+                <div class="inc-icon">⏱️</div>
+                <div class="inc-text">
+                  <h4>Bàn giao trong 24 giờ</h4>
+                  <p>Hoàn thành nhanh sau khi nhận đủ nội dung từ bạn.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Fit Box -->
+            <div class="fit-box">
+              <h4>🎯 Phù hợp nhất nếu bạn:</h4>
+              <ul class="fit-list">
+                <li>✅ Muốn chạy quảng cáo bán sản phẩm/dịch vụ cụ thể ngay lập tức.</li>
+                <li>✅ Chưa cần website lớn nhiều trang tốn kém tiền triệu.</li>
+                <li>✅ Cần trang bán hàng làm nhanh, chi phí siêu tiết kiệm chỉ 490k.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Visual Box -->
+          <div class="package-visual-box">
+            <img 
+              src="/assets/landing-490k/package-includes.png" 
+              alt="Chi tiết gói 490k LocalMate" 
+              class="clickable-preview"
+              title="Bấm để xem ảnh phóng to"
+            >
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: CLIENT REQUIREMENTS & ORDER FORM -->
+    <section class="section section-soft-green" id="order-form">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="pill-badge">Chuẩn Bị Đơn Giản</div>
+          <h2 class="section-title">Bạn cần gửi gì cho LocalMate?</h2>
+          <p class="section-subtitle">
+            Chỉ cần gửi những thông tin dưới đây, LocalMate sẽ lo trọn gói phần còn lại!
+          </p>
+        </div>
+
+        <div class="req-grid">
+          
+          <!-- Left: 6 Information Checklist & Structure -->
+          <div class="req-card-white">
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary-dark); margin-bottom: 0.5rem;">
+              📋 6 Thông tin cơ bản bạn gửi qua:
+            </h3>
+
+            <div class="req-list">
+              
+              <div class="req-item">
+                <div class="req-item-left">
+                  <span class="req-check">✅</span>
+                  <span>1. Tên sản phẩm hoặc dịch vụ</span>
+                </div>
+              </div>
+
+              <div class="req-item">
+                <div class="req-item-left">
+                  <span class="req-check">✅</span>
+                  <span>2. Hình ảnh sản phẩm / cửa hàng thực tế</span>
+                </div>
+              </div>
+
+              <div class="req-item">
+                <div class="req-item-left">
+                  <span class="req-check">✅</span>
+                  <span>3. Nội dung cơ bản / điểm nổi bật</span>
+                </div>
+              </div>
+
+              <div class="req-item">
+                <div class="req-item-left">
+                  <span class="req-check">✅</span>
+                  <span>4. Giá bán hoặc ưu đãi khuyến mãi</span>
+                </div>
+                <span class="req-tag-opt">Nếu có</span>
+              </div>
+
+              <div class="req-item">
+                <div class="req-item-left">
+                  <span class="req-check">✅</span>
+                  <span>5. Hotline và kênh chat Zalo</span>
+                </div>
+              </div>
+
+              <div class="req-item">
+                <div class="req-item-left">
+                  <span class="req-check">✅</span>
+                  <span>6. Logo thương hiệu</span>
+                </div>
+                <span class="req-tag-opt">Nếu có</span>
+              </div>
+
+            </div>
+
+            <!-- 3 Sections Structure Box -->
+            <div class="struct-section-box">
+              <div class="struct-title">
+                🌿 Cấu trúc 3 Section trên trang:
+              </div>
+
+              <div class="struct-steps">
+                <div class="struct-step-item">
+                  <div class="struct-num">01</div>
+                  <div class="struct-name">Giới thiệu sản phẩm</div>
+                </div>
+
+                <div class="struct-step-item">
+                  <div class="struct-num">02</div>
+                  <div class="struct-name">Sản phẩm & Lợi ích</div>
+                </div>
+
+                <div class="struct-step-item">
+                  <div class="struct-num">03</div>
+                  <div class="struct-name">Liên hệ & Form</div>
+                </div>
+              </div>
+
+              <div class="struct-note">
+                ✨ LocalMate sẽ sắp xếp lại thành một trang bán hàng gọn gàng và dễ hiểu nhất.
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Fast Registration & Direct Contact Card -->
+          <div class="pricing-hero-card">
+            
+            <div class="price-badge-top">Gói Landing Page Quảng Cáo</div>
+
+            <div class="main-price-display">
+              490.000đ <small>/ trọn gói</small>
+            </div>
+
+            <div class="price-includes-chips">
+              <span class="p-chip">📱 3 Section</span>
+              <span class="p-chip">⚡ 24h bàn giao</span>
+              <span class="p-chip">📊 GA4 + GTM</span>
+              <span class="p-chip">🎯 Tracking Call/Form</span>
+            </div>
+
+            <!-- Fast Form -->
+            <form class="order-form" id="landingForm" onsubmit="handleFormSubmit(event)">
+              
+              <div class="form-group">
+                <label class="form-label" for="clientName">Họ và tên của bạn:</label>
+                <input type="text" id="clientName" class="form-input" placeholder="Ví dụ: Anh Tuấn" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientPhone">Số điện thoại / Zalo:</label>
+                <input type="tel" id="clientPhone" class="form-input" placeholder="Ví dụ: 0912 345 678" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientService">Sản phẩm / Dịch vụ cần làm:</label>
+                <input type="text" id="clientService" class="form-input" placeholder="Ví dụ: Nhôm kính, Vệ sinh sofa, Spa...">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientNotes">Ghi chú thêm (Link Facebook / Yêu cầu):</label>
+                <textarea id="clientNotes" class="form-textarea" placeholder="Nhập thêm link FB hoặc yêu cầu cụ thể nếu có..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 6px;">
+                🚀 Đăng Ký Gói 490K – Bàn Giao 24h
+              </button>
+
+              <a 
+                href="https://zalo.me/0834422439" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn btn-secondary btn-block"
+                style="margin-top: 4px;"
+              >
+                💬 Nhắn tin Zalo với LocalMate
+              </a>
+            </form>
+
+            <div class="form-trust-footer">
+              <span>🛡️ Uy tín</span>
+              <span>•</span>
+              <span>Minh bạch</span>
+              <span>•</span>
+              <span>Hỗ trợ tận tâm 🌿</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: FAQ ACCORDION -->
+    <section class="section section-white" id="faq">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="pill-badge">Giải Đáp Thắc Mắc</div>
+          <h2 class="section-title">Câu hỏi thường gặp</h2>
+          <p class="section-subtitle">
+            Những thông tin cần biết trước khi bắt đầu làm landing page với LocalMate.
+          </p>
+        </div>
+
+        <div class="faq-wrapper">
+          
+          <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>1. Thời gian bàn giao 24 giờ tính từ khi nào?</span>
+              <span class="faq-toggle-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              Thời gian 24 giờ được tính từ lúc bạn gửi đủ thông tin (tên sản phẩm, hình ảnh, hotline/Zalo và nội dung cơ bản). LocalMate sẽ bắt tay vào dựng ngay và gửi link demo cho bạn duyệt trong vòng 24 giờ.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>2. Tôi chưa có tên miền riêng thì có làm được không?</span>
+              <span class="faq-toggle-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              Được bạn nhé! Bạn có thể sử dụng subdomain miễn phí do LocalMate cấp tạm (ví dụ: <code>tenban.localmate.vn</code>), hoặc nếu bạn đã có tên miền riêng, LocalMate sẽ hỗ trợ kết nối miễn phí.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>3. Gói 490k đã gồm tiền chạy quảng cáo chưa?</span>
+              <span class="faq-toggle-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              Gói 490k là phí thiết kế, lập trình landing page và cài đặt hạ tầng đo lường (GA4, GTM, tracking chuyển đổi). Phí này chưa bao gồm ngân sách bạn tự nạp vào tài khoản Google Ads hoặc Meta Ads để chạy quảng cáo.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>4. Tôi có được chỉnh sửa sau khi bàn giao không?</span>
+              <span class="faq-toggle-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              Gói đã bao gồm 01 vòng chỉnh sửa hoàn chỉnh để bạn rà soát lại thông tin, số điện thoại, giá cả hoặc hình ảnh sao cho ưng ý nhất trước khi chạy quảng cáo chính thức.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>5. Sau này tôi muốn nâng cấp thêm nhiều section hoặc tính năng thì sao?</span>
+              <span class="faq-toggle-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              Rất thuận tiện. Khi quy mô kinh doanh mở rộng, bạn có thể dễ dàng nâng cấp lên các gói website doanh nghiệp đầy đủ của LocalMate mà vẫn giữ nguyên toàn bộ dữ liệu đo lường đã tích lũy.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="/logo.png" alt="LocalMate Logo">
+            <span>LocalMate</span>
+          </div>
+          <p class="footer-desc">
+            LocalMate là người đồng hành số cho doanh nghiệp một người, hộ kinh doanh và cửa hàng địa phương. Chúng tôi giúp bạn có mặt trên môi trường số rõ ràng, đáng tin và hiệu quả.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Gói Dịch Vụ</h4>
+          <ul class="footer-contact-list">
+            <li>• <a href="#hero">Landing Page 490.000đ (Chạy Ads)</a></li>
+            <li>• <a href="/">Gói Khởi Tạo 2.900.000đ</a></li>
+            <li>• <a href="/">Gói Đồng Hành 990.000đ/tháng</a></li>
+            <li>• <a href="/">Dịch vụ SEO Google Maps</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Thông Tin Liên Hệ</h4>
+          <ul class="footer-contact-list">
+            <li>📞 Hotline: <a href="tel:0834422439">0834.422.439</a></li>
+            <li>💬 Zalo: <a href="https://zalo.me/0834422439" target="_blank">0834.422.439</a></li>
+            <li>🌐 Website: <a href="https://localmate.vn" target="_blank">localmate.vn</a></li>
+            <li>🏢 Địa chỉ: TP. Hồ Chí Minh, Việt Nam</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 LocalMate. Bản quyền thuộc về LocalMate — Người đồng hành số.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Contact Bar -->
+  <div class="floating-bar">
+    <span class="float-price">490.000đ / trọn gói</span>
+    <a href="https://zalo.me/0834422439" target="_blank" rel="noopener noreferrer" class="btn-float-zalo">
+      <span>💬</span> Zalo
+    </a>
+    <a href="tel:0834422439" class="btn-float-action" style="background-color: #0284c7;">
+      <span>📞</span> Gọi ngay
+    </a>
+    <a href="#order-form" class="btn-float-action">
+      🚀 Đặt làm ngay
+    </a>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Phóng to ảnh" class="lightbox-img" id="lightboxImage" onclick="event.stopPropagation()">
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toastMsg">
+    <span>✅</span>
+    <span id="toastText">Đã gửi yêu cầu thành công! LocalMate sẽ liên hệ bạn ngay.</span>
+  </div>
+
+  <script>
+    // FAQ Toggle Accordion
+    function toggleFaq(headerEl) {
+      const item = headerEl.parentElement;
+      const isActive = item.classList.contains('active');
+      
+      // Close other open FAQs if desired
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('active');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    }
+
+    // Lightbox Image Preview
+    const modal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImage');
+
+    document.querySelectorAll('.clickable-preview').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        modal.classList.add('active');
+      });
+    });
+
+    function closeLightbox() {
+      modal.classList.remove('active');
+    }
+
+    // Handle Form Submit
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('clientName').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      const service = document.getElementById('clientService').value.trim();
+      const notes = document.getElementById('clientNotes').value.trim();
+
+      if (!name || !phone) {
+        alert('Vui lòng điền họ tên và số điện thoại!');
+        return;
+      }
+
+      // Format Zalo message url
+      const message = `Chào LocalMate, tôi muốn đăng ký Gói Landing Page 490k.\n- Họ tên: ${name}\n- SĐT: ${phone}\n- Dịch vụ: ${service || 'Chưa điền'}\n- Ghi chú: ${notes || 'Không'}`;
+      const encodedMsg = encodeURIComponent(message);
+      const zaloUrl = `https://zalo.me/0834422439?text=${encodedMsg}`;
+
+      // Show toast notification
+      const toast = document.getElementById('toastMsg');
+      document.getElementById('toastText').innerText = `Cảm ơn ${name}! Đang chuyển hướng sang Zalo để kết nối ngay...`;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+        window.open(zaloUrl, '_blank');
+      }, 1200);
+    }
+
+    // Auto fix asset paths if opened directly as file://
+    if (window.location.protocol === 'file:') {
+      document.querySelectorAll('img').forEach(img => {
+        const src = img.getAttribute('src');
+        if (src && src.startsWith('/')) {
+          img.src = '.' + (window.location.pathname.includes('/public/') ? '' : '/public') + src;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
