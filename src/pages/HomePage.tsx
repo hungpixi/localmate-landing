@@ -2,6 +2,7 @@ import React from 'react';
 import { HeroSection } from '../components/sections/HeroSection';
 import { SolutionJourneySection } from '../components/sections/SolutionJourneySection';
 import { StarterPackageSection } from '../components/sections/StarterPackageSection';
+import { ClientRequirementsSection } from '../components/sections/ClientRequirementsSection';
 import { ContentPackageSection } from '../components/sections/ContentPackageSection';
 import { ProcessSection } from '../components/sections/ProcessSection';
 import { ConceptGeneratorSection } from '../components/concept/ConceptGeneratorSection';
@@ -29,10 +30,13 @@ export const HomePage: React.FC = () => {
       {/* 3. Gói Khởi Tạo Hiện Diện Số 2.900.000đ */}
       <StarterPackageSection />
 
-      {/* 4. Gói Nội Dung & Bảo Trì Hàng Tháng 990.000đ */}
+      {/* 4. Bạn cần gửi gì cho LocalMate? Checklist + Cấu trúc trang + Gói 490k */}
+      <ClientRequirementsSection />
+
+      {/* 5. Gói Nội Dung & Bảo Trì Hàng Tháng 990.000đ */}
       <ContentPackageSection />
 
-      {/* 5. Quy trình 5 bước tinh gọn & minh bạch */}
+      {/* 6. Quy trình 5 bước tinh gọn & minh bạch */}
       <ProcessSection />
 
       {/* 6. AI Concept Generator — Xem bản thiết kế định hướng 0đ tức thời */}

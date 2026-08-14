@@ -19,5 +19,11 @@
   - Cập nhật `Container.tsx`, `SectionHeader.tsx`, `Card.tsx`, `Button.tsx`, `Section.tsx` với `box-sizing: border-box`, `min-width: 0` và anti-overflow rules.
   - Sửa triệt để các `minmax(320px, 1fr)` / `minmax(340px, 1fr)` thành `repeat(auto-fit, minmax(min(100%, 280px), 1fr))` trên toàn bộ các section.
   - Tối ưu audit form và hero CTAs tự động co giãn theo cột trên mobile < 540px.
-- [x] **Build & Verification**: `npm run build` pass 100% không lỗi (9.90s).
+- [x] **Section 6 (Client Requirements & Gói 490k - Corner Illustration Card)**:
+  - Triển khai section "Bạn cần gửi gì cho LocalMate?" với layout ảnh 3D Mascot & Cửa hàng đặt gọn gàng ở 1 góc thẻ bên phải (`mascot-store-corner.png`).
+  - Checklist 6 thông tin cơ bản với green checkmarks & dotted leader lines.
+  - Khối Cấu trúc trang 3 bước trực quan (01 Giới thiệu -> 02 Sản phẩm & Lợi ích -> 03 Liên hệ).
+  - Ưu đãi Gói Landing Page 490.000đ trọn gói kèm các badge tính năng & nút CTA.
+- [x] **Build & Verification**: `npm run build` pass 100% không lỗi (2.61s).
+
 
