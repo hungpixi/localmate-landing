@@ -30,15 +30,15 @@ export const Button: React.FC<ButtonProps> = ({
         };
       case 'secondary':
         return {
-          backgroundColor: 'var(--color-teal-soft)',
-          color: 'var(--color-teal-dark)',
-          border: '1px solid var(--color-teal)',
-          fontWeight: 600
+          backgroundColor: 'var(--color-primary-soft)',
+          color: 'var(--color-primary-dark)',
+          border: '1px solid var(--color-primary-border)',
+          fontWeight: 700
         };
       case 'white':
         return {
           backgroundColor: '#ffffff',
-          color: 'var(--color-navy)',
+          color: 'var(--color-text)',
           border: '1px solid var(--color-border)',
           fontWeight: 600,
           boxShadow: 'var(--shadow-sm)'
@@ -46,7 +46,7 @@ export const Button: React.FC<ButtonProps> = ({
       case 'ghost':
         return {
           backgroundColor: 'transparent',
-          color: 'var(--color-navy)',
+          color: 'var(--color-text)',
           border: 'none',
           fontWeight: 600
         };
@@ -56,12 +56,12 @@ export const Button: React.FC<ButtonProps> = ({
   const getSizeStyles = (): React.CSSProperties => {
     switch (size) {
       case 'sm':
-        return { padding: '0.5rem 1rem', fontSize: '0.875rem' };
+        return { padding: 'clamp(0.35rem, 1.5vw, 0.45rem) clamp(0.75rem, 2vw, 1rem)', fontSize: '0.825rem' };
       case 'lg':
-        return { padding: '0.95rem 2rem', fontSize: '1.05rem' };
+        return { padding: 'clamp(0.75rem, 2vw, 0.95rem) clamp(1.25rem, 3vw, 1.85rem)', fontSize: 'clamp(0.925rem, 1.5vw, 1.05rem)' };
       case 'md':
       default:
-        return { padding: '0.75rem 1.5rem', fontSize: '0.95rem' };
+        return { padding: 'clamp(0.6rem, 1.8vw, 0.75rem) clamp(1rem, 2.5vw, 1.4rem)', fontSize: '0.9rem' };
     }
   };
 
@@ -69,14 +69,16 @@ export const Button: React.FC<ButtonProps> = ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '0.5rem',
+    gap: '0.45rem',
     borderRadius: 'var(--radius-full)',
     cursor: 'pointer',
     transition: 'all var(--transition-fast)',
     textDecoration: 'none',
-    whiteSpace: 'nowrap',
+    maxWidth: '100%',
+    boxSizing: 'border-box',
     width: fullWidth ? '100%' : 'auto',
-    lineHeight: 1.2,
+    lineHeight: 1.25,
+    textAlign: 'center',
     ...getVariantStyles(),
     ...getSizeStyles(),
     ...style
@@ -96,3 +98,4 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+

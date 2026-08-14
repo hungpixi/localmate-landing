@@ -6,6 +6,7 @@ interface SectionProps {
   className?: string;
   variant?: 'bg' | 'surface' | 'navy' | 'soft-teal';
   padding?: 'normal' | 'compact' | 'spacious';
+  style?: React.CSSProperties;
 }
 
 export const Section: React.FC<SectionProps> = ({
@@ -13,19 +14,20 @@ export const Section: React.FC<SectionProps> = ({
   children,
   className = '',
   variant = 'bg',
-  padding = 'normal'
+  padding = 'normal',
+  style = {}
 }) => {
   const backgrounds = {
     bg: 'var(--color-bg)',
     surface: 'var(--color-surface)',
     navy: 'var(--color-navy)',
-    'soft-teal': 'var(--color-teal-soft)'
+    'soft-teal': 'var(--color-primary-soft)'
   };
 
   const paddings = {
-    compact: '3.5rem 0',
-    normal: '5.5rem 0',
-    spacious: '7.5rem 0'
+    compact: 'clamp(2rem, 3.5vw, 3.5rem) 0',
+    normal: 'clamp(2.75rem, 5vw, 4.5rem) 0',
+    spacious: 'clamp(3.5rem, 6vw, 6rem) 0'
   };
 
   const isDark = variant === 'navy';
@@ -37,7 +39,12 @@ export const Section: React.FC<SectionProps> = ({
         backgroundColor: backgrounds[variant],
         padding: paddings[padding],
         color: isDark ? '#ffffff' : 'var(--color-text)',
-        position: 'relative'
+        position: 'relative',
+        width: '100%',
+        maxWidth: '100%',
+        boxSizing: 'border-box',
+        overflow: 'hidden',
+        ...style
       }}
       className={`section-component ${className}`}
     >
@@ -45,3 +52,4 @@ export const Section: React.FC<SectionProps> = ({
     </section>
   );
 };
+

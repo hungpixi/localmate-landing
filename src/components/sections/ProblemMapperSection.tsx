@@ -57,8 +57,8 @@ export const ProblemMapperSection: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
-            gap: '1.75rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: 'var(--space-gap)'
           }}
         >
           {GOAL_CATEGORIES.map((goal) => {
@@ -72,13 +72,15 @@ export const ProblemMapperSection: React.FC = () => {
                   backgroundColor: '#ffffff',
                   border: '1px solid var(--color-border)',
                   borderRadius: 'var(--radius-xl)',
-                  padding: '2rem',
+                  padding: 'var(--space-card-p, clamp(1.25rem, 3vw, 1.75rem))',
                   cursor: 'pointer',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  gap: '1.5rem',
-                  boxShadow: 'var(--shadow-sm)'
+                  gap: '1.25rem',
+                  boxShadow: 'var(--shadow-sm)',
+                  boxSizing: 'border-box',
+                  minWidth: 0
                 }}
               >
                 <div>

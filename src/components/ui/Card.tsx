@@ -28,7 +28,7 @@ export const Card: React.FC<CardProps> = ({
         return {
           backgroundColor: '#ffffff',
           color: 'var(--color-text)',
-          border: '2px solid var(--color-teal)',
+          border: '2px solid var(--color-primary)',
           boxShadow: 'var(--shadow-md)'
         };
       case 'bg':
@@ -52,14 +52,19 @@ export const Card: React.FC<CardProps> = ({
     <div
       style={{
         borderRadius: 'var(--radius-xl)',
-        padding: '1.75rem',
+        padding: 'var(--space-card-p, clamp(1rem, 3.5vw, 1.75rem))',
+        minWidth: 0,
+        boxSizing: 'border-box',
+        overflow: 'hidden',
+        wordBreak: 'break-word',
         transition: hoverable ? 'transform var(--transition-base), box-shadow var(--transition-base)' : 'none',
         ...getStyles(),
         ...style
       }}
-      className={`card-component ${hoverable ? 'hover-lift' : ''} ${className}`}
+      className={`card-component ${hoverable ? 'interactive-card' : ''} ${className}`}
     >
       {children}
     </div>
   );
 };
+

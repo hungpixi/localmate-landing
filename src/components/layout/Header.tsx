@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
           left: 0,
           right: 0,
           zIndex: 100,
-          height: '84px',
+          height: 'clamp(64px, 8vw, 76px)',
           backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.98)' : '#ffffff',
           borderBottom: '1px solid var(--color-border)',
           boxShadow: scrolled ? 'var(--shadow-md)' : 'none',
@@ -78,20 +78,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              width: '100%'
+              width: '100%',
+              boxSizing: 'border-box'
             }}
           >
             {/* Logo */}
             <Link
               to="/"
-              style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', height: '54px' }}
+              style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
               className="logo-container"
               title="LocalMate - Đơn vị Website, SEO, Marketing & Phần mềm cho doanh nghiệp nhỏ"
             >
               <img
                 src="/logo.png"
                 alt="LocalMate - Website, SEO, Marketing & Phần mềm cho doanh nghiệp nhỏ"
-                style={{ height: '54px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: 'clamp(40px, 6vw, 50px)', width: 'auto', objectFit: 'contain' }}
               />
             </Link>
 

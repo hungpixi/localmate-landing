@@ -49,8 +49,8 @@ export const KnowledgeHubSection: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1.75rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: 'var(--space-gap)',
             marginBottom: '3rem'
           }}
         >

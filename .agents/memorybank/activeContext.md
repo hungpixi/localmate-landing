@@ -13,4 +13,11 @@
 - [x] **Section 3 (Bảng giá Starter & Nội dung)**: Gói Khởi tạo 2.9M (`pricing-laptop-analytics.png`) + Gói nội dung 990k.
 - [x] **Section 4 (Quy trình 5 bước)**: Timeline 5 bước minh bạch, tinh gọn (`ProcessSection`).
 - [x] **Section 5 (Trust & Thông tin pháp nhân)**: CÔNG TY TNHH LOCALMATE, MST, Địa chỉ, hotline, Zalo + Banner trợ giúp (`support-envelope-message.png`, `location-pin-plant.png`).
-- [x] **Build & Verification**: `npm run build` pass 100% không lỗi (2.66s).
+- [x] **Core Mobile Responsive Systemization (Layout & Primitives Level)**:
+  - Chuẩn hóa `tokens.css` với fluid clamp typography & fluid clamp spacing (`--space-container-px`, `--space-section-py`, `--space-card-p`, `--space-gap`).
+  - Thêm các class responsive grid SSOT (`.grid-responsive-auto`, `.grid-responsive-1-2`, `.grid-responsive-1-2-3`, `.grid-responsive-1-2-4`) trong `globals.css`.
+  - Cập nhật `Container.tsx`, `SectionHeader.tsx`, `Card.tsx`, `Button.tsx`, `Section.tsx` với `box-sizing: border-box`, `min-width: 0` và anti-overflow rules.
+  - Sửa triệt để các `minmax(320px, 1fr)` / `minmax(340px, 1fr)` thành `repeat(auto-fit, minmax(min(100%, 280px), 1fr))` trên toàn bộ các section.
+  - Tối ưu audit form và hero CTAs tự động co giãn theo cột trên mobile < 540px.
+- [x] **Build & Verification**: `npm run build` pass 100% không lỗi (9.90s).
+

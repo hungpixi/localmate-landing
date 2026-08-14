@@ -105,15 +105,7 @@ export const HeroSection: React.FC = () => {
             </p>
 
             {/* Main Action Buttons */}
-            <div
-              style={{
-                display: 'flex',
-                gap: '0.85rem',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                marginBottom: '2rem'
-              }}
-            >
+            <div className="hero-cta-wrapper" style={{ marginBottom: '1.75rem' }}>
               <Button
                 variant="primary"
                 size="lg"
@@ -125,8 +117,7 @@ export const HeroSection: React.FC = () => {
                     navigate('/advisor');
                   }
                 }}
-                className="btn-primary"
-                style={{ padding: '0.85rem 1.6rem', fontSize: '0.975rem' }}
+                className="btn-primary hero-btn-main"
               >
                 <Sparkles size={18} />
                 <span>Tạo concept giao diện 0đ</span>
@@ -137,12 +128,7 @@ export const HeroSection: React.FC = () => {
                 variant="white"
                 size="lg"
                 onClick={() => navigate('/bang-gia')}
-                style={{
-                  borderColor: 'var(--color-border)',
-                  color: 'var(--color-text)',
-                  padding: '0.85rem 1.4rem',
-                  fontSize: '0.925rem'
-                }}
+                className="hero-btn-sub"
               >
                 <span>Xem dịch vụ &amp; bảng giá</span>
               </Button>
@@ -154,28 +140,30 @@ export const HeroSection: React.FC = () => {
                 backgroundColor: '#ffffff',
                 border: '1px solid var(--color-primary-border)',
                 borderRadius: 'var(--radius-md)',
-                padding: '0.85rem 1.15rem',
+                padding: '0.75rem 1rem',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '1.25rem',
+                justifyContent: 'center',
+                gap: '0.5rem 0.85rem',
                 flexWrap: 'wrap',
-                fontSize: '0.825rem',
+                fontSize: '0.8rem',
                 fontWeight: 700,
-                color: 'var(--color-text)'
+                color: 'var(--color-text)',
+                boxShadow: 'var(--shadow-sm)'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <CheckCircle2 size={16} color="var(--color-primary)" />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <CheckCircle2 size={15} color="var(--color-primary)" />
                 <span>Báo giá 1 lần</span>
               </div>
-              <span style={{ color: 'var(--color-border)' }}>•</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Zap size={16} color="var(--color-primary)" />
+              <span style={{ color: 'var(--color-border)' }} className="hide-mobile">•</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <Zap size={15} color="var(--color-primary)" />
                 <span>Bàn giao 3-7 ngày</span>
               </div>
-              <span style={{ color: 'var(--color-border)' }}>•</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <ShieldCheck size={16} color="var(--color-primary)" />
+              <span style={{ color: 'var(--color-border)' }} className="hide-mobile">•</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <ShieldCheck size={15} color="var(--color-primary)" />
                 <span>Bảo hành trọn đời</span>
               </div>
             </div>
@@ -187,7 +175,9 @@ export const HeroSection: React.FC = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              position: 'relative'
+              position: 'relative',
+              width: '100%',
+              boxSizing: 'border-box'
             }}
           >
             <div
@@ -197,9 +187,10 @@ export const HeroSection: React.FC = () => {
                 backgroundColor: '#ffffff',
                 border: '1px solid var(--color-border)',
                 borderRadius: 'var(--radius-2xl)',
-                padding: '1.25rem',
+                padding: 'clamp(0.85rem, 3vw, 1.25rem)',
                 boxShadow: 'var(--shadow-lg)',
-                textAlign: 'center'
+                textAlign: 'center',
+                boxSizing: 'border-box'
               }}
             >
               <img
@@ -210,7 +201,9 @@ export const HeroSection: React.FC = () => {
                   height: 'auto',
                   maxHeight: '340px',
                   objectFit: 'contain',
-                  borderRadius: 'var(--radius-lg)'
+                  borderRadius: 'var(--radius-lg)',
+                  display: 'block',
+                  margin: '0 auto'
                 }}
               />
               <div
@@ -220,15 +213,17 @@ export const HeroSection: React.FC = () => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   backgroundColor: 'var(--color-primary-soft)',
-                  padding: '0.6rem 1rem',
+                  padding: '0.5rem 0.85rem',
                   borderRadius: 'var(--radius-md)',
-                  fontSize: '0.825rem',
+                  fontSize: '0.8rem',
                   color: 'var(--color-primary-dark)',
-                  fontWeight: 700
+                  fontWeight: 700,
+                  flexWrap: 'wrap',
+                  gap: '0.35rem'
                 }}
               >
-                <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <Store size={16} color="var(--color-primary)" /> Hiện diện số chuẩn chỉnh
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                  <Store size={15} color="var(--color-primary)" /> Hiện diện số chuẩn chỉnh
                 </span>
                 <span>⭐ 5.0 Đánh giá</span>
               </div>
@@ -237,12 +232,12 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* 3 Bento Situations Cards Section */}
-        <div style={{ marginTop: '3.5rem' }}>
-          <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-text)' }}>
+        <div style={{ marginTop: 'clamp(2.5rem, 4vw, 3.5rem)' }}>
+          <div style={{ textAlign: 'center', marginBottom: '1.5rem', padding: '0 0.5rem' }}>
+            <h3 style={{ fontSize: 'var(--font-size-h3)', fontWeight: 800, color: 'var(--color-text)' }}>
               Doanh nghiệp của bạn đang ở tình trạng nào?
             </h3>
-            <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', marginTop: '0.25rem' }}>
+            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginTop: '0.25rem' }}>
               Chọn tình trạng hiện tại để LocalMate tư vấn đúng giải pháp tối ưu chi phí nhất
             </p>
           </div>
@@ -255,13 +250,14 @@ export const HeroSection: React.FC = () => {
                   backgroundColor: '#ffffff',
                   border: '1px solid var(--color-border)',
                   borderRadius: 'var(--radius-xl)',
-                  padding: '1.5rem',
+                  padding: 'clamp(1rem, 3vw, 1.5rem)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   gap: '1rem',
                   boxShadow: 'var(--shadow-sm)',
-                  transition: 'all var(--transition-base)'
+                  transition: 'all var(--transition-base)',
+                  boxSizing: 'border-box'
                 }}
                 className="interactive-card"
               >
@@ -269,21 +265,21 @@ export const HeroSection: React.FC = () => {
                   <span
                     style={{
                       display: 'inline-block',
-                      fontSize: '0.75rem',
+                      fontSize: '0.725rem',
                       fontWeight: 700,
                       color: 'var(--color-primary)',
                       backgroundColor: 'var(--color-primary-soft)',
-                      padding: '0.25rem 0.65rem',
+                      padding: '0.25rem 0.6rem',
                       borderRadius: 'var(--radius-sm)',
-                      marginBottom: '0.75rem'
+                      marginBottom: '0.65rem'
                     }}
                   >
                     {item.badge}
                   </span>
-                  <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '0.4rem' }}>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '0.35rem' }}>
                     {item.title}
                   </h4>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: 1.55 }}>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
                     {item.desc}
                   </p>
                 </div>
@@ -291,11 +287,11 @@ export const HeroSection: React.FC = () => {
                 <div
                   style={{
                     borderTop: '1px dashed var(--color-border)',
-                    paddingTop: '0.85rem',
+                    paddingTop: '0.75rem',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    fontSize: '0.825rem',
+                    fontSize: '0.8rem',
                     fontWeight: 700,
                     color: 'var(--color-primary-dark)'
                   }}
@@ -313,26 +309,42 @@ export const HeroSection: React.FC = () => {
         .hero-two-col-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 2.5rem;
+          gap: 2rem;
           align-items: center;
+        }
+
+        .hero-cta-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          width: 100%;
         }
 
         .situations-bento-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 1.25rem;
+          gap: 1rem;
+        }
+
+        @media (min-width: 600px) {
+          .hero-cta-wrapper {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+          }
         }
 
         @media (min-width: 768px) {
           .situations-bento-grid {
             grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
           }
         }
 
         @media (min-width: 992px) {
           .hero-two-col-grid {
             grid-template-columns: 1.15fr 0.85fr;
-            gap: 3.5rem;
+            gap: 3rem;
           }
         }
       `}</style>

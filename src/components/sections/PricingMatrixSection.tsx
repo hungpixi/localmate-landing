@@ -116,8 +116,8 @@ export const PricingMatrixSection: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '1.75rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: 'var(--space-gap)',
             marginBottom: '3rem'
           }}
         >
@@ -126,16 +126,19 @@ export const PricingMatrixSection: React.FC = () => {
               key={srv.id}
               style={{
                 backgroundColor: '#ffffff',
-                border: srv.isPopular ? '2px solid var(--color-teal)' : '1px solid var(--color-border)',
+                border: srv.isPopular ? '2px solid var(--color-primary)' : '1px solid var(--color-border)',
                 borderRadius: 'var(--radius-xl)',
-                padding: '1.75rem',
+                padding: 'var(--space-card-p, clamp(1rem, 3vw, 1.5rem))',
                 boxShadow: srv.isPopular ? 'var(--shadow-md)' : 'var(--shadow-sm)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 gap: '1.25rem',
-                position: 'relative'
+                position: 'relative',
+                boxSizing: 'border-box',
+                minWidth: 0
               }}
+              className="interactive-card"
             >
               <div>
                 {/* Header Tag */}

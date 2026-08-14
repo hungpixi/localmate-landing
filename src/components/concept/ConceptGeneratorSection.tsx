@@ -153,7 +153,7 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '1rem' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
                     2. Lĩnh vực kinh doanh *
@@ -209,7 +209,7 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
                   4. Chọn phong cách giao diện mong muốn:
                 </label>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '0.65rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '0.65rem' }}>
                   {CONCEPT_STYLES.map((st) => {
                     const isSelected = selectedStyle === st.styleKey;
                     return (

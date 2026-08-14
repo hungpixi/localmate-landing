@@ -102,12 +102,13 @@ export const IndustrySolutionSection: React.FC = () => {
             backgroundColor: '#ffffff',
             border: '1px solid var(--color-border)',
             borderRadius: 'var(--radius-xl)',
-            padding: '2.5rem',
+            padding: 'clamp(1.25rem, 3.5vw, 2.5rem)',
             boxShadow: 'var(--shadow-md)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2.5rem',
-            alignItems: 'center'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: 'var(--space-gap)',
+            alignItems: 'center',
+            boxSizing: 'border-box'
           }}
         >
           <div>

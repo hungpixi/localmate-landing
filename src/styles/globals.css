@@ -1,6 +1,6 @@
 @import './tokens.css';
 
-/* CSS Reset & General Styles */
+/* CSS Reset & Anti-Overflow Base */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -13,6 +13,9 @@ html {
   scroll-behavior: smooth;
   color-scheme: light;
   -webkit-text-size-adjust: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 @media screen and (min-width: 1600px) {
@@ -27,14 +30,88 @@ html {
   }
 }
 
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
+
+#root, .localmate-app {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* SSOT Responsive Grid Classes */
+.grid-responsive-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-gap);
+}
+
+.grid-responsive-1-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-gap);
+}
+
+@media (min-width: 768px) {
+  .grid-responsive-1-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-responsive-1-2-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-gap);
+}
+
+@media (min-width: 640px) {
+  .grid-responsive-1-2-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .grid-responsive-1-2-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-responsive-1-2-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-gap);
+}
+
+@media (min-width: 540px) {
+  .grid-responsive-1-2-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .grid-responsive-1-2-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 
 /* Typography Hierarchy */
 h1, h2, h3, h4, h5, h6 {

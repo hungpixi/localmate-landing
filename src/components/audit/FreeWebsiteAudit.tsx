@@ -64,31 +64,33 @@ export const FreeWebsiteAudit: React.FC = () => {
         <div style={{ maxWidth: '680px', margin: '0 auto 2.5rem auto' }}>
           <form
             onSubmit={handleRunAudit}
+            className="audit-form-container"
             style={{
-              display: 'flex',
-              gap: '0.5rem',
               backgroundColor: '#f8fbfa',
-              padding: '0.5rem',
-              border: '2px solid var(--color-teal)',
-              borderRadius: 'var(--radius-full)',
-              boxShadow: 'var(--shadow-md)'
+              padding: '0.45rem',
+              border: '2px solid var(--color-primary)',
+              boxShadow: 'var(--shadow-md)',
+              boxSizing: 'border-box'
             }}
           >
             <input
               type="text"
               required
-              placeholder="Nhập địa chỉ website (VD: tiembanhxeo.com)..."
+              placeholder="Nhập link web (VD: tiembanh.com)..."
               value={urlInput}
               onChange={(e) => setUrlInput(e.target.value)}
               style={{
                 flex: 1,
                 border: 'none',
                 backgroundColor: 'transparent',
-                padding: '0.65rem 1.25rem',
-                fontSize: '0.95rem',
+                padding: '0.65rem 1rem',
+                fontSize: '0.9rem',
                 outline: 'none',
-                color: 'var(--color-navy)',
-                fontWeight: 600
+                color: 'var(--color-text)',
+                fontWeight: 600,
+                minWidth: 0,
+                width: '100%',
+                boxSizing: 'border-box'
               }}
             />
             <button
@@ -98,17 +100,20 @@ export const FreeWebsiteAudit: React.FC = () => {
                 backgroundColor: 'var(--color-orange)',
                 color: '#ffffff',
                 border: 'none',
-                padding: '0.75rem 1.6rem',
+                padding: '0.75rem 1.4rem',
                 borderRadius: 'var(--radius-full)',
                 fontWeight: 700,
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '0.5rem',
-                boxShadow: 'var(--shadow-orange)',
-                whiteSpace: 'nowrap'
+                boxShadow: '0 4px 12px rgba(245, 158, 11, 0.25)',
+                whiteSpace: 'nowrap',
+                boxSizing: 'border-box'
               }}
+              className="audit-submit-btn"
             >
               {isLoading ? (
                 <span>Đang quét 30s...</span>
@@ -298,6 +303,30 @@ export const FreeWebsiteAudit: React.FC = () => {
           </div>
         )}
       </Container>
+
+      <style>{`
+        .audit-form-container {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          border-radius: var(--radius-xl);
+        }
+
+        .audit-submit-btn {
+          width: 100%;
+        }
+
+        @media (min-width: 540px) {
+          .audit-form-container {
+            flex-direction: row;
+            border-radius: var(--radius-full);
+          }
+          .audit-submit-btn {
+            width: auto;
+          }
+        }
+      `}</style>
     </section>
   );
 };
+
