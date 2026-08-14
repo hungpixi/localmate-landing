@@ -4,7 +4,7 @@ import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { SectionHeader } from '../ui/SectionHeader';
 import { STARTER_PACKAGE } from '../../data/landingContent';
-import { CheckCircle2, Clock, RotateCcw, ArrowRight, ShieldCheck, Sparkles, Zap } from 'lucide-react';
+import { CheckCircle2, Clock, RotateCcw, ArrowRight, ShieldCheck, Sparkles, Zap, Laptop } from 'lucide-react';
 
 export const StarterPackageSection: React.FC = () => {
   const scrollToForm = () => {
@@ -13,32 +13,32 @@ export const StarterPackageSection: React.FC = () => {
   };
 
   return (
-    <section id="bang-gia" style={{ padding: '5.5rem 0', backgroundColor: 'var(--color-bg)' }}>
+    <section id="bang-gia" style={{ padding: '4.5rem 0', backgroundColor: 'var(--color-bg)' }}>
       <Container size="lg">
         <SectionHeader
-          eyebrow="MINH BẠCH & TIẾT KIỆM"
-          title="Bảng giá khởi tạo tinh gọn — Không chi phí ẩn"
-          subtitle="Giải pháp trọn gói giúp doanh nghiệp nhỏ hiện diện chuyên nghiệp chỉ trong 7 - 10 ngày."
+          eyebrow="GÓI KHỞI TẠO TIÊU CHUẨN"
+          title="Bảng giá khởi tạo trọn gói — Không chi phí ẩn"
+          subtitle="Giải pháp toàn diện giúp doanh nghiệp nhỏ hiện diện chuyên nghiệp chỉ trong 3 - 7 ngày."
         />
 
         {/* Main Clean Light Card Box */}
         <div
           style={{
             backgroundColor: '#ffffff',
-            borderRadius: '24px',
+            borderRadius: 'var(--radius-2xl)',
             border: '1px solid var(--color-border)',
-            borderTop: '5px solid var(--color-teal)',
+            borderTop: '5px solid var(--color-primary)',
             boxShadow: 'var(--shadow-lg)',
             overflow: 'hidden',
             transition: 'all var(--transition-base)'
           }}
         >
           <div className="starter-pricing-grid">
-            {/* Left Column: Pricing & Value Prop */}
+            {/* Left Column: Pricing & 3D Laptop Preview */}
             <div
               style={{
-                backgroundColor: '#f4f9f8',
-                padding: 'clamp(2rem, 4vw, 3rem)',
+                backgroundColor: 'var(--color-surface-subtle)',
+                padding: 'clamp(1.75rem, 3.5vw, 2.5rem)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -48,64 +48,76 @@ export const StarterPackageSection: React.FC = () => {
             >
               <div>
                 {/* Badge Header */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', alignItems: 'center', marginBottom: '1.25rem' }}>
-                  <Badge variant="orange" size="md">
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', alignItems: 'center', marginBottom: '1rem' }}>
+                  <span
+                    style={{
+                      fontSize: '0.775rem',
+                      fontWeight: 800,
+                      backgroundColor: 'var(--color-primary-soft)',
+                      color: 'var(--color-primary-dark)',
+                      padding: '0.3rem 0.75rem',
+                      borderRadius: 'var(--radius-full)'
+                    }}
+                  >
                     ✨ {STARTER_PACKAGE.badge}
-                  </Badge>
+                  </span>
                 </div>
 
-                <div style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-teal-dark)', fontWeight: 800, marginBottom: '0.35rem' }}>
+                <div style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-primary-dark)', fontWeight: 800, marginBottom: '0.35rem' }}>
                   {STARTER_PACKAGE.name}
                 </div>
 
                 {/* Price Display */}
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '1rem' }}>
-                  <h2 style={{ fontSize: 'clamp(2.25rem, 4vw, 3rem)', color: 'var(--color-navy)', fontWeight: 800, lineHeight: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                  <h2 style={{ fontSize: 'clamp(2.25rem, 3.5vw, 2.85rem)', color: 'var(--color-text)', fontWeight: 900, lineHeight: 1, margin: 0 }}>
                     {STARTER_PACKAGE.price}
                   </h2>
-                  <span style={{ fontSize: '1rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>
+                  <span style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>
                     {STARTER_PACKAGE.unit}
                   </span>
                 </div>
 
-                <p style={{ color: 'var(--color-text)', fontSize: '0.975rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.925rem', lineHeight: 1.55, marginBottom: '1.25rem' }}>
                   {STARTER_PACKAGE.subtitle}
                 </p>
 
-                {/* Duration & Revisions Badges */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.825rem', backgroundColor: '#ffffff', color: 'var(--color-navy)', padding: '0.4rem 0.85rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-border)', fontWeight: 600, boxShadow: 'var(--shadow-sm)' }}>
-                    <Clock size={15} color="var(--color-teal)" /> {STARTER_PACKAGE.timeline}
-                  </span>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.825rem', backgroundColor: '#ffffff', color: 'var(--color-navy)', padding: '0.4rem 0.85rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-border)', fontWeight: 600, boxShadow: 'var(--shadow-sm)' }}>
-                    <RotateCcw size={15} color="var(--color-teal)" /> {STARTER_PACKAGE.revisions}
-                  </span>
-                </div>
-
-                {/* Highlight Callout */}
+                {/* 3D Laptop Illustration Preview */}
                 <div
                   style={{
-                    backgroundColor: '#e6f7f4',
-                    border: '1px solid rgba(15, 169, 154, 0.3)',
-                    borderRadius: 'var(--radius-md)',
-                    padding: '0.85rem 1rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.75rem',
-                    marginBottom: '1.5rem'
+                    backgroundColor: '#ffffff',
+                    border: '1px solid var(--color-border)',
+                    borderRadius: 'var(--radius-lg)',
+                    padding: '0.85rem',
+                    textAlign: 'center',
+                    marginBottom: '1.25rem',
+                    boxShadow: 'var(--shadow-sm)'
                   }}
                 >
-                  <Zap size={20} color="var(--color-teal-dark)" style={{ flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.875rem', color: 'var(--color-navy)', fontWeight: 600, lineHeight: 1.45 }}>
-                    Xây dựng trọn gói nền móng hiện diện chuẩn SEO, sẵn sàng nhận khách ngay.
+                  <img
+                    src="/assets/illustrations/pricing-laptop-analytics.png"
+                    alt="Laptop Analytics Demo"
+                    style={{ maxHeight: '150px', width: 'auto', objectFit: 'contain' }}
+                  />
+                  <div style={{ fontSize: '0.775rem', color: 'var(--color-text-muted)', fontWeight: 600, marginTop: '0.35rem' }}>
+                    💻 Bàn giao website chuẩn SEO + Google Maps + Mã nguồn sở hữu 100%
+                  </div>
+                </div>
+
+                {/* Duration & Revisions Badges */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '1.25rem' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', backgroundColor: '#ffffff', color: 'var(--color-text)', padding: '0.35rem 0.75rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-border)', fontWeight: 600 }}>
+                    <Clock size={14} color="var(--color-primary)" /> {STARTER_PACKAGE.timeline}
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', backgroundColor: '#ffffff', color: 'var(--color-text)', padding: '0.35rem 0.75rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-border)', fontWeight: 600 }}>
+                    <RotateCcw size={14} color="var(--color-primary)" /> {STARTER_PACKAGE.revisions}
                   </span>
                 </div>
               </div>
 
               {/* Action Button & Guarantee */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                <Button variant="primary" size="lg" onClick={scrollToForm} style={{ width: '100%', fontSize: '1.05rem', fontWeight: 700 }}>
-                  Nhận bản demo trước <ArrowRight size={20} />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <Button variant="primary" size="lg" onClick={scrollToForm} style={{ width: '100%', fontSize: '1rem', fontWeight: 700 }}>
+                  Nhận bản demo 0đ trước <ArrowRight size={18} />
                 </Button>
 
                 <div
@@ -113,15 +125,15 @@ export const StarterPackageSection: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '0.45rem',
-                    fontSize: '0.85rem',
-                    color: 'var(--color-teal-dark)',
+                    gap: '0.4rem',
+                    fontSize: '0.825rem',
+                    color: 'var(--color-primary-dark)',
                     fontWeight: 700,
                     textAlign: 'center'
                   }}
                 >
-                  <ShieldCheck size={17} color="var(--color-teal)" />
-                  <span>Bàn giao nghiệm thu mới thanh toán</span>
+                  <ShieldCheck size={16} color="var(--color-primary)" />
+                  <span>Bàn giao nghiệm thu mới thanh toán 50% còn lại</span>
                 </div>
               </div>
             </div>
@@ -129,29 +141,29 @@ export const StarterPackageSection: React.FC = () => {
             {/* Right Column: Deliverables Checklist */}
             <div
               style={{
-                padding: 'clamp(2rem, 4vw, 3rem)',
+                padding: 'clamp(1.75rem, 3.5vw, 2.5rem)',
                 backgroundColor: '#ffffff',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                gap: '1.75rem'
+                gap: '1.5rem'
               }}
             >
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '-0.5rem' }}>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-text)', margin: 0 }}>
                 Quyền lợi chi tiết gói {STARTER_PACKAGE.name}:
               </h3>
 
               {STARTER_PACKAGE.groups.map((group, idx) => (
-                <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                     <span
                       style={{
-                        width: 26,
-                        height: 26,
+                        width: 24,
+                        height: 24,
                         borderRadius: '50%',
-                        backgroundColor: 'var(--color-teal-soft)',
-                        color: 'var(--color-teal-dark)',
-                        fontSize: '0.825rem',
+                        backgroundColor: 'var(--color-primary-soft)',
+                        color: 'var(--color-primary-dark)',
+                        fontSize: '0.775rem',
                         fontWeight: 800,
                         display: 'flex',
                         alignItems: 'center',
@@ -161,15 +173,15 @@ export const StarterPackageSection: React.FC = () => {
                     >
                       {idx + 1}
                     </span>
-                    <h4 style={{ color: 'var(--color-navy)', fontSize: '1.05rem', fontWeight: 700 }}>
+                    <h4 style={{ color: 'var(--color-text)', fontSize: '1rem', fontWeight: 700, margin: 0 }}>
                       {group.title}
                     </h4>
                   </div>
 
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem', paddingLeft: '2.1rem' }}>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingLeft: '2rem', margin: 0 }}>
                     {group.items.map((item, itemIdx) => (
-                      <li key={itemIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.55rem', fontSize: '0.935rem', color: 'var(--color-text)', lineHeight: 1.5 }}>
-                        <CheckCircle2 size={17} color="var(--color-teal)" style={{ flexShrink: 0, marginTop: 3 }} />
+                      <li key={itemIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
+                        <CheckCircle2 size={16} color="var(--color-primary)" style={{ flexShrink: 0, marginTop: 3 }} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -196,5 +208,6 @@ export const StarterPackageSection: React.FC = () => {
     </section>
   );
 };
+
 
 

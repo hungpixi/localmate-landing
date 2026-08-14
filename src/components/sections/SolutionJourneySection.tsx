@@ -3,70 +3,71 @@ import { Container } from '../ui/Container';
 import { SectionHeader } from '../ui/SectionHeader';
 import { Card } from '../ui/Card';
 import { SOLUTION_STEPS } from '../../data/landingContent';
-import { FolderCheck, Globe2, TrendingUp, CheckCircle2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Compass } from 'lucide-react';
 
 export const SolutionJourneySection: React.FC = () => {
-  const stepIcons = [
-    <FolderCheck key="1" size={28} color="var(--color-teal-dark)" />,
-    <Globe2 key="2" size={28} color="var(--color-navy)" />,
-    <TrendingUp key="3" size={28} color="var(--color-orange-dark)" />
+  const stepIconImages = [
+    '/assets/icons/roadmap-step1-web-globe.png',
+    '/assets/icons/roadmap-step2-shield-check.png',
+    '/assets/icons/roadmap-step3-growth-chart.png'
   ];
 
-  const themeColors = [
-    { primary: 'var(--color-teal)', bg: 'var(--color-teal-soft)', text: 'var(--color-teal-dark)', border: 'var(--color-teal)' },
-    { primary: 'var(--color-navy)', bg: '#e6f0f3', text: 'var(--color-navy)', border: 'var(--color-navy)' },
-    { primary: 'var(--color-orange)', bg: '#fff4e6', text: 'var(--color-orange-dark)', border: 'var(--color-orange)' }
+  const themeBorders = [
+    'var(--color-primary)',
+    'var(--color-primary-light)',
+    'var(--color-orange)'
   ];
 
   return (
-    <section id="dich-vu" style={{ padding: '5.5rem 0', backgroundColor: 'var(--color-bg)' }}>
+    <section id="lo-trinh" style={{ padding: '4.5rem 0', backgroundColor: 'var(--color-bg)' }}>
       <Container size="lg">
         <SectionHeader
-          eyebrow="GIẢI PHÁP THỰC TẾ & TINH GỌN"
+          eyebrow="LỘ TRÌNH 3 GIAI ĐOẠN TINH GỌN"
           title="LocalMate không bán công nghệ phức tạp. Chúng tôi giúp bạn làm đúng thứ cần thiết trước."
-          subtitle="Hành trình 3 bước số hóa tinh gọn giúp doanh nghiệp nhỏ tự tin chào khách online."
+          subtitle="Hành trình số hóa rõ ràng, minh bạch từng giai đoạn giúp doanh nghiệp địa phương tự tin có khách online."
         />
 
-        {/* Visual Transformation Flow Bar */}
+        {/* Visual Transformation Banner with Illustration */}
         <div
           style={{
             backgroundColor: '#ffffff',
             border: '1px solid var(--color-border)',
-            boxShadow: 'var(--shadow-sm)',
+            boxShadow: 'var(--shadow-md)',
             borderRadius: 'var(--radius-xl)',
-            padding: '1.25rem 1.75rem',
-            marginBottom: '3.5rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '1rem'
+            padding: '1.5rem 2rem',
+            marginBottom: '3rem',
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            gap: '1.5rem',
+            alignItems: 'center'
           }}
+          className="roadmap-header-banner"
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontWeight: 600, color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
-            <span style={{ backgroundColor: '#edf2f1', color: 'var(--color-text-muted)', width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.85rem' }}>1</span>
-            <span>Thông tin rời rạc trong Zalo</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-primary-dark)', fontWeight: 700, fontSize: '0.85rem' }}>
+              <Compass size={18} color="var(--color-primary)" />
+              <span>ĐỊNH HƯỚNG TỪNG BƯỚC VỮNG CHẮC</span>
+            </div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-text)', margin: 0 }}>
+              Từ số 0 đến cỗ máy thu hút khách hàng ổn định
+            </h3>
+            <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: 0, lineHeight: 1.55 }}>
+              Không nhảy cóc, không lãng phí ngân sách vào quảng cáo đắt đỏ khi chưa có nền tảng uy tín.
+            </p>
           </div>
 
-          <ArrowRight size={20} color="var(--color-teal)" className="hide-mobile" style={{ opacity: 0.7 }} />
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontWeight: 700, color: 'var(--color-navy)', fontSize: '0.975rem' }}>
-            <span style={{ backgroundColor: 'var(--color-teal-soft)', color: 'var(--color-teal-dark)', width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.85rem' }}>2</span>
-            <span>Hiện diện số rõ ràng & uy tín</span>
-          </div>
-
-          <ArrowRight size={20} color="var(--color-teal)" className="hide-mobile" style={{ opacity: 0.7 }} />
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, color: 'var(--color-orange-dark)', fontSize: '1rem' }}>
-            <span style={{ backgroundColor: 'var(--color-orange)', color: 'var(--color-navy-deep)', width: 24, height: 24, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.8rem' }}>3</span>
-            Khách dễ tin & chủ động liên hệ
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <img
+              src="/assets/illustrations/roadmap-flag-path.png"
+              alt="Roadmap to success"
+              style={{ maxHeight: '110px', width: 'auto', objectFit: 'contain' }}
+            />
           </div>
         </div>
 
-        {/* 3-Step Journey Timeline Grid */}
+        {/* 3-Step Journey Cards Grid */}
         <div className="solution-timeline-grid">
           {SOLUTION_STEPS.map((step, idx) => {
-            const theme = themeColors[idx];
             return (
               <Card
                 key={step.step}
@@ -75,71 +76,77 @@ export const SolutionJourneySection: React.FC = () => {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '1.25rem',
-                  padding: '2rem 1.75rem',
+                  gap: '1.2rem',
+                  padding: '1.75rem',
                   backgroundColor: '#ffffff',
                   borderRadius: 'var(--radius-xl)',
                   border: '1px solid var(--color-border)',
-                  borderTop: `5px solid ${theme.border}`,
+                  borderTop: `4px solid ${themeBorders[idx]}`,
+                  boxShadow: 'var(--shadow-sm)',
                   position: 'relative'
                 }}
               >
-                {/* Header Step Badge & Icon */}
+                {/* Header Step 3D Icon & Badge */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div
                     style={{
-                      width: 52,
-                      height: 52,
+                      width: 58,
+                      height: 58,
                       borderRadius: 'var(--radius-md)',
-                      backgroundColor: theme.bg,
+                      backgroundColor: 'var(--color-primary-soft)',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center'
+                      justifyContent: 'center',
+                      padding: '6px'
                     }}
                   >
-                    {stepIcons[idx]}
+                    <img
+                      src={stepIconImages[idx]}
+                      alt={`Giai đoạn ${step.step}`}
+                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                    />
                   </div>
 
                   <span
                     style={{
-                      backgroundColor: theme.bg,
-                      color: theme.text,
-                      fontSize: '0.8rem',
+                      backgroundColor: 'var(--color-primary-soft)',
+                      color: 'var(--color-primary-dark)',
+                      fontSize: '0.775rem',
                       fontWeight: 800,
-                      padding: '0.35rem 0.85rem',
+                      padding: '0.35rem 0.8rem',
                       borderRadius: 'var(--radius-full)',
                       letterSpacing: '0.05em'
                     }}
                   >
-                    BƯỚC {step.step}
+                    GIAI ĐOẠN {step.step}
                   </span>
                 </div>
 
                 {/* Step Title & Subtitle */}
                 <div>
-                  <h3 style={{ fontSize: '1.4rem', color: 'var(--color-navy)', fontWeight: 800, marginBottom: '0.25rem' }}>
+                  <h3 style={{ fontSize: '1.25rem', color: 'var(--color-text)', fontWeight: 800, marginBottom: '0.3rem' }}>
                     {step.title}
                   </h3>
-                  <span style={{ fontSize: '0.9rem', fontWeight: 600, color: theme.text }}>
+                  <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-primary)' }}>
                     {step.subtitle}
                   </span>
                 </div>
 
                 {/* Items Checklist */}
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.7rem', marginTop: '0.5rem' }}>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem', marginTop: '0.25rem', padding: 0 }}>
                   {step.items.map((item, itemIdx) => (
                     <li
                       key={itemIdx}
                       style={{
                         display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.6rem',
-                        fontSize: '0.935rem',
-                        color: 'var(--color-text)',
-                        fontWeight: 500
+                        alignItems: 'flex-start',
+                        gap: '0.55rem',
+                        fontSize: '0.9rem',
+                        color: 'var(--color-text-muted)',
+                        lineHeight: 1.5
                       }}
                     >
-                      <CheckCircle2 size={18} color={theme.border} style={{ flexShrink: 0 }} />
+                      <CheckCircle2 size={16} color="var(--color-primary)" style={{ flexShrink: 0, marginTop: 3 }} />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -149,7 +156,29 @@ export const SolutionJourneySection: React.FC = () => {
           })}
         </div>
       </Container>
+
+      <style>{`
+        .roadmap-header-banner {
+          grid-template-columns: 1fr;
+        }
+
+        .solution-timeline-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+          .roadmap-header-banner {
+            grid-template-columns: 2fr 1fr;
+          }
+          .solution-timeline-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+      `}</style>
     </section>
   );
 };
+
 
