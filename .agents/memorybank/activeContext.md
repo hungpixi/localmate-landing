@@ -11,15 +11,13 @@
 
 ---
 
-## 2. Recent Accomplishments & Mobile QA Verification
+## 2. Recent Accomplishments & Updates
 
-### A. Tối Ưu Mobile Hero & Floating Sticky Action Bar:
-- **Hero Headline**: Sử dụng `text-wrap: balance` và `clamp(1.85rem, 5.5vw, 3.25rem)` giúp tiêu đề chia đều thành 3 dòng chuẩn chỉnh trên mọi màn hình di động (320px, 360px, 366px, 375px, 390px, 430px), xóa bỏ hoàn toàn hiện tượng rớt chữ mồ côi ("hàng.", "Google").
-- **Eyebrow Badge**: Rút gọn thành badge 1 dòng nhỏ gọn, căn giữa thanh lịch.
-- **Hero CTAs**: Nút chính và phụ đồng bộ chiều cao 48px, full width trên mobile với phân cấp rõ ràng (Nút xanh nổi bật + Nút trắng viền nhạt).
-- **Khối Trust 4 Cam kết**: Chuyển thành lưới 2x2 co giãn linh hoạt, chống tràn viền (`hasOverflow: false`) và không bị cắt cụt chữ.
-- **Mobile Floating Action Bar**: Thiết kế lại theo cấu trúc phân cấp rõ ràng: 2 nút phụ gọn (`📞 Gọi` + `💬 Zalo`) + 1 nút chính kích thước lớn (`✨ Web demo 0đ`), đảm bảo khoảng cách bấm touch target >= 44px và hỗ trợ `safe-area-inset-bottom`.
+### A. Tối Ưu Quy Trình Hợp Tác & Xóa Form Demo Thừa:
+- **Xóa Form Demo (`ConceptGeneratorSection`)**: Đã bỏ hoàn toàn khối form tự động sinh web mẫu khỏi HomePage, giúp luồng trang liền mạch từ Quy trình 5 bước xuống thẳng Bảng giá.
+- **Sửa Lỗi Rớt Chữ Bước 05**: Đổi tag chân card 05 thành **`✓ Chỉ từ 490k`**, hiển thị trên 1 dòng gọn gàng, xóa bỏ tag rườm rà.
+- **Rút Gọn Khung Cam Kết**: Khung cam kết chân section được tinh giản thành: *`Báo giá rõ trước khi làm — Chi phí chỉ từ 490.000đ, không phát sinh bất kỳ khoản nào khác.`*
 
-### B. Tối Ưu Footer & Bảng Giá:
-- 4 cột Footer thẳng hàng, cân đối, xóa logo đỉnh, xóa các dòng thừa và chuẩn hóa email `contact@localmate.vn`.
-- Bảng giá đưa toàn bộ gói "Khuyên dùng" lên đầu và đổi đơn vị thành `Trọn gói`.
+### B. Mobile Responsive & Footer Hoàn Thiện:
+- Hero mobile cân đối 3 dòng với `text-wrap: balance`, trust box 2x2 không rớt chữ, sticky bottom bar phân cấp rõ ràng.
+- Footer 4 cột cân bằng không logo, đã đồng bộ `contact@localmate.vn`.
