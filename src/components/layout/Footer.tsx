@@ -1,386 +1,453 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { ShieldCheck, Phone, Mail, MapPin } from 'lucide-react';
+import { ShieldCheck, Phone, Mail, MapPin, Globe, CheckCircle2, Lock } from 'lucide-react';
 import { CONTACT_INFO, COMPANY_INFO } from '../../data/landingContent';
 import { Link } from '../layout/Router';
 
 export const Footer: React.FC = () => {
   return (
-    <footer
-      style={{
-        backgroundColor: '#072e3b',
-        color: '#ffffff',
-        padding: 'clamp(3rem, 5vw, 4.5rem) 0 2rem 0',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        overflow: 'hidden'
-      }}
-    >
+    <footer className="misa-style-footer">
       <Container size="lg">
-        {/* Main Footer 4 Equal Columns Grid */}
-        <div className="footer-main-grid">
-          {/* Column 1: Corporate Entity & Tax Info (No Top Logo for Equal Balance) */}
-          <div className="footer-col footer-col-company">
-            <h4 className="footer-col-title">
-              {COMPANY_INFO.legalName}
-            </h4>
-            
-            <p style={{ fontSize: '0.825rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.55, margin: '0 0 1rem 0' }}>
-              Giải pháp làm website, đưa doanh nghiệp lên Google Maps, quảng cáo Google Ads và chăm sóc bài viết Facebook cho doanh nghiệp nhỏ.
-            </p>
+        {/* Top Brand Logo Row */}
+        <div className="misa-footer-top">
+          <Link to="/" className="misa-brand-logo" title="LocalMate Việt Nam">
+            <img src="/logo.png" alt="LocalMate" className="misa-logo-img" />
+          </Link>
+        </div>
 
-            {/* Structured Legal & Tax Meta */}
-            <div className="company-tax-card">
-              <div className="tax-item">
-                <MapPin size={15} color="var(--color-primary-light)" className="tax-icon" />
-                <span><strong>Địa chỉ:</strong> {COMPANY_INFO.taxAddress}</span>
+        {/* Main Content Grid: Corporate Info + 3 Nav Columns */}
+        <div className="misa-footer-grid">
+          {/* Column 1: Company Profile & Official Meta */}
+          <div className="misa-company-col">
+            <h3 className="misa-company-name">
+              {COMPANY_INFO.legalName}
+            </h3>
+
+            <div className="misa-meta-list">
+              <div className="misa-meta-item">
+                <MapPin size={15} className="misa-meta-icon" />
+                <span><strong>Trụ sở chính:</strong> {COMPANY_INFO.taxAddress}</span>
               </div>
-              <div className="tax-item">
-                <Phone size={15} color="var(--color-orange)" className="tax-icon" />
-                <span>
-                  <strong>Hotline / Zalo:</strong>{' '}
-                  <a href={`tel:${CONTACT_INFO.phoneRaw}`} style={{ color: '#ffffff', textDecoration: 'none', fontWeight: 700 }}>
-                    0834.422.439
-                  </a>
-                </span>
-              </div>
-              <div className="tax-item">
-                <Mail size={15} color="var(--color-primary-light)" className="tax-icon" />
+
+              <div className="misa-meta-item">
+                <Mail size={15} className="misa-meta-icon" />
                 <span>
                   <strong>Email:</strong>{' '}
-                  <a href={CONTACT_INFO.mailtoUrl} style={{ color: '#ffffff', textDecoration: 'none' }}>
+                  <a href={CONTACT_INFO.mailtoUrl} className="misa-link-accent">
                     {CONTACT_INFO.email}
                   </a>
                 </span>
               </div>
-            </div>
 
-            {/* Official Badge: ĐÃ THÔNG BÁO BỘ CÔNG THƯƠNG */}
-            <div style={{ marginTop: '0.85rem' }}>
-              <a
-                href="http://online.gov.vn"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Website đã thông báo với Bộ Công Thương"
-                style={{ display: 'inline-block', textDecoration: 'none' }}
-              >
-                <img
-                  src="/logo-da-thong-bao-bct.png"
-                  alt="Đã thông báo Bộ Công Thương - LocalMate"
-                  className="bct-official-logo"
-                />
-              </a>
+              <div className="misa-meta-item">
+                <Phone size={15} className="misa-meta-icon" />
+                <span>
+                  <strong>Tư vấn / Hotline:</strong>{' '}
+                  <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="misa-phone-highlight">
+                    0834 422 439
+                  </a>
+                </span>
+              </div>
+
+              <div className="misa-meta-item">
+                <Globe size={15} className="misa-meta-icon" />
+                <span>
+                  <strong>Website:</strong>{' '}
+                  <a href={COMPANY_INFO.website} target="_blank" rel="noopener noreferrer" className="misa-link-accent">
+                    https://localmate.vn
+                  </a>
+                </span>
+              </div>
+
+              <div className="misa-tax-legal">
+                Mã số thuế: <strong>{COMPANY_INFO.taxCode}</strong> — Ngày hoạt động: <strong>{COMPANY_INFO.establishedDate}</strong> do Chi cục Thuế TP. Đà Nẵng quản lý.
+              </div>
             </div>
           </div>
 
-          {/* Column 2: Dịch Vụ Cốt Lõi */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">
-              Dịch Vụ Phổ Biến
-            </h4>
-            <ul className="footer-links-list">
-              <li>
-                <Link to="/landing-490k" className="footer-link">
-                  → Website 1 trang từ 490k
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/google-maps" className="footer-link">
-                  → Đưa tiệm lên Google Maps
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/google-ads" className="footer-link">
-                  → Quảng cáo Google Ads
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/content-marketing" className="footer-link">
-                  → Viết bài Facebook 990k/tháng
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/website-landing-page" className="footer-link">
-                  → Website doanh nghiệp 3–5 trang
-                </Link>
-              </li>
-              <li>
-                <Link to="/bang-gia" className="footer-link footer-link-highlight">
-                  → Xem bảng giá niêm yết đầy đủ
-                </Link>
-              </li>
+          {/* Column 2: Dịch Vụ */}
+          <div className="misa-nav-col">
+            <h4 className="misa-col-heading">Dịch vụ</h4>
+            <ul className="misa-links-menu">
+              <li><Link to="/landing-490k">Website 1 trang từ 490k</Link></li>
+              <li><Link to="/dich-vu/google-maps">Đưa tiệm lên Google Maps</Link></li>
+              <li><Link to="/dich-vu/google-ads">Quảng cáo Google Ads</Link></li>
+              <li><Link to="/dich-vu/content-marketing">Chăm sóc Facebook 990k/tháng</Link></li>
+              <li><Link to="/dich-vu/website-landing-page">Website doanh nghiệp 3–5 trang</Link></li>
+              <li><Link to="/bang-gia" className="misa-link-bold">Xem bảng giá trọn gói →</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Danh Mục Kiến Thức & Hướng Dẫn */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">
-              Kiến Thức Thực Chiến
-            </h4>
-            <ul className="footer-links-list">
-              <li>
-                <Link to="/kien-thuc" className="footer-link">
-                  → Hướng dẫn làm Website &amp; Landing Page
-                </Link>
-              </li>
-              <li>
-                <Link to="/kien-thuc" className="footer-link">
-                  → Tối ưu Google Maps &amp; Tìm kiếm Local
-                </Link>
-              </li>
-              <li>
-                <Link to="/kien-thuc" className="footer-link">
-                  → Kinh nghiệm chạy Google Ads hiệu quả
-                </Link>
-              </li>
-              <li>
-                <Link to="/kien-thuc" className="footer-link">
-                  → Viết bài Facebook &amp; Chăm sóc Kênh
-                </Link>
-              </li>
-              <li>
-                <Link to="/kien-thuc" className="footer-link">
-                  → Đo lường chuyển đổi &amp; Cài đặt Tracking
-                </Link>
-              </li>
-              <li>
-                <Link to="/kien-thuc" className="footer-link footer-link-highlight">
-                  → Xem toàn bộ cẩm nang kinh doanh
-                </Link>
-              </li>
+          {/* Column 3: Kiến Thức */}
+          <div className="misa-nav-col">
+            <h4 className="misa-col-heading">Kiến thức</h4>
+            <ul className="misa-links-menu">
+              <li><Link to="/kien-thuc">Cẩm nang làm Website</Link></li>
+              <li><Link to="/kien-thuc">Tối ưu Google Maps Local</Link></li>
+              <li><Link to="/kien-thuc">Kinh nghiệm chạy Google Ads</Link></li>
+              <li><Link to="/kien-thuc">Mẫu bài viết Facebook</Link></li>
+              <li><Link to="/du-an">Dự án thực tế đã làm</Link></li>
+              <li><Link to="/kien-thuc" className="misa-link-bold">Tất cả bài hướng dẫn →</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Pháp Lý & Cam Kết */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">
-              Pháp Lý &amp; Cam Kết
-            </h4>
-            <ul className="footer-links-list">
-              <li>
-                <Link to="/gioi-thieu" className="footer-link">
-                  → Về LocalMate Việt Nam
-                </Link>
-              </li>
-              <li>
-                <Link to="/chinh-sach-bao-mat" className="footer-link">
-                  → Chính sách bảo mật thông tin
-                </Link>
-              </li>
-              <li>
-                <Link to="/dieu-khoan" className="footer-link">
-                  → Điều khoản dịch vụ &amp; hợp đồng
-                </Link>
-              </li>
-              <li>
-                <Link to="/chinh-sach-dich-vu" className="footer-link">
-                  → Hỗ trợ kỹ thuật sau bàn giao
-                </Link>
-              </li>
-              <li>
-                <Link to="/sitemap" className="footer-link">
-                  → Sơ đồ website (HTML Sitemap)
-                </Link>
-              </li>
-              <li>
-                <Link to="/lien-he" className="footer-link footer-link-cta">
-                  → Liên hệ nhận báo giá trực tiếp
-                </Link>
-              </li>
+          {/* Column 4: Về LocalMate */}
+          <div className="misa-nav-col">
+            <h4 className="misa-col-heading">Về LocalMate</h4>
+            <ul className="misa-links-menu">
+              <li><Link to="/gioi-thieu">Giới thiệu công ty</Link></li>
+              <li><Link to="/chinh-sach-bao-mat">Chính sách bảo mật</Link></li>
+              <li><Link to="/dieu-khoan">Điều khoản dịch vụ</Link></li>
+              <li><Link to="/chinh-sach-dich-vu">Hỗ trợ &amp; Bảo hành</Link></li>
+              <li><Link to="/sitemap">Sơ đồ website (Sitemap)</Link></li>
+              <li><Link to="/lien-he" className="misa-link-bold">Liên hệ trực tiếp →</Link></li>
             </ul>
           </div>
         </div>
 
-        {/* Trust Badges Strip */}
-        <div className="footer-trust-strip">
-          <div className="trust-pill">
-            <ShieldCheck size={16} color="var(--color-primary-light)" />
-            <span>Nghiệm thu hài lòng mới thanh toán</span>
+        {/* Social Icons & Official Certification Badges Strip */}
+        <div className="misa-trust-cert-strip">
+          {/* Social Links */}
+          <div className="misa-social-group">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="misa-social-btn" aria-label="Facebook">
+              <span className="social-txt">f</span>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="misa-social-btn" aria-label="YouTube">
+              <span className="social-txt">▶</span>
+            </a>
+            <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" className="misa-social-btn" aria-label="Zalo">
+              <span className="social-txt">Z</span>
+            </a>
+            <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="misa-social-btn" aria-label="Hotline">
+              <Phone size={14} />
+            </a>
           </div>
-          <div className="trust-pill">
-            <ShieldCheck size={16} color="var(--color-primary-light)" />
-            <span>Bàn giao 100% tài khoản chính chủ</span>
-          </div>
-          <div className="trust-pill">
-            <ShieldCheck size={16} color="var(--color-primary-light)" />
-            <span>Báo giá trước, không tự phát sinh</span>
+
+          {/* Official Certifications & Bộ Công Thương Badge */}
+          <div className="misa-cert-group">
+            <div className="misa-cert-pill">
+              <Lock size={13} color="var(--color-primary)" />
+              <span>SSL 256-bit Secure</span>
+            </div>
+
+            <div className="misa-cert-pill">
+              <CheckCircle2 size={13} color="var(--color-primary)" />
+              <span>100% Tài khoản chính chủ</span>
+            </div>
+
+            <div className="misa-cert-pill">
+              <ShieldCheck size={13} color="var(--color-primary)" />
+              <span>Báo giá trước khi làm</span>
+            </div>
+
+            {/* Official Blue Bo Cong Thuong Emblem */}
+            <a
+              href="http://online.gov.vn"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Website đã thông báo với Bộ Công Thương"
+              className="misa-bct-link"
+            >
+              <img
+                src="/logo-da-thong-bao-bct.png"
+                alt="Đã thông báo Bộ Công Thương - LocalMate"
+                className="misa-bct-img"
+              />
+            </a>
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Compliance */}
-        <div className="footer-bottom-bar">
-          <div style={{ lineHeight: 1.6 }}>
-            © {new Date().getFullYear()} <strong>{COMPANY_INFO.legalName}</strong>. Mã số thuế: <strong>{COMPANY_INFO.taxCode}</strong>. Bảo lưu mọi quyền.
+        {/* Bottom Copyright Bar */}
+        <div className="misa-bottom-bar">
+          <div className="misa-copyright">
+            Copyright © {new Date().getFullYear()} <strong>{COMPANY_INFO.legalName}</strong>. All rights reserved.
           </div>
-          <div className="footer-bottom-links">
-            <Link to="/chinh-sach-bao-mat">Bảo mật</Link>
+          <div className="misa-policy-links">
+            <Link to="/chinh-sach-bao-mat">Chính sách bảo vệ dữ liệu cá nhân</Link>
             <span>•</span>
-            <Link to="/dieu-khoan">Điều khoản</Link>
+            <Link to="/dieu-khoan">Điều khoản sử dụng</Link>
             <span>•</span>
-            <Link to="/chinh-sach-dich-vu">Hỗ trợ</Link>
-            <span>•</span>
-            <Link to="/sitemap">Sitemap</Link>
+            <Link to="/chinh-sach-dich-vu">Hỗ trợ khách hàng</Link>
           </div>
         </div>
       </Container>
 
       <style>{`
-        .footer-main-grid {
+        /* MISA / AMIS Light Clean Footer Design */
+        .misa-style-footer {
+          background-color: #ffffff;
+          color: #374151;
+          border-top: 1px solid #e5e7eb;
+          padding: 3rem 0 1.75rem 0;
+          font-family: inherit;
+        }
+
+        .misa-footer-top {
+          margin-bottom: 2rem;
+          padding-bottom: 1.25rem;
+          border-bottom: 1px solid #f3f4f6;
+        }
+
+        .misa-brand-logo {
+          display: inline-block;
+          text-decoration: none;
+        }
+
+        .misa-logo-img {
+          height: 38px;
+          width: auto;
+          object-fit: contain;
+        }
+
+        /* Main Grid */
+        .misa-footer-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 2.25rem;
+          gap: 2.5rem;
           margin-bottom: 2.5rem;
         }
 
-        @media (min-width: 640px) {
-          .footer-main-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-
-        @media (min-width: 1024px) {
-          .footer-main-grid {
-            grid-template-columns: repeat(4, 1fr);
+        @media (min-width: 768px) {
+          .misa-footer-grid {
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
             gap: 2rem;
           }
         }
 
-        .footer-col {
+        /* Column 1: Company Info */
+        .misa-company-col {
           display: flex;
           flex-direction: column;
         }
 
-        .footer-col-title {
-          color: #ffffff;
-          font-size: 0.9rem;
+        .misa-company-name {
+          font-size: 1.05rem;
           font-weight: 800;
+          color: #111827;
           margin: 0 0 1rem 0;
-          letter-spacing: 0.04em;
+          letter-spacing: 0.01em;
           text-transform: uppercase;
         }
 
-        .company-tax-card {
-          background-color: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: var(--radius-lg);
-          padding: 0.85rem 1rem;
+        .misa-meta-list {
           display: flex;
           flex-direction: column;
-          gap: 0.45rem;
-          font-size: 0.775rem;
-          color: rgba(255, 255, 255, 0.85);
+          gap: 0.55rem;
+          font-size: 0.85rem;
+          color: #4b5563;
           line-height: 1.5;
         }
 
-        .tax-item {
+        .misa-meta-item {
           display: flex;
           align-items: flex-start;
-          gap: 0.45rem;
+          gap: 0.5rem;
         }
 
-        .tax-icon {
+        .misa-meta-icon {
+          color: var(--color-primary, #0d7647);
           flex-shrink: 0;
-          margin-top: 2px;
+          margin-top: 3px;
         }
 
-        /* Official BCT Image Logo */
-        .bct-official-logo {
-          height: 48px;
-          width: auto;
-          max-width: 160px;
-          object-fit: contain;
-          display: block;
-          filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
-          transition: transform var(--transition-fast), filter var(--transition-fast);
+        .misa-link-accent {
+          color: var(--color-primary-dark, #0a5c37);
+          text-decoration: none;
+          font-weight: 600;
         }
 
-        .bct-official-logo:hover {
-          transform: translateY(-2px) scale(1.02);
-          filter: drop-shadow(0 4px 12px rgba(0, 150, 255, 0.35));
+        .misa-link-accent:hover {
+          text-decoration: underline;
         }
 
-        .footer-links-list {
+        .misa-phone-highlight {
+          color: var(--color-primary, #0d7647);
+          font-weight: 800;
+          text-decoration: none;
+        }
+
+        .misa-phone-highlight:hover {
+          text-decoration: underline;
+        }
+
+        .misa-tax-legal {
+          font-size: 0.775rem;
+          color: #6b7280;
+          line-height: 1.5;
+          margin-top: 0.45rem;
+          padding-top: 0.45rem;
+          border-top: 1px dashed #e5e7eb;
+        }
+
+        /* Nav Columns */
+        .misa-nav-col {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .misa-col-heading {
+          font-size: 0.95rem;
+          font-weight: 800;
+          color: #111827;
+          margin: 0 0 1rem 0;
+        }
+
+        .misa-links-menu {
           list-style: none;
+          padding: 0;
+          margin: 0;
           display: flex;
           flex-direction: column;
           gap: 0.6rem;
-          padding: 0;
-          margin: 0;
           font-size: 0.85rem;
         }
 
-        .footer-link {
+        .misa-links-menu a {
+          color: #4b5563;
           text-decoration: none;
-          color: rgba(255, 255, 255, 0.8);
-          transition: color var(--transition-fast), padding-left var(--transition-fast);
+          transition: color var(--transition-fast);
           display: inline-block;
-          line-height: 1.45;
+          line-height: 1.4;
         }
 
-        .footer-link:hover {
-          color: #ffffff !important;
-          padding-left: 3px;
+        .misa-links-menu a:hover {
+          color: var(--color-primary, #0d7647);
+          text-decoration: underline;
         }
 
-        .footer-link-highlight {
-          color: var(--color-orange) !important;
-          font-weight: 700;
+        .misa-link-bold {
+          font-weight: 700 !important;
+          color: var(--color-primary, #0d7647) !important;
         }
 
-        .footer-link-cta {
-          color: var(--color-primary-light) !important;
-          font-weight: 700;
-        }
-
-        /* Trust Strip */
-        .footer-trust-strip {
+        /* Certifications & Social Strip */
+        .misa-trust-cert-strip {
           display: flex;
-          flex-wrap: wrap;
-          gap: 0.75rem;
-          padding: 1.25rem 0;
+          flex-direction: column;
+          gap: 1.25rem;
+          padding: 1.5rem 0;
+          border-top: 1px solid #e5e7eb;
+          border-bottom: 1px solid #e5e7eb;
           margin-bottom: 1.5rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-          justify-content: center;
         }
 
-        .trust-pill {
+        @media (min-width: 768px) {
+          .misa-trust-cert-strip {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+
+        .misa-social-group {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+        }
+
+        .misa-social-btn {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background-color: #f3f4f6;
+          border: 1px solid #e5e7eb;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #4b5563;
+          text-decoration: none;
+          font-weight: 800;
+          font-size: 0.85rem;
+          transition: all var(--transition-fast);
+        }
+
+        .misa-social-btn:hover {
+          background-color: var(--color-primary-soft, #f4fbf7);
+          border-color: var(--color-primary, #0d7647);
+          color: var(--color-primary, #0d7647);
+          transform: translateY(-1px);
+        }
+
+        .social-txt {
+          font-family: system-ui, sans-serif;
+          line-height: 1;
+        }
+
+        .misa-cert-group {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 0.65rem;
+        }
+
+        .misa-cert-pill {
           display: inline-flex;
           align-items: center;
-          gap: 0.4rem;
-          font-size: 0.775rem;
-          font-weight: 600;
-          color: rgba(255, 255, 255, 0.9);
-          background-color: rgba(255, 255, 255, 0.06);
-          padding: 0.35rem 0.8rem;
-          border-radius: var(--radius-full);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          gap: 0.35rem;
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: #374151;
+          background-color: #f9fafb;
+          border: 1px solid #e5e7eb;
+          padding: 0.3rem 0.65rem;
+          border-radius: var(--radius-full, 999px);
+        }
+
+        .misa-bct-link {
+          display: inline-block;
+          text-decoration: none;
+          margin-left: 0.35rem;
+        }
+
+        .misa-bct-img {
+          height: 38px;
+          width: auto;
+          max-width: 140px;
+          object-fit: contain;
+          display: block;
+          transition: transform var(--transition-fast);
+        }
+
+        .misa-bct-img:hover {
+          transform: scale(1.03);
         }
 
         /* Bottom Bar */
-        .footer-bottom-bar {
+        .misa-bottom-bar {
           display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          align-items: center;
-          gap: 1rem;
+          flex-direction: column;
+          gap: 0.75rem;
           font-size: 0.775rem;
-          color: rgba(255, 255, 255, 0.65);
+          color: #6b7280;
         }
 
-        .footer-bottom-links {
+        @media (min-width: 768px) {
+          .misa-bottom-bar {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+
+        .misa-copyright {
+          line-height: 1.5;
+        }
+
+        .misa-policy-links {
           display: flex;
-          gap: 0.85rem;
+          gap: 0.65rem;
           align-items: center;
+          flex-wrap: wrap;
         }
 
-        .footer-bottom-links a {
-          color: rgba(255, 255, 255, 0.65);
+        .misa-policy-links a {
+          color: #6b7280;
           text-decoration: none;
           transition: color var(--transition-fast);
         }
 
-        .footer-bottom-links a:hover {
-          color: #ffffff;
+        .misa-policy-links a:hover {
+          color: var(--color-primary, #0d7647);
           text-decoration: underline;
         }
       `}</style>
