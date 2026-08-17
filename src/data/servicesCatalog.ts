@@ -66,57 +66,57 @@ export interface DigitalCareTier {
 export const TECH_CATEGORIES: TechCategoryMeta[] = [
   {
     key: 'website-landing',
-    title: '1. Website & Landing Page',
-    description: 'Thiết kế trang giới thiệu, landing page chuyển đổi và website doanh nghiệp chuẩn SEO di động.',
+    title: 'Website & Bán Hàng',
+    description: 'Thiết kế trang giới thiệu, landing page bán hàng và website doanh nghiệp chuẩn di động.',
     badge: '8 dịch vụ'
   },
   {
     key: 'website-fix',
-    title: '2. Website Fix & Nền kinh tế 99k',
-    description: 'Sửa lỗi nhỏ 99k, tối ưu tốc độ 299k, responsive di động 149k, cấu hình DNS và Cloudflare nhanh.',
+    title: 'Sửa Nhanh Từ 99k',
+    description: 'Sửa lỗi nhỏ 99k, tăng tốc web 299k, sửa giao diện điện thoại 149k, trỏ tên miền và cài SSL.',
     badge: '7 dịch vụ'
   },
   {
     key: 'google-seo',
-    title: '3. Google, SEO, GEO & Local',
-    description: 'Tối ưu hiện diện Google Maps 299k, xác minh GBP, SEO kỹ thuật và tối ưu tìm kiếm AI (GEO).',
+    title: 'Google Maps & Local SEO',
+    description: 'Tạo vị trí Google Maps 299k, tối ưu lên top tìm kiếm gần, tạo mã QR đánh giá 5 sao.',
     badge: '7 dịch vụ'
   },
   {
-    key: 'analytics-tracking',
-    title: '4. Analytics, Tracking & Ads Infra',
-    description: 'Cài đặt GA4 99k, GTM 99k, Meta Pixel 149k và theo dõi lượt nhấp/cuộc gọi chính xác 100%.',
-    badge: '5 dịch vụ'
-  },
-  {
     key: 'ads-conversion',
-    title: '5. Ads & Conversion (CRO)',
-    description: 'Khởi tạo chiến dịch Google Ads, Meta Ads 390k và audit tối ưu tỷ lệ chuyển đổi.',
+    title: 'Quảng Cáo Google & Facebook',
+    description: 'Khởi tạo chiến dịch Google Ads, Facebook Ads từ 390k và tối ưu tỷ lệ khách gọi.',
     badge: '4 dịch vụ'
   },
   {
+    key: 'analytics-tracking',
+    title: 'Đo Lường & Cài Đặt Mã',
+    description: 'Cài đặt Google Analytics 99k, đo lượt bấm gọi/Zalo 199k, gắn mã Pixel Facebook.',
+    badge: '5 dịch vụ'
+  },
+  {
     key: 'crm-automation',
-    title: '6. CRM, Booking & Automation',
-    description: 'Tự động gửi thông báo Telegram 299k, booking online 690k và hệ thống CRM quản lý khách hàng.',
+    title: 'Tự Động Hóa & Báo Đơn',
+    description: 'Báo đơn về Telegram 299k, đặt lịch hẹn online 690k và lưu khách vào Google Sheets.',
     badge: '5 dịch vụ'
   },
   {
     key: 'ai-software',
-    title: '7. AI & Custom Software',
-    description: 'Chatbot AI hỏi đáp 990k, trợ lý booking tự động 1.99m và lập trình phần mềm theo yêu cầu 3.9m+.',
+    title: 'Phần Mềm & Trợ Lý AI',
+    description: 'Chatbot AI trả lời tự động 24/7, phần mềm quản lý nội bộ theo yêu cầu riêng.',
     badge: '3 dịch vụ'
   },
   {
     key: 'legal-compliance',
-    title: '8. Dịch vụ #41: Pháp Lý & Compliance Digital',
-    description: 'BCT Compliance Check, khởi tạo trang chính sách 299k & Hỗ trợ thủ tục thông báo website với Bộ Công Thương.',
+    title: 'Pháp Lý Bộ Công Thương',
+    description: 'Bộ 4 trang chính sách chuẩn, hỗ trợ thủ tục khai báo và gắn huy hiệu Bộ Công Thương.',
     badge: '5 dịch vụ'
   },
   {
     key: 'digital-care',
-    title: '9. Recurring Digital Operations',
-    description: 'Dịch vụ chăm sóc, bảo trì và đồng hành vận hành digital hàng tháng cho doanh nghiệp nhỏ.',
-    badge: 'Dịch vụ #40'
+    title: 'Chăm Sóc Hàng Tháng',
+    description: 'Gói đồng hành bảo trì, cập nhật nội dung và tối ưu thứ hạng website định kỳ.',
+    badge: 'Gói tháng'
   }
 ];
 
@@ -125,7 +125,7 @@ export const GOAL_CATEGORIES: GoalCategoryMeta[] = [
     key: 'bat-dau-online',
     title: '1. Bắt đầu kinh doanh online',
     question: 'Tôi cần một website hoặc landing page ban đầu',
-    startingPrice: 'Từ 590.000đ',
+    startingPrice: 'Từ 490.000đ',
     description: 'Xây dựng hiện diện thương hiệu rõ ràng, hiển thị chuẩn di động, tích hợp ngay các nút gọi Zalo.',
     iconName: 'Globe',
     featuredServiceIds: ['01', '02', '04', '12', '19']
@@ -164,7 +164,7 @@ export const GOAL_CATEGORIES: GoalCategoryMeta[] = [
     startingPrice: 'Từ 290.000đ/tháng',
     description: 'Gói chăm sóc website, bảo trì kỹ thuật và hỗ trợ thủ tục thông báo website với Bộ Công Thương.',
     iconName: 'ShieldCheck',
-    featuredServiceIds: ['40-mini', '40-business', '41-bct-pack', '41-policy']
+    featuredServiceIds: ['40', '41a', '41b', '41c', '41d', '41e']
   }
 ];
 
@@ -177,10 +177,10 @@ export const DIGITAL_CARE_TIERS: DigitalCareTier[] = [
     description: 'Dành cho website nhỏ cần giám sát hoạt động và bảo trì cơ bản.',
     tasksQuota: '2 thay đổi nhỏ / tháng',
     features: [
-      'Giám sát website uptime 24/7',
+      'Giám sát website hoạt động 24/7',
       'Sao lưu (Backup) dữ liệu định kỳ',
       'Hỗ trợ sửa 02 lỗi/thay đổi nhỏ',
-      'Hỗ trợ kỹ thuật qua Zalo'
+      'Hỗ trợ kỹ thuật nhanh qua Zalo'
     ]
   },
   {
@@ -195,9 +195,9 @@ export const DIGITAL_CARE_TIERS: DigitalCareTier[] = [
     features: [
       'Toàn bộ quyền lợi gói Care Mini',
       'Cập nhật sản phẩm / bài viết mới',
-      'Chăm sóc Google Business Profile basic',
-      'Health check hệ thống form & tracking',
-      'Hỗ trợ 04 task nội dung/kỹ thuật'
+      'Chăm sóc Google Maps định kỳ',
+      'Kiểm tra hệ thống form & nút gọi',
+      'Hỗ trợ 04 việc nội dung/kỹ thuật'
     ]
   },
   {
@@ -210,7 +210,7 @@ export const DIGITAL_CARE_TIERS: DigitalCareTier[] = [
     features: [
       'Toàn bộ quyền lợi gói Care Business',
       'Local SEO & Tối ưu Google Maps',
-      'Tối ưu tỷ lệ chuyển đổi (CRO basic)',
+      'Tối ưu tỷ lệ chuyển đổi nút bấm',
       'Biên tập 04 bài viết chuẩn SEO',
       'Báo cáo hiệu quả & lượt gọi hàng tháng'
     ]
@@ -222,12 +222,12 @@ export const DIGITAL_CARE_TIERS: DigitalCareTier[] = [
     unit: 'tháng',
     badge: 'Đồng hành toàn diện',
     description: 'Thay thế phòng Marketing/IT thuê ngoài trọn gói cho doanh nghiệp nhỏ.',
-    tasksQuota: 'Ưu tiên hỗ trợ không giới hạn task nhỏ',
+    tasksQuota: 'Ưu tiên hỗ trợ không giới hạn việc nhỏ',
     features: [
       'Toàn bộ quyền lợi gói Care Growth',
       'Xử lý ưu tiên trong 2-4 giờ làm việc',
-      'Tối ưu Ads campaign & tracking nâng cao',
-      'Tư vấn định hướng Digital & Automation',
+      'Tối ưu chiến dịch quảng cáo & theo dõi',
+      'Tư vấn tự động hóa quy trình khách hàng',
       'Báo cáo chiến lược định kỳ 1:1'
     ]
   }
@@ -238,24 +238,25 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '01',
     code: 'WEB-STARTER',
-    name: 'Landing Page Starter',
+    name: 'Website 1 Trang Bán Hàng (Gói Khởi Đầu)',
     categoryGroup: 'website-landing',
     goalGroup: 'bat-dau-online',
-    scope: '1 trang 4–5 section, CTA gọi/Zalo, responsive di động, deploy mượt',
-    effort: '1.5–2h',
-    priceDisplay: '590.000đ',
-    numericPrice: 590000,
+    scope: 'Gồm 4–5 phần chuẩn: Giới thiệu, bảng giá dịch vụ, hình ảnh, nút bấm gọi điện & chat Zalo ngay.',
+    effort: '1–2 ngày',
+    priceDisplay: '490.000đ',
+    numericPrice: 490000,
     unit: 'trọn gói',
-    isActive: true
+    isActive: true,
+    isPopular: true
   },
   {
     id: '02',
     code: 'WEB-BIZ',
-    name: 'Landing Page Business',
+    name: 'Website Giới Thiệu Doanh Nghiệp & Dịch Vụ',
     categoryGroup: 'website-landing',
     goalGroup: 'bat-dau-online',
-    scope: '6–8 section, form tư vấn, tích hợp bản đồ Google Maps, CTA, basic SEO',
-    effort: '2.5–3h',
+    scope: 'Gồm 6–8 phần đầy đủ: Giới thiệu, bảng giá chi tiết, form tư vấn, bản đồ chỉ đường Google Maps & chuẩn SEO.',
+    effort: '2–3 ngày',
     priceDisplay: '790.000đ',
     numericPrice: 790000,
     unit: 'trọn gói',
@@ -265,11 +266,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '03',
     code: 'WEB-CRO',
-    name: 'Landing Page Conversion',
+    name: 'Website Tối Ưu Tỷ Lệ Chuyển Đổi (CRO)',
     categoryGroup: 'website-landing',
     goalGroup: 'bat-dau-online',
-    scope: 'Landing page tối ưu chuyển đổi + cài đặt tracking + cấu trúc Schema + conversion event',
-    effort: '3–4h',
+    scope: 'Trang bán hàng chuyên sâu + gắn mã theo dõi chuyển đổi + tối ưu nút bấm kêu gọi hành động để tăng khách gọi.',
+    effort: '2–3 ngày',
     priceDisplay: '990.000đ',
     numericPrice: 990000,
     unit: 'trọn gói',
@@ -278,11 +279,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '04',
     code: 'WEB-1PAGE',
-    name: 'Website Doanh Nghiệp 1 Trang',
+    name: 'Website Công Ty 1 Trang Hoàn Chỉnh',
     categoryGroup: 'website-landing',
     goalGroup: 'bat-dau-online',
-    scope: 'Homepage doanh nghiệp đầy đủ 8–10 section, giới thiệu, quy trình, bảng giá, liên hệ',
-    effort: '4–5h',
+    scope: 'Trang chủ công ty 8–10 phần: Giới thiệu năng lực, quy trình làm việc, dự án tiêu biểu, bảng giá & liên hệ.',
+    effort: '3–4 ngày',
     priceDisplay: '1.290.000đ',
     numericPrice: 1290000,
     unit: 'trọn gói',
@@ -291,26 +292,26 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '05',
     code: 'WEB-MULTIPAGE',
-    name: 'Website Doanh Nghiệp 3–5 Trang',
+    name: 'Website Doanh Nghiệp Nhiều Trang (3–5 Trang)',
     categoryGroup: 'website-landing',
     goalGroup: 'bat-dau-online',
-    scope: 'Trang chủ, Giới thiệu, Dịch vụ chi tiết, Bài viết/Tin tức, Liên hệ. TẶNG KÈM bộ Technical 496k',
-    effort: '6–8h',
+    scope: 'Trang chủ, Giới thiệu, Từng trang dịch vụ riêng, Tin tức/Blog, Liên hệ. TẶNG KÈM bộ cài đặt SEO & đo lường 496k.',
+    effort: '4–6 ngày',
     priceDisplay: '1.990.000đ',
     numericPrice: 1990000,
     unit: 'trọn gói',
     isActive: true,
     isPopular: true,
-    includedFreeAddons: ['GA4 Setup (99k)', 'GTM Setup (99k)', 'Search Console (99k)', 'Schema Basic (199k)', 'BCT Check (99k)']
+    includedFreeAddons: ['Cài đặt GA4 (99k)', 'Cài đặt GTM (99k)', 'Xác minh Google Search (99k)', 'Khai báo Schema (199k)']
   },
   {
     id: '06',
     code: 'WEB-FNB',
-    name: 'Website F&B / Nhà Hàng / Spa',
+    name: 'Website Quán Ăn, Nhà Hàng & Spa',
     categoryGroup: 'website-landing',
     goalGroup: 'bat-dau-online',
-    scope: 'Menu điện tử, form đặt bàn/đặt lịch online, chỉ đường Google Maps, hotline, gallery',
-    effort: '7–10h',
+    scope: 'Menu điện tử hình ảnh đẹp, form đặt bàn/đặt hẹn trực tuyến, chỉ đường Google Maps, hotline & góc ảnh không gian.',
+    effort: '3–5 ngày',
     priceDisplay: '2.490.000đ',
     numericPrice: 2490000,
     unit: 'trọn gói',
@@ -319,11 +320,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '07',
     code: 'WEB-ECOM',
-    name: 'Website Bán Hàng / Catalogue',
+    name: 'Website Danh Mục & Bán Hàng Online',
     categoryGroup: 'website-landing',
     goalGroup: 'bat-dau-online',
-    scope: 'Catalogue sản phẩm, bộ lọc danh mục, chi tiết sản phẩm, giỏ hàng/đặt hàng đơn giản',
-    effort: '10–15h',
+    scope: 'Trưng bày catalogue sản phẩm, bộ lọc danh mục, trang chi tiết sản phẩm, giỏ hàng & đặt hàng nhanh qua Zalo.',
+    effort: '5–7 ngày',
     priceDisplay: '3.490.000đ',
     numericPrice: 3490000,
     unit: 'trọn gói',
@@ -332,11 +333,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '08',
     code: 'WEB-LAUNCH',
-    name: 'Gói Khởi Tạo LocalMate Launch',
+    name: 'Gói Khởi Tạo Số Trọn Gói (Website + Maps + Ads)',
     categoryGroup: 'website-landing',
     goalGroup: 'bat-dau-online',
-    scope: 'Trọn gói: Website Business + GBP Google Maps + Ads Tracking Pack + Basic SEO + Social Setup',
-    effort: '7–10 ngày',
+    scope: 'Trọn gói chìa khóa trao tay: Website Doanh nghiệp + Tạo Google Maps chuẩn + Bộ đo lường Ads + SEO cơ bản.',
+    effort: '5–7 ngày',
     priceDisplay: '2.490.000đ',
     numericPrice: 2490000,
     unit: 'trọn gói',
@@ -344,28 +345,29 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     isPopular: true
   },
 
-  // 2. WEBSITE FIX & TECHNICAL 99K ECONOMY (09 - 15)
+  // 2. SỬA NHANH TỪ 99K (09 - 15)
   {
     id: '09',
     code: 'FIX-BUG',
-    name: 'Sửa Lỗi Website Nhỏ',
+    name: 'Sửa Lỗi Giao Diện / Lỗi Nhỏ Website',
     categoryGroup: 'website-fix',
     goalGroup: 'van-hanh-lau-dai',
-    scope: 'Fix lỗi hiển thị layout, nút bấm không hoạt động, hỏng link, lỗi form ngắn',
-    effort: '≤30m',
+    scope: 'Sửa nút bấm bị liệt, đổi giá/menu, thay banner, sửa lỗi hiển thị chữ, sửa form không gửi được tin.',
+    effort: '15–30 phút',
     priceDisplay: '99.000đ',
     numericPrice: 99000,
     unit: 'trọn gói',
-    isActive: true
+    isActive: true,
+    isPopular: true
   },
   {
     id: '10',
     code: 'FIX-MOBILE',
-    name: 'Responsive Mobile Fix',
+    name: 'Sửa Lỗi Vỡ Giao Diện Trên Điện Thoại',
     categoryGroup: 'website-fix',
     goalGroup: 'van-hanh-lau-dai',
-    scope: 'Sửa lỗi giao diện hiển thị vỡ trên điện thoại iPhone / Android / Tablet',
-    effort: '0.5–1.5h',
+    scope: 'Khắc phục lỗi trang web bị tràn mép, chữ quá nhỏ, nút bấm khó chạm trên iPhone / Android / iPad.',
+    effort: '30–60 phút',
     priceDisplay: '149.000đ',
     numericPrice: 149000,
     unit: 'trọn gói',
@@ -374,11 +376,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '11',
     code: 'FIX-SPEED',
-    name: 'Tối Ưu Tốc Độ Cơ Bản',
+    name: 'Tăng Tốc Độ Tải Trang Web',
     categoryGroup: 'website-fix',
     goalGroup: 'van-hanh-lau-dai',
-    scope: 'Nén ảnh WebP, dọn dẹp asset dư thừa, tối ưu lazy loading & dọn dẹp code',
-    effort: '1–2h',
+    scope: 'Nén hình ảnh dung lượng nhẹ, dọn dẹp mã nguồn thừa, giúp website mở tức thì dưới 2 giây trên điện thoại.',
+    effort: '1–2 giờ',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
     unit: 'trọn gói',
@@ -387,11 +389,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '12',
     code: 'FIX-DNS',
-    name: 'Domain & DNS Setup',
+    name: 'Trỏ Tên Miền & Cài Đặt Khóa Bảo Mật SSL',
     categoryGroup: 'website-fix',
     goalGroup: 'bat-dau-online',
-    scope: 'Trỏ tên miền .vn/.com, cấu hình bản ghi DNS A/CNAME, kích hoạt chứng chỉ SSL miễn phí',
-    effort: '30–60m',
+    scope: 'Kết nối tên miền .vn/.com vào hosting/website, bật ổ khóa bảo mật HTTPS (SSL) miễn phí trọn đời.',
+    effort: '30–45 phút',
     priceDisplay: '149.000đ',
     numericPrice: 149000,
     unit: 'trọn gói',
@@ -400,11 +402,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '13',
     code: 'FIX-CF',
-    name: 'Cloudflare Basic Setup',
+    name: 'Cài Đặt Cloudflare Tăng Tốc & Chống Hack',
     categoryGroup: 'website-fix',
     goalGroup: 'van-hanh-lau-dai',
-    scope: 'Cấu hình Cloudflare DNS, bật SSL HTTPS, cài đặt bảo mật và route tăng tốc',
-    effort: '30–60m',
+    scope: 'Cấu hình Cloudflare DNS miễn phí, kích hoạt lớp tường lửa bảo vệ website và tăng tốc độ truy cập.',
+    effort: '30–60 phút',
     priceDisplay: '199.000đ',
     numericPrice: 199000,
     unit: 'trọn gói',
@@ -413,11 +415,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '14',
     code: 'FIX-FORM',
-    name: 'Form Website Integration',
+    name: 'Tích Hợp Form Đặt Bàn / Liên Hệ Tự Động',
     categoryGroup: 'website-fix',
     goalGroup: 'do-lam-thu-cong',
-    scope: 'Tích hợp form liên hệ đẩy dữ liệu tự động về Email / Google Sheets / Telegram',
-    effort: '30–60m',
+    scope: 'Tạo form để khách điền thông tin, dữ liệu tự động gửi ngay về Email, Google Sheets hoặc Telegram của bạn.',
+    effort: '30–60 phút',
     priceDisplay: '199.000đ',
     numericPrice: 199000,
     unit: 'trọn gói',
@@ -426,26 +428,26 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '15',
     code: 'FIX-AUDIT',
-    name: 'Website Technical Audit',
+    name: 'Kiểm Tra & Đánh Giá Toàn Diện Website',
     categoryGroup: 'website-fix',
     goalGroup: 'van-hanh-lau-dai',
-    scope: 'Rà soát toàn bộ UI, luồng đặt hàng, lỗi mobile và báo cáo kỹ thuật',
-    effort: '30–90m',
-    priceDisplay: '0đ – 299.000đ',
+    scope: 'Rà soát toàn bộ tốc độ, lỗi hiển thị mobile, nút gọi, tính năng đặt hàng và gửi báo cáo chi tiết kèm giải pháp.',
+    effort: '30–60 phút',
+    priceDisplay: 'Miễn phí',
     numericPrice: 0,
     unit: 'trọn gói',
     isActive: true
   },
 
-  // 3. GOOGLE, SEO, GEO & LOCAL (16 - 22)
+  // 3. GOOGLE MAPS & LOCAL SEO (16 - 22)
   {
     id: '16',
     code: 'SEO-TECH',
-    name: 'SEO Technical Setup',
+    name: 'Cài Đặt SEO Kỹ Thuật Chuẩn Google',
     categoryGroup: 'google-seo',
     goalGroup: 'co-them-khach',
-    scope: 'Tối ưu Title, Meta Description, tạo Sitemap.xml, Robots.txt và Canonical URL chuẩn SEO',
-    effort: '1–1.5h',
+    scope: 'Tối ưu tiêu đề, mô tả tìm kiếm, tạo sitemap.xml, khai báo robots.txt giúp Google nhanh chóng tìm thấy web.',
+    effort: '1–2 giờ',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
     unit: 'trọn gói',
@@ -454,11 +456,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '17',
     code: 'SEO-SCHEMA',
-    name: 'Schema / Structured Data',
+    name: 'Khai Báo Dữ Liệu Doanh Nghiệp (Schema)',
     categoryGroup: 'google-seo',
     goalGroup: 'co-them-khach',
-    scope: 'Khai báo mã dữ liệu cấu trúc Schema (LocalBusiness, Product, ProfessionalService, FAQPage)',
-    effort: '30–60m',
+    scope: 'Khai báo mã dữ liệu chuẩn giúp Google hiển thị địa chỉ, giờ mở cửa, số điện thoại và đánh giá sao trên kết quả tìm kiếm.',
+    effort: '30–60 phút',
     priceDisplay: '199.000đ',
     numericPrice: 199000,
     unit: 'trọn gói',
@@ -467,11 +469,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '18',
     code: 'SEO-GSC',
-    name: 'Google Search Console Setup',
+    name: 'Xác Minh Website Trên Google Search Console',
     categoryGroup: 'google-seo',
     goalGroup: 'co-them-khach',
-    scope: 'Xác minh Google Search Console, khai báo Sitemap và yêu cầu lập chỉ mục (Indexing)',
-    effort: '~30m',
+    scope: 'Khai báo quyền sở hữu website với Google, gửi sơ đồ trang web và yêu cầu Google lập chỉ mục các bài viết.',
+    effort: '30 phút',
     priceDisplay: '99.000đ',
     numericPrice: 99000,
     unit: 'trọn gói',
@@ -480,11 +482,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '19',
     code: 'SEO-GBP',
-    name: 'Google Business Profile Setup',
+    name: 'Tạo Mới & Đưa Địa Điểm Lên Google Maps',
     categoryGroup: 'google-seo',
     goalGroup: 'co-them-khach',
-    scope: 'Khởi tạo & chuẩn hóa trang Google Doanh Nghiệp (GBP), nhập giờ mở cửa & thông tin nhận diện',
-    effort: '1h',
+    scope: 'Tạo trang doanh nghiệp trên Google Maps, điền đầy đủ số điện thoại, giờ mở cửa, địa chỉ chuẩn xác và đăng ảnh đại diện.',
+    effort: '1–2 giờ',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
     unit: 'trọn gói',
@@ -494,11 +496,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '20',
     code: 'SEO-MAPS',
-    name: 'Google Maps Optimization',
+    name: 'Tối Ưu & Tăng Đánh Giá Google Maps',
     categoryGroup: 'google-seo',
     goalGroup: 'co-them-khach',
-    scope: 'Tối ưu danh mục dịch vụ, đăng ảnh sản phẩm chuẩn vị trí NAP, tạo link nhận đánh giá',
-    effort: '1–2h',
+    scope: 'Tối ưu danh mục ngành nghề, gắn từ khóa tìm kiếm, đăng ảnh sản phẩm chuẩn vị trí và tạo link rút gọn xin đánh giá 5 sao.',
+    effort: '1–2 giờ',
     priceDisplay: '390.000đ',
     numericPrice: 390000,
     unit: 'trọn gói',
@@ -507,11 +509,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '21',
     code: 'SEO-GEO',
-    name: 'GEO / AI Search Optimization',
+    name: 'Tối Ưu Hiển Thị Trên AI (ChatGPT / Gemini)',
     categoryGroup: 'google-seo',
     goalGroup: 'co-them-khach',
-    scope: 'Cấu trúc lại thông tin Entity & Schema giúp thương hiệu xuất hiện khi người dùng tra cứu AI Search',
-    effort: '1–3h',
+    scope: 'Cấu trúc thông tin thương hiệu để các công cụ AI (ChatGPT, Google AI, Gemini) nhận diện và gợi ý quán của bạn khi khách hỏi.',
+    effort: '1–3 giờ',
     priceDisplay: '490.000đ',
     numericPrice: 490000,
     unit: 'trọn gói',
@@ -520,11 +522,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '22',
     code: 'SEO-MONTHLY',
-    name: 'Local SEO Monthly',
+    name: 'Duy Trì Top Tìm Kiếm Google Maps Hàng Tháng',
     categoryGroup: 'google-seo',
     goalGroup: 'van-hanh-lau-dai',
-    scope: 'Đồng hành duy trì thứ hạng Google Maps + viết bài chuẩn SEO địa phương hàng tháng',
-    effort: '3–5h/tháng',
+    scope: 'Đăng bài cập nhật, thêm ảnh sản phẩm định kỳ, tối ưu từ khóa và hỗ trợ phản hồi đánh giá để giữ vị trí top đầu khu vực.',
+    effort: 'Hàng tháng',
     priceDisplay: '990.000đ',
     numericPrice: 990000,
     unit: 'tháng',
@@ -532,15 +534,15 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     isPopular: true
   },
 
-  // 4. ANALYTICS, TRACKING & ADS INFRASTRUCTURE (23 - 27)
+  // 4. ĐO LƯỜNG & THEO DÕI (23 - 27)
   {
     id: '23',
     code: 'TRACK-GA4',
-    name: 'Google Analytics 4 Setup',
+    name: 'Cài Đặt Thống Kê Khách Vào Web (GA4)',
     categoryGroup: 'analytics-tracking',
     goalGroup: 'biet-khach-tu-dau',
-    scope: 'Khởi tạo tài khoản GA4 Property và nhúng mã theo dõi toàn bộ lưu lượng truy cập website',
-    effort: '~30m',
+    scope: 'Cài đặt Google Analytics 4 để xem mỗi ngày có bao nhiêu người vào web, họ ở tỉnh thành nào và xem trang nào nhiều nhất.',
+    effort: '30 phút',
     priceDisplay: '99.000đ',
     numericPrice: 99000,
     unit: 'trọn gói',
@@ -549,11 +551,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '24',
     code: 'TRACK-GTM',
-    name: 'Google Tag Manager Setup',
+    name: 'Cài Trình Quản Lý Thẻ (Google Tag Manager)',
     categoryGroup: 'analytics-tracking',
     goalGroup: 'biet-khach-tu-dau',
-    scope: 'Tạo container GTM và nhúng thẻ quản lý quảng cáo/tracking tập trung',
-    effort: '~30m',
+    scope: 'Cài đặt Google Tag Manager giúp gắn các mã quảng cáo (Facebook, Google, TikTok) dễ dàng mà không cần sửa code web.',
+    effort: '30 phút',
     priceDisplay: '99.000đ',
     numericPrice: 99000,
     unit: 'trọn gói',
@@ -562,11 +564,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '25',
     code: 'TRACK-CONVERSION',
-    name: 'Conversion Tracking Setup',
+    name: 'Đo Lường Lượt Bấm Gọi & Nhắn Tin Zalo',
     categoryGroup: 'analytics-tracking',
     goalGroup: 'biet-khach-tu-dau',
-    scope: 'Cài đặt theo dõi hành vi chuyển đổi: Lượt bấm gọi điện, nút Zalo, form đăng ký, bấm đặt bàn',
-    effort: '30–60m',
+    scope: 'Gắn mã theo dõi chính xác có bao nhiêu khách bấm nút Gọi, nút Zalo, điền form hoặc bấm xem bản đồ chỉ đường.',
+    effort: '30–60 phút',
     priceDisplay: '199.000đ',
     numericPrice: 199000,
     unit: 'trọn gói',
@@ -575,11 +577,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '26',
     code: 'TRACK-PIXEL',
-    name: 'Meta Pixel Setup',
+    name: 'Gắn Mã Theo Dõi Facebook (Meta Pixel)',
     categoryGroup: 'analytics-tracking',
     goalGroup: 'biet-khach-tu-dau',
-    scope: 'Cài đặt Facebook Meta Pixel & nhúng các sự kiện theo dõi cơ bản',
-    effort: '30–60m',
+    scope: 'Cài đặt mã Facebook Pixel trên web để lưu lại những người đã xem sản phẩm và phục vụ chạy quảng cáo bám đuổi (Remarketing).',
+    effort: '30–60 phút',
     priceDisplay: '149.000đ',
     numericPrice: 149000,
     unit: 'trọn gói',
@@ -588,11 +590,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '27',
     code: 'TRACK-PACK',
-    name: 'Full Ads Tracking Pack',
+    name: 'Trọn Gói Cài Đặt Đo Lường Toàn Diện',
     categoryGroup: 'analytics-tracking',
     goalGroup: 'biet-khach-tu-dau',
-    scope: 'Combo hoàn chỉnh: GA4 + GTM + Google Ads Conversion + Meta Pixel + Bảng đo lường lead',
-    effort: '1–2h',
+    scope: 'Combo hoàn chỉnh: Cài GA4 + GTM + Đo nút gọi Zalo + Gắn Pixel Facebook + Bảng theo dõi số lượng khách liên hệ.',
+    effort: '1–2 giờ',
     priceDisplay: '390.000đ',
     numericPrice: 390000,
     unit: 'trọn gói',
@@ -600,28 +602,29 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     isPopular: true
   },
 
-  // 5. ADS & CONVERSION (28 - 31)
+  // 5. QUẢNG CÁO GOOGLE & FACEBOOK (28 - 31)
   {
     id: '28',
     code: 'ADS-GADS',
-    name: 'Google Ads Initial Setup',
+    name: 'Khởi Tạo Quảng Cáo Google Tìm Kiếm (Google Ads)',
     categoryGroup: 'ads-conversion',
     goalGroup: 'co-them-khach',
-    scope: 'Khởi tạo tài khoản quảng cáo, cài đặt 01 chiến dịch Google Tìm Kiếm (Search), mẫu chữ & từ khóa',
-    effort: '1–2h',
+    scope: 'Tạo tài khoản chính chủ, chọn lọc từ khóa đúng người đang cần mua, viết mẫu quảng cáo hấp dẫn và cài đặt ngân sách phù hợp.',
+    effort: '1–2 ngày',
     priceDisplay: '390.000đ',
     numericPrice: 390000,
     unit: 'trọn gói',
-    isActive: true
+    isActive: true,
+    isPopular: true
   },
   {
     id: '29',
     code: 'ADS-META',
-    name: 'Meta Ads Initial Setup',
+    name: 'Khởi Tạo Quảng Cáo Facebook Nhắn Tin',
     categoryGroup: 'ads-conversion',
     goalGroup: 'co-them-khach',
-    scope: 'Thiết lập tài khoản quảng cáo Facebook/Instagram, tập đối tượng mục tiêu & kiểm tra Pixel',
-    effort: '1–2h',
+    scope: 'Thiết lập chiến dịch quảng cáo nhắn tin Fanpage, nhắm đúng khách hàng theo khu vực quận/huyện và độ tuổi mục tiêu.',
+    effort: '1–2 ngày',
     priceDisplay: '390.000đ',
     numericPrice: 390000,
     unit: 'trọn gói',
@@ -630,11 +633,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '30',
     code: 'ADS-MGMT-LITE',
-    name: 'Ads Management Lite',
+    name: 'Chăm Sóc & Tối Ưu Quảng Cáo Hàng Tháng',
     categoryGroup: 'ads-conversion',
     goalGroup: 'co-them-khach',
-    scope: 'Theo dõi & điều chỉnh thông số chiến dịch quảng cáo quy mô nhỏ hàng tháng',
-    effort: '2–3h/tháng',
+    scope: 'Theo dõi chi tiêu hàng tuần, loại trừ các từ khóa tìm kiếm rác lãng phí tiền và tối ưu giá thầu để nhận nhiều cuộc gọi nhất.',
+    effort: 'Hàng tháng',
     priceDisplay: '690.000đ',
     numericPrice: 690000,
     unit: 'tháng',
@@ -643,26 +646,26 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '31',
     code: 'ADS-CRO',
-    name: 'Landing Page CRO Audit',
+    name: 'Đánh Giá & Tối Ưu Nút Bấm Chuyển Đổi',
     categoryGroup: 'ads-conversion',
     goalGroup: 'co-them-khach',
-    scope: 'Đánh giá giao diện UX, vị trí CTA, các yếu tố uy tín và đề xuất tối ưu tỷ lệ chuyển đổi',
-    effort: '1h',
+    scope: 'Rà soát xem tại sao khách vào web mà không bấm gọi, sắp xếp lại vị trí bảng giá, số điện thoại để tăng số người liên hệ.',
+    effort: '1 giờ',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
     unit: 'trọn gói',
     isActive: true
   },
 
-  // 6. CRM, BOOKING & AUTOMATION (32 - 36)
+  // 6. TỰ ĐỘNG HÓA & CRM (32 - 36)
   {
     id: '32',
     code: 'AUTO-CRM-SHEETS',
-    name: 'Google Sheets Mini CRM',
+    name: 'Tự Động Đẩy Thông Tin Khách Về Google Sheets',
     categoryGroup: 'crm-automation',
     goalGroup: 'do-lam-thu-cong',
-    scope: 'Form đăng ký tự động đẩy dữ liệu khách về Google Sheets, phân loại trạng thái tư vấn',
-    effort: '1–2h',
+    scope: 'Mỗi khi có khách điền form, toàn bộ tên, SĐT và nhu cầu tự động điền vào 1 bảng tính Google Sheets để bạn dễ gọi điện tư vấn.',
+    effort: '1–2 giờ',
     priceDisplay: '490.000đ',
     numericPrice: 490000,
     unit: 'trọn gói',
@@ -672,11 +675,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '33',
     code: 'AUTO-BOOKING',
-    name: 'Booking System Mini',
+    name: 'Hệ Thống Đặt Lịch Hẹn / Đặt Bàn Tự Động',
     categoryGroup: 'crm-automation',
     goalGroup: 'do-lam-thu-cong',
-    scope: 'Hệ thống đặt lịch hẹn chọn giờ trực tuyến, lưu cơ sở dữ liệu và tự động báo về email/Zalo',
-    effort: '2–3h',
+    scope: 'Khách hàng tự chọn ngày, giờ và dịch vụ trực tiếp trên web, hệ thống tự động khóa lịch trùng và gửi thông báo cho chủ tiệm.',
+    effort: '1–2 ngày',
     priceDisplay: '690.000đ',
     numericPrice: 690000,
     unit: 'trọn gói',
@@ -685,11 +688,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '34',
     code: 'AUTO-TELEGRAM',
-    name: 'Telegram Business Notification',
+    name: 'Báo Tin Nhắn Khách Đặt Hàng Về Telegram',
     categoryGroup: 'crm-automation',
     goalGroup: 'do-lam-thu-cong',
-    scope: 'Mỗi khi có khách điền form / đặt hàng trên web, nhận ngay tin nhắn thông báo vào Telegram',
-    effort: '30–60m',
+    scope: 'Có khách gửi yêu cầu là điện thoại của bạn reng chuông Telegram báo ngay lập tức, không lo bị bỏ sót khách hàng.',
+    effort: '30–60 phút',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
     unit: 'trọn gói',
@@ -698,12 +701,12 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '35',
     code: 'AUTO-WORKFLOW',
-    name: 'Automated Follow-up Workflow',
+    name: 'Tự Động Gửi Tin Nhắn / Email Xác Nhận',
     categoryGroup: 'crm-automation',
     goalGroup: 'do-lam-thu-cong',
-    scope: 'Quy trình nhắc lịch tự động, gửi email/tin nhắn chăm sóc khách sau đăng ký',
-    effort: '2–4h',
-    priceDisplay: '690.000đ+',
+    scope: 'Tự động gửi tin nhắn cảm ơn hoặc email xác nhận lịch hẹn cho khách ngay sau khi khách bấm đăng ký trên website.',
+    effort: '1–2 ngày',
+    priceDisplay: '690.000đ',
     numericPrice: 690000,
     unit: 'trọn gói',
     isActive: true
@@ -711,27 +714,27 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '36',
     code: 'AUTO-DASHBOARD',
-    name: 'Mini CRM + Dashboard',
+    name: 'Bảng Điều Khiển Quản Lý Khách Hàng',
     categoryGroup: 'crm-automation',
     goalGroup: 'do-lam-thu-cong',
-    scope: 'Trang Dashboard quản lý danh sách lead, theo dõi doanh thu và báo cáo tổng quan trực quan',
-    effort: '4–6h',
-    priceDisplay: '1.490.000đ+',
+    scope: 'Trang quản lý riêng giúp bạn xem danh sách khách, phân loại trạng thái đã gọi/chưa gọi và thống kê doanh thu trực quan.',
+    effort: '2–3 ngày',
+    priceDisplay: '1.490.000đ',
     numericPrice: 1490000,
     unit: 'trọn gói',
     isActive: true
   },
 
-  // 7. AI & CUSTOM SOFTWARE (37 - 39)
+  // 7. PHẦN MỀM & AI (37 - 39)
   {
     id: '37',
     code: 'AI-FAQ-BOT',
-    name: 'AI FAQ / Lead Chatbot',
+    name: 'Chatbot AI Tư Vấn & Lấy Số Điện Thoại 24/7',
     categoryGroup: 'ai-software',
     goalGroup: 'do-lam-thu-cong',
-    scope: 'Kịch bản Chatbot AI tự động trả lời thắc mắc ngành nghề 24/7 và thu thập số điện thoại khách',
-    effort: '3–5h',
-    priceDisplay: '990.000đ+',
+    scope: 'Trợ lý AI tự động trả lời giá cả, địa chỉ, giải đáp câu hỏi thường gặp của khách 24/7 và xin số điện thoại để bạn gọi lại.',
+    effort: '2–3 ngày',
+    priceDisplay: '990.000đ',
     numericPrice: 990000,
     unit: 'trọn gói',
     isActive: true
@@ -739,12 +742,12 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '38',
     code: 'AI-RECEPT',
-    name: 'AI Receptionist Assistant',
+    name: 'Trợ Lý AI Tiếp Nhận & Sắp Xếp Lịch Hẹn',
     categoryGroup: 'ai-software',
     goalGroup: 'do-lam-thu-cong',
-    scope: 'Trợ lý AI phân loại nhu cầu khách hàng, xác nhận thời gian rảnh và đẩy lịch hẹn vào CRM',
-    effort: '5–8h',
-    priceDisplay: '1.990.000đ+',
+    scope: 'AI thông minh tự động hỏi giờ rảnh của khách, xác nhận dịch vụ cần làm và sắp xếp lịch vào hệ thống quản lý.',
+    effort: '3–5 ngày',
+    priceDisplay: '1.990.000đ',
     numericPrice: 1990000,
     unit: 'trọn gói',
     isActive: true
@@ -752,40 +755,39 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '39',
     code: 'SW-CUSTOM',
-    name: 'Phần Mềm Quản Lý Theo Yêu Cầu',
+    name: 'Lập Trình Phần Mềm / Web App Theo Yêu Cầu',
     categoryGroup: 'ai-software',
     goalGroup: 'do-lam-thu-cong',
-    scope: 'Lập trình ứng dụng quản lý nghiệp vụ riêng (Dashboard, CSDL, Phân quyền, Báo cáo chuyên sâu)',
-    effort: 'Dự án',
-    priceDisplay: 'từ 3.900.000đ',
+    scope: 'Thiết kế và lập trình phần mềm quản lý nội bộ, tính năng tra cứu đặc thù hoặc ứng dụng web theo đúng quy trình riêng của bạn.',
+    effort: 'Theo dự án',
+    priceDisplay: 'Từ 3.900.000đ',
     numericPrice: 3900000,
     unit: 'trọn gói',
     isActive: true
   },
 
-  // 8. DỊCH VỤ #41: PHÁP LÝ & COMPLIANCE DIGITAL (41a - 41e)
+  // 8. PHÁP LÝ & BỘ CÔNG THƯƠNG (41a - 41e)
   {
     id: '41a',
     code: 'COMP-CHECK',
-    name: 'BCT Website Compliance Check',
+    name: 'Kiểm Tra Tiêu Chuẩn Pháp Lý Website',
     categoryGroup: 'legal-compliance',
     goalGroup: 'van-hanh-lau-dai',
-    scope: 'Kiểm tra loại hình website (bán hàng/dịch vụ/booking), thông tin pháp nhân & các trang chính sách bắt buộc',
-    effort: '30m',
-    priceDisplay: '0đ – 99.000đ',
-    numericPrice: 99000,
+    scope: 'Kiểm tra thông tin pháp nhân, mã số thuế và các quy định bắt buộc trước khi nộp hồ sơ lên Cổng thông tin Bộ Công Thương.',
+    effort: '30 phút',
+    priceDisplay: 'Miễn phí',
+    numericPrice: 0,
     unit: 'trọn gói',
-    isActive: true,
-    disclaimer: 'Bản báo cáo rà soát tiêu chí kỹ thuật chuẩn bị thủ tục với Bộ Công Thương'
+    isActive: true
   },
   {
     id: '41b',
     code: 'COMP-FOOTER',
-    name: 'Gắn Thông Tin Pháp Nhân & Compliance Footer',
+    name: 'Chuẩn Hóa Thông Tin Pháp Lý Chân Trang (Footer)',
     categoryGroup: 'legal-compliance',
     goalGroup: 'van-hanh-lau-dai',
-    scope: 'Chuẩn hóa chân trang (Footer): Mã số thuế, Giấy ĐKKD, đại diện pháp luật, địa chỉ trụ sở & hotline',
-    effort: '30–60m',
+    scope: 'Cập nhật chân trang đúng quy định pháp luật: Tên công ty/hộ kinh doanh, mã số thuế, địa chỉ trụ sở, người đại diện & hotline.',
+    effort: '30–60 phút',
     priceDisplay: '149.000đ',
     numericPrice: 149000,
     unit: 'trọn gói',
@@ -794,11 +796,11 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
   {
     id: '41c',
     code: 'COMP-POLICY',
-    name: 'Website Policy Pack (Bộ 4 Trang Chính Sách)',
+    name: 'Bộ 4 Trang Chính Sách Pháp Lý Chuẩn Mực',
     categoryGroup: 'legal-compliance',
     goalGroup: 'van-hanh-lau-dai',
-    scope: 'Khởi tạo 4 trang chuẩn: Chính sách bảo mật, Điều khoản dịch vụ, Chính sách thanh toán & Giao nhận/Đổi trả',
-    effort: '1–1.5h',
+    scope: 'Tạo 4 trang chuẩn: Chính sách bảo mật dữ liệu, Điều khoản dịch vụ, Chính sách thanh toán và Chính sách bảo hành/đổi trả.',
+    effort: '1–2 giờ',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
     unit: 'trọn gói',

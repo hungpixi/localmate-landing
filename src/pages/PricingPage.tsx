@@ -6,7 +6,7 @@ import { PricingMatrixSection } from '../components/sections/PricingMatrixSectio
 import { DigitalCareSection } from '../components/sections/DigitalCareSection';
 import { StarterPackageSection } from '../components/sections/StarterPackageSection';
 import { ContentPackageSection } from '../components/sections/ContentPackageSection';
-import { Sparkles, Edit3 } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { useRouter } from '../components/layout/Router';
 
 export const PricingPage: React.FC = () => {
@@ -56,27 +56,6 @@ export const PricingPage: React.FC = () => {
           <p className="subtitle" style={{ marginTop: '0.75rem' }}>
             Không chi phí ẩn. Báo giá trước rõ ràng từng đầu việc. Khách hàng kiểm tra nghiệm thu hài lòng rồi mới thanh toán.
           </p>
-
-          <div style={{ marginTop: '1.25rem', display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <button
-              onClick={() => navigate('/admin/pricing')}
-              style={{
-                padding: '0.5rem 1.1rem',
-                backgroundColor: 'var(--color-bg)',
-                border: '1px solid var(--color-border)',
-                borderRadius: 'var(--radius-full)',
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--color-primary-dark)',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.35rem'
-              }}
-            >
-              <Edit3 size={14} /> Mở CMS Quản Trị Bảng Giá
-            </button>
-          </div>
         </div>
       </Container>
 
