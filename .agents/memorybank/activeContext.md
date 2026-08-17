@@ -13,11 +13,15 @@
 
 ## 2. Recent Accomplishments & Updates
 
-### A. Sửa Triệt Để Lỗi Tràn Viền Mega Menu (Right Rail Promo & Hotline):
-- Cân bằng chiều cao giữa 3 cột dịch vụ bên trái và cột khuyến mãi bên phải.
-- Tinh chỉnh padding và kích thước của khối `Gói Khởi Tạo 490.000đ` và Card Hotline `0834.422.439`, thêm `align-items: stretch` và `overflow: hidden`.
-- **Kết quả**: Cả 2 card bên phải nằm gọn gàng 100% bên trong viền bo cong của thẻ Mega Menu trắng, có khoảng đệm đáy sạch đẹp, không còn bị lòi/chòi ra ngoài.
+### A. Xóa Nút CMS Quản Trị Khỏi Giao Diện Công Khai:
+- Gỡ bỏ hoàn toàn nút `Mở CMS Quản Trị Bảng Giá` khỏi `PricingPage.tsx`.
+- Đảm bảo an toàn bảo mật, khách hàng chỉ nhìn thấy bảng giá niêm yết công khai và nút liên hệ tư vấn.
 
-### B. Header Mega Menu Full Width (1240px) & Footer MISA Light Theme:
-- Header 1240px không bị rớt chữ trên bất kỳ tiêu đề nào.
+### B. Thiết Kế Lại Toàn Bộ Bảng Giá 41 Dịch Vụ (`PricingMatrixSection.tsx` & `servicesCatalog.ts`):
+- **Việt hóa 100%**: Chuyển toàn bộ tên dịch vụ kỹ thuật tiếng Anh sang tiếng Việt thực tế, dễ hiểu cho hộ kinh doanh và SME.
+- **Thanh tìm kiếm nhanh**: Tích hợp ô Search tra cứu dịch vụ tức thì theo từ khóa.
+- **Bố cục 3 cột thoáng đãng**: Card dịch vụ hiện đại có Icon màu sắc theo nhóm, badge phân loại, cam kết thời gian hoàn thành (`15–30 phút`, `1–2 ngày`), mức giá to rõ và nút CTA tư vấn.
+
+### C. Header Mega Menu Full Width (1240px) & Footer MISA Light Theme:
+- Header 1240px không bị rớt chữ trên bất kỳ tiêu đề nào, fix tràn viền 2 thẻ bên phải.
 - Footer nền sáng chuẩn MISA/AMIS với 4 cột, dải social, trust pills và logo Bộ Công Thương.
