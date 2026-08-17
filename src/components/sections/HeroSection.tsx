@@ -15,75 +15,36 @@ export const HeroSection: React.FC = () => {
     <section
       style={{
         backgroundColor: 'var(--color-bg)',
-        paddingTop: 'clamp(3rem, 6vw, 5rem)',
-        paddingBottom: 'clamp(3rem, 6vw, 4.5rem)',
+        paddingTop: 'clamp(2.5rem, 5vw, 4.5rem)',
+        paddingBottom: 'clamp(2.5rem, 5vw, 4rem)',
         borderBottom: '1px solid var(--color-border)',
         overflow: 'hidden',
         position: 'relative'
       }}
       id="hero"
     >
-      <Container size="lg">
+      <Container size="lg" style={{ paddingInline: 'clamp(16px, 4vw, 24px)' }}>
         <div className="hero-centered-content">
-          {/* Refined Eyebrow */}
-          <div style={{ display: 'inline-flex', marginBottom: '1.25rem' }}>
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--color-primary-dark)',
-                backgroundColor: 'var(--color-primary-soft)',
-                border: '1px solid var(--color-primary-border)',
-                padding: '0.35rem 0.95rem',
-                borderRadius: 'var(--radius-full)',
-                letterSpacing: '0.04em',
-                textTransform: 'uppercase',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              <Sparkles size={14} color="var(--color-primary)" />
-              Website • Google Maps • Quảng cáo • Nội dung
+          {/* Compact Eyebrow */}
+          <div className="hero-eyebrow-wrapper">
+            <span className="hero-eyebrow-pill">
+              <Sparkles size={13} color="var(--color-primary)" className="sparkle-icon" />
+              <span>WEBSITE • GOOGLE • QUẢNG CÁO • NỘI DUNG</span>
             </span>
           </div>
 
-          {/* Main Headline — 3 balanced lines with no widow words */}
-          <h1
-            style={{
-              fontSize: 'clamp(2.25rem, 4.5vw, 3.65rem)',
-              color: 'var(--color-navy)',
-              fontWeight: 800,
-              lineHeight: 1.15,
-              letterSpacing: '-0.03em',
-              marginBottom: '1.25rem',
-              textAlign: 'center'
-            }}
-          >
-            Giúp doanh nghiệp nhỏ<br />
-            có website, lên Google<br />
-            <span style={{ color: 'var(--color-primary)' }}>và tìm thêm khách hàng.</span>
+          {/* Main Headline — Balanced typography for all viewports */}
+          <h1 className="hero-headline">
+            Giúp doanh nghiệp nhỏ có website, lên Google <span className="headline-highlight">và tìm thêm khách.</span>
           </h1>
 
-          {/* Subtitle — 2 lines plain Vietnamese */}
-          <p
-            style={{
-              fontSize: 'clamp(1rem, 1.2vw, 1.15rem)',
-              color: 'var(--color-text-muted)',
-              lineHeight: 1.6,
-              marginBottom: '2rem',
-              maxWidth: '660px',
-              textAlign: 'center',
-              marginLeft: 'auto',
-              marginRight: 'auto'
-            }}
-          >
-            Chọn đúng việc bạn cần: làm website bán hàng, đưa tiệm lên Google Maps, chạy Google Ads hoặc viết bài Facebook mỗi tháng.
+          {/* Subtitle */}
+          <p className="hero-subtitle">
+            Chọn đúng việc bạn cần: làm website bán hàng, lên Google Maps, chạy Google Ads hoặc viết bài Facebook mỗi tháng.
           </p>
 
           {/* Primary & Secondary Action Buttons */}
-          <div className="hero-cta-group" style={{ marginBottom: '2.5rem' }}>
+          <div className="hero-cta-group">
             <Button
               variant="primary"
               size="lg"
@@ -95,11 +56,11 @@ export const HeroSection: React.FC = () => {
                   navigate('/lien-he');
                 }
               }}
-              className="hero-btn-primary"
+              className="hero-btn-action hero-btn-primary"
             >
-              <Sparkles size={18} />
+              <Sparkles size={17} />
               <span>Nhận website demo 0đ</span>
-              <ArrowRight size={18} />
+              <ArrowRight size={17} />
             </Button>
 
             <Button
@@ -113,32 +74,32 @@ export const HeroSection: React.FC = () => {
                   navigate('/bang-gia');
                 }
               }}
-              className="hero-btn-secondary"
+              className="hero-btn-action hero-btn-secondary"
             >
               <span>Xem dịch vụ &amp; giá</span>
             </Button>
           </div>
 
-          {/* Light 4-Item Trust Strip */}
+          {/* Light 4-Item Trust Grid — No text cut-off on mobile */}
           <div className="hero-trust-strip">
             <div className="trust-strip-item">
-              <Check size={16} color="var(--color-primary)" className="trust-icon" />
-              <span>Giá rõ trước khi làm</span>
+              <Check size={15} color="var(--color-primary)" className="trust-icon" strokeWidth={2.5} />
+              <span>Báo giá trước khi làm</span>
             </div>
             <div className="trust-divider" />
             <div className="trust-strip-item">
-              <Check size={16} color="var(--color-primary)" className="trust-icon" />
-              <span>Xem demo 0đ trước</span>
+              <Check size={15} color="var(--color-primary)" className="trust-icon" strokeWidth={2.5} />
+              <span>Xem thử demo 0đ</span>
             </div>
             <div className="trust-divider" />
             <div className="trust-strip-item">
-              <Check size={16} color="var(--color-primary)" className="trust-icon" />
-              <span>Bàn giao tài khoản đầy đủ</span>
+              <Check size={15} color="var(--color-primary)" className="trust-icon" strokeWidth={2.5} />
+              <span>Bàn giao tài khoản</span>
             </div>
             <div className="trust-divider" />
             <div className="trust-strip-item">
-              <Check size={16} color="var(--color-primary)" className="trust-icon" />
-              <span>Có người hỗ trợ sau bàn giao</span>
+              <Check size={15} color="var(--color-primary)" className="trust-icon" strokeWidth={2.5} />
+              <span>Hỗ trợ sau bàn giao</span>
             </div>
           </div>
         </div>
@@ -150,22 +111,91 @@ export const HeroSection: React.FC = () => {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          max-width: 860px;
+          max-width: 820px;
           margin: 0 auto;
+        }
+
+        .hero-eyebrow-wrapper {
+          display: inline-flex;
+          margin-bottom: 1.15rem;
+        }
+
+        .hero-eyebrow-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          font-size: 0.725rem;
+          font-weight: 800;
+          color: var(--color-primary-dark);
+          background-color: var(--color-primary-soft);
+          border: 1px solid var(--color-primary-border);
+          padding: 0.3rem 0.8rem;
+          border-radius: var(--radius-full);
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+
+        .sparkle-icon {
+          flex-shrink: 0;
+        }
+
+        .hero-headline {
+          font-size: clamp(1.85rem, 5.5vw, 3.25rem);
+          color: var(--color-navy);
+          font-weight: 800;
+          line-height: 1.22;
+          letter-spacing: -0.025em;
+          margin: 0 0 1rem 0;
+          text-align: center;
+          text-wrap: balance;
+        }
+
+        .headline-highlight {
+          color: var(--color-primary);
+          display: inline;
+        }
+
+        .hero-subtitle {
+          font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+          color: var(--color-text-muted);
+          line-height: 1.6;
+          margin: 0 auto 1.75rem auto;
+          max-width: 580px;
+          text-align: center;
+          text-wrap: pretty;
         }
 
         .hero-cta-group {
           display: flex;
           flex-direction: column;
-          gap: 0.85rem;
+          gap: 0.75rem;
           width: 100%;
-          justify-content: center;
-          align-items: center;
+          max-width: 440px;
+          margin-bottom: 2rem;
         }
 
-        @media (min-width: 540px) {
+        @media (min-width: 520px) {
           .hero-cta-group {
             flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            max-width: none;
+          }
+        }
+
+        .hero-btn-action {
+          width: 100%;
+          min-height: 48px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+        }
+
+        @media (min-width: 520px) {
+          .hero-btn-action {
             width: auto;
           }
         }
@@ -173,27 +203,33 @@ export const HeroSection: React.FC = () => {
         /* Trust Strip Styles */
         .hero-trust-strip {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.85rem 1.25rem;
-          padding: 0.95rem 1.35rem;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.65rem 0.85rem;
+          padding: 0.85rem 1rem;
           background-color: #ffffff;
           border: 1px solid var(--color-border);
-          border-radius: var(--radius-lg);
-          font-size: 0.875rem;
-          font-weight: 600;
+          border-radius: 16px;
+          font-size: 0.8rem;
+          font-weight: 700;
           color: var(--color-navy);
           box-shadow: var(--shadow-sm);
           width: 100%;
-          max-width: 800px;
+          max-width: 720px;
           box-sizing: border-box;
         }
 
         .trust-strip-item {
           display: flex;
           align-items: center;
-          gap: 0.45rem;
+          gap: 0.4rem;
+          justify-content: flex-start;
           white-space: nowrap;
-          justify-content: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .trust-icon {
+          flex-shrink: 0;
         }
 
         .trust-divider {
@@ -205,13 +241,17 @@ export const HeroSection: React.FC = () => {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 0.65rem;
-            padding: 0.85rem 1.25rem;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.85rem;
+          }
+          .trust-strip-item {
+            justify-content: center;
           }
           .trust-divider {
             display: block;
             width: 1px;
-            height: 16px;
+            height: 14px;
             background-color: var(--color-border);
           }
         }
