@@ -783,20 +783,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
           position: relative;
         }
 
-        /* Mona-style Mega Menu Dropdown */
+        /* Mona-style Full-Width Mega Menu Dropdown */
         .mega-menu-overlay {
-          position: absolute;
-          top: 100%;
-          left: -180px;
-          width: 960px;
-          background-color: #ffffff;
-          border: 1px solid var(--color-border);
-          border-radius: 18px;
-          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-          padding: 1.5rem;
+          position: fixed;
+          top: 70px;
+          left: 0;
+          right: 0;
+          width: 100vw;
+          background-color: transparent;
+          pointer-events: none;
+          display: flex;
+          justify-content: center;
           z-index: 120;
-          margin-top: 0.5rem;
-          animation: megaFadeIn 0.18s ease-out;
+          padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+          box-sizing: border-box;
+        }
+
+        .header-scrolled + .mega-menu-overlay,
+        .header-scrolled .mega-menu-overlay {
+          top: 64px;
         }
 
         @keyframes megaFadeIn {
@@ -811,33 +816,43 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         }
 
         .mega-menu-container {
+          pointer-events: auto;
+          width: 100%;
+          max-width: 1240px;
+          background-color: #ffffff;
+          border: 1px solid var(--color-border);
+          border-radius: 20px;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.13);
+          padding: 1.75rem 2rem;
           display: grid;
-          grid-template-columns: 1fr 270px;
-          gap: 1.75rem;
+          grid-template-columns: 1fr 310px;
+          gap: 2.25rem;
+          box-sizing: border-box;
+          animation: megaFadeIn 0.18s ease-out;
         }
 
         .mega-menu-main {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 1.25rem;
+          gap: 1.75rem;
         }
 
         .mega-col {
           display: flex;
           flex-direction: column;
-          gap: 0.65rem;
+          gap: 0.75rem;
         }
 
         .mega-col-header {
           display: flex;
           align-items: center;
-          gap: 0.45rem;
-          font-size: 0.775rem;
+          gap: 0.5rem;
+          font-size: 0.8rem;
           font-weight: 800;
           color: var(--color-primary-dark);
           text-transform: uppercase;
-          letter-spacing: 0.04em;
-          padding-bottom: 0.4rem;
+          letter-spacing: 0.05em;
+          padding-bottom: 0.5rem;
           border-bottom: 1px solid var(--color-border);
           margin-bottom: 0.25rem;
         }
@@ -845,15 +860,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         .mega-items-list {
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: 0.4rem;
         }
 
         .mega-card {
           display: flex;
           align-items: flex-start;
-          gap: 0.65rem;
-          padding: 0.55rem 0.65rem;
-          border-radius: 10px;
+          gap: 0.85rem;
+          padding: 0.7rem 0.85rem;
+          border-radius: 12px;
           text-decoration: none;
           border: 1px solid transparent;
           transition: all 0.15s ease;
@@ -866,9 +881,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         }
 
         .mega-card-icon {
-          width: 32px;
-          height: 32px;
-          border-radius: 8px;
+          width: 36px;
+          height: 36px;
+          border-radius: 10px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -885,32 +900,35 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         .mega-card-content {
           display: flex;
           flex-direction: column;
-          gap: 0.15rem;
+          gap: 0.2rem;
+          min-width: 0;
         }
 
         .mega-card-title {
-          font-size: 0.85rem;
+          font-size: 0.9rem;
           font-weight: 800;
           color: var(--color-navy);
           display: flex;
           align-items: center;
-          gap: 0.4rem;
-          line-height: 1.25;
+          gap: 0.45rem;
+          white-space: nowrap;
+          line-height: 1.3;
         }
 
         .mega-card-desc {
-          font-size: 0.725rem;
+          font-size: 0.775rem;
           color: var(--color-text-muted);
-          line-height: 1.35;
+          line-height: 1.4;
           margin: 0;
         }
 
         .mega-tag {
-          font-size: 0.65rem;
+          font-size: 0.675rem;
           font-weight: 800;
-          padding: 0.1rem 0.4rem;
+          padding: 0.15rem 0.45rem;
           border-radius: 999px;
           line-height: 1;
+          white-space: nowrap;
         }
 
         .tag-hot { background-color: #fee2e2; color: #dc2626; }
@@ -921,31 +939,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         .mega-promo-rail {
           display: flex;
           flex-direction: column;
-          gap: 0.75rem;
+          gap: 0.85rem;
           border-left: 1px solid var(--color-border);
-          padding-left: 1.25rem;
+          padding-left: 1.75rem;
         }
 
         .mega-promo-box {
           background: linear-gradient(145deg, #072e3b, #0d7647);
-          border-radius: 14px;
-          padding: 1.15rem;
+          border-radius: 16px;
+          padding: 1.35rem;
           color: #ffffff;
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: 0.65rem;
         }
 
         .promo-badge {
-          font-size: 0.65rem;
+          font-size: 0.675rem;
           font-weight: 800;
           color: var(--color-primary-light);
-          letter-spacing: 0.04em;
+          letter-spacing: 0.05em;
           text-transform: uppercase;
         }
 
         .promo-title {
-          font-size: 1rem;
+          font-size: 1.1rem;
           font-weight: 800;
           color: #ffffff;
           margin: 0;
@@ -953,9 +971,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         }
 
         .promo-desc {
-          font-size: 0.75rem;
-          color: rgba(255, 255, 255, 0.85);
-          line-height: 1.4;
+          font-size: 0.8rem;
+          color: rgba(255, 255, 255, 0.9);
+          line-height: 1.45;
           margin: 0;
         }
 
@@ -965,25 +983,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
           margin: 0;
           display: flex;
           flex-direction: column;
-          gap: 0.35rem;
-          font-size: 0.725rem;
-          color: rgba(255, 255, 255, 0.9);
+          gap: 0.4rem;
+          font-size: 0.775rem;
+          color: rgba(255, 255, 255, 0.95);
         }
 
         .promo-points li {
           display: flex;
           align-items: center;
-          gap: 0.35rem;
+          gap: 0.4rem;
         }
 
         .promo-btn {
           margin-top: 0.35rem;
           background-color: #ffffff;
           color: var(--color-navy);
-          font-size: 0.775rem;
+          font-size: 0.825rem;
           font-weight: 800;
           text-align: center;
-          padding: 0.45rem 0.75rem;
+          padding: 0.55rem 0.85rem;
           border-radius: var(--radius-sm);
           text-decoration: none;
           transition: background-color var(--transition-fast);
@@ -996,11 +1014,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         .mega-hotline-card {
           background-color: #fafbfa;
           border: 1px solid var(--color-border);
-          border-radius: 12px;
-          padding: 0.65rem 0.85rem;
+          border-radius: 14px;
+          padding: 0.75rem 1rem;
           display: flex;
           align-items: center;
-          gap: 0.65rem;
+          gap: 0.75rem;
           text-decoration: none;
           transition: all var(--transition-fast);
         }
@@ -1011,8 +1029,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         }
 
         .hotline-icon-box {
-          width: 32px;
-          height: 32px;
+          width: 36px;
+          height: 36px;
           border-radius: 50%;
           background-color: var(--color-orange);
           display: flex;
@@ -1023,14 +1041,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
 
         .hotline-label {
           display: block;
-          font-size: 0.7rem;
+          font-size: 0.725rem;
           color: var(--color-text-muted);
           font-weight: 600;
         }
 
         .hotline-num {
           display: block;
-          font-size: 0.95rem;
+          font-size: 1rem;
           font-weight: 800;
           color: var(--color-navy);
         }
