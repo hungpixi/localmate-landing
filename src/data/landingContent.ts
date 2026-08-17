@@ -26,6 +26,21 @@ export interface IndustrySolution {
   color: string;
 }
 
+export const COMPANY_INFO = {
+  legalName: 'CÔNG TY TNHH LOCALMATE',
+  taxCode: '4001337934',
+  taxAddress: '03 Trường Chinh, Phường Hội An Tây, TP. Đà Nẵng, Việt Nam',
+  officeAddress: 'TP. Hồ Chí Minh & Hỗ trợ trực tuyến Toàn quốc (24/7)',
+  taxAuthority: 'Thuế cơ sở 7 thành phố Đà Nẵng',
+  establishedDate: '10/08/2026',
+  status: 'Đang hoạt động',
+  phoneDisplay: '0834.422.439 (Hotline / Zalo 24/7)',
+  phoneRaw: '0834422439',
+  email: 'hotro@localmate.vn',
+  website: 'https://localmate.vn',
+  bctStatus: 'Đã thông báo Bộ Công Thương'
+};
+
 export const CONTACT_INFO = {
   phoneDisplay: '0834.422.439 / Zalo 24/7',
   phone: '0834.422.439 / Zalo 24/7',
@@ -33,7 +48,7 @@ export const CONTACT_INFO = {
   zaloUrl: 'https://zalo.me',
   mailtoUrl: 'mailto:hotro@localmate.vn',
   email: 'hotro@localmate.vn',
-  address: 'TP. Hồ Chí Minh & Toàn quốc (Hỗ trợ Online 24/7)'
+  address: '03 Trường Chinh, P. Hội An Tây, TP. Đà Nẵng | VP: TP. Hồ Chí Minh & Online Toàn quốc'
 };
 
 export const NAV_LINKS = [

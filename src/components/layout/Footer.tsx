@@ -1,243 +1,472 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { ShieldCheck, Phone, Mail, MapPin } from 'lucide-react';
-import { CONTACT_INFO } from '../../data/landingContent';
+import { ShieldCheck, Phone, Mail, MapPin, Building2, FileCheck2, ExternalLink } from 'lucide-react';
+import { CONTACT_INFO, COMPANY_INFO } from '../../data/landingContent';
 import { Link } from '../layout/Router';
 
 export const Footer: React.FC = () => {
   return (
     <footer
       style={{
-        backgroundColor: '#083B4C',
+        backgroundColor: '#072e3b',
         color: '#ffffff',
-        padding: '3.5rem 0 2rem 0',
+        padding: 'clamp(3rem, 5vw, 4.5rem) 0 2rem 0',
         borderTop: '1px solid rgba(255, 255, 255, 0.08)',
         overflow: 'hidden'
       }}
     >
       <Container size="lg">
         {/* Main Footer Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '2.5rem',
-            marginBottom: '3rem'
-          }}
-        >
-          {/* Column 1: Brand Info & Corporate Entity */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+        <div className="footer-main-grid">
+          {/* Column 1: Brand Info, Legal Entity & Tax Info */}
+          <div className="footer-col-company">
+            <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', width: 'fit-content' }}>
               <img
                 src="/logo.png"
                 alt="LocalMate - Website, Google Maps & Quảng Cáo cho Doanh Nghiệp Nhỏ"
                 style={{
-                  height: '40px',
+                  height: '42px',
                   width: 'auto',
                   objectFit: 'contain',
                   backgroundColor: '#ffffff',
-                  padding: '4px 10px',
-                  borderRadius: 'var(--radius-sm)'
+                  padding: '5px 12px',
+                  borderRadius: 'var(--radius-md)'
                 }}
               />
             </Link>
-            <p style={{ fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.55, margin: 0 }}>
-              <strong>CÔNG TY TNHH LOCALMATE</strong><br />
-              Giải pháp làm website, tối ưu Google Maps, chạy Google Ads và chăm sóc bài viết Facebook cho doanh nghiệp nhỏ.
-            </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', fontSize: '0.825rem', color: 'rgba(255, 255, 255, 0.85)' }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                <MapPin size={15} color="var(--color-primary-light)" style={{ flexShrink: 0, marginTop: 2 }} />
-                <span>TP. Hồ Chí Minh &amp; Hỗ trợ trực tuyến Toàn quốc (24/7)</span>
+            {/* Legal Entity Name */}
+            <div>
+              <h3 style={{ fontSize: '1rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.35rem 0', letterSpacing: '0.01em' }}>
+                {COMPANY_INFO.legalName}
+              </h3>
+              <p style={{ fontSize: '0.825rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.55, margin: 0 }}>
+                Giải pháp làm website, đưa doanh nghiệp lên Google Maps, quảng cáo Google Ads và chăm sóc bài viết Facebook cho doanh nghiệp nhỏ &amp; hộ kinh doanh.
+              </p>
+            </div>
+
+            {/* Structured Legal & Tax Meta */}
+            <div className="company-tax-card">
+              <div className="tax-item">
+                <Building2 size={15} color="var(--color-primary-light)" className="tax-icon" />
+                <span><strong>Mã số thuế:</strong> {COMPANY_INFO.taxCode}</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Phone size={15} color="var(--color-orange)" style={{ flexShrink: 0 }} />
-                <a href={`tel:${CONTACT_INFO.phoneRaw}`} style={{ color: '#ffffff', textDecoration: 'none', fontWeight: 700 }}>
-                  0834.422.439 (Hotline / Zalo)
-                </a>
+              <div className="tax-item">
+                <FileCheck2 size={15} color="var(--color-primary-light)" className="tax-icon" />
+                <span><strong>Quản lý bởi:</strong> {COMPANY_INFO.taxAuthority}</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Mail size={15} color="var(--color-primary-light)" style={{ flexShrink: 0 }} />
-                <a href={CONTACT_INFO.mailtoUrl} style={{ color: 'rgba(255, 255, 255, 0.9)', textDecoration: 'none' }}>
-                  hotro@localmate.vn
-                </a>
+              <div className="tax-item">
+                <MapPin size={15} color="var(--color-primary-light)" className="tax-icon" />
+                <span><strong>Địa chỉ thuế:</strong> {COMPANY_INFO.taxAddress}</span>
+              </div>
+              <div className="tax-item">
+                <MapPin size={15} color="var(--color-primary-light)" className="tax-icon" />
+                <span><strong>Văn phòng:</strong> {COMPANY_INFO.officeAddress}</span>
+              </div>
+              <div className="tax-item">
+                <Phone size={15} color="var(--color-orange)" className="tax-icon" />
+                <span>
+                  <strong>Hotline / Zalo:</strong>{' '}
+                  <a href={`tel:${CONTACT_INFO.phoneRaw}`} style={{ color: '#ffffff', textDecoration: 'none', fontWeight: 700 }}>
+                    0834.422.439
+                  </a>
+                </span>
+              </div>
+              <div className="tax-item">
+                <Mail size={15} color="var(--color-primary-light)" className="tax-icon" />
+                <span>
+                  <strong>Email:</strong>{' '}
+                  <a href={CONTACT_INFO.mailtoUrl} style={{ color: '#ffffff', textDecoration: 'none' }}>
+                    {CONTACT_INFO.email}
+                  </a>
+                </span>
               </div>
             </div>
 
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                fontSize: '0.775rem',
-                color: '#ffffff',
-                backgroundColor: 'rgba(13, 118, 71, 0.3)',
-                border: '1px solid rgba(34, 197, 94, 0.35)',
-                padding: '0.35rem 0.7rem',
-                borderRadius: 'var(--radius-full)',
-                fontWeight: 600,
-                width: 'fit-content'
-              }}
-            >
-              <ShieldCheck size={15} color="var(--color-primary-light)" /> Nghiệm thu hài lòng rồi mới thanh toán
+            {/* Official Badge: ĐÃ THÔNG BÁO BỘ CÔNG THƯƠNG */}
+            <div style={{ marginTop: '0.5rem' }}>
+              <a
+                href="http://online.gov.vn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bct-badge-link"
+                title="Website đã thông báo với Bộ Công Thương"
+              >
+                <div className="bct-badge-container">
+                  <div className="bct-badge-icon">
+                    <svg viewBox="0 0 100 100" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="50" cy="50" r="46" fill="#DA251D" stroke="#ffffff" strokeWidth="3" />
+                      <circle cx="50" cy="50" r="38" fill="#B31F18" />
+                      {/* Gold Star */}
+                      <polygon
+                        points="50,22 58,38 76,40 62,53 66,71 50,62 34,71 38,53 24,40 42,38"
+                        fill="#FFFF00"
+                      />
+                    </svg>
+                  </div>
+                  <div className="bct-badge-text">
+                    <span className="bct-title">ĐÃ THÔNG BÁO</span>
+                    <span className="bct-subtitle">BỘ CÔNG THƯƠNG</span>
+                  </div>
+                  <ExternalLink size={12} color="rgba(255,255,255,0.7)" style={{ marginLeft: 4 }} />
+                </div>
+              </a>
             </div>
           </div>
 
           {/* Column 2: Dịch Vụ Cốt Lõi */}
-          <div>
-            <h4 style={{ color: '#ffffff', fontSize: '0.95rem', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <div className="footer-col">
+            <h4 className="footer-col-title">
               Dịch Vụ Phổ Biến
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem', padding: 0, margin: 0, fontSize: '0.85rem' }}>
+            <ul className="footer-links-list">
               <li>
-                <Link to="/dich-vu/google-ads" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → Quảng cáo Google Ads
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/google-maps" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → Đưa doanh nghiệp lên Google Maps
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/website-landing-page" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → Website &amp; trang bán hàng
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/content-marketing" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → Viết bài Facebook từ 990k/tháng
-                </Link>
-              </li>
-              <li>
-                <Link to="/landing-490k" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                <Link to="/landing-490k" className="footer-link">
                   → Website 1 trang từ 490k
                 </Link>
               </li>
               <li>
-                <Link to="/bang-gia" style={{ textDecoration: 'none', color: 'var(--color-orange)', fontWeight: 700 }} className="footer-link">
-                  → Xem bảng giá niêm yết
+                <Link to="/dich-vu/google-maps" className="footer-link">
+                  → Đưa tiệm lên Google Maps
+                </Link>
+              </li>
+              <li>
+                <Link to="/dich-vu/google-ads" className="footer-link">
+                  → Quảng cáo Google Ads
+                </Link>
+              </li>
+              <li>
+                <Link to="/dich-vu/content-marketing" className="footer-link">
+                  → Viết bài Facebook 990k/tháng
+                </Link>
+              </li>
+              <li>
+                <Link to="/dich-vu/website-landing-page" className="footer-link">
+                  → Website doanh nghiệp 3–5 trang
+                </Link>
+              </li>
+              <li>
+                <Link to="/bang-gia" className="footer-link footer-link-highlight">
+                  → Xem bảng giá niêm yết đầy đủ
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Column 3: Kiến Thức & Hướng Dẫn */}
-          <div>
-            <h4 style={{ color: '#ffffff', fontSize: '0.95rem', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
-              Hướng Dẫn Tìm Khách
+          <div className="footer-col">
+            <h4 className="footer-col-title">
+              Kiến Thức Thực Chiến
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem', padding: 0, margin: 0, fontSize: '0.85rem' }}>
+            <ul className="footer-links-list">
               <li>
-                <Link to="/kien-thuc/cach-doc-search-terms-google-ads" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → Cách kiểm tra khách đã tìm gì trên Google
-                </Link>
-              </li>
-              <li>
-                <Link to="/kien-thuc/huong-dan-toi-uu-google-business-profile" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                <Link to="/kien-thuc/huong-dan-toi-uu-google-business-profile" className="footer-link">
                   → Cách tối ưu Google Maps cho cửa hàng
                 </Link>
               </li>
               <li>
-                <Link to="/kien-thuc/cau-truc-landing-page-chuyen-doi-cao" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                <Link to="/kien-thuc/cach-doc-search-terms-google-ads" className="footer-link">
+                  → Cách xem khách tìm gì trên Google
+                </Link>
+              </li>
+              <li>
+                <Link to="/kien-thuc/cau-truc-landing-page-chuyen-doi-cao" className="footer-link">
                   → Website bán dịch vụ cần những gì?
                 </Link>
               </li>
               <li>
-                <Link to="/kien-thuc/cach-len-lich-dang-bai-khong-bi-bi-y-tuong" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → 15 ý tưởng bài Facebook cho cửa hàng
+                <Link to="/kien-thuc/cach-len-lich-dang-bai-khong-bi-bi-y-tuong" className="footer-link">
+                  → 15 mẫu bài viết Facebook thu hút
                 </Link>
               </li>
               <li>
-                <Link to="/du-an" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → Dự án thực tế đã làm
+                <Link to="/du-an" className="footer-link">
+                  → Dự án thực tế đã triển khai
+                </Link>
+              </li>
+              <li>
+                <Link to="/kien-thuc" className="footer-link">
+                  → Toàn bộ cẩm nang kinh doanh
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Column 4: Pháp Lý & Cam Kết */}
-          <div>
-            <h4 style={{ color: '#ffffff', fontSize: '0.95rem', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <div className="footer-col">
+            <h4 className="footer-col-title">
               Pháp Lý &amp; Cam Kết
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem', padding: 0, margin: 0, fontSize: '0.85rem' }}>
+            <ul className="footer-links-list">
               <li>
-                <Link to="/gioi-thieu" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                <Link to="/gioi-thieu" className="footer-link">
                   → Về LocalMate Việt Nam
                 </Link>
               </li>
               <li>
-                <Link to="/chinh-sach-bao-mat" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → Chính Sách Bảo Mật Thông Tin
+                <Link to="/chinh-sach-bao-mat" className="footer-link">
+                  → Chính sách bảo mật thông tin
                 </Link>
               </li>
               <li>
-                <Link to="/dieu-khoan" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → Điều Khoản Dịch Vụ &amp; Hợp Đồng
+                <Link to="/dieu-khoan" className="footer-link">
+                  → Điều khoản dịch vụ &amp; hợp đồng
                 </Link>
               </li>
               <li>
-                <Link to="/chinh-sach-dich-vu" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → Hỗ Trợ Kỹ Thuật Sau Bàn Giao
+                <Link to="/chinh-sach-dich-vu" className="footer-link">
+                  → Hỗ trợ kỹ thuật sau bàn giao
                 </Link>
               </li>
               <li>
-                <Link to="/sitemap" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
-                  → Sơ Đồ Website (HTML Sitemap)
+                <Link to="/sitemap" className="footer-link">
+                  → Sơ đồ website (HTML Sitemap)
                 </Link>
               </li>
               <li>
-                <Link to="/lien-he" style={{ textDecoration: 'none', color: 'var(--color-primary-light)', fontWeight: 700 }} className="footer-link">
-                  → Liên Hệ Nhận Báo Giá Trực Tiếp
+                <Link to="/lien-he" className="footer-link footer-link-cta">
+                  → Liên hệ nhận báo giá trực tiếp
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Compliance */}
-        <div
-          style={{
-            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-            paddingTop: '1.5rem',
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '1rem',
-            fontSize: '0.775rem',
-            color: 'rgba(255, 255, 255, 0.65)'
-          }}
-        >
-          <div>
-            © {new Date().getFullYear()} CÔNG TY TNHH LOCALMATE. Bảo lưu mọi quyền.
+        {/* Trust Badges Strip */}
+        <div className="footer-trust-strip">
+          <div className="trust-pill">
+            <ShieldCheck size={16} color="var(--color-primary-light)" />
+            <span>Nghiệm thu hài lòng mới thanh toán</span>
           </div>
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <Link to="/chinh-sach-bao-mat" style={{ color: 'rgba(255, 255, 255, 0.65)', textDecoration: 'none' }}>
-              Bảo mật
-            </Link>
+          <div className="trust-pill">
+            <ShieldCheck size={16} color="var(--color-primary-light)" />
+            <span>Bàn giao 100% tài khoản chính chủ</span>
+          </div>
+          <div className="trust-pill">
+            <ShieldCheck size={16} color="var(--color-primary-light)" />
+            <span>Báo giá trước, không tự phát sinh</span>
+          </div>
+        </div>
+
+        {/* Bottom Bar: Copyright & Compliance */}
+        <div className="footer-bottom-bar">
+          <div style={{ lineHeight: 1.6 }}>
+            © {new Date().getFullYear()} <strong>{COMPANY_INFO.legalName}</strong>. Mã số thuế: <strong>{COMPANY_INFO.taxCode}</strong> do {COMPANY_INFO.taxAuthority} cấp ngày {COMPANY_INFO.establishedDate}.
+          </div>
+          <div className="footer-bottom-links">
+            <Link to="/chinh-sach-bao-mat">Bảo mật</Link>
             <span>•</span>
-            <Link to="/dieu-khoan" style={{ color: 'rgba(255, 255, 255, 0.65)', textDecoration: 'none' }}>
-              Điều khoản
-            </Link>
+            <Link to="/dieu-khoan">Điều khoản</Link>
             <span>•</span>
-            <Link to="/chinh-sach-dich-vu" style={{ color: 'rgba(255, 255, 255, 0.65)', textDecoration: 'none' }}>
-              Hỗ trợ kỹ thuật
-            </Link>
+            <Link to="/chinh-sach-dich-vu">Hỗ trợ</Link>
             <span>•</span>
-            <Link to="/sitemap" style={{ color: 'rgba(255, 255, 255, 0.65)', textDecoration: 'none' }}>
-              Sơ đồ web
-            </Link>
+            <Link to="/sitemap">Sitemap</Link>
           </div>
         </div>
       </Container>
 
       <style>{`
+        .footer-main-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+          margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 680px) {
+          .footer-main-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .footer-main-grid {
+            grid-template-columns: 1.45fr 1fr 1fr 1fr;
+            gap: 2.25rem;
+          }
+        }
+
+        .footer-col-company {
+          display: flex;
+          flex-direction: column;
+          gap: 1.15rem;
+        }
+
+        .company-tax-card {
+          background-color: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: var(--radius-lg);
+          padding: 0.9rem 1.1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          font-size: 0.8rem;
+          color: rgba(255, 255, 255, 0.85);
+          line-height: 1.5;
+        }
+
+        .tax-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.45rem;
+        }
+
+        .tax-icon {
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        /* BCT Badge Styling */
+        .bct-badge-link {
+          display: inline-block;
+          text-decoration: none;
+        }
+
+        .bct-badge-container {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.65rem;
+          background: linear-gradient(135deg, #00529C 0%, #003366 100%);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-radius: var(--radius-md);
+          padding: 0.45rem 0.85rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .bct-badge-link:hover .bct-badge-container {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(0, 82, 156, 0.4);
+          border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .bct-badge-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .bct-badge-text {
+          display: flex;
+          flex-direction: column;
+          line-height: 1.15;
+        }
+
+        .bct-title {
+          font-size: 0.725rem;
+          font-weight: 800;
+          color: #ffffff;
+          letter-spacing: 0.04em;
+        }
+
+        .bct-subtitle {
+          font-size: 0.65rem;
+          font-weight: 700;
+          color: #F8D12D;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+        }
+
+        /* Column styles */
+        .footer-col {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .footer-col-title {
+          color: #ffffff;
+          font-size: 0.9rem;
+          font-weight: 800;
+          margin: 0 0 1rem 0;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+        }
+
+        .footer-links-list {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 0.6rem;
+          padding: 0;
+          margin: 0;
+          font-size: 0.85rem;
+        }
+
+        .footer-link {
+          text-decoration: none;
+          color: rgba(255, 255, 255, 0.8);
+          transition: color var(--transition-fast), padding-left var(--transition-fast);
+          display: inline-block;
+          line-height: 1.45;
+        }
+
         .footer-link:hover {
           color: #ffffff !important;
-          text-decoration: underline !important;
+          padding-left: 3px;
+        }
+
+        .footer-link-highlight {
+          color: var(--color-orange) !important;
+          font-weight: 700;
+        }
+
+        .footer-link-cta {
+          color: var(--color-primary-light) !important;
+          font-weight: 700;
+        }
+
+        /* Trust Strip */
+        .footer-trust-strip {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          padding: 1.25rem 0;
+          margin-bottom: 1.5rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          justify-content: center;
+        }
+
+        .trust-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          font-size: 0.775rem;
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.9);
+          background-color: rgba(255, 255, 255, 0.06);
+          padding: 0.35rem 0.8rem;
+          border-radius: var(--radius-full);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Bottom Bar */
+        .footer-bottom-bar {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+          font-size: 0.775rem;
+          color: rgba(255, 255, 255, 0.65);
+        }
+
+        .footer-bottom-links {
+          display: flex;
+          gap: 0.85rem;
+          align-items: center;
+        }
+
+        .footer-bottom-links a {
+          color: rgba(255, 255, 255, 0.65);
+          text-decoration: none;
+          transition: color var(--transition-fast);
+        }
+
+        .footer-bottom-links a:hover {
+          color: #ffffff;
+          text-decoration: underline;
         }
       `}</style>
     </footer>
