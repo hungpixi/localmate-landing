@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
-import { NAV_LINKS } from '../../data/landingContent';
-import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown, Sparkles, MapPin, Globe, FileText, CheckCircle2, Phone, MessageSquare } from 'lucide-react';
 import { useRouter, Link } from './Router';
+import { CONTACT_INFO } from '../../data/landingContent';
 
 interface HeaderProps {
   onOpenDemoForm?: () => void;
@@ -12,6 +12,8 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const { currentPath, navigate } = useRouter();
 
   // Scroll effect
@@ -21,6 +23,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setServicesDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   // Lock body scroll when mobile drawer is open
@@ -47,12 +60,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
 
   const handleActionClick = () => {
     setMobileMenuOpen(false);
+    setServicesDropdownOpen(false);
     if (onOpenDemoForm) {
       onOpenDemoForm();
     } else {
-      navigate('/advisor');
+      navigate('/lien-he');
     }
   };
+
+  const navLinks = [
+    { label: 'Trang chủ', href: '/' },
+    { label: 'Bảng giá', href: '/bang-gia' },
+    { label: 'Dự án', href: '/du-an' },
+    { label: 'Kiến thức', href: '/kien-thuc' },
+    { label: 'Giới thiệu', href: '/gioi-thieu' },
+    { label: 'Liên hệ', href: '/lien-he' }
+  ];
 
   return (
     <>
@@ -66,8 +89,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
           height: 'clamp(64px, 8vw, 76px)',
           backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.98)' : '#ffffff',
           borderBottom: '1px solid var(--color-border)',
-          boxShadow: scrolled ? 'var(--shadow-md)' : 'none',
-          transition: 'all var(--transition-base)',
+          boxShadow: scrolled ? '0 4px 20px rgba(0, 0, 0, 0.05)' : 'none',
+          transition: 'all 0.2s ease',
           display: 'flex',
           alignItems: 'center'
         }}
@@ -87,12 +110,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
               to="/"
               style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
               className="logo-container"
-              title="LocalMate - Đơn vị Website, SEO, Marketing & Phần mềm cho doanh nghiệp nhỏ"
+              title="LocalMate - Website, SEO, Marketing cho Doanh nghiệp nhỏ"
             >
               <img
                 src="/logo.png"
-                alt="LocalMate - Website, SEO, Marketing & Phần mềm cho doanh nghiệp nhỏ"
-                style={{ height: 'clamp(40px, 6vw, 50px)', width: 'auto', objectFit: 'contain' }}
+                alt="LocalMate - Website, SEO, Marketing cho Doanh nghiệp nhỏ"
+                style={{ height: 'clamp(38px, 5vw, 46px)', width: 'auto', objectFit: 'contain' }}
               />
             </Link>
 
@@ -101,11 +124,188 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '1.6rem'
+                gap: '1.5rem'
               }}
               className="desktop-nav"
             >
-              {NAV_LINKS.map((link) => {
+              {/* Trang chu */}
+              <Link
+                to="/"
+                style={{
+                  fontSize: '0.925rem',
+                  fontWeight: currentPath === '/' ? 700 : 600,
+                  color: currentPath === '/' ? 'var(--color-teal-dark)' : 'var(--color-navy)',
+                  textDecoration: 'none'
+                }}
+                className={`nav-link-hover ${currentPath === '/' ? 'active' : ''}`}
+              >
+                Trang chủ
+              </Link>
+
+              {/* Dịch vụ with Dropdown */}
+              <div ref={dropdownRef} style={{ position: 'relative' }}>
+                <button
+                  type="button"
+                  onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                  onMouseEnter={() => setServicesDropdownOpen(true)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.3rem',
+                    background: 'none',
+                    border: 'none',
+                    fontSize: '0.925rem',
+                    fontWeight: currentPath.startsWith('/dich-vu') ? 700 : 600,
+                    color: currentPath.startsWith('/dich-vu') ? 'var(--color-teal-dark)' : 'var(--color-navy)',
+                    cursor: 'pointer',
+                    padding: '0.5rem 0'
+                  }}
+                  className={`nav-link-hover ${currentPath.startsWith('/dich-vu') ? 'active' : ''}`}
+                >
+                  <span>Dịch vụ</span>
+                  <ChevronDown size={15} style={{ transform: servicesDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+                </button>
+
+                {servicesDropdownOpen && (
+                  <div
+                    onMouseLeave={() => setServicesDropdownOpen(false)}
+                    style={{
+                      position: 'absolute',
+                      top: '100%',
+                      left: '-20px',
+                      width: '320px',
+                      backgroundColor: '#ffffff',
+                      borderRadius: 'var(--radius-lg)',
+                      border: '1px solid var(--color-border)',
+                      boxShadow: '0 12px 32px rgba(0, 0, 0, 0.12)',
+                      padding: '0.75rem',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0.35rem',
+                      zIndex: 110
+                    }}
+                  >
+                    <Link
+                      to="/dich-vu/google-ads"
+                      onClick={() => setServicesDropdownOpen(false)}
+                      style={{
+                        padding: '0.65rem 0.85rem',
+                        borderRadius: 'var(--radius-md)',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.75rem',
+                        backgroundColor: currentPath === '/dich-vu/google-ads' ? 'var(--color-teal-soft)' : 'transparent',
+                        transition: 'background-color 0.15s'
+                      }}
+                      className="dropdown-item-hover"
+                    >
+                      <div style={{ width: 34, height: 34, borderRadius: 'var(--radius-sm)', backgroundColor: '#fff4eb', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <Sparkles size={18} color="var(--color-orange-dark)" />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-navy)' }}>Google Ads Chuyển Đổi</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>Từ 390k • Lọc sạch click rác</div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      to="/dich-vu/google-maps"
+                      onClick={() => setServicesDropdownOpen(false)}
+                      style={{
+                        padding: '0.65rem 0.85rem',
+                        borderRadius: 'var(--radius-md)',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.75rem',
+                        backgroundColor: currentPath === '/dich-vu/google-maps' ? 'var(--color-teal-soft)' : 'transparent',
+                        transition: 'background-color 0.15s'
+                      }}
+                      className="dropdown-item-hover"
+                    >
+                      <div style={{ width: 34, height: 34, borderRadius: 'var(--radius-sm)', backgroundColor: 'var(--color-teal-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <MapPin size={18} color="var(--color-teal-dark)" />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-navy)' }}>SEO Google Maps</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>Từ 299k • Top 3 địa phương</div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      to="/dich-vu/website-landing-page"
+                      onClick={() => setServicesDropdownOpen(false)}
+                      style={{
+                        padding: '0.65rem 0.85rem',
+                        borderRadius: 'var(--radius-md)',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.75rem',
+                        backgroundColor: currentPath === '/dich-vu/website-landing-page' ? 'var(--color-teal-soft)' : 'transparent',
+                        transition: 'background-color 0.15s'
+                      }}
+                      className="dropdown-item-hover"
+                    >
+                      <div style={{ width: 34, height: 34, borderRadius: 'var(--radius-sm)', backgroundColor: '#eef2ff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <Globe size={18} color="#4f46e5" />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-navy)' }}>Website &amp; Landing Page</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>Demo 0đ • Gói 490k / 2.9M trọn gói</div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      to="/dich-vu/content-marketing"
+                      onClick={() => setServicesDropdownOpen(false)}
+                      style={{
+                        padding: '0.65rem 0.85rem',
+                        borderRadius: 'var(--radius-md)',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.75rem',
+                        backgroundColor: currentPath === '/dich-vu/content-marketing' ? 'var(--color-teal-soft)' : 'transparent',
+                        transition: 'background-color 0.15s'
+                      }}
+                      className="dropdown-item-hover"
+                    >
+                      <div style={{ width: 34, height: 34, borderRadius: 'var(--radius-sm)', backgroundColor: 'var(--color-teal-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <FileText size={18} color="var(--color-teal-dark)" />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-navy)' }}>Quản Trị Nội Dung</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>990k/tháng • 15 bài viết đều đặn</div>
+                      </div>
+                    </Link>
+
+                    <div style={{ borderTop: '1px solid var(--color-border)', margin: '0.35rem 0' }} />
+
+                    <Link
+                      to="/dich-vu"
+                      onClick={() => setServicesDropdownOpen(false)}
+                      style={{
+                        padding: '0.5rem 0.85rem',
+                        fontSize: '0.825rem',
+                        fontWeight: 700,
+                        color: 'var(--color-teal-dark)',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between'
+                      }}
+                    >
+                      <span>Xem toàn bộ 40 dịch vụ</span>
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Other Links */}
+              {navLinks.slice(1).map((link) => {
                 const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
                 return (
                   <Link
@@ -114,8 +314,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                     style={{
                       fontSize: '0.925rem',
                       fontWeight: isActive ? 700 : 600,
-                      color: isActive ? 'var(--color-teal-dark)' : 'var(--color-text)',
-                      transition: 'color var(--transition-fast)'
+                      color: isActive ? 'var(--color-teal-dark)' : 'var(--color-navy)',
+                      textDecoration: 'none',
+                      transition: 'color 0.15s'
                     }}
                     className={`nav-link-hover ${isActive ? 'active' : ''}`}
                   >
@@ -126,14 +327,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
             </nav>
 
             {/* Desktop Action & Mobile Hamburger */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }} className="header-actions">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }} className="header-actions">
               <div className="desktop-nav">
                 <Button
                   variant="primary"
                   size="md"
                   onClick={handleActionClick}
                 >
-                  Nhận tư vấn 0đ
+                  Nhận web demo 0đ
                 </Button>
               </div>
 
@@ -156,7 +357,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                   borderRadius: 'var(--radius-sm)',
                   cursor: 'pointer',
                   color: mobileMenuOpen ? 'var(--color-teal-dark)' : 'var(--color-navy)',
-                  transition: 'all var(--transition-fast)'
+                  transition: 'all 0.15s'
                 }}
                 className="mobile-menu-btn"
               >
@@ -176,7 +377,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
           style={{
             position: 'fixed',
             inset: 0,
-            zIndex: 100,
+            zIndex: 150,
             overflow: 'hidden'
           }}
         >
@@ -187,7 +388,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
               position: 'absolute',
               inset: 0,
               backgroundColor: 'rgba(5, 47, 61, 0.5)',
-              zIndex: 99
+              zIndex: 140
             }}
           />
 
@@ -205,8 +406,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
               backgroundColor: '#ffffff',
               display: 'flex',
               flexDirection: 'column',
-              zIndex: 100,
-              boxShadow: 'var(--shadow-lg)',
+              zIndex: 150,
+              boxShadow: '0 0 30px rgba(0, 0, 0, 0.2)',
               borderLeft: '1px solid var(--color-border)'
             }}
             className="drawer-panel"
@@ -216,13 +417,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
               style={{
                 flexShrink: 0,
                 borderBottom: '1px solid var(--color-border)',
-                padding: '1.25rem 1.5rem',
+                padding: '1.1rem 1.25rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between'
               }}
             >
-              <img src="/logo.png" alt="LocalMate" style={{ height: '50px', width: 'auto', objectFit: 'contain' }} />
+              <img src="/logo.png" alt="LocalMate" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
               <button
                 type="button"
                 aria-label="Đóng menu"
@@ -231,7 +432,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                   background: 'none',
                   border: 'none',
                   cursor: 'pointer',
-                  padding: '0.5rem',
+                  padding: '0.4rem',
                   borderRadius: 'var(--radius-sm)',
                   color: 'var(--color-text-muted)',
                   display: 'flex',
@@ -239,7 +440,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                   justifyContent: 'center'
                 }}
               >
-                <X size={24} />
+                <X size={22} />
               </button>
             </header>
 
@@ -249,38 +450,128 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                 minHeight: 0,
                 flex: 1,
                 overflowY: 'auto',
-                padding: '1.5rem 1.25rem',
+                padding: '1.25rem',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.5rem'
+                gap: '0.4rem'
               }}
             >
-              <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--color-teal-dark)', marginBottom: '0.5rem' }}>
-                Danh mục dịch vụ &amp; điều hướng
+              <p style={{ fontSize: '0.725rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--color-teal-dark)', marginBottom: '0.25rem' }}>
+                Dịch vụ nổi bật
               </p>
-              <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                {NAV_LINKS.map((link) => {
-                  const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+              
+              <Link
+                to="/dich-vu/google-ads"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  padding: '0.65rem 0.85rem',
+                  borderRadius: 'var(--radius-md)',
+                  textDecoration: 'none',
+                  color: 'var(--color-navy)',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  backgroundColor: '#f8fbfa',
+                  border: '1px solid var(--color-border)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
+                <span>Google Ads</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--color-orange-dark)', fontWeight: 700 }}>Từ 390k</span>
+              </Link>
+
+              <Link
+                to="/dich-vu/google-maps"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  padding: '0.65rem 0.85rem',
+                  borderRadius: 'var(--radius-md)',
+                  textDecoration: 'none',
+                  color: 'var(--color-navy)',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  backgroundColor: '#f8fbfa',
+                  border: '1px solid var(--color-border)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
+                <span>SEO Google Maps</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--color-teal-dark)', fontWeight: 700 }}>Từ 299k</span>
+              </Link>
+
+              <Link
+                to="/dich-vu/website-landing-page"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  padding: '0.65rem 0.85rem',
+                  borderRadius: 'var(--radius-md)',
+                  textDecoration: 'none',
+                  color: 'var(--color-navy)',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  backgroundColor: '#f8fbfa',
+                  border: '1px solid var(--color-border)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
+                <span>Website &amp; Landing Page</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--color-teal-dark)', fontWeight: 700 }}>Demo 0đ</span>
+              </Link>
+
+              <Link
+                to="/dich-vu/content-marketing"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  padding: '0.65rem 0.85rem',
+                  borderRadius: 'var(--radius-md)',
+                  textDecoration: 'none',
+                  color: 'var(--color-navy)',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  backgroundColor: '#f8fbfa',
+                  border: '1px solid var(--color-border)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: '0.75rem'
+                }}
+              >
+                <span>Quản Trị Nội Dung</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--color-teal-dark)', fontWeight: 700 }}>990k/th</span>
+              </Link>
+
+              <p style={{ fontSize: '0.725rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--color-teal-dark)', marginBottom: '0.25rem' }}>
+                Khám phá &amp; thông tin
+              </p>
+
+              <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                {navLinks.map((link) => {
+                  const isActive = currentPath === link.href;
                   return (
                     <Link
                       key={link.href}
                       to={link.href}
                       onClick={() => setMobileMenuOpen(false)}
                       style={{
-                        fontSize: '1rem',
+                        fontSize: '0.95rem',
                         fontWeight: isActive ? 700 : 600,
                         color: isActive ? 'var(--color-teal-dark)' : 'var(--color-navy)',
                         backgroundColor: isActive ? 'var(--color-teal-soft)' : 'transparent',
-                        padding: '0.75rem 1rem',
-                        borderRadius: 'var(--radius-sm)',
+                        padding: '0.65rem 0.85rem',
+                        borderRadius: 'var(--radius-md)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        transition: 'all var(--transition-fast)'
+                        textDecoration: 'none'
                       }}
                     >
                       <span>{link.label}</span>
-                      <ArrowRight size={16} style={{ opacity: isActive ? 1 : 0.4 }} />
+                      <ArrowRight size={15} style={{ opacity: isActive ? 1 : 0.4 }} />
                     </Link>
                   );
                 })}
@@ -292,11 +583,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
               style={{
                 flexShrink: 0,
                 borderTop: '1px solid var(--color-border)',
-                padding: '1.25rem 1.5rem',
-                backgroundColor: 'var(--color-bg)',
+                padding: '1.25rem',
+                backgroundColor: '#f8fbfa',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.5rem'
+                gap: '0.65rem'
               }}
             >
               <Button
@@ -305,11 +596,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                 size="lg"
                 onClick={handleActionClick}
               >
-                Nhận tư vấn 0đ ngay
+                Nhận web demo 0đ
               </Button>
-              <p style={{ textAlign: 'center', fontSize: '0.725rem', color: 'var(--color-text-muted)', margin: 0 }}>
-                Demo trước 0đ • Bàn giao mới thanh toán
-              </p>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', fontSize: '0.8rem', fontWeight: 600 }}>
+                <a href={CONTACT_INFO.zaloUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-teal-dark)', display: 'flex', alignItems: 'center', gap: '0.25rem', textDecoration: 'none' }}>
+                  <MessageSquare size={14} /> Chat Zalo
+                </a>
+                <a href={`tel:${CONTACT_INFO.phoneRaw}`} style={{ color: 'var(--color-orange-dark)', display: 'flex', alignItems: 'center', gap: '0.25rem', textDecoration: 'none' }}>
+                  <Phone size={14} /> Hotline
+                </a>
+              </div>
             </footer>
           </aside>
         </div>
@@ -322,31 +618,26 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         }
 
         .drawer-panel {
-          animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: slideInRight 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .logo-container {
-          transition: transform var(--transition-fast);
-        }
-
-        .logo-container:hover {
-          transform: translateY(-1px);
+        .dropdown-item-hover:hover {
+          background-color: var(--color-teal-soft) !important;
         }
 
         .nav-link-hover {
           position: relative;
-          padding: 0.25rem 0;
         }
 
         .nav-link-hover::after {
           content: '';
           position: absolute;
-          bottom: -4px;
+          bottom: -3px;
           left: 0;
           width: 0%;
           height: 2px;
           background-color: var(--color-teal);
-          transition: width var(--transition-fast);
+          transition: width 0.15s ease;
           border-radius: 2px;
         }
 

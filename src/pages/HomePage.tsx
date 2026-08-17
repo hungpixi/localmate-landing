@@ -1,4 +1,5 @@
 import React from 'react';
+import { SEOHead } from '../components/seo/SEOHead';
 import { HeroSection } from '../components/sections/HeroSection';
 import { SolutionJourneySection } from '../components/sections/SolutionJourneySection';
 import { StarterPackageSection } from '../components/sections/StarterPackageSection';
@@ -21,6 +22,13 @@ import { KnowledgeHubSection } from '../components/sections/KnowledgeHubSection'
 export const HomePage: React.FC = () => {
   return (
     <>
+      {/* Dynamic SEO Meta for Homepage */}
+      <SEOHead
+        title="LocalMate | Thiết Kế Website, SEO & Marketing Cho Doanh Nghiệp Nhỏ"
+        description="LocalMate giúp doanh nghiệp nhỏ xây website, xuất hiện trên Google, chạy quảng cáo và tự động hóa những công việc online — từ một nơi duy nhất. Bàn giao rồi mới thanh toán."
+        canonicalPath="/"
+      />
+
       {/* 1. Hero — Có việc digital? Để LocalMate làm + 3 Tình trạng */}
       <HeroSection />
 
@@ -39,42 +47,41 @@ export const HomePage: React.FC = () => {
       {/* 6. Quy trình 5 bước tinh gọn & minh bạch */}
       <ProcessSection />
 
-      {/* 6. AI Concept Generator — Xem bản thiết kế định hướng 0đ tức thời */}
+      {/* 7. AI Concept Generator — Xem bản thiết kế định hướng 0đ tức thời */}
       <ConceptGeneratorSection />
 
-      {/* 7. Bạn đang muốn làm gì? — 5 Goal Categories (WIIFM) */}
+      {/* 8. Bạn đang muốn làm gì? — 5 Goal Categories (WIIFM) */}
       <ProblemMapperSection />
 
-      {/* 8. Các dịch vụ LocalMate — 6 nhóm dịch vụ chính */}
+      {/* 9. Các dịch vụ LocalMate — 6 nhóm dịch vụ chính */}
       <ServiceHubSection />
 
-      {/* 9. Dịch vụ theo ngành — Vertical Solution Hub */}
+      {/* 10. Dịch vụ theo ngành — Vertical Solution Hub */}
       <IndustrySolutionSection />
 
-      {/* 10. Tự động chẩn đoán website miễn phí 30s */}
+      {/* 11. Tự động chẩn đoán website miễn phí 30s */}
       <FreeWebsiteAudit />
 
-      {/* 11. Dự án thực tế / Case Studies */}
+      {/* 12. Dự án thực tế / Case Studies */}
       <DemoShowcaseSection />
 
-      {/* 12. Bảng giá 40 món minh bạch */}
+      {/* 13. Bảng giá 40 món minh bạch */}
       <PricingMatrixSection />
 
-      {/* 13. Dịch vụ #40 — LocalMate Digital Care */}
+      {/* 14. Dịch vụ #40 — LocalMate Digital Care */}
       <DigitalCareSection />
 
-      {/* 14. LocalMate Advisor Solution Composer */}
+      {/* 15. LocalMate Advisor Solution Composer */}
       <FreeAuditSection />
 
-      {/* 15. 8 Trụ cột niềm tin & Pháp nhân CÔNG TY TNHH LOCALMATE */}
+      {/* 16. 8 Trụ cột niềm tin & Pháp nhân CÔNG TY TNHH LOCALMATE */}
       <TrustSection />
 
-      {/* 16. FAQ & Giải đáp thắc mắc */}
+      {/* 17. FAQ & Giải đáp thắc mắc */}
       <FAQSection />
 
-      {/* 17. Knowledge Hub — SEO Content Cluster Preview */}
+      {/* 18. Knowledge Hub — SEO Content Cluster Preview */}
       <KnowledgeHubSection />
     </>
   );
 };
-

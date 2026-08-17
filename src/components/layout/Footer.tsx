@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { ShieldCheck, Phone, Mail, MapPin, Settings } from 'lucide-react';
+import { ShieldCheck, Phone, Mail, MapPin, Globe, FileText, CheckCircle2, MessageSquare, ExternalLink } from 'lucide-react';
 import { CONTACT_INFO } from '../../data/landingContent';
 import { Link } from '../layout/Router';
 
@@ -8,9 +8,9 @@ export const Footer: React.FC = () => {
   return (
     <footer
       style={{
-        backgroundColor: 'var(--color-navy-deep)',
+        backgroundColor: '#083B4C',
         color: '#ffffff',
-        padding: '3.5rem 0 2rem 0',
+        padding: '4rem 0 2rem 0',
         borderTop: '1px solid rgba(255, 255, 255, 0.1)',
         overflow: 'hidden'
       }}
@@ -20,187 +20,226 @@ export const Footer: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
             gap: '2.5rem',
-            marginBottom: '3rem'
+            marginBottom: '3.5rem'
           }}
         >
-          {/* Brand Info & Mission */}
+          {/* Column 1: Brand Info & Corporate Entity */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center' }}>
               <img
                 src="/logo.png"
-                alt="LocalMate - Người đồng hành số"
+                alt="LocalMate - Website, SEO, Marketing cho Doanh nghiệp nhỏ"
                 style={{
-                  height: '52px',
+                  height: '46px',
                   width: 'auto',
                   objectFit: 'contain',
                   backgroundColor: '#ffffff',
-                  padding: '6px 14px',
-                  borderRadius: '12px',
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+                  padding: '5px 12px',
+                  borderRadius: '10px'
                 }}
               />
             </div>
-            <p style={{ fontSize: '0.925rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.6, margin: 0 }}>
-              Đội digital gọn nhẹ cho doanh nghiệp nhỏ. Thiết kế website, SEO Google Maps, chạy quảng cáo và tự động hóa công việc online với chi phí tối ưu.
+            <p style={{ fontSize: '0.875rem', color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.6, margin: 0 }}>
+              <strong>CÔNG TY TNHH LOCALMATE</strong><br />
+              Đơn vị cung cấp giải pháp Website, SEO Google Maps, Quảng cáo Google Ads và Vận hành nội dung chuyên biệt cho doanh nghiệp nhỏ và hộ kinh doanh tại Việt Nam.
             </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.85)' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+                <MapPin size={16} color="var(--color-teal)" style={{ flexShrink: 0, marginTop: 2 }} />
+                <span>TP. Hồ Chí Minh &amp; Hỗ trợ trực tuyến Toàn quốc (24/7)</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Phone size={16} color="var(--color-orange)" style={{ flexShrink: 0 }} />
+                <a href={`tel:${CONTACT_INFO.phoneRaw}`} style={{ color: '#ffffff', textDecoration: 'none', fontWeight: 700 }}>
+                  0834.422.439 (Hotline / Zalo)
+                </a>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Mail size={16} color="var(--color-teal)" style={{ flexShrink: 0 }} />
+                <a href={CONTACT_INFO.mailtoUrl} style={{ color: 'rgba(255, 255, 255, 0.9)', textDecoration: 'none' }}>
+                  hotro@localmate.vn
+                </a>
+              </div>
+            </div>
+
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.5rem',
-                fontSize: '0.85rem',
+                gap: '0.45rem',
+                fontSize: '0.8rem',
                 color: 'var(--color-teal-soft)',
-                backgroundColor: 'rgba(15, 169, 154, 0.12)',
-                border: '1px solid rgba(15, 169, 154, 0.25)',
-                padding: '0.5rem 0.85rem',
+                backgroundColor: 'rgba(15, 169, 154, 0.15)',
+                border: '1px solid rgba(15, 169, 154, 0.3)',
+                padding: '0.4rem 0.75rem',
                 borderRadius: 'var(--radius-full)',
                 fontWeight: 600,
                 width: 'fit-content'
               }}
             >
-              <ShieldCheck size={18} /> Bàn giao nghiệm thu mới thanh toán
+              <ShieldCheck size={16} /> Bàn giao nghiệm thu rồi mới thanh toán
             </div>
           </div>
 
-          {/* Quick Navigation Links */}
+          {/* Column 2: Dịch Vụ Cốt Lõi */}
           <div>
-            <h4 style={{ color: '#ffffff', fontSize: '1.05rem', fontWeight: 700, marginBottom: '1.1rem', letterSpacing: '-0.01em' }}>
-              Điều Hướng Nhanh
+            <h4 style={{ color: '#ffffff', fontSize: '1rem', fontWeight: 800, marginBottom: '1.2rem', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+              Dịch Vụ Cốt Lõi
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: 0, margin: 0, fontSize: '0.925rem' }}>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem', padding: 0, margin: 0, fontSize: '0.875rem' }}>
               <li>
-                <Link to="/dich-vu" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)' }} className="footer-link">
-                  → 6 Nhóm Dịch Vụ Cốt Lõi
+                <Link to="/dich-vu/google-ads" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Google Ads Chuyển Đổi
                 </Link>
               </li>
               <li>
-                <Link to="/giai-phap" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)' }} className="footer-link">
-                  → Giải Pháp Theo Ngành Nghề
+                <Link to="/dich-vu/google-maps" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → SEO Google Maps Địa Phương
                 </Link>
               </li>
               <li>
-                <Link to="/bang-gia" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)' }} className="footer-link">
-                  → Bảng Giá 40 Dịch Vụ Niêm Yết
+                <Link to="/dich-vu/website-landing-page" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Thiết Kế Website &amp; Landing Page
                 </Link>
               </li>
               <li>
-                <Link to="/du-an" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.8)' }} className="footer-link">
-                  → Dự Án Thực Tế &amp; Case Studies
+                <Link to="/dich-vu/content-marketing" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Quản Trị Nội Dung 990k/tháng
                 </Link>
               </li>
               <li>
-                <Link to="/admin/pricing" style={{ textDecoration: 'none', color: 'var(--color-teal-soft)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 4 }} className="footer-link">
-                  <Settings size={14} /> Quản Trị CMS Bảng Giá
+                <Link to="/landing-490k" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Gói Landing Page Mini 490k
+                </Link>
+              </li>
+              <li>
+                <Link to="/bang-gia" style={{ textDecoration: 'none', color: 'var(--color-orange)', fontWeight: 700 }} className="footer-link">
+                  → Xem Toàn Bộ Bảng Giá 40 Dịch Vụ
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Direct Contact Card */}
+          {/* Column 3: Kiến Thức Chuyên Sâu */}
           <div>
-            <h4 style={{ color: '#ffffff', fontSize: '1.05rem', fontWeight: 700, marginBottom: '1.1rem', letterSpacing: '-0.01em' }}>
-              Liên Hệ Đồng Hành Trực Tiếp
+            <h4 style={{ color: '#ffffff', fontSize: '1rem', fontWeight: 800, marginBottom: '1.2rem', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+              Kiến Thức &amp; Hướng Dẫn
             </h4>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              {/* Phone & Zalo Button */}
-              <a
-                href={CONTACT_INFO.zaloUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  backgroundColor: 'rgba(255, 255, 255, 0.07)',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  padding: '0.75rem 1rem',
-                  borderRadius: '12px',
-                  color: '#ffffff',
-                  textDecoration: 'none',
-                  transition: 'all 0.2s ease'
-                }}
-                className="footer-contact-card"
-              >
-                <div style={{ width: 34, height: 34, borderRadius: '50%', backgroundColor: 'var(--color-teal)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Phone size={18} color="#ffffff" />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-                  <span style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.65)', fontWeight: 600 }}>Hotline / Zalo hỗ trợ 24/7</span>
-                  <span style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--color-orange)', letterSpacing: '0.02em' }}>
-                    {CONTACT_INFO.phoneDisplay}
-                  </span>
-                </div>
-              </a>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem', padding: 0, margin: 0, fontSize: '0.875rem' }}>
+              <li>
+                <Link to="/kien-thuc/cach-doc-search-terms-google-ads" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Cách Đọc Search Terms Google Ads
+                </Link>
+              </li>
+              <li>
+                <Link to="/kien-thuc/huong-dan-toi-uu-google-business-profile" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Hướng Dẫn Tối Ưu Google Maps
+                </Link>
+              </li>
+              <li>
+                <Link to="/kien-thuc/cau-truc-landing-page-chuyen-doi-cao" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → 7 Khối Cấu Trúc Landing Page Chuẩn
+                </Link>
+              </li>
+              <li>
+                <Link to="/kien-thuc/cach-len-lich-dang-bai-khong-bi-bi-y-tuong" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Ma Trận 15 Ý Tưởng Nội Dung Tháng
+                </Link>
+              </li>
+              <li>
+                <Link to="/du-an" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → 5 Case Studies Đo Lường Thực Tế
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-              {/* Email Button */}
-              <a
-                href={CONTACT_INFO.mailtoUrl}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  backgroundColor: 'rgba(255, 255, 255, 0.07)',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  padding: '0.75rem 1rem',
-                  borderRadius: '12px',
-                  color: '#ffffff',
-                  textDecoration: 'none',
-                  transition: 'all 0.2s ease'
-                }}
-                className="footer-contact-card"
-              >
-                <div style={{ width: 34, height: 34, borderRadius: '50%', backgroundColor: 'rgba(255, 255, 255, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Mail size={18} color="var(--color-teal-soft)" />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-                  <span style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.65)', fontWeight: 600 }}>Email tư vấn &amp; báo giá</span>
-                  <span style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-teal-soft)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    {CONTACT_INFO.email}
-                  </span>
-                </div>
-              </a>
-
-              {/* Address Badge */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.75)', paddingLeft: '0.25rem' }}>
-                <MapPin size={16} color="var(--color-teal-soft)" style={{ flexShrink: 0 }} />
-                <span>Khu vực hỗ trợ: {CONTACT_INFO.address}</span>
-              </div>
-            </div>
+          {/* Column 4: Pháp Lý & Cam Kết */}
+          <div>
+            <h4 style={{ color: '#ffffff', fontSize: '1rem', fontWeight: 800, marginBottom: '1.2rem', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+              Pháp Lý &amp; Cam Kết
+            </h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem', padding: 0, margin: 0, fontSize: '0.875rem' }}>
+              <li>
+                <Link to="/gioi-thieu" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Về LocalMate Việt Nam
+                </Link>
+              </li>
+              <li>
+                <Link to="/chinh-sach-bao-mat" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Chính Sách Bảo Mật Thông Tin
+                </Link>
+              </li>
+              <li>
+                <Link to="/dieu-khoan" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Điều Khoản Dịch Vụ &amp; Hợp Đồng
+                </Link>
+              </li>
+              <li>
+                <Link to="/chinh-sach-dich-vu" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Cam Kết SLA &amp; Giới Hạn Sửa Đổi
+                </Link>
+              </li>
+              <li>
+                <Link to="/sitemap" style={{ textDecoration: 'none', color: 'rgba(255, 255, 255, 0.85)' }} className="footer-link">
+                  → Sơ Đồ Website (HTML Sitemap)
+                </Link>
+              </li>
+              <li>
+                <Link to="/lien-he" style={{ textDecoration: 'none', color: 'var(--color-teal-soft)', fontWeight: 700 }} className="footer-link">
+                  → Liên Hệ Nhận Báo Giá Trực Tiếp
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Copyright & Credit Bar */}
+        {/* Bottom Bar: Copyright & Compliance */}
         <div
           style={{
             borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-            paddingTop: '1.5rem',
+            paddingTop: '1.75rem',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
             flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'center',
             gap: '1rem',
-            fontSize: '0.85rem',
-            color: 'rgba(255, 255, 255, 0.65)'
+            fontSize: '0.8rem',
+            color: 'rgba(255, 255, 255, 0.7)'
           }}
         >
-          <span>© 2026 LocalMate. Bản quyền thuộc về LocalMate — Đội Digital Cho Doanh Nghiệp Nhỏ.</span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
-            <span>Phát triển bởi <strong style={{ color: '#ffffff' }}>hungpixi</strong></span>
-            <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>|</span>
-            <a
-              href="http://phamphunguyenhung.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: 'var(--color-teal-soft)', textDecoration: 'underline', whiteSpace: 'nowrap' }}
-            >
-              phamphunguyenhung.com
-            </a>
+          <div>
+            © {new Date().getFullYear()} CÔNG TY TNHH LOCALMATE. Bảo lưu mọi quyền.
+          </div>
+          <div style={{ display: 'flex', gap: '1.25rem' }}>
+            <Link to="/chinh-sach-bao-mat" style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none' }}>
+              Bảo mật
+            </Link>
+            <span>•</span>
+            <Link to="/dieu-khoan" style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none' }}>
+              Điều khoản
+            </Link>
+            <span>•</span>
+            <Link to="/chinh-sach-dich-vu" style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none' }}>
+              SLA &amp; Bảo hành
+            </Link>
+            <span>•</span>
+            <Link to="/sitemap" style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none' }}>
+              Sơ đồ web
+            </Link>
           </div>
         </div>
       </Container>
+
+      <style>{`
+        .footer-link:hover {
+          color: #ffffff !important;
+          text-decoration: underline !important;
+        }
+      `}</style>
     </footer>
   );
 };
