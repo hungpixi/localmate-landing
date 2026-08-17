@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { ShieldCheck, Phone, Mail, MapPin, Building2 } from 'lucide-react';
+import { ShieldCheck, Phone, Mail, MapPin } from 'lucide-react';
 import { CONTACT_INFO, COMPANY_INFO } from '../../data/landingContent';
 import { Link } from '../layout/Router';
 
@@ -30,10 +30,6 @@ export const Footer: React.FC = () => {
 
             {/* Structured Legal & Tax Meta */}
             <div className="company-tax-card">
-              <div className="tax-item">
-                <Building2 size={15} color="var(--color-primary-light)" className="tax-icon" />
-                <span><strong>Mã số thuế:</strong> {COMPANY_INFO.taxCode}</span>
-              </div>
               <div className="tax-item">
                 <MapPin size={15} color="var(--color-primary-light)" className="tax-icon" />
                 <span><strong>Địa chỉ:</strong> {COMPANY_INFO.taxAddress}</span>
