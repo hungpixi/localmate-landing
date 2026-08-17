@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { ShieldCheck, Phone, Mail, MapPin, Building2, FileCheck2, ExternalLink } from 'lucide-react';
+import { ShieldCheck, Phone, Mail, MapPin, Building2, FileCheck2 } from 'lucide-react';
 import { CONTACT_INFO, COMPANY_INFO } from '../../data/landingContent';
 import { Link } from '../layout/Router';
 
@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
 
             {/* Legal Entity Name */}
             <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.35rem 0', letterSpacing: '0.01em' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.35rem 0', letterSpacing: '0.01em' }}>
                 {COMPANY_INFO.legalName}
               </h3>
               <p style={{ fontSize: '0.825rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.55, margin: 0 }}>
@@ -84,32 +84,19 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* Official Badge: ĐÃ THÔNG BÁO BỘ CÔNG THƯƠNG */}
-            <div style={{ marginTop: '0.5rem' }}>
+            <div style={{ marginTop: '0.65rem' }}>
               <a
                 href="http://online.gov.vn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bct-badge-link"
                 title="Website đã thông báo với Bộ Công Thương"
+                style={{ display: 'inline-block', textDecoration: 'none' }}
               >
-                <div className="bct-badge-container">
-                  <div className="bct-badge-icon">
-                    <svg viewBox="0 0 100 100" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="50" cy="50" r="46" fill="#DA251D" stroke="#ffffff" strokeWidth="3" />
-                      <circle cx="50" cy="50" r="38" fill="#B31F18" />
-                      {/* Gold Star */}
-                      <polygon
-                        points="50,22 58,38 76,40 62,53 66,71 50,62 34,71 38,53 24,40 42,38"
-                        fill="#FFFF00"
-                      />
-                    </svg>
-                  </div>
-                  <div className="bct-badge-text">
-                    <span className="bct-title">ĐÃ THÔNG BÁO</span>
-                    <span className="bct-subtitle">BỘ CÔNG THƯƠNG</span>
-                  </div>
-                  <ExternalLink size={12} color="rgba(255,255,255,0.7)" style={{ marginLeft: 4 }} />
-                </div>
+                <img
+                  src="/logo-da-thong-bao-bct.png"
+                  alt="Đã thông báo Bộ Công Thương - LocalMate"
+                  className="bct-official-logo"
+                />
               </a>
             </div>
           </div>
@@ -316,56 +303,20 @@ export const Footer: React.FC = () => {
           margin-top: 2px;
         }
 
-        /* BCT Badge Styling */
-        .bct-badge-link {
-          display: inline-block;
-          text-decoration: none;
+        /* Official BCT Image Logo */
+        .bct-official-logo {
+          height: 52px;
+          width: auto;
+          max-width: 190px;
+          object-fit: contain;
+          display: block;
+          filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+          transition: transform var(--transition-fast), filter var(--transition-fast);
         }
 
-        .bct-badge-container {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.65rem;
-          background: linear-gradient(135deg, #00529C 0%, #003366 100%);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          border-radius: var(--radius-md);
-          padding: 0.45rem 0.85rem;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-        }
-
-        .bct-badge-link:hover .bct-badge-container {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 16px rgba(0, 82, 156, 0.4);
-          border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .bct-badge-icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-
-        .bct-badge-text {
-          display: flex;
-          flex-direction: column;
-          line-height: 1.15;
-        }
-
-        .bct-title {
-          font-size: 0.725rem;
-          font-weight: 800;
-          color: #ffffff;
-          letter-spacing: 0.04em;
-        }
-
-        .bct-subtitle {
-          font-size: 0.65rem;
-          font-weight: 700;
-          color: #F8D12D;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
+        .bct-official-logo:hover {
+          transform: translateY(-2px) scale(1.02);
+          filter: drop-shadow(0 4px 12px rgba(0, 150, 255, 0.35));
         }
 
         /* Column styles */
