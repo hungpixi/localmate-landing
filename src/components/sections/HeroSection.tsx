@@ -49,7 +49,7 @@ export const HeroSection: React.FC = () => {
               variant="primary"
               size="lg"
               onClick={() => {
-                const el = document.getElementById('concept-generator');
+                const el = document.getElementById('goi-490k') || document.getElementById('bang-gia');
                 if (el) {
                   el.scrollIntoView({ behavior: 'smooth' });
                 } else {

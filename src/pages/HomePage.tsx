@@ -10,7 +10,6 @@ import { ClientRequirementsSection } from '../components/sections/ClientRequirem
 import { ContentPackageSection } from '../components/sections/ContentPackageSection';
 import { DemoShowcaseSection } from '../components/sections/DemoShowcaseSection';
 import { ProcessSection } from '../components/sections/ProcessSection';
-import { ConceptGeneratorSection } from '../components/concept/ConceptGeneratorSection';
 import { PricingMatrixSection } from '../components/sections/PricingMatrixSection';
 import { DigitalCareSection } from '../components/sections/DigitalCareSection';
 import { TrustSection } from '../components/sections/TrustSection';
@@ -51,10 +50,7 @@ export const HomePage: React.FC = () => {
       {/* 7. Quy trình làm việc 5 bước đơn giản & minh bạch */}
       <ProcessSection />
 
-      {/* 8. Xem mẫu website demo 0đ tức thời */}
-      <ConceptGeneratorSection />
-
-      {/* 9. Bảng giá toàn bộ dịch vụ niêm yết */}
+      {/* 8. Bảng giá toàn bộ dịch vụ niêm yết */}
       <PricingMatrixSection />
       <DigitalCareSection />
 

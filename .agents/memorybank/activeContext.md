@@ -11,19 +11,15 @@
 
 ---
 
-## 2. Recent Accomplishments & Updates
+## 2. Recent Accomplishments & Mobile QA Verification
 
-### A. Tối Ưu Footer & Cân Đối 4 Cột:
-- Đã xóa logo trên đỉnh Footer, giúp 4 cột đều đầu hàng thẳng hàng, cân xứng hoàn hảo trên Desktop 1440px và Mobile 390px (`grid-template-columns: repeat(4, 1fr)`).
-- Đã xóa 2 dòng thừa ("Quản lý bởi..." và "Văn phòng...").
-- Đã đồng bộ email liên hệ thành **`contact@localmate.vn`** trên toàn bộ hệ thống (Footer, ContactPage, Schema SEO, Policy Data, Landing Content).
-- Cột **Kiến Thức Thực Chiến** được quy hoạch lại theo các danh mục chủ đề lớn thay vì nhồi nhét tiêu đề bài viết lẻ tẻ.
+### A. Tối Ưu Mobile Hero & Floating Sticky Action Bar:
+- **Hero Headline**: Sử dụng `text-wrap: balance` và `clamp(1.85rem, 5.5vw, 3.25rem)` giúp tiêu đề chia đều thành 3 dòng chuẩn chỉnh trên mọi màn hình di động (320px, 360px, 366px, 375px, 390px, 430px), xóa bỏ hoàn toàn hiện tượng rớt chữ mồ côi ("hàng.", "Google").
+- **Eyebrow Badge**: Rút gọn thành badge 1 dòng nhỏ gọn, căn giữa thanh lịch.
+- **Hero CTAs**: Nút chính và phụ đồng bộ chiều cao 48px, full width trên mobile với phân cấp rõ ràng (Nút xanh nổi bật + Nút trắng viền nhạt).
+- **Khối Trust 4 Cam kết**: Chuyển thành lưới 2x2 co giãn linh hoạt, chống tràn viền (`hasOverflow: false`) và không bị cắt cụt chữ.
+- **Mobile Floating Action Bar**: Thiết kế lại theo cấu trúc phân cấp rõ ràng: 2 nút phụ gọn (`📞 Gọi` + `💬 Zalo`) + 1 nút chính kích thước lớn (`✨ Web demo 0đ`), đảm bảo khoảng cách bấm touch target >= 44px và hỗ trợ `safe-area-inset-bottom`.
 
-### B. Xóa Block Nền Đen Section Thực Trạng:
-- Đã chuyển block giải pháp tối ("LOCALMATE GIẢI QUYẾT PHẦN KHÓ NÀY") thành thẻ **Light Premium Card** (`#F4FBF7`, viền `#DCEFE4`, text `#083B4C`), loại bỏ cảm giác SaaS/Dark theme lạc tông.
-- Rút gọn copy súc tích, phân chia 2 cột thoáng đãng và bỏ hoàn toàn nested card.
-
-### C. Tối Ưu Bảng Giá & Loại Bỏ Khuyết Điểm:
-- Gom và xếp toàn bộ các gói "Khuyên dùng" / viền đậm lên đầu bảng giá.
-- Sửa triệt để lỗi rớt dòng chữ `Chọn gói →` và rút gọn badge phân loại 1 dòng.
-- Thay thế toàn bộ đơn vị `/ lần` thành `Trọn gói` tự nhiên và chuyên nghiệp.
+### B. Tối Ưu Footer & Bảng Giá:
+- 4 cột Footer thẳng hàng, cân đối, xóa logo đỉnh, xóa các dòng thừa và chuẩn hóa email `contact@localmate.vn`.
+- Bảng giá đưa toàn bộ gói "Khuyên dùng" lên đầu và đổi đơn vị thành `Trọn gói`.

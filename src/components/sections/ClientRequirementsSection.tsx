@@ -47,7 +47,7 @@ export const ClientRequirementsSection: React.FC = () => {
   ];
 
   const scrollToContact = () => {
-    const el = document.getElementById('concept-generator');
+    const el = document.getElementById('bang-gia');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     } else {

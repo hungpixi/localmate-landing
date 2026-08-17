@@ -9,7 +9,7 @@ export const StarterPackageSection: React.FC = () => {
   const { navigate } = useRouter();
 
   const scrollToForm = () => {
-    const el = document.querySelector('#concept-generator');
+    const el = document.querySelector('#bang-gia');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     } else {
