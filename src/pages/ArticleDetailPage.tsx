@@ -8,7 +8,7 @@ import { getServiceBySlug } from '../data/servicesData';
 import { useRouter, Link } from '../components/layout/Router';
 import {
   Clock, Calendar, User, ArrowRight, HelpCircle, CheckCircle2,
-  AlertTriangle, Lightbulb, Info, BookOpen, Share2
+  AlertTriangle, Lightbulb, Info, BookOpen
 } from 'lucide-react';
 
 interface ArticleDetailPageProps {
@@ -24,14 +24,14 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
     return (
       <div style={{ backgroundColor: '#ffffff', padding: '5rem 0', textAlign: 'center' }}>
         <Container size="md">
-          <h1 style={{ fontSize: '2rem', color: 'var(--color-navy)', fontWeight: 800 }}>
-            Bài viết không tồn tại hoặc đã được chuyển hướng
+          <h1 style={{ fontSize: '2rem', color: 'var(--color-text)', fontWeight: 800 }}>
+            Bài viết không tồn tại hoặc đã được cập nhật đường dẫn
           </h1>
           <p style={{ color: 'var(--color-text-muted)', margin: '1rem 0 2rem 0' }}>
-            Vui lòng quay lại Cổng kiến thức để khám phá các bài viết hướng dẫn chuyên sâu khác.
+            Vui lòng quay lại chuyên mục Kiến thức để khám phá các bài viết hướng dẫn khác.
           </p>
           <Button variant="primary" onClick={() => navigate('/kien-thuc')}>
-            Về Cổng Kiến Thức
+            Về chuyên mục Kiến Thức
           </Button>
         </Container>
       </div>
@@ -55,7 +55,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
     <div style={{ backgroundColor: '#ffffff', padding: '2rem 0 5rem 0' }}>
       {/* SEO & Structured Data */}
       <SEOHead
-        title={article.title}
+        title={`${article.title} | LocalMate`}
         description={article.summary}
         canonicalPath={`/kien-thuc/${article.slug}`}
         ogType="article"
@@ -105,8 +105,8 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
                 style={{
                   fontSize: '0.75rem',
                   fontWeight: 700,
-                  color: 'var(--color-teal-dark)',
-                  backgroundColor: 'var(--color-teal-soft)',
+                  color: 'var(--color-primary-dark)',
+                  backgroundColor: 'var(--color-primary-soft)',
                   padding: '0.35rem 0.85rem',
                   borderRadius: 'var(--radius-full)'
                 }}
@@ -125,7 +125,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
             <h1
               style={{
                 fontSize: 'clamp(1.75rem, 4vw, 2.3rem)',
-                color: 'var(--color-navy)',
+                color: 'var(--color-text)',
                 fontWeight: 800,
                 lineHeight: 1.3,
                 marginBottom: '1.25rem'
@@ -147,11 +147,11 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
                 marginBottom: '2rem'
               }}
             >
-              <div style={{ width: 40, height: 40, borderRadius: '50%', backgroundColor: 'var(--color-teal-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-teal-dark)', fontWeight: 800 }}>
+              <div style={{ width: 40, height: 40, borderRadius: '50%', backgroundColor: 'var(--color-primary-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-primary-dark)', fontWeight: 800 }}>
                 <User size={20} />
               </div>
               <div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-navy)' }}>{article.author.name}</div>
+                <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-text)' }}>{article.author.name}</div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>{article.author.role}</div>
               </div>
             </div>
@@ -160,11 +160,11 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
             <div
               style={{
                 backgroundColor: '#f8fbfa',
-                borderLeft: '4px solid var(--color-teal)',
+                borderLeft: '4px solid var(--color-primary)',
                 padding: '1.25rem 1.5rem',
                 borderRadius: '0 var(--radius-md) var(--radius-md) 0',
                 fontSize: '1.025rem',
-                color: 'var(--color-navy)',
+                color: 'var(--color-text)',
                 lineHeight: 1.65,
                 fontWeight: 500,
                 marginBottom: '2rem'
@@ -184,8 +184,8 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
                   marginBottom: '2.5rem'
                 }}
               >
-                <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-navy)', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.85rem' }}>
-                  <BookOpen size={18} color="var(--color-teal-dark)" /> Mục Lục Bài Viết
+                <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-text)', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.85rem' }}>
+                  <BookOpen size={18} color="var(--color-primary)" /> Mục Lục Hướng Dẫn
                 </div>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   {article.tableOfContents.map((toc) => (
@@ -194,7 +194,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
                         href={`#${toc.id}`}
                         style={{
                           fontSize: '0.875rem',
-                          color: 'var(--color-teal-dark)',
+                          color: 'var(--color-primary-dark)',
                           textDecoration: 'none',
                           fontWeight: 600,
                           lineHeight: 1.5
@@ -217,7 +217,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
                       style={{
                         fontSize: '1.35rem',
                         fontWeight: 800,
-                        color: 'var(--color-navy)',
+                        color: 'var(--color-text)',
                         marginBottom: '0.85rem',
                         marginTop: '0.5rem',
                         lineHeight: 1.35
@@ -256,7 +256,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
                         {sec.callout.type === 'warning' ? <AlertTriangle size={18} /> : <Lightbulb size={18} />}
                         <span>{sec.callout.title}</span>
                       </div>
-                      <div style={{ fontSize: '0.875rem', color: 'var(--color-navy)', lineHeight: 1.55 }}>
+                      <div style={{ fontSize: '0.875rem', color: 'var(--color-text)', lineHeight: 1.55 }}>
                         {sec.callout.text}
                       </div>
                     </div>
@@ -268,14 +268,14 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
             {/* Contextual FAQs */}
             {article.faqs && article.faqs.length > 0 && (
               <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--color-border)' }}>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '1.25rem' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '1.25rem' }}>
                   Câu Hỏi Thường Gặp
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {article.faqs.map((faq, idx) => (
                     <div key={idx} style={{ backgroundColor: '#f8fbfa', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '1.25rem' }}>
-                      <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.35rem', display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <HelpCircle size={16} color="var(--color-teal-dark)" /> {faq.question}
+                      <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '0.35rem', display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <HelpCircle size={16} color="var(--color-primary)" /> {faq.question}
                       </h4>
                       <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', margin: 0, paddingLeft: '1.4rem' }}>
                         {faq.answer}
@@ -291,20 +291,20 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
               <div
                 style={{
                   backgroundColor: '#f8fbfa',
-                  border: '2px solid var(--color-teal)',
+                  border: '2px solid var(--color-primary)',
                   borderRadius: 'var(--radius-xl)',
                   padding: '2rem',
                   marginTop: '3.5rem',
                   textAlign: 'center'
                 }}
               >
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.5rem' }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '0.5rem' }}>
                   {article.cta.title}
                 </h3>
                 <p style={{ fontSize: '0.925rem', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto 1.5rem auto', lineHeight: 1.6 }}>
                   {article.cta.subtitle}
                 </p>
-                <Button variant="primary" size="lg" onClick={handleCTAClick}>
+                <Button variant="primary" size="lg" onClick={handleCTAClick} style={{ fontWeight: 700 }}>
                   {article.cta.buttonText}
                 </Button>
               </div>
@@ -324,10 +324,10 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
                   boxShadow: 'var(--shadow-sm)'
                 }}
               >
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-teal-dark)', backgroundColor: 'var(--color-teal-soft)', padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-primary-dark)', backgroundColor: 'var(--color-primary-soft)', padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
                   DỊCH VỤ LIÊN QUAN
                 </span>
-                <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: '0.65rem', marginBottom: '0.5rem' }}>
+                <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-text)', marginTop: '0.65rem', marginBottom: '0.5rem' }}>
                   {targetService.name}
                 </h4>
                 <p style={{ fontSize: '0.825rem', color: 'var(--color-text-muted)', lineHeight: 1.55, marginBottom: '1rem' }}>
@@ -342,7 +342,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
                     display: 'block',
                     textAlign: 'center',
                     padding: '0.65rem 1rem',
-                    backgroundColor: 'var(--color-navy)',
+                    backgroundColor: 'var(--color-primary)',
                     color: '#ffffff',
                     borderRadius: 'var(--radius-md)',
                     fontWeight: 700,
@@ -365,7 +365,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
                   padding: '1.5rem'
                 }}
               >
-                <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '1rem' }}>
+                <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '1rem' }}>
                   Bài viết cùng chủ đề
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
@@ -382,7 +382,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug, onOp
                         borderBottom: '1px dashed var(--color-border)'
                       }}
                     >
-                      <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-navy)', lineHeight: 1.4 }}>
+                      <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-text)', lineHeight: 1.4 }}>
                         {rel.title}
                       </span>
                       <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>

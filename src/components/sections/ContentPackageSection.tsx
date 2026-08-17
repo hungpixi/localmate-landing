@@ -1,219 +1,269 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { SectionHeader } from '../ui/SectionHeader';
-import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
-import { CONTENT_PACKAGE } from '../../data/landingContent';
-import { FileText, Image, Video, Clock, Share2, BarChart3, ArrowRight, Info, CheckCircle2, Zap } from 'lucide-react';
+import { CONTENT_PACKAGE, CONTACT_INFO } from '../../data/landingContent';
+import { Check, ArrowRight, Zap, Sparkles } from 'lucide-react';
+import { useRouter } from '../layout/Router';
 
 export const ContentPackageSection: React.FC = () => {
-  const scrollToForm = () => {
-    const el = document.querySelector('#register-form');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const statIcons = [
-    <FileText key="1" size={18} />,
-    <Image key="2" size={18} />,
-    <Video key="3" size={18} />,
-    <Clock key="4" size={18} />,
-    <Share2 key="5" size={18} />,
-    <BarChart3 key="6" size={18} />
-  ];
+  const { navigate } = useRouter();
 
   return (
-    <section style={{ padding: 'clamp(2.75rem, 5vw, 4.5rem) 0', backgroundColor: 'var(--color-bg)' }}>
+    <section
+      style={{
+        padding: 'clamp(3rem, 5vw, 5rem) 0',
+        backgroundColor: '#ffffff',
+        borderBottom: '1px solid var(--color-border)'
+      }}
+      id="goi-content"
+    >
       <Container size="lg">
-        <SectionHeader
-          eyebrow="DUY TRÌ VẬN HÀNH TIẾT KIỆM"
-          title={CONTENT_PACKAGE.title}
-          subtitle={CONTENT_PACKAGE.subtitle}
-        />
+        {/* Section Header */}
+        <div className="section-header" style={{ marginBottom: '2.5rem' }}>
+          <span className="section-eyebrow">
+            <Sparkles size={14} /> CHĂM SÓC KÊNH TIẾT KIỆM
+          </span>
+          <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-navy)', fontWeight: 800 }}>
+            {CONTENT_PACKAGE.title}
+          </h2>
+          <p className="subtitle" style={{ marginTop: '0.4rem' }}>
+            Duy trì bài viết và hình ảnh đẹp mắt trên Facebook, Google để khách hàng luôn thấy quán đang hoạt động sôi nổi.
+          </p>
+        </div>
 
-        <div className="content-package-main-grid">
-          {/* Left: 2x3 or 3x2 Stat Grid */}
-          <div className="content-stats-grid">
-            {CONTENT_PACKAGE.stats.map((stat, idx) => (
-              <Card
-                key={idx}
-                variant="surface"
-                hoverable
-                style={{
-                  textAlign: 'center',
-                  padding: 'clamp(0.85rem, 2.5vw, 1.25rem) 0.65rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.5rem',
-                  border: '1px solid var(--color-border)',
-                  borderRadius: 'var(--radius-lg)'
-                }}
-              >
-                <div
-                  style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: 'var(--radius-md)',
-                    backgroundColor: 'var(--color-primary-soft)',
-                    color: 'var(--color-primary-dark)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: 'var(--shadow-sm)'
-                  }}
-                >
-                  {statIcons[idx]}
-                </div>
-
-                <div>
-                  <div
-                    style={{
-                      fontSize: 'clamp(1.75rem, 3.5vw, 2.25rem)',
-                      fontWeight: 900,
-                      color: 'var(--color-text)',
-                      lineHeight: 1,
-                      marginBottom: '0.2rem'
-                    }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '0.775rem',
-                      fontWeight: 600,
-                      color: 'var(--color-text-muted)',
-                      lineHeight: 1.3
-                    }}
-                  >
-                    {stat.label}
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-
-          {/* Right: Price Card & Terms */}
-          <Card
-            variant="surface"
-            style={{
-              padding: 'clamp(1.5rem, 3vw, 2.25rem)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              gap: '1.25rem',
-              border: '2px solid var(--color-primary-soft)',
-              borderRadius: 'var(--radius-xl)',
-              boxShadow: 'var(--shadow-md)',
-              position: 'relative'
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  marginBottom: '0.5rem',
-                  flexWrap: 'wrap',
-                  gap: '0.4rem'
-                }}
-              >
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--color-primary-dark)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  GÓI BẢO TRÌ & NỘI DUNG
+        {/* Clean Focused 1-Card Presentation (No Cluttered Left Mockup) */}
+        <div className="content-package-card">
+          <div className="content-package-grid">
+            {/* Left: Value & Deliverables Checklist */}
+            <div className="content-package-main">
+              <div style={{ marginBottom: '0.75rem' }}>
+                <span className="eyebrow-text">
+                  DÀNH CHO CỬA HÀNG BẬN RỘN
                 </span>
-                <span
-                  style={{
-                    fontSize: '0.7rem',
-                    fontWeight: 700,
-                    backgroundColor: 'var(--color-primary-soft)',
-                    color: 'var(--color-primary-dark)',
-                    padding: '0.25rem 0.6rem',
-                    borderRadius: 'var(--radius-full)'
-                  }}
-                >
-                  Đồng hành hàng tháng
-                </span>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem', marginTop: '0.25rem', marginBottom: '0.75rem' }}>
-                <h3 style={{ fontSize: 'clamp(2.25rem, 4vw, 2.75rem)', color: 'var(--color-text)', fontWeight: 900, lineHeight: 1, margin: 0 }}>
-                  {CONTENT_PACKAGE.price}
+                <h3 className="card-title">
+                  Có bài đăng và hình ảnh mới mỗi tuần mà không tốn thời gian
                 </h3>
-                <span style={{ fontSize: '1rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>
-                  {CONTENT_PACKAGE.unit}
-                </span>
               </div>
 
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  color: 'var(--color-orange-dark)',
-                  backgroundColor: '#fff7ed',
-                  padding: '0.5rem 0.8rem',
-                  borderRadius: 'var(--radius-sm)',
-                  border: '1px solid #ffedd5'
-                }}
-              >
-                <Zap size={14} color="var(--color-orange-dark)" style={{ flexShrink: 0 }} />
-                <span>Chỉ 33.000đ/ngày — Giúp kênh online của bạn luôn tươi mới</span>
+              {/* Daily Micro-Cost Anchor */}
+              <div className="micro-cost-pill">
+                <Zap size={16} color="var(--color-primary)" style={{ flexShrink: 0 }} />
+                <span>Chỉ 33.000đ/ngày — Không cần thuê nhân viên marketing toàn thời gian</span>
+              </div>
+
+              {/* 4 Deliverables */}
+              <div className="deliverables-grid">
+                <div className="deliverable-item">
+                  <Check size={16} color="var(--color-primary)" className="deliv-icon" />
+                  <span><strong>15 bài viết Facebook</strong> nội dung hấp dẫn, đúng ngành nghề</span>
+                </div>
+                <div className="deliverable-item">
+                  <Check size={16} color="var(--color-primary)" className="deliv-icon" />
+                  <span><strong>15 hình ảnh thiết kế</strong> chỉn chu, chèn logo và hotline</span>
+                </div>
+                <div className="deliverable-item">
+                  <Check size={16} color="var(--color-primary)" className="deliv-icon" />
+                  <span><strong>02 video ngắn (Reels/TikTok)</strong> dựng sẵn định dạng dọc</span>
+                </div>
+                <div className="deliverable-item">
+                  <Check size={16} color="var(--color-primary)" className="deliv-icon" />
+                  <span><strong>Gửi duyệt trước</strong> từng tuần, đồng ý mới đăng lên kênh</span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="action-row">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() => navigate('/dich-vu/content-marketing')}
+                  style={{ fontWeight: 700 }}
+                >
+                  <span>Xem mẫu bài viết &amp; đăng ký gói</span>
+                  <ArrowRight size={17} />
+                </Button>
+
+                <a
+                  href={CONTACT_INFO.zaloUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="secondary-zalo-link"
+                >
+                  Tư vấn nhanh qua Zalo →
+                </a>
               </div>
             </div>
 
-            <div style={{ backgroundColor: 'var(--color-bg)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-              <span style={{ fontSize: '0.775rem', fontWeight: 700, color: 'var(--color-text)', display: 'flex', alignItems: 'center', gap: 6, marginBottom: '0.5rem' }}>
-                <Info size={14} color="var(--color-primary)" /> ĐIỀU KIỆN ÁP DỤNG:
-              </span>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.45rem', padding: 0, margin: 0 }}>
-                {CONTENT_PACKAGE.terms.map((term, termIdx) => (
-                  <li key={termIdx} style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', display: 'flex', alignItems: 'flex-start', gap: '0.45rem' }}>
-                    <CheckCircle2 size={14} color="var(--color-primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <span>{term}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Right: Pricing Box */}
+            <div className="content-package-pricing-side">
+              <div className="pricing-box">
+                <span className="price-tagline">Gói duy trì đều đặn</span>
+                <div className="price-amount">990.000đ</div>
+                <div className="price-meta">/ tháng · Thanh toán linh hoạt</div>
+                <div className="price-guarantee">✓ Không ràng buộc hợp đồng dài hạn</div>
+              </div>
             </div>
-
-            <Button variant="secondary" size="lg" onClick={scrollToForm} fullWidth>
-              Nhận kế hoạch nội dung mẫu <ArrowRight size={16} />
-            </Button>
-          </Card>
+          </div>
         </div>
       </Container>
 
       <style>{`
-        .content-package-main-grid {
+        .content-package-card {
+          background-color: #fafbfa;
+          border: 1px solid var(--color-border);
+          border-top: 4px solid var(--color-primary);
+          border-radius: var(--radius-2xl);
+          padding: clamp(1.75rem, 3.5vw, 2.75rem);
+          box-shadow: var(--shadow-sm);
+        }
+
+        .content-package-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 1.5rem;
+          gap: 2rem;
+          align-items: center;
         }
 
-        .content-stats-grid {
+        @media (min-width: 860px) {
+          .content-package-grid {
+            grid-template-columns: 1.45fr 0.85fr;
+            gap: 3rem;
+          }
+        }
+
+        .content-package-main {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .eyebrow-text {
+          font-size: 0.775rem;
+          font-weight: 800;
+          color: var(--color-primary-dark);
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          display: block;
+          margin-bottom: 0.35rem;
+        }
+
+        .card-title {
+          font-size: clamp(1.3rem, 2vw, 1.65rem);
+          font-weight: 800;
+          color: var(--color-navy);
+          line-height: 1.35;
+          margin: 0;
+        }
+
+        .micro-cost-pill {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.85rem;
+          font-weight: 700;
+          color: var(--color-primary-dark);
+          background-color: var(--color-primary-soft);
+          padding: 0.55rem 0.9rem;
+          border-radius: var(--radius-md);
+          border: 1px solid var(--color-primary-border);
+          margin: 1.15rem 0 1.35rem 0;
+          width: fit-content;
+        }
+
+        .deliverables-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.75rem;
+          grid-template-columns: 1fr;
+          gap: 0.65rem;
+          margin-bottom: 1.75rem;
         }
 
-        @media (min-width: 600px) {
-          .content-stats-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-          }
+        .deliverable-item {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.9rem;
+          color: var(--color-navy);
         }
 
-        @media (min-width: 992px) {
-          .content-package-main-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-          }
+        .deliv-icon {
+          flex-shrink: 0;
+        }
+
+        .action-row {
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+          flex-wrap: wrap;
+        }
+
+        .secondary-zalo-link {
+          font-size: 0.9rem;
+          font-weight: 700;
+          color: var(--color-primary-dark);
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          transition: color var(--transition-fast);
+        }
+
+        .secondary-zalo-link:hover {
+          color: var(--color-primary);
+          text-decoration: underline;
+        }
+
+        /* Right Pricing Box */
+        .content-package-pricing-side {
+          display: flex;
+          justify-content: center;
+        }
+
+        .pricing-box {
+          width: 100%;
+          max-width: 320px;
+          background-color: #ffffff;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-xl);
+          padding: 1.75rem;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.4rem;
+          box-shadow: var(--shadow-sm);
+        }
+
+        .price-tagline {
+          font-size: 0.775rem;
+          font-weight: 700;
+          color: var(--color-text-muted);
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
+
+        .price-amount {
+          font-size: clamp(2.25rem, 3.5vw, 2.75rem);
+          font-weight: 900;
+          color: var(--color-orange-dark);
+          line-height: 1;
+          margin: 0.25rem 0;
+        }
+
+        .price-meta {
+          font-size: 0.85rem;
+          font-weight: 700;
+          color: var(--color-navy);
+        }
+
+        .price-guarantee {
+          font-size: 0.775rem;
+          color: var(--color-primary-dark);
+          font-weight: 600;
+          margin-top: 0.5rem;
+          padding-top: 0.5rem;
+          border-top: 1px dashed var(--color-border);
+          width: 100%;
         }
       `}</style>
     </section>
   );
 };
-
-

@@ -1,50 +1,48 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { SectionHeader } from '../ui/SectionHeader';
 import { Button } from '../ui/Button';
 import { 
   CheckCircle2, 
   ArrowRight, 
   Sparkles, 
-  MessageCircle, 
-  Rocket, 
   FileText, 
   Gift, 
   PhoneCall, 
-  ShieldCheck, 
-  Smartphone,
-  BarChart2
+  Check
 } from 'lucide-react';
 import { CONTACT_INFO } from '../../data/landingContent';
+import { useRouter } from '../layout/Router';
 
 export const ClientRequirementsSection: React.FC = () => {
+  const { navigate } = useRouter();
+
   const checklistItems = [
-    { label: 'Tên sản phẩm / Dịch vụ', desc: 'Tên quán, món ăn hoặc dịch vụ bạn cung cấp' },
-    { label: 'Hình ảnh thực tế', desc: 'Ảnh chụp quán, sản phẩm hoặc hình có sẵn' },
-    { label: 'Nội dung cơ bản', desc: 'Mô tả ngắn, điểm nổi bật hoặc câu chuyện thương hiệu' },
-    { label: 'Giá hoặc ưu đãi nếu có', desc: 'Menu, bảng giá, combo giảm giá khai trương...' },
-    { label: 'Hotline / Số Zalo tư vấn', desc: 'Số điện thoại để khách bấm gọi hoặc nhắn tin ngay' },
-    { label: 'Logo nếu có', desc: 'Chưa có logo? LocalMate sẽ hỗ trợ tạo text logo chuẩn đẹp' }
+    { label: 'Tên cửa hàng / Cơ sở', desc: 'Tên quán ăn, phòng khám hoặc dịch vụ bạn đang kinh doanh' },
+    { label: 'Hình ảnh thực tế', desc: 'Ảnh chụp mặt tiền, sản phẩm thực tế hoặc bảng hiệu' },
+    { label: 'Nội dung giới thiệu', desc: 'Mô tả dịch vụ, điểm nổi bật hoặc câu chuyện tiệm' },
+    { label: 'Bảng giá niêm yết', desc: 'Menu, bảng giá dịch vụ hoặc ưu đãi khai trương' },
+    { label: 'Hotline / Số Zalo', desc: 'Số điện thoại để khách bấm gọi hoặc nhắn tin ngay' },
+    { label: 'Logo nếu có', desc: 'Chưa có logo, LocalMate sẽ tạo chữ tên tiệm rõ đẹp miễn phí' }
   ];
 
   const pageStructure = [
     {
       step: '01',
-      title: 'Giới thiệu sản phẩm',
-      desc: 'Hình ảnh bắt mắt, thông điệp cuốn hút gây ấn tượng trong 3s đầu',
-      icon: <FileText size={22} color="var(--color-primary)" />
+      title: 'Giới thiệu & Hình ảnh',
+      desc: 'Hình ảnh sắc nét, câu giới thiệu ngắn gọn gây ấn tượng trong 3 giây đầu',
+      icon: FileText
     },
     {
       step: '02',
-      title: 'Sản phẩm & Lợi ích',
-      desc: 'Trình bày rõ ràng menu, bảng giá, điểm khác biệt và feedback khách hàng',
-      icon: <Gift size={22} color="var(--color-primary)" />
+      title: 'Bảng giá & Dịch vụ',
+      desc: 'Trình bày rõ ràng danh mục, bảng giá, điểm khác biệt và hình ảnh thực tế',
+      icon: Gift
     },
     {
       step: '03',
-      title: 'Liên hệ & Đặt hàng',
-      desc: 'Nút gọi Hotline, Zalo Chat một chạm, bản đồ chỉ đường Google Maps',
-      icon: <PhoneCall size={22} color="var(--color-primary)" />
+      title: 'Liên hệ & Chỉ đường',
+      desc: 'Nút gọi Hotline, nhắn Zalo một chạm và bản đồ chỉ đường Google Maps',
+      icon: PhoneCall
     }
   ];
 
@@ -53,7 +51,7 @@ export const ClientRequirementsSection: React.FC = () => {
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      window.open(CONTACT_INFO.zaloUrl, '_blank');
+      navigate('/landing-490k');
     }
   };
 
@@ -61,405 +59,398 @@ export const ClientRequirementsSection: React.FC = () => {
     <section 
       id="yeu-cau-thong-tin"
       style={{ 
-        padding: 'var(--space-section-py) 0', 
-        backgroundColor: 'var(--color-bg)',
-        position: 'relative'
+        padding: 'clamp(3rem, 5vw, 5rem) 0', 
+        backgroundColor: '#ffffff',
+        borderBottom: '1px solid var(--color-border)'
       }}
     >
       <Container size="lg">
         {/* Section Header */}
-        <SectionHeader
-          eyebrow="ĐƠN GIẢN • NHANH CHÓNG • KHÔNG PHỨC TẠP"
-          title="Bạn cần gửi gì cho LocalMate?"
-          subtitle="Chỉ cần gửi những thông tin cơ bản dưới đây, LocalMate sẽ tự sắp xếp và lo trọn gói phần còn lại cho bạn!"
-        />
+        <div className="section-header">
+          <span className="section-eyebrow">
+            <Sparkles size={14} /> QUY TRÌNH TIẾP NHẬN THÔNG TIN
+          </span>
+          <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-navy)', fontWeight: 800 }}>
+            Bạn cần chuẩn bị những gì cho LocalMate?
+          </h2>
+          <p className="subtitle" style={{ marginTop: '0.4rem' }}>
+            Chỉ cần gửi các thông tin cơ bản dưới đây qua Zalo, LocalMate sẽ sắp xếp và lo trọn gói phần còn lại cho bạn.
+          </p>
+        </div>
 
-        {/* 1. Main Checklist Card with 3D Mascot Corner Image */}
-        <div
-          style={{
-            backgroundColor: '#ffffff',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-2xl)',
-            padding: 'clamp(1.5rem, 4vw, 2.5rem)',
-            boxShadow: 'var(--shadow-md)',
-            position: 'relative',
-            overflow: 'hidden',
-            marginBottom: '2rem'
-          }}
-          className="checklist-corner-card"
-        >
-          <div className="checklist-corner-grid">
-            {/* Left Column: 6 Checklist Items */}
-            <div style={{ zIndex: 2, display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              <div style={{ marginBottom: '0.5rem' }}>
-                <span
-                  style={{
-                    fontSize: '0.775rem',
-                    fontWeight: 800,
-                    color: 'var(--color-primary-dark)',
-                    backgroundColor: 'var(--color-primary-soft)',
-                    padding: '0.3rem 0.75rem',
-                    borderRadius: 'var(--radius-full)',
-                    display: 'inline-block',
-                    marginBottom: '0.5rem'
-                  }}
-                >
-                  ✨ CHUẨN BỊ SIÊU NHANH
-                </span>
-                <h3 style={{ fontSize: 'var(--font-size-h3)', fontWeight: 800, color: 'var(--color-text)', margin: 0 }}>
-                  Danh sách thông tin cần cung cấp:
-                </h3>
+        {/* 1. Main Checklist Card */}
+        <div className="requirements-checklist-card">
+          <div style={{ marginBottom: '1rem' }}>
+            <span style={{ fontSize: '0.775rem', fontWeight: 800, color: 'var(--color-primary-dark)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              DANH SÁCH THÔNG TIN CƠ BẢN
+            </span>
+          </div>
+
+          <div className="checklist-items-grid">
+            {checklistItems.map((item, idx) => (
+              <div key={idx} className="checklist-item-row">
+                <div className="check-dot">
+                  <CheckCircle2 size={16} />
+                </div>
+                <div>
+                  <span style={{ fontSize: '0.925rem', fontWeight: 700, color: 'var(--color-navy)', display: 'block' }}>
+                    {item.label}
+                  </span>
+                  <span style={{ fontSize: '0.825rem', color: 'var(--color-text-muted)', lineHeight: 1.45 }}>
+                    {item.desc}
+                  </span>
+                </div>
               </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {checklistItems.map((item, idx) => (
-                  <div
-                    key={idx}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.75rem',
-                      padding: '0.4rem 0',
-                      borderBottom: idx < checklistItems.length - 1 ? '1px dashed var(--color-border-light)' : 'none'
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: '24px',
-                        height: '24px',
-                        borderRadius: '50%',
-                        backgroundColor: 'var(--color-primary)',
-                        color: '#ffffff',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                        boxShadow: '0 2px 6px rgba(13, 118, 71, 0.3)'
-                      }}
-                    >
-                      <CheckCircle2 size={16} />
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', flexWrap: 'wrap' }}>
-                      <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-text)' }}>
-                        {item.label}
-                      </span>
-                      <span style={{ fontSize: '0.825rem', color: 'var(--color-text-subtle)' }}>
-                        — {item.desc}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Corner: Mascot Store Illustration in the corner */}
-            <div className="corner-mascot-container">
-              <div
-                style={{
-                  position: 'relative',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                {/* Soft Organic Aura Glow behind mascot */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    width: '240px',
-                    height: '240px',
-                    borderRadius: '50%',
-                    backgroundColor: 'var(--color-primary-soft)',
-                    filter: 'blur(30px)',
-                    zIndex: 1,
-                    opacity: 0.8
-                  }}
-                />
-                
-                <img
-                  src="/assets/illustrations/mascot-store-corner.png"
-                  alt="LocalMate Mascot & Store"
-                  style={{
-                    width: '100%',
-                    maxWidth: '260px',
-                    height: 'auto',
-                    objectFit: 'contain',
-                    position: 'relative',
-                    zIndex: 2,
-                    display: 'block',
-                    filter: 'drop-shadow(0 12px 20px rgba(13, 118, 71, 0.15))'
-                  }}
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* 2. Cấu Trúc Trang 3 Bước (Page Structure) */}
-        <div
-          style={{
-            backgroundColor: '#ffffff',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-2xl)',
-            padding: 'clamp(1.5rem, 4vw, 2.25rem)',
-            boxShadow: 'var(--shadow-sm)',
-            marginBottom: '2rem'
-          }}
-        >
+        {/* 2. Cấu Trúc Trang 3 Phần (Page Structure) */}
+        <div style={{ marginTop: '3rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
-            <h3 style={{ fontSize: 'var(--font-size-h3)', fontWeight: 800, color: 'var(--color-text)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-              🌿 Cấu trúc trang chuẩn chuyển đổi
+            <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-navy)' }}>
+              3 phần quan trọng giúp khách dễ bấm gọi
             </h3>
             <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginTop: '0.25rem' }}>
-              Mỗi section đều được thiết kế tỉ mỉ để dẫn dắt khách hàng từ tò mò đến hành động gọi điện / đặt mua
+              Trình bày rõ ràng để khách hàng mở ra là hiểu ngay và liên hệ thuận tiện nhất
             </p>
           </div>
 
           <div className="structure-steps-grid">
-            {pageStructure.map((step, idx) => (
-              <React.Fragment key={idx}>
-                <div
-                  style={{
-                    backgroundColor: 'var(--color-surface-subtle)',
-                    border: '1px solid var(--color-border)',
-                    borderRadius: 'var(--radius-xl)',
-                    padding: 'clamp(1.25rem, 3vw, 1.75rem)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    gap: '0.75rem',
-                    boxShadow: 'var(--shadow-sm)',
-                    position: 'relative'
-                  }}
-                  className="interactive-card"
-                >
-                  <span
-                    style={{
-                      width: '32px',
-                      height: '32px',
-                      borderRadius: '50%',
-                      backgroundColor: 'var(--color-primary)',
-                      color: '#ffffff',
-                      fontSize: '0.8rem',
-                      fontWeight: 800,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      boxShadow: '0 2px 8px rgba(13, 118, 71, 0.25)'
-                    }}
-                  >
-                    {step.step}
-                  </span>
-
-                  <div
-                    style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: 'var(--radius-lg)',
-                      backgroundColor: '#ffffff',
-                      border: '1px solid var(--color-primary-border)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      boxShadow: 'var(--shadow-sm)'
-                    }}
-                  >
-                    {step.icon}
+            {pageStructure.map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <div key={idx} className="structure-step-card interactive-card">
+                  <span className="step-num-badge">{step.step}</span>
+                  <div className="step-icon-box">
+                    <Icon size={22} color="var(--color-primary)" />
                   </div>
-
-                  <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-text)', margin: 0 }}>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-navy)', margin: 0 }}>
                     {step.title}
                   </h4>
-
                   <p style={{ fontSize: '0.825rem', color: 'var(--color-text-muted)', lineHeight: 1.5, margin: 0 }}>
                     {step.desc}
                   </p>
                 </div>
-
-                {idx < pageStructure.length - 1 && (
-                  <div className="step-arrow-divider">
-                    <ArrowRight size={22} color="var(--color-primary)" />
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-
-          {/* Highlight Notice Banner */}
-          <div
-            style={{
-              marginTop: '1.5rem',
-              backgroundColor: 'var(--color-primary-soft)',
-              border: '1px solid var(--color-primary-border)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '0.85rem 1.25rem',
-              textAlign: 'center',
-              fontSize: '0.875rem',
-              fontWeight: 700,
-              color: 'var(--color-primary-dark)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.5rem',
-              flexWrap: 'wrap'
-            }}
-          >
-            <Sparkles size={16} color="var(--color-primary)" />
-            <span>LocalMate sẽ sắp xếp lại toàn bộ hình ảnh và bài viết thành một trang cực kỳ gọn gàng và dễ hiểu!</span>
+              );
+            })}
           </div>
         </div>
 
-        {/* 3. Landing Page 490K Special Offer Package Card */}
-        <div
-          style={{
-            backgroundColor: '#ffffff',
-            border: '2px solid var(--color-primary)',
-            borderRadius: 'var(--radius-2xl)',
-            padding: 'clamp(1.5rem, 4vw, 2.5rem)',
-            boxShadow: 'var(--shadow-lg)',
-            textAlign: 'center'
-          }}
-        >
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', backgroundColor: 'var(--color-primary-soft)', color: 'var(--color-primary-dark)', padding: '0.35rem 0.85rem', borderRadius: 'var(--radius-full)', fontSize: '0.775rem', fontWeight: 800, marginBottom: '0.75rem' }}>
-            <Rocket size={14} /> GÓI KHỞI TẠO LANDING PAGE TIẾT KIỆM
-          </div>
+        {/* 3. Section Gói Website 1 Trang 490K Redesigned */}
+        <div className="website-490k-container">
+          <div className="website-490k-grid">
+            {/* Left: Value Proposition, 4 Benefits & CTAs */}
+            <div className="website-490k-main">
+              <span className="eyebrow-text">
+                WEBSITE 1 TRANG CHO CỬA HÀNG NHỎ
+              </span>
 
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.85rem' }}>
-            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 900, color: 'var(--color-text)', margin: 0, lineHeight: 1 }}>
-              490.000đ
-            </h2>
-            <span style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--color-primary-dark)' }}>
-              trọn gói
-            </span>
-          </div>
+              <h3 className="card-title">
+                Có ngay một website để gửi khách xem và liên hệ
+              </h3>
 
-          {/* Feature Badges */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.65rem 1rem',
-              flexWrap: 'wrap',
-              fontSize: '0.825rem',
-              fontWeight: 600,
-              color: 'var(--color-text)',
-              marginBottom: '1.75rem'
-            }}
-          >
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', backgroundColor: 'var(--color-surface-subtle)', padding: '0.35rem 0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-              <Smartphone size={14} color="var(--color-primary)" /> 3 Section chuẩn
-            </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', backgroundColor: 'var(--color-surface-subtle)', padding: '0.35rem 0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-              📱 Mobile-First 100%
-            </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', backgroundColor: 'var(--color-surface-subtle)', padding: '0.35rem 0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-              📊 Cài sẵn GA4 &amp; GTM
-            </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', backgroundColor: 'var(--color-surface-subtle)', padding: '0.35rem 0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-              <BarChart2 size={14} color="var(--color-primary)" /> Tracking cơ bản
-            </span>
-          </div>
+              <p className="card-desc">
+                Đủ thông tin dịch vụ, bảng giá, hình ảnh và nút gọi/Zalo. Phù hợp khi bạn cần một website gọn, làm nhanh và không tốn nhiều chi phí.
+              </p>
 
-          {/* CTAs */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '0.85rem',
-              maxWidth: '520px',
-              margin: '0 auto'
-            }}
-          >
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={scrollToContact}
-              style={{ width: '100%', fontSize: '1.05rem', fontWeight: 800, padding: '0.95rem 1.75rem' }}
-            >
-              <Rocket size={18} />
-              <span>Làm Landing Page 490K</span>
-            </Button>
+              {/* 4 Benefits Grid */}
+              <div className="benefits-2x2-grid">
+                <div className="benefit-item">
+                  <Check size={16} color="var(--color-primary)" className="benefit-icon" />
+                  <span>Hiển thị đẹp trên điện thoại</span>
+                </div>
+                <div className="benefit-item">
+                  <Check size={16} color="var(--color-primary)" className="benefit-icon" />
+                  <span>Có nút gọi và Zalo</span>
+                </div>
+                <div className="benefit-item">
+                  <Check size={16} color="var(--color-primary)" className="benefit-icon" />
+                  <span>Chỉnh nội dung trước bàn giao</span>
+                </div>
+                <div className="benefit-item">
+                  <Check size={16} color="var(--color-primary)" className="benefit-icon" />
+                  <span>Báo giá trước, không tự phát sinh</span>
+                </div>
+              </div>
 
-            <Button
-              variant="white"
-              size="md"
-              onClick={() => window.open(CONTACT_INFO.zaloUrl, '_blank')}
-              style={{ width: '100%', fontSize: '0.925rem', fontWeight: 700 }}
-            >
-              <MessageCircle size={16} color="var(--color-primary)" />
-              <span>Nhắn Zalo LocalMate ngay</span>
-            </Button>
-          </div>
+              {/* CTAs */}
+              <div className="action-row">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={scrollToContact}
+                  style={{ fontWeight: 700 }}
+                >
+                  <span>Xem thử website 490K</span>
+                  <ArrowRight size={17} />
+                </Button>
 
-          <div
-            style={{
-              marginTop: '1.25rem',
-              fontSize: '0.8rem',
-              color: 'var(--color-text-subtle)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.75rem',
-              flexWrap: 'wrap'
-            }}
-          >
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
-              <ShieldCheck size={14} color="var(--color-primary)" /> Uy tín
-            </span>
-            <span>•</span>
-            <span>Minh bạch</span>
-            <span>•</span>
-            <span>Hỗ trợ tận tâm 🌿</span>
+                <a
+                  href={CONTACT_INFO.zaloUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="secondary-zalo-link"
+                >
+                  Hỏi nhanh qua Zalo →
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Price & Meta Badge */}
+            <div className="website-490k-pricing-side">
+              <div className="price-badge-card">
+                <span className="price-tagline">Chi phí trọn gói</span>
+                <div className="price-amount">490.000đ</div>
+                <div className="price-meta">Trọn gói · Bàn giao 24–48 giờ</div>
+                <div className="price-guarantee">✓ Không phí duy trì tháng</div>
+              </div>
+            </div>
           </div>
         </div>
       </Container>
 
       <style>{`
-        .checklist-corner-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-          align-items: center;
+        .requirements-checklist-card {
+          background-color: #fafbfa;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-xl);
+          padding: clamp(1.25rem, 3vw, 2rem);
         }
 
-        .corner-mascot-container {
+        .checklist-items-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0.85rem;
+        }
+
+        @media (min-width: 640px) {
+          .checklist-items-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem 1.5rem;
+          }
+        }
+
+        .checklist-item-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.65rem;
+        }
+
+        .check-dot {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background-color: var(--color-primary);
+          color: #ffffff;
           display: flex;
           align-items: center;
-          justifyContent: center;
-          width: 100%;
+          justify-content: center;
+          flex-shrink: 0;
+          margin-top: 2px;
         }
 
         .structure-steps-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 1rem;
-          align-items: center;
+          gap: 1.25rem;
         }
 
-        .step-arrow-divider {
-          display: none;
+        @media (min-width: 768px) {
+          .structure-steps-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        .structure-step-card {
+          background-color: #ffffff;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-xl);
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 0.65rem;
+        }
+
+        .step-num-badge {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background-color: var(--color-primary);
+          color: #ffffff;
+          font-size: 0.75rem;
+          font-weight: 800;
+          display: flex;
           align-items: center;
           justify-content: center;
         }
 
-        @media (min-width: 768px) {
-          .checklist-corner-grid {
-            grid-template-columns: 1.3fr 0.7fr;
-            gap: 2rem;
-          }
+        .step-icon-box {
+          width: 44px;
+          height: 44px;
+          border-radius: var(--radius-md);
+          background-color: var(--color-primary-soft);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
-          .structure-steps-grid {
-            grid-template-columns: 1fr auto 1fr auto 1fr;
-            gap: 0.75rem;
-          }
+        /* 490K Redesigned Container */
+        .website-490k-container {
+          margin-top: 3.5rem;
+          background-color: #ffffff;
+          border: 1px solid var(--color-border);
+          border-top: 4px solid var(--color-primary);
+          border-radius: var(--radius-2xl);
+          padding: clamp(1.75rem, 3.5vw, 2.75rem);
+          box-shadow: var(--shadow-md);
+        }
 
-          .step-arrow-divider {
-            display: flex;
+        .website-490k-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          align-items: center;
+        }
+
+        @media (min-width: 860px) {
+          .website-490k-grid {
+            grid-template-columns: 1.45fr 0.85fr;
+            gap: 3rem;
           }
+        }
+
+        .website-490k-main {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .eyebrow-text {
+          font-size: 0.775rem;
+          font-weight: 800;
+          color: var(--color-primary-dark);
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          margin-bottom: 0.5rem;
+          display: block;
+        }
+
+        .card-title {
+          font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+          font-weight: 800;
+          color: var(--color-navy);
+          line-height: 1.3;
+          margin: 0 0 0.65rem 0;
+        }
+
+        .card-desc {
+          font-size: 0.925rem;
+          color: var(--color-text-muted);
+          line-height: 1.6;
+          margin: 0 0 1.5rem 0;
+        }
+
+        .benefits-2x2-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0.65rem 1.25rem;
+          margin-bottom: 1.75rem;
+        }
+
+        @media (min-width: 540px) {
+          .benefits-2x2-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        .benefit-item {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+          color: var(--color-navy);
+        }
+
+        .benefit-icon {
+          flex-shrink: 0;
+        }
+
+        .action-row {
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+          flex-wrap: wrap;
+        }
+
+        .secondary-zalo-link {
+          font-size: 0.9rem;
+          font-weight: 700;
+          color: var(--color-primary-dark);
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          transition: color var(--transition-fast);
+        }
+
+        .secondary-zalo-link:hover {
+          color: var(--color-primary);
+          text-decoration: underline;
+        }
+
+        /* Right Pricing Card */
+        .website-490k-pricing-side {
+          display: flex;
+          justify-content: center;
+        }
+
+        .price-badge-card {
+          width: 100%;
+          max-width: 320px;
+          background-color: var(--color-surface-subtle);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-xl);
+          padding: 1.75rem;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.4rem;
+        }
+
+        .price-tagline {
+          font-size: 0.775rem;
+          font-weight: 700;
+          color: var(--color-text-muted);
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
+
+        .price-amount {
+          font-size: clamp(2.25rem, 3.5vw, 2.75rem);
+          font-weight: 900;
+          color: var(--color-orange-dark);
+          line-height: 1;
+          margin: 0.25rem 0;
+        }
+
+        .price-meta {
+          font-size: 0.85rem;
+          font-weight: 700;
+          color: var(--color-navy);
+        }
+
+        .price-guarantee {
+          font-size: 0.775rem;
+          color: var(--color-primary-dark);
+          font-weight: 600;
+          margin-top: 0.5rem;
+          padding-top: 0.5rem;
+          border-top: 1px dashed var(--color-border);
+          width: 100%;
         }
       `}</style>
     </section>

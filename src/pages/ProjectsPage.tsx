@@ -3,8 +3,8 @@ import { Container } from '../components/ui/Container';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { SEOHead } from '../components/seo/SEOHead';
 import { getAllCaseStudies } from '../data/caseStudiesData';
-import { Sparkles, ArrowRight, MapPin, TrendingUp, CheckCircle2 } from 'lucide-react';
-import { useRouter, Link } from '../components/layout/Router';
+import { Sparkles, ArrowRight, MapPin } from 'lucide-react';
+import { useRouter } from '../components/layout/Router';
 
 export const ProjectsPage: React.FC = () => {
   const { navigate } = useRouter();
@@ -14,8 +14,8 @@ export const ProjectsPage: React.FC = () => {
   const industries = [
     { key: 'all', label: 'Tất cả ngành nghề' },
     { key: 'giao-duc', label: 'Giáo dục & Mầm non' },
-    { key: 'spa', label: 'Y tế, Nha khoa & Spa' },
-    { key: 'nha-hang', label: 'Nhà hàng & F&B' },
+    { key: 'spa', label: 'Y tế & Spa' },
+    { key: 'nha-hang', label: 'Nhà hàng & Ăn uống' },
     { key: 'xay-dung', label: 'Nhà thầu & Xây dựng' },
     { key: 'doanh-nghiep-nho', label: 'Dịch vụ & Ô tô' }
   ];
@@ -27,8 +27,8 @@ export const ProjectsPage: React.FC = () => {
   return (
     <div style={{ backgroundColor: '#ffffff', padding: '2rem 0 5rem 0' }}>
       <SEOHead
-        title="Dự Án Thực Tế & Case Studies Đo Lường Hiệu Quả"
-        description="Tổng hợp các dự án thực tế LocalMate đã triển khai thành công cho khách hàng địa phương với số liệu đo lường minh bạch trước và sau."
+        title="Dự Án Thực Tế Đã Triển Khai | LocalMate"
+        description="Tổng hợp các dự án thực tế LocalMate đã triển khai cho các cửa hàng, cơ sở dịch vụ và doanh nghiệp nhỏ với kết quả đo lường minh bạch."
         canonicalPath="/du-an"
         breadcrumbs={[
           { name: 'Dự án', url: '/du-an' }
@@ -53,20 +53,20 @@ export const ProjectsPage: React.FC = () => {
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.06em',
-              color: 'var(--color-teal-dark)',
-              backgroundColor: 'var(--color-teal-soft)',
+              color: 'var(--color-primary-dark)',
+              backgroundColor: 'var(--color-primary-soft)',
               padding: '0.4rem 0.9rem',
               borderRadius: 'var(--radius-full)',
               marginBottom: '1rem'
             }}
           >
-            <Sparkles size={15} color="var(--color-teal)" /> LOCALMATE PROVEN RESULTS
+            <Sparkles size={15} color="var(--color-primary)" /> KẾT QUẢ THỰC TẾ
           </span>
-          <h1 style={{ fontSize: 'var(--font-size-h1)', color: 'var(--color-navy)', fontWeight: 800 }}>
+          <h1 style={{ fontSize: 'var(--font-size-h1)', color: 'var(--color-text)', fontWeight: 800 }}>
             Dự Án Thực Tế &amp; Kết Quả Đo Lường
           </h1>
           <p className="subtitle" style={{ marginTop: '0.75rem' }}>
-            Nói thực, làm thực, đo lường thực. Không dùng số liệu phóng đại hay testimonial giả mạo.
+            Nói thực, làm thực, đo lường thực. Xem cách các cửa hàng và cơ sở dịch vụ đã tìm thêm khách hàng cùng LocalMate.
           </p>
         </div>
 
@@ -83,8 +83,8 @@ export const ProjectsPage: React.FC = () => {
                   borderRadius: 'var(--radius-full)',
                   fontSize: '0.875rem',
                   fontWeight: isActive ? 700 : 600,
-                  backgroundColor: isActive ? 'var(--color-navy)' : '#ffffff',
-                  color: isActive ? '#ffffff' : 'var(--color-navy)',
+                  backgroundColor: isActive ? 'var(--color-primary)' : '#ffffff',
+                  color: isActive ? '#ffffff' : 'var(--color-text)',
                   border: '1px solid var(--color-border)',
                   cursor: 'pointer',
                   transition: 'all 0.15s'
@@ -118,7 +118,7 @@ export const ProjectsPage: React.FC = () => {
             >
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-teal-dark)', backgroundColor: 'var(--color-teal-soft)', padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-primary-dark)', backgroundColor: 'var(--color-primary-soft)', padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
                     {cs.industry}
                   </span>
                   <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: 3 }}>
@@ -126,7 +126,7 @@ export const ProjectsPage: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.75rem', lineHeight: 1.35 }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '0.75rem', lineHeight: 1.35 }}>
                   {cs.clientDisplayName}
                 </h3>
 
@@ -145,7 +145,7 @@ export const ProjectsPage: React.FC = () => {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1rem', borderTop: '1px dashed var(--color-border)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-teal-dark)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1rem', borderTop: '1px dashed var(--color-border)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-primary-dark)' }}>
                 <span>Xem chi tiết giải pháp &amp; kết quả</span>
                 <ArrowRight size={16} />
               </div>

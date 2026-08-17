@@ -1,16 +1,14 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { SERVICE_GROUPS } from '../../data/landingContent';
-import { Layout, Search, TrendingUp, FileText, Cpu, ShieldCheck, ArrowRight, Check, Sparkles, Layers } from 'lucide-react';
+import { Globe, MapPin, Sparkles, FileText, ArrowRight, Check, Layers } from 'lucide-react';
 import { useRouter } from '../layout/Router';
 
 const ICON_MAP: Record<string, React.ComponentType<any>> = {
-  Layout,
-  Search,
-  TrendingUp,
-  FileText,
-  Cpu,
-  ShieldCheck
+  Globe,
+  MapPin,
+  Sparkles,
+  FileText
 };
 
 export const ServiceHubSection: React.FC = () => {
@@ -19,7 +17,7 @@ export const ServiceHubSection: React.FC = () => {
   return (
     <section
       style={{
-        padding: '5rem 0',
+        padding: 'clamp(3rem, 5vw, 5rem) 0',
         backgroundColor: '#ffffff',
         borderBottom: '1px solid var(--color-border)'
       }}
@@ -27,187 +25,79 @@ export const ServiceHubSection: React.FC = () => {
     >
       <Container size="lg">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 3rem auto' }}>
-          <span
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-              color: 'var(--color-teal-dark)',
-              backgroundColor: 'var(--color-teal-soft)',
-              padding: '0.4rem 0.9rem',
-              borderRadius: 'var(--radius-full)',
-              marginBottom: '0.75rem'
-            }}
-          >
-            <Layers size={14} color="var(--color-teal)" /> LOCALMATE ADD-ONS — APP STORE DỊCH VỤ DIGITAL
+        <div className="section-header">
+          <span className="section-eyebrow">
+            <Layers size={14} /> 4 NHÓM DỊCH VỤ CỐT LÕI
           </span>
           <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-navy)', fontWeight: 800 }}>
-            Website Là Cửa Vào · Mô Đun Dịch Vụ Mở Rộng Linh Hoạt
+            Dịch Vụ Linh Hoạt Theo Nhu Cầu &amp; Ngân Sách
           </h2>
-          <p className="subtitle" style={{ marginTop: '0.5rem' }}>
-            Không chỉ làm website. Bạn có thể tự do gắn thêm mô đun Google Maps, Tracking Ads, CRM, Booking &amp; BCT Compliance như xếp hình Lego theo từng giai đoạn phát triển.
+          <p className="subtitle" style={{ marginTop: '0.4rem' }}>
+            Không ép mua gói lớn. Bạn cần làm website, đưa tiệm lên Google Maps hay chạy quảng cáo tìm khách, LocalMate đều có dịch vụ riêng với giá báo trước.
           </p>
         </div>
 
-        {/* LocalMate Add-ons Feature Callout Box */}
-        <div
-          style={{
-            backgroundColor: '#f8fbfa',
-            border: '2px solid var(--color-teal)',
-            borderRadius: 'var(--radius-xl)',
-            padding: '1.5rem 2rem',
-            marginBottom: '3rem',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '1.25rem',
-            boxShadow: 'var(--shadow-sm)'
-          }}
-        >
-          <div style={{ flex: '1 1 340px' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--color-orange-dark)', textTransform: 'uppercase' }}>
-              ✦ LEGO-STYLE DIGITAL STACK
-            </span>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: '0.2rem', marginBottom: '0.35rem' }}>
-              Xây dựng giải pháp theo nhu cầu thực tế của bạn
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', margin: 0 }}>
-              Bắt đầu với <strong>Website Business (1,99m)</strong>, dễ dàng chọn thêm: <code>Google Maps (+299k)</code> • <code>Tracking Pack (+390k)</code> • <code>Telegram Bot (+299k)</code> • <code>Compliance BCT (+390k)</code>.
-            </p>
-          </div>
-
-          <button
-            onClick={() => navigate('/advisor')}
-            style={{
-              padding: '0.75rem 1.4rem',
-              backgroundColor: 'var(--color-navy)',
-              color: '#ffffff',
-              borderRadius: 'var(--radius-full)',
-              border: 'none',
-              fontWeight: 700,
-              fontSize: '0.875rem',
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              whiteSpace: 'nowrap'
-            }}
-          >
-            <Sparkles size={16} /> Lắp ghép cùng Advisor 0đ
-          </button>
-        </div>
-
-        {/* 6 Service Groups Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-            gap: 'var(--space-gap)'
-          }}
-        >
+        {/* 4 Pillars in a balanced 4-Column Grid */}
+        <div className="services-grid-4col">
           {SERVICE_GROUPS.map((group) => {
-            const IconComponent = ICON_MAP[group.iconName] || Layout;
+            const IconComponent = ICON_MAP[group.iconName] || Globe;
+            const targetSlug = group.id === 'google-ads' ? '/dich-vu/google-ads'
+              : group.id === 'google-maps' ? '/dich-vu/google-maps'
+              : group.id === 'website' ? '/dich-vu/website-landing-page'
+              : '/dich-vu/content-marketing';
+
             return (
               <div
                 key={group.id}
-                className="interactive-card"
-                style={{
-                  backgroundColor: '#ffffff',
-                  border: '1px solid var(--color-border)',
-                  borderRadius: 'var(--radius-xl)',
-                  padding: 'var(--space-card-p, clamp(1.25rem, 3vw, 2rem))',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  gap: '1.25rem',
-                  boxShadow: 'var(--shadow-sm)',
-                  boxSizing: 'border-box',
-                  minWidth: 0
-                }}
+                className="service-pillar-card interactive-card"
+                onClick={() => navigate(targetSlug)}
               >
-                <div>
-                  {/* Card Header Icon & Price Badge */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-                    <div
-                      style={{
-                        width: 52,
-                        height: 52,
-                        borderRadius: 'var(--radius-md)',
-                        backgroundColor: 'var(--color-teal-soft)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}
-                    >
-                      <IconComponent size={26} color="var(--color-teal-dark)" />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  {/* Top Icon & Starting Price */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div className="service-icon-box">
+                      <IconComponent size={22} color="var(--color-primary-dark)" />
                     </div>
 
-                    <span
-                      style={{
-                        fontSize: '0.8rem',
-                        fontWeight: 700,
-                        color: 'var(--color-navy)',
-                        backgroundColor: '#f0f7f5',
-                        border: '1px solid #dce8e5',
-                        padding: '0.35rem 0.85rem',
-                        borderRadius: 'var(--radius-full)'
-                      }}
-                    >
+                    <span className="service-price-pill">
                       {group.startingPrice}
                     </span>
                   </div>
 
-                  {/* Title & Tagline */}
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
-                    {group.title}
-                  </h3>
-                  <p style={{ fontSize: '0.825rem', fontWeight: 600, color: 'var(--color-teal-dark)', marginBottom: '0.85rem' }}>
-                    {group.tagline}
-                  </p>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                  {/* Title & One-line Outcome */}
+                  <div>
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.25rem', lineHeight: 1.3 }}>
+                      {group.title}
+                    </h3>
+                    <p style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-primary)', margin: 0 }}>
+                      {group.tagline}
+                    </p>
+                  </div>
+
+                  {/* Short Description */}
+                  <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', lineHeight: 1.5, margin: 0 }}>
                     {group.description}
                   </p>
 
-                  {/* Service Items List */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
-                    {group.services.map((srv, idx) => (
-                      <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--color-text)' }}>
-                        <Check size={14} color="var(--color-teal-dark)" style={{ flexShrink: 0 }} />
+                  {/* Max 3 Deliverables */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: '0.25rem' }}>
+                    {group.services.slice(0, 3).map((srv, idx) => (
+                      <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.825rem', color: 'var(--color-navy)' }}>
+                        <Check size={13} color="var(--color-primary)" style={{ flexShrink: 0 }} />
                         <span>{srv}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Footer Action */}
-                <div style={{ paddingTop: '1rem', borderTop: '1px solid var(--color-border)' }}>
+                {/* Bottom CTA Button */}
+                <div style={{ paddingTop: '0.85rem', borderTop: '1px solid var(--color-border)' }}>
                   <button
-                    onClick={() => navigate('/dich-vu')}
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      backgroundColor: 'var(--color-bg)',
-                      border: '1px solid var(--color-border)',
-                      borderRadius: 'var(--radius-md)',
-                      color: 'var(--color-navy)',
-                      fontWeight: 700,
-                      fontSize: '0.875rem',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.5rem',
-                      transition: 'all var(--transition-fast)'
-                    }}
+                    type="button"
+                    className="service-card-btn"
                   >
-                    <span>Xem chi tiết danh mục {group.title}</span>
-                    <ArrowRight size={16} />
+                    <span>Xem chi tiết &amp; báo giá</span>
+                    <ArrowRight size={14} color="var(--color-primary)" />
                   </button>
                 </div>
               </div>
@@ -215,30 +105,110 @@ export const ServiceHubSection: React.FC = () => {
           })}
         </div>
 
-        {/* Global Services CTA */}
-        <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+        {/* Global Catalog Footer Link */}
+        <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
           <button
-            onClick={() => navigate('/dich-vu')}
+            onClick={() => navigate('/bang-gia')}
             style={{
-              padding: '0.9rem 2.2rem',
-              backgroundColor: 'var(--color-navy)',
+              padding: '0.75rem 1.85rem',
+              backgroundColor: 'var(--color-primary)',
               color: '#ffffff',
-              borderRadius: 'var(--radius-full)',
+              borderRadius: 'var(--radius-md)',
               border: 'none',
               fontWeight: 700,
-              fontSize: '0.95rem',
+              fontSize: '0.925rem',
               cursor: 'pointer',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.6rem',
-              boxShadow: 'var(--shadow-md)'
+              gap: '0.5rem',
+              boxShadow: 'var(--shadow-sm)',
+              transition: 'all var(--transition-fast)'
             }}
+            className="btn-primary"
           >
-            <span>Khám phá 40+ LocalMate Add-ons &amp; Báo giá</span>
-            <ArrowRight size={18} />
+            <span>Xem Bảng Giá Toàn Bộ Dịch Vụ Niêm Yết</span>
+            <ArrowRight size={17} />
           </button>
         </div>
       </Container>
+
+      <style>{`
+        .services-grid-4col {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
+        }
+
+        @media (min-width: 580px) {
+          .services-grid-4col {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .services-grid-4col {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+          }
+        }
+
+        .service-pillar-card {
+          padding: clamp(1.2rem, 2vw, 1.5rem);
+          display: flex;
+          flex-direction: column;
+          justifyContent: space-between;
+          gap: 1.25rem;
+          cursor: pointer;
+          min-height: 320px;
+          box-sizing: border-box;
+        }
+
+        .service-icon-box {
+          width: 44px;
+          height: 44px;
+          border-radius: var(--radius-md);
+          background-color: var(--color-primary-soft);
+          border: 1px solid var(--color-primary-border);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .service-price-pill {
+          font-size: 0.8rem;
+          font-weight: 800;
+          color: var(--color-primary-dark);
+          background-color: var(--color-primary-soft);
+          border: 1px solid var(--color-primary-border);
+          padding: 0.25rem 0.65rem;
+          border-radius: var(--radius-sm);
+          white-space: nowrap;
+        }
+
+        .service-card-btn {
+          width: 100%;
+          padding: 0.6rem 0.8rem;
+          background-color: #f8fafc;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-sm);
+          color: var(--color-navy);
+          font-weight: 700;
+          font-size: 0.825rem;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.4rem;
+          transition: all var(--transition-fast);
+        }
+
+        .service-pillar-card:hover .service-card-btn {
+          background-color: var(--color-primary-soft);
+          border-color: var(--color-primary-border);
+          color: var(--color-primary-dark);
+        }
+      `}</style>
     </section>
   );
 };

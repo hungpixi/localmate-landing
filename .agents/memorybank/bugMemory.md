@@ -8,8 +8,12 @@
   - Lỗi: Dùng `grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))` hoặc `minmax(340px, 1fr)` kết hợp `Container` có padding cố định khiến tổng width vượt quá 360px-375px trên mobile, làm toàn bộ trang bị lệch trái/phải và chữ bị cắt mép.
   - Giải pháp: Chuẩn hóa ở tầng Layout & Core Primitives (`Container`, `SectionHeader`, `Card`, `globals.css`). Luôn dùng `minmax(min(100%, 280px), 1fr)` thay cho số pixel cố định, dùng fluid clamp spacing (`--space-container-px`, `--space-card-p`) và bổ sung universal anti-overflow `overflow-x: hidden` trên `html, body, #root`.
 
-## 2. Bài học về Kiến trúc SEO & Content Hub
+## 2. Bài học về Kiến trúc SEO & Copywriting Ngôn Ngữ Khách Hàng (Customer-Centric)
+- **Tư duy Khách hàng là trên hết (No Agency Jargon)**:
+  - Chủ shop, bác sĩ nha khoa, chủ xưởng không mua "digital transformation", "funnel", "SLA", "content pillar". Họ mua cuộc gọi, tin nhắn, khách ghé quán và một website rõ ràng, uy tín.
+  - Mọi từ ngữ kỹ thuật phải được dịch sang hành động đời thường: "Search Terms" -> "Khách đã tìm gì trên Google", "Local SEO / GBP" -> "Đưa tiệm lên Google Maps", "Landing Page" -> "Website 1 trang bán hàng".
+- **Minh bạch giá & Loại bỏ cam kết ảo**:
+  - Giá phải xuất hiện sớm (Website từ 490k, Google Maps từ 299k, Google Ads từ 390k, Viết bài từ 990k/tháng).
+  - Nghiêm cấm cam kết ảo ("Top 1 Google", "Bảo hành trọn đời"). Thay bằng cam kết thực tế: "Nghiệm thu hài lòng rồi mới thanh toán", "Bàn giao 100% tài khoản chính chủ", "Có hỗ trợ kỹ thuật sau bàn giao".
 - **Dynamic Per-Route SEO**: Trong các SPA/Vite apps, nếu không dùng SSR/SSG phức tạp, hãy tạo component `SEOHead` cập nhật ngay lập tức `document.title`, `meta[name="description"]`, canonical `link[rel="canonical"]` và inject JSON-LD script động vào `<head>`.
-- **Phân tách rõ ràng Content SSOT**: Tách dữ liệu bài viết, dịch vụ và case studies vào `src/data/` giúp code UI components chỉ đóng vai trò Presentation Layer, không hardcode văn bản nhiều nơi dẫn đến sai lệch thông điệp hay giá tiền.
 - **Type Guard cho quan hệ dữ liệu liên quan (Related Items)**: Khi map danh sách slugs (`relatedServiceSlugs`, `relatedArticleSlugs`) sang entities, luôn sử dụng TypeScript User-Defined Type Guard `filter((item): item is EntityType => Boolean(item))` để tránh lỗi `TS18048: item is possibly undefined`.
-- **Tối ưu Manual Chunks trong Vite**: Cấu hình `manualChunks` trong `vite.config.ts` để tách riêng `vendor: ['react', 'react-dom']` và `icons: ['lucide-react']`, giúp giảm kích thước bundle chính từ >500kB xuống ~360kB và tăng tốc độ tải trang trên mạng di động.

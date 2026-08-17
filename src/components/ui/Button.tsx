@@ -6,6 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   children: React.ReactNode;
   href?: string;
+  pill?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -14,6 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
   fullWidth = false,
   children,
   href,
+  pill = false,
   className = '',
   style,
   ...props
@@ -56,12 +58,24 @@ export const Button: React.FC<ButtonProps> = ({
   const getSizeStyles = (): React.CSSProperties => {
     switch (size) {
       case 'sm':
-        return { padding: 'clamp(0.35rem, 1.5vw, 0.45rem) clamp(0.75rem, 2vw, 1rem)', fontSize: '0.825rem' };
+        return {
+          padding: '0.45rem 0.9rem',
+          fontSize: '0.825rem',
+          minHeight: '36px'
+        };
       case 'lg':
-        return { padding: 'clamp(0.75rem, 2vw, 0.95rem) clamp(1.25rem, 3vw, 1.85rem)', fontSize: 'clamp(0.925rem, 1.5vw, 1.05rem)' };
+        return {
+          padding: '0.85rem 1.6rem',
+          fontSize: 'clamp(0.925rem, 1vw, 1.025rem)',
+          minHeight: '48px'
+        };
       case 'md':
       default:
-        return { padding: 'clamp(0.6rem, 1.8vw, 0.75rem) clamp(1rem, 2.5vw, 1.4rem)', fontSize: '0.9rem' };
+        return {
+          padding: '0.65rem 1.25rem',
+          fontSize: '0.875rem',
+          minHeight: '42px'
+        };
     }
   };
 
@@ -69,16 +83,18 @@ export const Button: React.FC<ButtonProps> = ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '0.45rem',
-    borderRadius: 'var(--radius-full)',
+    gap: '0.5rem',
+    borderRadius: pill ? 'var(--radius-full)' : 'var(--radius-md)',
     cursor: 'pointer',
     transition: 'all var(--transition-fast)',
     textDecoration: 'none',
     maxWidth: '100%',
     boxSizing: 'border-box',
     width: fullWidth ? '100%' : 'auto',
-    lineHeight: 1.25,
+    lineHeight: 1.2,
     textAlign: 'center',
+    whiteSpace: 'nowrap',
+    flexShrink: 0,
     ...getVariantStyles(),
     ...getSizeStyles(),
     ...style
@@ -98,4 +114,3 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
-

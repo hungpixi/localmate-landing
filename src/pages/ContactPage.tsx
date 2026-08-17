@@ -3,7 +3,7 @@ import { Container } from '../components/ui/Container';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { SEOHead } from '../components/seo/SEOHead';
 import { Button } from '../components/ui/Button';
-import { Sparkles, Phone, Mail, MapPin, MessageSquare, Send, CheckCircle2, ShieldCheck, Clock } from 'lucide-react';
+import { Sparkles, Phone, Mail, MessageSquare, CheckCircle2, ShieldCheck, Clock } from 'lucide-react';
 import { CONTACT_INFO } from '../data/landingContent';
 import { trackLeadCreated } from '../analytics/tracker';
 
@@ -12,7 +12,7 @@ export const ContactPage: React.FC = () => {
     name: '',
     phone: '',
     businessName: '',
-    serviceInterest: 'Khởi tạo Hiện diện số 2.9M',
+    serviceInterest: 'Gói Khởi Tạo Đầy Đủ 2.900.000đ',
     message: ''
   });
 
@@ -46,8 +46,8 @@ export const ContactPage: React.FC = () => {
   return (
     <div style={{ backgroundColor: '#ffffff', padding: '2rem 0 5rem 0' }}>
       <SEOHead
-        title="Liên Hệ LocalMate — Nhận Tư Vấn & Web Demo 0đ"
-        description="Liên hệ với đội ngũ chuyên viên LocalMate để được khảo sát hiện trạng digital, nhận dự toán ngân sách và xem bản web demo 0đ."
+        title="Liên Hệ LocalMate — Nhận Tư Vấn & Website Demo 0đ"
+        description="Liên hệ với đội ngũ kỹ thuật LocalMate để nhận tư vấn giải pháp, dự toán chi phí rõ ràng và xem trước bản website demo 0đ."
         canonicalPath="/lien-he"
         breadcrumbs={[
           { name: 'Liên hệ', url: '/lien-he' }
@@ -72,20 +72,20 @@ export const ContactPage: React.FC = () => {
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.06em',
-              color: 'var(--color-teal-dark)',
-              backgroundColor: 'var(--color-teal-soft)',
+              color: 'var(--color-primary-dark)',
+              backgroundColor: 'var(--color-primary-soft)',
               padding: '0.4rem 0.9rem',
               borderRadius: 'var(--radius-full)',
               marginBottom: '1rem'
             }}
           >
-            <Sparkles size={15} color="var(--color-teal)" /> LIÊN HỆ &amp; TƯ VẤN TRỰC TIẾP
+            <Sparkles size={15} color="var(--color-primary)" /> LIÊN HỆ &amp; TƯ VẤN TRỰC TIẾP
           </span>
-          <h1 style={{ fontSize: 'var(--font-size-h1)', color: 'var(--color-navy)', fontWeight: 800 }}>
-            Liên Hệ Nhận Tư Vấn &amp; Web Demo 0đ
+          <h1 style={{ fontSize: 'var(--font-size-h1)', color: 'var(--color-text)', fontWeight: 800 }}>
+            Liên Hệ Nhận Tư Vấn &amp; Website Demo 0đ
           </h1>
           <p className="subtitle" style={{ marginTop: '0.75rem' }}>
-            Kể cho chúng tôi bạn đang kinh doanh gì. LocalMate sẽ khảo sát và gửi lại bản demo phù hợp nhất trong vòng 24h.
+            Kể cho chúng tôi bạn đang kinh doanh gì. LocalMate sẽ chuẩn bị và gửi lại bản website mẫu phù hợp nhất cho bạn trong vòng 24h.
           </p>
         </div>
 
@@ -109,12 +109,12 @@ export const ContactPage: React.FC = () => {
                   textDecoration: 'none'
                 }}
               >
-                <div style={{ width: 48, height: 48, borderRadius: 'var(--radius-md)', backgroundColor: 'var(--color-teal-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <MessageSquare size={24} color="var(--color-teal-dark)" />
+                <div style={{ width: 48, height: 48, borderRadius: 'var(--radius-md)', backgroundColor: 'var(--color-primary-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <MessageSquare size={24} color="var(--color-primary)" />
                 </div>
                 <div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>Nhắn tin trực tiếp qua Zalo</div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: 2 }}>Chat với Chuyên viên (24/7)</div>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--color-text)', marginTop: 2 }}>Chat Zalo Tư Vấn (24/7)</div>
                 </div>
               </a>
 
@@ -136,7 +136,7 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>Hotline Tư Vấn Nhanh</div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: 2 }}>0834.422.439</div>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--color-text)', marginTop: 2 }}>0834.422.439</div>
                 </div>
               </a>
 
@@ -153,20 +153,20 @@ export const ContactPage: React.FC = () => {
                   textDecoration: 'none'
                 }}
               >
-                <div style={{ width: 48, height: 48, borderRadius: 'var(--radius-md)', backgroundColor: 'var(--color-teal-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Mail size={24} color="var(--color-teal-dark)" />
+                <div style={{ width: 48, height: 48, borderRadius: 'var(--radius-md)', backgroundColor: 'var(--color-primary-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Mail size={24} color="var(--color-primary)" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>Email Hỗ Trợ Kỹ Thuật</div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-navy)', marginTop: 2 }}>hotro@localmate.vn</div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>Email Hỗ Trợ</div>
+                  <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-text)', marginTop: 2 }}>hotro@localmate.vn</div>
                 </div>
               </a>
             </div>
 
             {/* Corporate Box */}
             <div style={{ backgroundColor: '#f8fbfa', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
-              <div style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: 6 }}>
-                <ShieldCheck size={18} color="var(--color-teal-dark)" /> CÔNG TY TNHH LOCALMATE
+              <div style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: 6 }}>
+                <ShieldCheck size={18} color="var(--color-primary)" /> CÔNG TY TNHH LOCALMATE
               </div>
               <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', lineHeight: 1.6, margin: '0 0 0.75rem 0' }}>
                 Hỗ trợ trực tuyến và triển khai dự án cho khách hàng toàn quốc (Hà Nội, TP.HCM, Đà Nẵng, Bình Dương, Cần Thơ...).
@@ -189,14 +189,14 @@ export const ContactPage: React.FC = () => {
           >
             {isSubmitted ? (
               <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-                <div style={{ width: 64, height: 64, borderRadius: '50%', backgroundColor: 'var(--color-teal-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>
-                  <CheckCircle2 size={36} color="var(--color-teal-dark)" />
+                <div style={{ width: 64, height: 64, borderRadius: '50%', backgroundColor: 'var(--color-primary-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>
+                  <CheckCircle2 size={36} color="var(--color-primary)" />
                 </div>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.5rem' }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '0.5rem' }}>
                   Gửi Thông Tin Thành Công!
                 </h3>
                 <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '2rem' }}>
-                  Cảm ơn bạn đã liên hệ. Chuyên viên LocalMate sẽ gọi lại hoặc nhắn tin qua Zalo trong vòng 30 phút để khảo sát và lên bản demo giao diện.
+                  Cảm ơn bạn đã liên hệ. Đội ngũ LocalMate sẽ liên hệ qua Zalo hoặc gọi điện lại cho bạn trong vòng 30 phút để hỗ trợ nhanh nhất.
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
                   <a
@@ -205,7 +205,7 @@ export const ContactPage: React.FC = () => {
                     rel="noopener noreferrer"
                     style={{
                       padding: '0.75rem 1.5rem',
-                      backgroundColor: 'var(--color-teal-dark)',
+                      backgroundColor: 'var(--color-primary)',
                       color: '#ffffff',
                       borderRadius: 'var(--radius-full)',
                       fontWeight: 700,
@@ -218,7 +218,7 @@ export const ContactPage: React.FC = () => {
                   <button
                     onClick={() => {
                       setIsSubmitted(false);
-                      setFormData({ name: '', phone: '', businessName: '', serviceInterest: 'Khởi tạo Hiện diện số 2.9M', message: '' });
+                      setFormData({ name: '', phone: '', businessName: '', serviceInterest: 'Gói Khởi Tạo Đầy Đủ 2.900.000đ', message: '' });
                     }}
                     style={{
                       padding: '0.75rem 1.25rem',
@@ -227,7 +227,7 @@ export const ContactPage: React.FC = () => {
                       borderRadius: 'var(--radius-full)',
                       fontWeight: 600,
                       fontSize: '0.9rem',
-                      color: 'var(--color-navy)',
+                      color: 'var(--color-text)',
                       cursor: 'pointer'
                     }}
                   >
@@ -237,8 +237,8 @@ export const ContactPage: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--color-navy)', margin: 0 }}>
-                  Đăng Ký Khảo Sát &amp; Nhận Web Demo 0đ
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--color-text)', margin: 0 }}>
+                  Đăng Ký Nhận Website Demo 0đ
                 </h3>
 
                 {errorMessage && (
@@ -248,7 +248,7 @@ export const ContactPage: React.FC = () => {
                 )}
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '0.35rem' }}>
                     Họ và tên của bạn <span style={{ color: '#c62828' }}>*</span>
                   </label>
                   <input
@@ -270,7 +270,7 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '0.35rem' }}>
                     Số điện thoại / Zalo <span style={{ color: '#c62828' }}>*</span>
                   </label>
                   <input
@@ -292,12 +292,12 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
-                    Tên cơ sở / Ngành nghề kinh doanh
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '0.35rem' }}>
+                    Tên tiệm / Ngành nghề kinh doanh
                   </label>
                   <input
                     type="text"
-                    placeholder="Ví dụ: Quán ăn Nam Bộ, Nha khoa, Xưởng nhôm kính..."
+                    placeholder="Ví dụ: Quán ăn Nam Bộ, Nha khoa, Cơ sở nhôm kính..."
                     value={formData.businessName}
                     onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
                     style={{
@@ -313,7 +313,7 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '0.35rem' }}>
                     Dịch vụ bạn đang quan tâm
                   </label>
                   <select
@@ -330,22 +330,22 @@ export const ContactPage: React.FC = () => {
                       boxSizing: 'border-box'
                     }}
                   >
-                    <option value="Gói Khởi Tạo Hiện Diện Số 2.9M">Gói Khởi Tạo Hiện Diện Số 2.900.000đ</option>
-                    <option value="Landing Page Mini 490k">Gói Landing Page Mini 490.000đ</option>
-                    <option value="Google Ads Chuyển Đổi">Cài đặt & Tối ưu Google Ads (Từ 390k)</option>
-                    <option value="SEO Google Maps">Khởi tạo & Tối ưu Google Maps (Từ 299k)</option>
-                    <option value="Gói Chăm Sóc Nội Dung 990k">Quản trị & Chăm sóc nội dung hàng tháng (990k)</option>
-                    <option value="Tư vấn tổng thể">Chưa rõ, cần tư vấn khảo sát</option>
+                    <option value="Gói Khởi Tạo Đầy Đủ 2.900.000đ">Gói Khởi Tạo Đầy Đủ 2.900.000đ</option>
+                    <option value="Website 1 Trang 490k">Website 1 Trang từ 490.000đ</option>
+                    <option value="Quảng Cáo Google Ads">Quảng Cáo Google Ads (Từ 390k)</option>
+                    <option value="Đưa Lên Google Maps">Đưa Lên Google Maps (Từ 299k)</option>
+                    <option value="Viết Bài Facebook">Viết Bài Facebook Hàng Tháng (Từ 990k/tháng)</option>
+                    <option value="Tư vấn tổng thể">Chưa rõ, cần tư vấn</option>
                   </select>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '0.35rem' }}>
                     Ghi chú thêm (không bắt buộc)
                   </label>
                   <textarea
                     rows={3}
-                    placeholder="Chia sẻ khó khăn hiện tại hoặc link Fanpage/Website cũ của bạn..."
+                    placeholder="Mô tả mong muốn hoặc gửi link Facebook/Website cũ của bạn..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     style={{
@@ -366,12 +366,13 @@ export const ContactPage: React.FC = () => {
                   size="lg"
                   type="submit"
                   disabled={isSubmitting}
+                  style={{ fontWeight: 700 }}
                 >
-                  {isSubmitting ? 'Đang gửi...' : 'Gửi Yêu Cầu Tư Vấn Demo 0đ'}
+                  {isSubmitting ? 'Đang gửi...' : 'Gửi Yêu Cầu Nhận Website Demo 0đ'}
                 </Button>
 
                 <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', textAlign: 'center', margin: 0 }}>
-                  ✓ Bàn giao nghiệm thu mới thanh toán • Không spam thông tin
+                  ✓ Nghiệm thu hài lòng rồi mới thanh toán • Bảo mật thông tin 100%
                 </p>
               </form>
             )}

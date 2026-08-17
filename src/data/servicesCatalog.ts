@@ -173,7 +173,7 @@ export const DIGITAL_CARE_TIERS: DigitalCareTier[] = [
     id: 'care-mini',
     name: 'Care Mini',
     priceDisplay: '290.000đ',
-    unit: '/ tháng',
+    unit: 'tháng',
     description: 'Dành cho website nhỏ cần giám sát hoạt động và bảo trì cơ bản.',
     tasksQuota: '2 thay đổi nhỏ / tháng',
     features: [
@@ -187,7 +187,7 @@ export const DIGITAL_CARE_TIERS: DigitalCareTier[] = [
     id: 'care-business',
     name: 'Care Business',
     priceDisplay: '590.000đ',
-    unit: '/ tháng',
+    unit: 'tháng',
     badge: 'Phổ biến nhất ⭐',
     isRecommended: true,
     description: 'Dành cho doanh nghiệp cần cập nhật nội dung và tối ưu hiện diện Google Maps.',
@@ -204,7 +204,7 @@ export const DIGITAL_CARE_TIERS: DigitalCareTier[] = [
     id: 'care-growth',
     name: 'Care Growth',
     priceDisplay: '990.000đ',
-    unit: '/ tháng',
+    unit: 'tháng',
     description: 'Dành cho cửa hàng/công ty muốn tăng trưởng lượt tìm kiếm Local SEO.',
     tasksQuota: '6 - 8 task / tháng',
     features: [
@@ -219,7 +219,7 @@ export const DIGITAL_CARE_TIERS: DigitalCareTier[] = [
     id: 'digital-partner',
     name: 'Digital Partner',
     priceDisplay: '1.490.000đ',
-    unit: '/ tháng',
+    unit: 'tháng',
     badge: 'Đồng hành toàn diện',
     description: 'Thay thế phòng Marketing/IT thuê ngoài trọn gói cho doanh nghiệp nhỏ.',
     tasksQuota: 'Ưu tiên hỗ trợ không giới hạn task nhỏ',
@@ -245,7 +245,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1.5–2h',
     priceDisplay: '590.000đ',
     numericPrice: 590000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -258,7 +258,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '2.5–3h',
     priceDisplay: '790.000đ',
     numericPrice: 790000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true,
     isPopular: true
   },
@@ -272,7 +272,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '3–4h',
     priceDisplay: '990.000đ',
     numericPrice: 990000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -285,7 +285,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '4–5h',
     priceDisplay: '1.290.000đ',
     numericPrice: 1290000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -298,7 +298,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '6–8h',
     priceDisplay: '1.990.000đ',
     numericPrice: 1990000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true,
     isPopular: true,
     includedFreeAddons: ['GA4 Setup (99k)', 'GTM Setup (99k)', 'Search Console (99k)', 'Schema Basic (199k)', 'BCT Check (99k)']
@@ -313,7 +313,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '7–10h',
     priceDisplay: '2.490.000đ',
     numericPrice: 2490000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -326,7 +326,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '10–15h',
     priceDisplay: '3.490.000đ',
     numericPrice: 3490000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -339,7 +339,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '7–10 ngày',
     priceDisplay: '2.490.000đ',
     numericPrice: 2490000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true,
     isPopular: true
   },
@@ -355,7 +355,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '≤30m',
     priceDisplay: '99.000đ',
     numericPrice: 99000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -368,7 +368,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '0.5–1.5h',
     priceDisplay: '149.000đ',
     numericPrice: 149000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -381,7 +381,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1–2h',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -394,7 +394,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '30–60m',
     priceDisplay: '149.000đ',
     numericPrice: 149000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -407,7 +407,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '30–60m',
     priceDisplay: '199.000đ',
     numericPrice: 199000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -420,7 +420,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '30–60m',
     priceDisplay: '199.000đ',
     numericPrice: 199000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -433,7 +433,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '30–90m',
     priceDisplay: '0đ – 299.000đ',
     numericPrice: 0,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
 
@@ -448,7 +448,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1–1.5h',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -461,7 +461,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '30–60m',
     priceDisplay: '199.000đ',
     numericPrice: 199000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -474,7 +474,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '~30m',
     priceDisplay: '99.000đ',
     numericPrice: 99000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -487,7 +487,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1h',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true,
     isPopular: true
   },
@@ -501,7 +501,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1–2h',
     priceDisplay: '390.000đ',
     numericPrice: 390000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -514,7 +514,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1–3h',
     priceDisplay: '490.000đ',
     numericPrice: 490000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -543,7 +543,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '~30m',
     priceDisplay: '99.000đ',
     numericPrice: 99000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -556,7 +556,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '~30m',
     priceDisplay: '99.000đ',
     numericPrice: 99000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -569,7 +569,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '30–60m',
     priceDisplay: '199.000đ',
     numericPrice: 199000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -582,7 +582,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '30–60m',
     priceDisplay: '149.000đ',
     numericPrice: 149000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -595,7 +595,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1–2h',
     priceDisplay: '390.000đ',
     numericPrice: 390000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true,
     isPopular: true
   },
@@ -611,7 +611,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1–2h',
     priceDisplay: '390.000đ',
     numericPrice: 390000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -624,7 +624,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1–2h',
     priceDisplay: '390.000đ',
     numericPrice: 390000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -650,7 +650,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1h',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
 
@@ -665,7 +665,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1–2h',
     priceDisplay: '490.000đ',
     numericPrice: 490000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true,
     isPopular: true
   },
@@ -679,7 +679,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '2–3h',
     priceDisplay: '690.000đ',
     numericPrice: 690000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -692,7 +692,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '30–60m',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -705,7 +705,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '2–4h',
     priceDisplay: '690.000đ+',
     numericPrice: 690000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -718,7 +718,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '4–6h',
     priceDisplay: '1.490.000đ+',
     numericPrice: 1490000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
 
@@ -733,7 +733,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '3–5h',
     priceDisplay: '990.000đ+',
     numericPrice: 990000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -746,7 +746,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '5–8h',
     priceDisplay: '1.990.000đ+',
     numericPrice: 1990000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -759,7 +759,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: 'Dự án',
     priceDisplay: 'từ 3.900.000đ',
     numericPrice: 3900000,
-    unit: 'dự án',
+    unit: 'trọn gói',
     isActive: true
   },
 
@@ -774,7 +774,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '30m',
     priceDisplay: '0đ – 99.000đ',
     numericPrice: 99000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true,
     disclaimer: 'Bản báo cáo rà soát tiêu chí kỹ thuật chuẩn bị thủ tục với Bộ Công Thương'
   },
@@ -788,7 +788,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '30–60m',
     priceDisplay: '149.000đ',
     numericPrice: 149000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true
   },
   {
@@ -801,7 +801,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1–1.5h',
     priceDisplay: '299.000đ',
     numericPrice: 299000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true,
     isPopular: true
   },
@@ -815,7 +815,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '1–2h',
     priceDisplay: '390.000đ',
     numericPrice: 390000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true,
     disclaimer: 'LocalMate hỗ trợ hoàn thiện kỹ thuật & thủ tục khai báo trực tuyến trên online.gov.vn'
   },
@@ -829,7 +829,7 @@ export const INITIAL_SERVICES_CATALOG: CatalogServiceItem[] = [
     effort: '2–3h',
     priceDisplay: '590.000đ',
     numericPrice: 590000,
-    unit: 'lần',
+    unit: 'trọn gói',
     isActive: true,
     isPopular: true,
     disclaimer: 'Bao gồm hỗ trợ điều chỉnh kỹ thuật hồ sơ theo yêu cầu Bộ Công Thương & gắn mốc xác nhận sau cấp phép'

@@ -38,7 +38,7 @@ export const MobileFloatingCTA: React.FC<MobileFloatingCTAProps> = ({ onOpenCons
           backgroundColor: '#f8fbfa',
           border: '1px solid var(--color-border)',
           borderRadius: 'var(--radius-md)',
-          color: 'var(--color-navy)',
+          color: 'var(--color-text)',
           fontWeight: 700,
           fontSize: '0.825rem',
           textDecoration: 'none'
@@ -59,16 +59,16 @@ export const MobileFloatingCTA: React.FC<MobileFloatingCTAProps> = ({ onOpenCons
           justifyContent: 'center',
           gap: '0.35rem',
           padding: '0.65rem 0.5rem',
-          backgroundColor: 'var(--color-teal-soft)',
-          border: '1px solid var(--color-teal)',
+          backgroundColor: 'var(--color-primary-soft)',
+          border: '1px solid var(--color-primary-border)',
           borderRadius: 'var(--radius-md)',
-          color: 'var(--color-teal-dark)',
+          color: 'var(--color-primary-dark)',
           fontWeight: 700,
           fontSize: '0.825rem',
           textDecoration: 'none'
         }}
       >
-        <MessageSquare size={16} color="var(--color-teal-dark)" />
+        <MessageSquare size={16} color="var(--color-primary)" />
         <span>Chat Zalo</span>
       </a>
 
@@ -81,18 +81,18 @@ export const MobileFloatingCTA: React.FC<MobileFloatingCTAProps> = ({ onOpenCons
           justifyContent: 'center',
           gap: '0.35rem',
           padding: '0.65rem 0.5rem',
-          backgroundColor: 'var(--color-orange)',
+          backgroundColor: 'var(--color-primary)',
           border: 'none',
           borderRadius: 'var(--radius-md)',
           color: '#ffffff',
           fontWeight: 700,
           fontSize: '0.825rem',
           cursor: 'pointer',
-          boxShadow: '0 2px 8px rgba(255, 138, 0, 0.3)'
+          boxShadow: '0 2px 8px rgba(13, 118, 71, 0.3)'
         }}
       >
         <Sparkles size={15} />
-        <span>Demo 0đ</span>
+        <span>Web demo 0đ</span>
       </button>
 
       <style>{`
@@ -100,7 +100,6 @@ export const MobileFloatingCTA: React.FC<MobileFloatingCTAProps> = ({ onOpenCons
           .mobile-floating-bar {
             display: flex !important;
           }
-          /* Add padding bottom to body on mobile so footer is never obscured */
           body {
             padding-bottom: 60px;
           }

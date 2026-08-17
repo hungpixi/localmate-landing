@@ -1,20 +1,18 @@
 import React from 'react';
 import { SEOHead } from '../components/seo/SEOHead';
 import { HeroSection } from '../components/sections/HeroSection';
+import { ProblemMapperSection } from '../components/sections/ProblemMapperSection';
+import { ServiceHubSection } from '../components/sections/ServiceHubSection';
 import { SolutionJourneySection } from '../components/sections/SolutionJourneySection';
+import { PainPointsSection } from '../components/sections/PainPointsSection';
 import { StarterPackageSection } from '../components/sections/StarterPackageSection';
 import { ClientRequirementsSection } from '../components/sections/ClientRequirementsSection';
 import { ContentPackageSection } from '../components/sections/ContentPackageSection';
+import { DemoShowcaseSection } from '../components/sections/DemoShowcaseSection';
 import { ProcessSection } from '../components/sections/ProcessSection';
 import { ConceptGeneratorSection } from '../components/concept/ConceptGeneratorSection';
-import { ProblemMapperSection } from '../components/sections/ProblemMapperSection';
-import { ServiceHubSection } from '../components/sections/ServiceHubSection';
-import { IndustrySolutionSection } from '../components/sections/IndustrySolutionSection';
-import { DemoShowcaseSection } from '../components/sections/DemoShowcaseSection';
-import { FreeWebsiteAudit } from '../components/audit/FreeWebsiteAudit';
 import { PricingMatrixSection } from '../components/sections/PricingMatrixSection';
 import { DigitalCareSection } from '../components/sections/DigitalCareSection';
-import { FreeAuditSection } from '../components/sections/FreeAuditSection';
 import { TrustSection } from '../components/sections/TrustSection';
 import { FAQSection } from '../components/sections/FAQSection';
 import { KnowledgeHubSection } from '../components/sections/KnowledgeHubSection';
@@ -22,65 +20,51 @@ import { KnowledgeHubSection } from '../components/sections/KnowledgeHubSection'
 export const HomePage: React.FC = () => {
   return (
     <>
-      {/* Dynamic SEO Meta for Homepage */}
+      {/* 1. Dynamic SEO Meta for Homepage (Optimized for Customer Search Intent) */}
       <SEOHead
-        title="LocalMate | Thiết Kế Website, SEO & Marketing Cho Doanh Nghiệp Nhỏ"
-        description="LocalMate giúp doanh nghiệp nhỏ xây website, xuất hiện trên Google, chạy quảng cáo và tự động hóa những công việc online — từ một nơi duy nhất. Bàn giao rồi mới thanh toán."
+        title="LocalMate | Thiết kế Website, Google Maps, Google Ads cho Doanh nghiệp nhỏ"
+        description="LocalMate làm website, tối ưu Google Maps, Google Ads và nội dung cho doanh nghiệp nhỏ. Giá rõ ràng, triển khai nhanh, hỗ trợ toàn quốc."
         canonicalPath="/"
       />
 
-      {/* 1. Hero — Có việc digital? Để LocalMate làm + 3 Tình trạng */}
+      {/* 1. Hero — Giúp doanh nghiệp nhỏ có website, lên Google và tìm thêm khách hàng */}
       <HeroSection />
 
-      {/* 2. Lộ trình 3 giai đoạn — Khởi tạo, Xây dựng, Phát triển */}
-      <SolutionJourneySection />
-
-      {/* 3. Gói Khởi Tạo Hiện Diện Số 2.900.000đ */}
-      <StarterPackageSection />
-
-      {/* 4. Bạn cần gửi gì cho LocalMate? Checklist + Cấu trúc trang + Gói 490k */}
-      <ClientRequirementsSection />
-
-      {/* 5. Gói Nội Dung & Bảo Trì Hàng Tháng 990.000đ */}
-      <ContentPackageSection />
-
-      {/* 6. Quy trình 5 bước tinh gọn & minh bạch */}
-      <ProcessSection />
-
-      {/* 7. AI Concept Generator — Xem bản thiết kế định hướng 0đ tức thời */}
-      <ConceptGeneratorSection />
-
-      {/* 8. Bạn đang muốn làm gì? — 5 Goal Categories (WIIFM) */}
+      {/* 2. Khách đang cần việc gì? — Phân nhóm theo lời khách hàng nói (Section 18) */}
       <ProblemMapperSection />
 
-      {/* 9. Các dịch vụ LocalMate — 6 nhóm dịch vụ chính */}
+      {/* 3. Menu dịch vụ + Giá từ rõ ràng (Section 20) */}
       <ServiceHubSection />
 
-      {/* 10. Dịch vụ theo ngành — Vertical Solution Hub */}
-      <IndustrySolutionSection />
+      {/* 4. Vì sao LocalMate phù hợp doanh nghiệp nhỏ — Lộ trình & Thấu hiểu nỗi lo */}
+      <SolutionJourneySection />
+      <PainPointsSection />
 
-      {/* 11. Tự động chẩn đoán website miễn phí 30s */}
-      <FreeWebsiteAudit />
+      {/* 5. Gói Khởi tạo & Dịch vụ hoạt động thế nào — Website, Google Maps, Nội dung */}
+      <StarterPackageSection />
+      <ClientRequirementsSection />
+      <ContentPackageSection />
 
-      {/* 12. Dự án thực tế / Case Studies */}
+      {/* 6. Dự án thật & Trải nghiệm thực tế */}
       <DemoShowcaseSection />
 
-      {/* 13. Bảng giá 40 món minh bạch */}
-      <PricingMatrixSection />
+      {/* 7. Quy trình làm việc 5 bước đơn giản & minh bạch */}
+      <ProcessSection />
 
-      {/* 14. Dịch vụ #40 — LocalMate Digital Care */}
+      {/* 8. Xem mẫu website demo 0đ tức thời */}
+      <ConceptGeneratorSection />
+
+      {/* 9. Bảng giá toàn bộ dịch vụ niêm yết */}
+      <PricingMatrixSection />
       <DigitalCareSection />
 
-      {/* 15. LocalMate Advisor Solution Composer */}
-      <FreeAuditSection />
-
-      {/* 16. 8 Trụ cột niềm tin & Pháp nhân CÔNG TY TNHH LOCALMATE */}
+      {/* 10. Pháp nhân CÔNG TY TNHH LOCALMATE & Cam kết minh bạch */}
       <TrustSection />
 
-      {/* 17. FAQ & Giải đáp thắc mắc */}
+      {/* 11. FAQ Giải đáp thắc mắc thường gặp */}
       <FAQSection />
 
-      {/* 18. Knowledge Hub — SEO Content Cluster Preview */}
+      {/* 12. Hướng dẫn tìm khách & Kiến thức Marketing thực chiến */}
       <KnowledgeHubSection />
     </>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { SectionHeader } from '../ui/SectionHeader';
-import { Card } from '../ui/Card';
 import { PROCESS_STEPS } from '../../data/landingContent';
 import { Send, PhoneCall, Layout, CheckSquare, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-react';
 
@@ -19,7 +18,7 @@ export const ProcessSection: React.FC = () => {
       <Container size="lg">
         <SectionHeader
           eyebrow="QUY TRÌNH HỢP TÁC ĐƠN GIẢN"
-          title="Bạn không cần biết công nghệ. Chỉ cần kể cho chúng tôi bạn đang làm gì."
+          title="Bạn không cần biết công nghệ. Chỉ cần kể cho LocalMate bạn đang làm gì."
           subtitle="LocalMate sẽ gánh vác toàn bộ khâu kỹ thuật để bạn yên tâm tập trung làm nghề."
         />
 
@@ -34,7 +33,7 @@ export const ProcessSection: React.FC = () => {
                 style={{
                   backgroundColor: isHighlight ? '#fff9f5' : '#ffffff',
                   border: isHighlight ? '2px solid var(--color-orange)' : '1px solid var(--color-border)',
-                  borderTop: isHighlight ? '4px solid var(--color-orange)' : '4px solid var(--color-teal)',
+                  borderTop: isHighlight ? '4px solid var(--color-orange)' : '4px solid var(--color-primary)',
                   borderRadius: 'var(--radius-xl)',
                   padding: '1.35rem 1.15rem',
                   display: 'flex',
@@ -61,7 +60,7 @@ export const ProcessSection: React.FC = () => {
                       style={{
                         fontSize: '1.25rem',
                         fontWeight: 900,
-                        color: isHighlight ? 'var(--color-orange-dark)' : 'var(--color-teal-dark)',
+                        color: isHighlight ? 'var(--color-orange-dark)' : 'var(--color-primary-dark)',
                         lineHeight: 1
                       }}
                     >
@@ -70,8 +69,8 @@ export const ProcessSection: React.FC = () => {
 
                     <div
                       style={{
-                        color: isHighlight ? '#ffffff' : 'var(--color-teal-dark)',
-                        backgroundColor: isHighlight ? 'var(--color-orange)' : 'var(--color-teal-soft)',
+                        color: isHighlight ? '#ffffff' : 'var(--color-primary-dark)',
+                        backgroundColor: isHighlight ? 'var(--color-orange)' : 'var(--color-primary-soft)',
                         padding: '0.5rem',
                         borderRadius: 'var(--radius-md)',
                         display: 'flex',
@@ -88,7 +87,7 @@ export const ProcessSection: React.FC = () => {
                     style={{
                       fontSize: '1.05rem',
                       fontWeight: 800,
-                      color: 'var(--color-navy)',
+                      color: 'var(--color-text)',
                       marginBottom: '0.4rem',
                       lineHeight: 1.35
                     }}
@@ -115,7 +114,7 @@ export const ProcessSection: React.FC = () => {
                     gap: '0.3rem',
                     fontSize: '0.75rem',
                     fontWeight: 700,
-                    color: isHighlight ? 'var(--color-orange-dark)' : 'var(--color-teal-dark)',
+                    color: isHighlight ? 'var(--color-orange-dark)' : 'var(--color-primary-dark)',
                     backgroundColor: isHighlight ? '#ffefe5' : 'var(--color-bg)',
                     padding: '0.35rem 0.65rem',
                     borderRadius: 'var(--radius-sm)',
@@ -123,10 +122,10 @@ export const ProcessSection: React.FC = () => {
                   }}
                 >
                   {isHighlight ? (
-                    <span>🛡️ Thanh toán sau</span>
+                    <span>🛡️ Nghiệm thu mới thanh toán</span>
                   ) : (
                     <>
-                      <span>Tiếp theo</span>
+                      <span>Bước tiếp theo</span>
                       <ArrowRight size={12} />
                     </>
                   )}
@@ -136,7 +135,7 @@ export const ProcessSection: React.FC = () => {
           })}
         </div>
 
-        {/* Powerful Trust Callout Box */}
+        {/* Trust Callout Box */}
         <div
           style={{
             maxWidth: '780px',
@@ -153,8 +152,8 @@ export const ProcessSection: React.FC = () => {
           }}
         >
           <HeartHandshake size={28} color="var(--color-orange-dark)" style={{ flexShrink: 0 }} />
-          <p style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-navy)', margin: 0, lineHeight: 1.45 }}>
-            🛡️ <span style={{ color: 'var(--color-orange-dark)' }}>Cam kết không rủi ro:</span> Thấy không phù hợp ở bước làm web demo? Bạn hoàn toàn có thể dừng triển khai và <span style={{ textDecoration: 'underline' }}>không tốn bất kỳ chi phí nào</span>.
+          <p style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-text)', margin: 0, lineHeight: 1.45 }}>
+            🛡️ <span style={{ color: 'var(--color-orange-dark)' }}>Cam kết không rủi ro:</span> Thấy không phù hợp ở bước làm web mẫu? Bạn hoàn toàn có thể dừng lại và <span style={{ textDecoration: 'underline' }}>không tốn bất kỳ chi phí nào</span>.
           </p>
         </div>
       </Container>
@@ -182,4 +181,3 @@ export const ProcessSection: React.FC = () => {
     </section>
   );
 };
-

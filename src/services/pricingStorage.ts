@@ -1,6 +1,6 @@
 import { INITIAL_SERVICES_CATALOG, CatalogServiceItem } from '../data/servicesCatalog';
 
-const STORAGE_KEY = 'localmate_services_catalog_v1';
+const STORAGE_KEY = 'localmate_services_catalog_v2';
 const EVENT_KEY = 'localmate_catalog_updated';
 
 export const getCatalogServices = (): CatalogServiceItem[] => {

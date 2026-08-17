@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { DIGITAL_CARE_TIERS } from '../../data/servicesCatalog';
-import { Check, ShieldCheck, ArrowRight, Zap, Sparkles } from 'lucide-react';
+import { Check, ShieldCheck, ArrowRight, Zap } from 'lucide-react';
 import { useRouter } from '../layout/Router';
 
 export const DigitalCareSection: React.FC = () => {
@@ -28,20 +28,20 @@ export const DigitalCareSection: React.FC = () => {
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.06em',
-              color: 'var(--color-teal-dark)',
-              backgroundColor: 'var(--color-teal-soft)',
+              color: 'var(--color-primary-dark)',
+              backgroundColor: 'var(--color-primary-soft)',
               padding: '0.4rem 0.9rem',
               borderRadius: 'var(--radius-full)',
               marginBottom: '0.75rem'
             }}
           >
-            <ShieldCheck size={15} color="var(--color-teal)" /> DỊCH VỤ #40 · MODULAR SUBSCRIPTION
+            <ShieldCheck size={15} color="var(--color-primary)" /> CHĂM SÓC KỸ THUẬT &amp; BÀI VIẾT
           </span>
-          <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-navy)', fontWeight: 800 }}>
-            LocalMate Digital Care — Đồng Hành Hàng Tháng
+          <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-text)', fontWeight: 800 }}>
+            Gói Chăm Sóc Hàng Tháng — Đồng Hành Lâu Dài
           </h2>
           <p className="subtitle" style={{ marginTop: '0.5rem' }}>
-            Không cần tuyển đội ngũ IT hay marketing đắt đỏ. Chọn mức gói chăm sóc phù hợp với nhu cầu và quy mô thực tế của bạn.
+            Không cần thuê nhân viên kỹ thuật hay người làm nội dung đắt đỏ. Bạn có thể chọn mức gói chăm sóc vừa vặn với nhu cầu thực tế của tiệm.
           </p>
         </div>
 
@@ -60,8 +60,8 @@ export const DigitalCareSection: React.FC = () => {
               <div
                 key={tier.id}
                 style={{
-                  backgroundColor: isFeatured ? '#ffffff' : '#ffffff',
-                  border: isFeatured ? '2px solid var(--color-teal)' : '1px solid var(--color-border)',
+                  backgroundColor: '#ffffff',
+                  border: isFeatured ? '2px solid var(--color-primary)' : '1px solid var(--color-border)',
                   borderRadius: 'var(--radius-xl)',
                   padding: '2rem 1.75rem',
                   display: 'flex',
@@ -80,8 +80,8 @@ export const DigitalCareSection: React.FC = () => {
                         style={{
                           fontSize: '0.725rem',
                           fontWeight: 700,
-                          color: isFeatured ? 'var(--color-teal-dark)' : 'var(--color-navy)',
-                          backgroundColor: isFeatured ? 'var(--color-teal-soft)' : '#f0f7f5',
+                          color: isFeatured ? 'var(--color-primary-dark)' : 'var(--color-text)',
+                          backgroundColor: isFeatured ? 'var(--color-primary-soft)' : '#f0f7f5',
                           padding: '0.3rem 0.75rem',
                           borderRadius: 'var(--radius-full)'
                         }}
@@ -91,7 +91,7 @@ export const DigitalCareSection: React.FC = () => {
                     </div>
                   )}
 
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '0.35rem' }}>
                     {tier.name}
                   </h3>
 
@@ -115,7 +115,7 @@ export const DigitalCareSection: React.FC = () => {
                       padding: '0.65rem 0.85rem',
                       fontSize: '0.825rem',
                       fontWeight: 700,
-                      color: 'var(--color-navy)',
+                      color: 'var(--color-text)',
                       marginBottom: '1.25rem',
                       display: 'flex',
                       alignItems: 'center',
@@ -130,7 +130,7 @@ export const DigitalCareSection: React.FC = () => {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                     {tier.features.map((ft, idx) => (
                       <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.45rem', fontSize: '0.85rem', color: 'var(--color-text)' }}>
-                        <Check size={16} color="var(--color-teal-dark)" style={{ flexShrink: 0, marginTop: 2 }} />
+                        <Check size={16} color="var(--color-primary)" style={{ flexShrink: 0, marginTop: 2 }} />
                         <span>{ft}</span>
                       </div>
                     ))}
@@ -143,8 +143,8 @@ export const DigitalCareSection: React.FC = () => {
                   style={{
                     width: '100%',
                     padding: '0.75rem 1rem',
-                    backgroundColor: isFeatured ? 'var(--color-navy)' : 'var(--color-teal-soft)',
-                    color: isFeatured ? '#ffffff' : 'var(--color-teal-dark)',
+                    backgroundColor: isFeatured ? 'var(--color-primary)' : 'var(--color-primary-soft)',
+                    color: isFeatured ? '#ffffff' : 'var(--color-primary-dark)',
                     border: 'none',
                     borderRadius: 'var(--radius-md)',
                     fontWeight: 700,

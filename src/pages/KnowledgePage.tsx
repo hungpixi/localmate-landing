@@ -3,8 +3,8 @@ import { Container } from '../components/ui/Container';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { SEOHead } from '../components/seo/SEOHead';
 import { getAllArticles } from '../data/articlesData';
-import { BookOpen, ArrowRight, Clock, Search, Calendar, User, Sparkles } from 'lucide-react';
-import { useRouter, Link } from '../components/layout/Router';
+import { BookOpen, ArrowRight, Clock, Search } from 'lucide-react';
+import { useRouter } from '../components/layout/Router';
 
 export const KnowledgePage: React.FC = () => {
   const { navigate } = useRouter();
@@ -13,11 +13,11 @@ export const KnowledgePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const pillars = [
-    { key: 'all', label: 'Tất cả chủ đề' },
-    { key: 'google-ads', label: 'Google Ads' },
-    { key: 'google-maps', label: 'Google Maps & Local SEO' },
-    { key: 'website', label: 'Website & Chuyển Đổi' },
-    { key: 'content', label: 'Quản Trị Nội Dung' }
+    { key: 'all', label: 'Tất cả bài viết' },
+    { key: 'google-ads', label: 'Quảng cáo Google Ads' },
+    { key: 'google-maps', label: 'Google Maps' },
+    { key: 'website', label: 'Làm Website' },
+    { key: 'content', label: 'Bài viết Facebook' }
   ];
 
   const filteredArticles = articles.filter((art) => {
@@ -32,8 +32,8 @@ export const KnowledgePage: React.FC = () => {
   return (
     <div style={{ backgroundColor: '#ffffff', padding: '2rem 0 5rem 0' }}>
       <SEOHead
-        title="Cổng Kiến Thức Digital Marketing Thực Chiến Cho Doanh Nghiệp Nhỏ"
-        description="Tổng hợp các bài viết hướng dẫn chuyên sâu về SEO Google Maps, tối ưu Google Ads, thiết kế Landing Page và quản trị nội dung từ đội ngũ LocalMate."
+        title="Hướng Dẫn & Kinh Nghiệm Tìm Khách Cho Doanh Nghiệp Nhỏ | LocalMate"
+        description="Tổng hợp các bài viết hướng dẫn thực tế về cách chạy quảng cáo Google Ads tiết kiệm, tối ưu Google Maps, làm website rõ ràng và viết bài Facebook đều đặn."
         canonicalPath="/kien-thuc"
         breadcrumbs={[
           { name: 'Kiến thức', url: '/kien-thuc' }
@@ -58,20 +58,20 @@ export const KnowledgePage: React.FC = () => {
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.06em',
-              color: 'var(--color-teal-dark)',
-              backgroundColor: 'var(--color-teal-soft)',
+              color: 'var(--color-primary-dark)',
+              backgroundColor: 'var(--color-primary-soft)',
               padding: '0.4rem 0.9rem',
               borderRadius: 'var(--radius-full)',
               marginBottom: '1rem'
             }}
           >
-            <BookOpen size={15} color="var(--color-teal)" /> LOCALMATE KNOWLEDGE AUTHORITY
+            <BookOpen size={15} color="var(--color-primary)" /> HƯỚNG DẪN TÌM KHÁCH THỰC TẾ
           </span>
-          <h1 style={{ fontSize: 'var(--font-size-h1)', color: 'var(--color-navy)', fontWeight: 800, lineHeight: 1.25 }}>
-            Kiến Thức Digital Thực Chiến Cho Doanh Nghiệp Nhỏ
+          <h1 style={{ fontSize: 'var(--font-size-h1)', color: 'var(--color-text)', fontWeight: 800, lineHeight: 1.25 }}>
+            Kiến Thức &amp; Hướng Dẫn Dành Cho Doanh Nghiệp Nhỏ
           </h1>
           <p className="subtitle" style={{ marginTop: '0.75rem' }}>
-            Không viết lý thuyết hàn lâm. Mọi bài viết đều là kinh nghiệm xử lý thực tế về chi phí quảng cáo, tối ưu chuyển đổi và cách thu hút khách hàng địa phương.
+            Không viết lý thuyết sách vở. Mỗi bài viết là một hướng dẫn cụ thể giúp bạn hiểu rõ chi phí quảng cáo, cách đón khách xung quanh và duy trì bài viết thu hút.
           </p>
 
           {/* Search Bar */}
@@ -79,7 +79,7 @@ export const KnowledgePage: React.FC = () => {
             <Search size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-text-muted)' }} />
             <input
               type="text"
-              placeholder="Tìm kiếm theo từ khóa (vd: Google Ads, Maps, Landing page)..."
+              placeholder="Tìm kiếm theo từ khóa (Google Ads, Maps, Website, Facebook)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{
@@ -109,8 +109,8 @@ export const KnowledgePage: React.FC = () => {
                   borderRadius: 'var(--radius-full)',
                   fontSize: '0.875rem',
                   fontWeight: isActive ? 700 : 600,
-                  backgroundColor: isActive ? 'var(--color-navy)' : '#ffffff',
-                  color: isActive ? '#ffffff' : 'var(--color-navy)',
+                  backgroundColor: isActive ? 'var(--color-primary)' : '#ffffff',
+                  color: isActive ? '#ffffff' : 'var(--color-text)',
                   border: '1px solid var(--color-border)',
                   cursor: 'pointer',
                   transition: 'all 0.15s'
@@ -145,14 +145,14 @@ export const KnowledgePage: React.FC = () => {
               >
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-teal-dark)', backgroundColor: 'var(--color-teal-soft)', padding: '0.3rem 0.75rem', borderRadius: 'var(--radius-full)' }}>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-primary-dark)', backgroundColor: 'var(--color-primary-soft)', padding: '0.3rem 0.75rem', borderRadius: 'var(--radius-full)' }}>
                       {art.category}
                     </span>
                     <span style={{ fontSize: '0.775rem', color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: 4 }}>
                       <Clock size={13} /> {art.readTime}
                     </span>
                   </div>
-                  <h2 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.75rem', lineHeight: 1.4 }}>
+                  <h2 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-text)', marginBottom: '0.75rem', lineHeight: 1.4 }}>
                     {art.title}
                   </h2>
                   <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.6, margin: 0 }}>
@@ -160,7 +160,7 @@ export const KnowledgePage: React.FC = () => {
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1rem', borderTop: '1px dashed var(--color-border)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-teal-dark)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1rem', borderTop: '1px dashed var(--color-border)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-primary-dark)' }}>
                   <span>Đọc bài viết chi tiết</span>
                   <ArrowRight size={16} />
                 </div>

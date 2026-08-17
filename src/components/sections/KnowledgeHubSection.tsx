@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { KNOWLEDGE_ARTICLES } from '../../data/landingContent';
-import { BookOpen, ArrowRight, Clock, Calendar } from 'lucide-react';
+import { BookOpen, ArrowRight, Clock } from 'lucide-react';
 import { useRouter } from '../layout/Router';
 
 export const KnowledgeHubSection: React.FC = () => {
@@ -28,20 +28,20 @@ export const KnowledgeHubSection: React.FC = () => {
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.06em',
-              color: 'var(--color-teal-dark)',
-              backgroundColor: 'var(--color-teal-soft)',
+              color: 'var(--color-primary-dark)',
+              backgroundColor: 'var(--color-primary-soft)',
               padding: '0.4rem 0.9rem',
               borderRadius: 'var(--radius-full)',
               marginBottom: '0.75rem'
             }}
           >
-            <BookOpen size={14} /> LOCALMATE KNOWLEDGE HUB
+            <BookOpen size={14} /> HƯỚNG DẪN TÌM KHÁCH HÀNG
           </span>
-          <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-navy)', fontWeight: 800 }}>
-            Kiến Thức Digital &amp; Marketing Cho Doanh Nghiệp Nhỏ
+          <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-text)', fontWeight: 800 }}>
+            Kiến Thức &amp; Hướng Dẫn Thực Tế Cho Doanh Nghiệp Nhỏ
           </h2>
           <p className="subtitle" style={{ marginTop: '0.5rem' }}>
-            Chia sẻ kinh nghiệm thực tế về xây dựng website, tối ưu SEO, chạy quảng cáo và ứng dụng công nghệ tự động hóa hiệu quả.
+            Chia sẻ kinh nghiệm thực tế về cách chạy quảng cáo Google Ads tiết kiệm, tối ưu Google Maps, làm website rõ ràng và chăm sóc bài đăng Facebook.
           </p>
         </div>
 
@@ -78,8 +78,8 @@ export const KnowledgeHubSection: React.FC = () => {
                     style={{
                       fontSize: '0.725rem',
                       fontWeight: 700,
-                      color: 'var(--color-teal-dark)',
-                      backgroundColor: 'var(--color-teal-soft)',
+                      color: 'var(--color-primary-dark)',
+                      backgroundColor: 'var(--color-primary-soft)',
                       padding: '0.25rem 0.65rem',
                       borderRadius: 'var(--radius-full)'
                     }}
@@ -96,7 +96,7 @@ export const KnowledgeHubSection: React.FC = () => {
                   style={{
                     fontSize: '1.05rem',
                     fontWeight: 800,
-                    color: 'var(--color-navy)',
+                    color: 'var(--color-text)',
                     marginBottom: '0.6rem',
                     lineHeight: 1.4
                   }}
@@ -118,7 +118,7 @@ export const KnowledgeHubSection: React.FC = () => {
                   borderTop: '1px dashed var(--color-border)',
                   fontSize: '0.8rem',
                   fontWeight: 700,
-                  color: 'var(--color-teal-dark)'
+                  color: 'var(--color-primary-dark)'
                 }}
               >
                 <span>Đọc bài viết</span>
@@ -135,7 +135,7 @@ export const KnowledgeHubSection: React.FC = () => {
             style={{
               padding: '0.75rem 1.8rem',
               backgroundColor: 'var(--color-bg)',
-              color: 'var(--color-navy)',
+              color: 'var(--color-text)',
               border: '1px solid var(--color-border)',
               borderRadius: 'var(--radius-full)',
               fontWeight: 700,
@@ -147,7 +147,7 @@ export const KnowledgeHubSection: React.FC = () => {
               transition: 'all var(--transition-fast)'
             }}
           >
-            <span>Khám phá toàn bộ thư viện kiến thức SEO &amp; Marketing</span>
+            <span>Khám phá toàn bộ bài viết hướng dẫn tìm khách</span>
             <ArrowRight size={16} />
           </button>
         </div>

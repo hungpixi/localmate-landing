@@ -17,7 +17,6 @@ import {
   ShieldCheck,
   Check
 } from 'lucide-react';
-import { useRouter } from '../layout/Router';
 
 interface ConceptGeneratorProps {
   onComplete?: () => void;
@@ -25,10 +24,9 @@ interface ConceptGeneratorProps {
 }
 
 export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onComplete, compact = false }) => {
-  const { navigate } = useRouter();
   const [step, setStep] = useState<number>(1);
   const [businessName, setBusinessName] = useState('');
-  const [industry, setIndustry] = useState('Nhà hàng / F&B');
+  const [industry, setIndustry] = useState('Nhà hàng / Quán ăn / Cafe');
   const [socialUrl, setSocialUrl] = useState('');
   const [selectedStyle, setSelectedStyle] = useState<ConceptStyle>('modern');
 
@@ -55,8 +53,8 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
       });
       setConceptResult(res);
       setIsLoading(false);
-      setStep(2); // Show WOW Moment Mockup
-    }, 1000);
+      setStep(2); // Show Mockup Preview
+    }, 700);
   };
 
   const handleRegenerateNextStyle = () => {
@@ -83,7 +81,7 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
   return (
     <section
       style={{
-        padding: compact ? '2rem 0' : '4.5rem 0',
+        padding: compact ? '2rem 0' : 'clamp(3.5rem, 5vw, 5rem) 0',
         backgroundColor: '#ffffff',
         borderBottom: '1px solid var(--color-border)'
       }}
@@ -91,125 +89,80 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
     >
       <Container size="lg">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 2.5rem auto' }}>
-          <span
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-              color: 'var(--color-teal-dark)',
-              backgroundColor: 'var(--color-teal-soft)',
-              padding: '0.4rem 0.9rem',
-              borderRadius: 'var(--radius-full)',
-              marginBottom: '0.75rem'
-            }}
-          >
-            <Sparkles size={14} color="var(--color-teal)" /> TẠO CONCEPT THIẾT KẾ ĐỊNH HƯỚNG 0Đ
+        <div className="section-header" style={{ marginBottom: '2.5rem' }}>
+          <span className="section-eyebrow">
+            <Sparkles size={14} /> XEM THỬ MIỄN PHÍ
           </span>
           <h2 style={{ fontSize: 'var(--font-size-h2)', color: 'var(--color-navy)', fontWeight: 800 }}>
-            Xem Định Hướng Giao Diện Trước Khi Quyết Định
+            Xem thử website của cửa hàng bạn
           </h2>
-          <p className="subtitle" style={{ marginTop: '0.5rem' }}>
-            Nhập tên thương hiệu &amp; lĩnh vực. LocalMate sẽ dựng ngay bản mockup screenshot website định hướng mà không yêu cầu để lại SĐT trước.
+          <p className="subtitle" style={{ marginTop: '0.4rem' }}>
+            Nhập tên cửa hàng và ngành nghề. LocalMate sẽ tạo một mẫu để bạn xem trước, chưa cần để lại số điện thoại.
           </p>
         </div>
 
-        {/* Step 1: Input Form */}
+        {/* Step 1: Clean Input Form */}
         {step === 1 && (
-          <div
-            style={{
-              backgroundColor: '#f8fbfa',
-              border: '1px solid var(--color-border)',
-              borderRadius: 'var(--radius-xl)',
-              padding: compact ? '1.5rem' : '2.5rem',
-              maxWidth: '780px',
-              margin: '0 auto',
-              boxShadow: 'var(--shadow-md)'
-            }}
-          >
+          <div className="demo-form-card">
             <form onSubmit={handleGenerateConcept} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              {/* Field 1: Business Name */}
               <div>
-                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
-                  1. Tên doanh nghiệp / Cửa hàng của bạn *
+                <label className="form-label">
+                  Tên cửa hàng hoặc doanh nghiệp <span style={{ color: 'var(--color-primary)' }}>*</span>
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="VD: Nhà Hàng Bà Tám F&B / Spa Hương Sen / Cửa hàng Xây Dựng Nam Phát..."
+                  placeholder="Ví dụ: Cơm Tấm Ba Ghiền"
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '0.8rem 1rem',
-                    border: '1px solid var(--color-border)',
-                    borderRadius: 'var(--radius-md)',
-                    fontSize: '0.925rem',
-                    outline: 'none'
-                  }}
+                  className="form-input"
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '1rem' }}>
+              {/* 2-Column Row: Industry & Social/Website */}
+              <div className="form-2col-row">
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
-                    2. Lĩnh vực kinh doanh *
+                  <label className="form-label">
+                    Bạn đang kinh doanh gì? <span style={{ color: 'var(--color-primary)' }}>*</span>
                   </label>
                   <select
                     value={industry}
                     onChange={(e) => setIndustry(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '0.8rem 1rem',
-                      border: '1px solid var(--color-border)',
-                      borderRadius: 'var(--radius-md)',
-                      fontSize: '0.9rem',
-                      outline: 'none',
-                      backgroundColor: '#ffffff'
-                    }}
+                    className="form-select"
                   >
-                    <option value="Nhà hàng / F&B">Nhà hàng / F&B / Quán ăn</option>
-                    <option value="Spa / Beauty / Làm đẹp">Spa / Beauty / Làm đẹp</option>
-                    <option value="Giáo dục / Trường học">Giáo dục / Trường học / Kỹ năng</option>
-                    <option value="Bán lẻ / Shop online">Bán lẻ / Cửa hàng / Shop online</option>
-                    <option value="Xây dựng / Nội thất">Xây dựng / Nội thất / Thi công</option>
-                    <option value="Dịch vụ chuyên môn">Dịch vụ chuyên môn / Luật / Tư vấn</option>
-                    <option value="B2B / Xuất khẩu">Doanh nghiệp B2B / Xuất khẩu</option>
-                    <option value="Lĩnh vực khác">Lĩnh vực khác</option>
+                    <option value="Nhà hàng / Quán ăn / Cafe">Nhà hàng / Quán ăn / Cafe</option>
+                    <option value="Spa / Làm đẹp / Nha khoa">Spa / Làm đẹp / Nha khoa</option>
+                    <option value="Xây dựng / Nội thất / Cơ khí">Xây dựng / Nội thất / Cơ khí</option>
+                    <option value="Cửa hàng bán lẻ / Tạp hóa">Cửa hàng bán lẻ / Đại lý</option>
+                    <option value="Giáo dục / Lớp học / Mầm non">Giáo dục / Lớp học / Mầm non</option>
+                    <option value="Dịch vụ sửa chữa / Kỹ thuật">Dịch vụ sửa chữa / Kỹ thuật</option>
+                    <option value="Ngành nghề khác">Ngành nghề khác</option>
                   </select>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
-                    3. Link Facebook / Web hiện tại (Tùy chọn)
+                  <label className="form-label">
+                    Facebook hoặc website hiện tại
                   </label>
                   <input
                     type="text"
-                    placeholder="facebook.com/tiembanhxeo..."
+                    placeholder="facebook.com/tiemcuaban..."
                     value={socialUrl}
                     onChange={(e) => setSocialUrl(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '0.8rem 1rem',
-                      border: '1px solid var(--color-border)',
-                      borderRadius: 'var(--radius-md)',
-                      fontSize: '0.9rem',
-                      outline: 'none'
-                    }}
+                    className="form-input"
                   />
+                  <span className="form-helper-text">Không có cũng không sao.</span>
                 </div>
               </div>
 
-              {/* Style Selector Grid */}
+              {/* Style Selector Grid 2x2 */}
               <div>
-                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.65rem' }}>
-                  4. Chọn phong cách giao diện mong muốn:
+                <label className="form-label" style={{ marginBottom: '0.65rem' }}>
+                  Bạn thích kiểu website nào?
                 </label>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '0.65rem' }}>
+                <div className="style-selector-2x2-grid">
                   {CONCEPT_STYLES.map((st) => {
                     const isSelected = selectedStyle === st.styleKey;
                     return (
@@ -217,66 +170,49 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
                         type="button"
                         key={st.styleKey}
                         onClick={() => setSelectedStyle(st.styleKey)}
-                        style={{
-                          textAlign: 'left',
-                          padding: '0.75rem 0.9rem',
-                          borderRadius: 'var(--radius-md)',
-                          fontSize: '0.825rem',
-                          fontWeight: isSelected ? 700 : 600,
-                          backgroundColor: isSelected ? 'var(--color-teal-soft)' : '#ffffff',
-                          color: isSelected ? 'var(--color-teal-dark)' : 'var(--color-navy)',
-                          border: '1px solid',
-                          borderColor: isSelected ? 'var(--color-teal)' : 'var(--color-border)',
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between'
-                        }}
+                        className={`style-option-btn ${isSelected ? 'selected' : ''}`}
                       >
-                        <span>{st.label}</span>
-                        {isSelected && <Check size={16} color="var(--color-teal-dark)" />}
+                        <span className="style-btn-label">{st.label}</span>
+                        {isSelected && <Check size={16} color="var(--color-primary)" className="style-check-icon" />}
                       </button>
                     );
                   })}
                 </div>
               </div>
 
-              <Button variant="primary" size="lg" type="submit" disabled={isLoading} fullWidth className="btn-primary" style={{ marginTop: '0.5rem' }}>
-                {isLoading ? (
-                  <span>Đang dựng Mockup 0đ...</span>
-                ) : (
-                  <>
-                    <Eye size={18} />
-                    <span>Tạo Concept Giao Diện 0đ Tức Thời</span>
-                  </>
-                )}
-              </Button>
+              {/* CTA & Trust Microcopy */}
+              <div style={{ marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.65rem', alignItems: 'center' }}>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  type="submit"
+                  disabled={isLoading}
+                  fullWidth
+                  style={{ fontWeight: 800 }}
+                >
+                  {isLoading ? (
+                    <span>Đang tạo mẫu website...</span>
+                  ) : (
+                    <>
+                      <Eye size={18} />
+                      <span>Xem website mẫu miễn phí</span>
+                    </>
+                  )}
+                </Button>
+
+                <span className="cta-trust-microcopy">
+                  Không cần số điện thoại · Không cần thanh toán
+                </span>
+              </div>
             </form>
           </div>
         )}
 
         {/* Step 2: WOW Moment Mockup Render */}
         {step === 2 && conceptResult && (
-          <div style={{ maxWidth: '960px', margin: '0 auto' }}>
-            {/* Disclaimer Bar */}
-            <div
-              style={{
-                backgroundColor: '#fff4eb',
-                border: '1px solid #ffd8be',
-                borderRadius: 'var(--radius-md)',
-                padding: '0.65rem 1rem',
-                fontSize: '0.825rem',
-                fontWeight: 700,
-                color: 'var(--color-orange-dark)',
-                textAlign: 'center',
-                marginBottom: '1.25rem'
-              }}
-            >
-              ⚠️ {conceptResult.disclaimer}
-            </div>
-
+          <div style={{ maxWidth: '920px', margin: '0 auto' }}>
             {/* SVG Mockup Screenshot Preview */}
-            <div style={{ borderRadius: 'var(--radius-xl)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', marginBottom: '1.5rem' }}>
+            <div style={{ borderRadius: 'var(--radius-xl)', overflow: 'hidden', boxShadow: 'var(--shadow-md)', marginBottom: '1.5rem', border: '1px solid var(--color-border)' }}>
               <img
                 src={conceptResult.svgMockupDataUrl}
                 alt={`Mockup concept ${conceptResult.businessName}`}
@@ -284,23 +220,11 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
               />
             </div>
 
-            {/* Action Bar (Value Moment Choice) */}
-            <div
-              style={{
-                backgroundColor: '#f8fbfa',
-                border: '1px solid var(--color-border)',
-                borderRadius: 'var(--radius-xl)',
-                padding: '1.5rem 2rem',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: '1rem'
-              }}
-            >
+            {/* Action Bar */}
+            <div className="mockup-action-bar">
               <div>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--color-navy)', margin: 0 }}>
-                  Bạn thấy hướng thiết kế cho {conceptResult.businessName} thế nào?
+                <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-navy)', margin: 0 }}>
+                  Mẫu website gợi ý cho {conceptResult.businessName}
                 </h4>
                 <span style={{ fontSize: '0.825rem', color: 'var(--color-text-muted)' }}>
                   Phong cách: {conceptResult.styleMeta.label}
@@ -310,43 +234,20 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
               <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <button
                   onClick={handleRegenerateNextStyle}
-                  style={{
-                    padding: '0.65rem 1.1rem',
-                    backgroundColor: '#ffffff',
-                    border: '1px solid var(--color-border)',
-                    borderRadius: 'var(--radius-full)',
-                    fontSize: '0.85rem',
-                    fontWeight: 600,
-                    color: 'var(--color-navy)',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 4
-                  }}
+                  className="btn-try-other-style"
                 >
-                  <RefreshCw size={15} /> Thử phong cách khác
+                  <RefreshCw size={14} /> Thử phong cách khác
                 </button>
 
-                <button
-                  onClick={() => setStep(3)} // Move to Lead Form AFTER Value Moment!
-                  style={{
-                    padding: '0.75rem 1.6rem',
-                    backgroundColor: 'var(--color-orange)',
-                    color: '#ffffff',
-                    border: 'none',
-                    borderRadius: 'var(--radius-full)',
-                    fontWeight: 700,
-                    fontSize: '0.9rem',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    boxShadow: 'var(--shadow-orange)'
-                  }}
+                <Button
+                  variant="primary"
+                  size="md"
+                  onClick={() => setStep(3)}
+                  style={{ fontWeight: 700 }}
                 >
                   <span>Tôi thích hướng này!</span>
                   <ArrowRight size={16} />
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -354,75 +255,56 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
 
         {/* Step 3: Lead Form AFTER Value Moment */}
         {step === 3 && conceptResult && (
-          <div
-            style={{
-              backgroundColor: '#ffffff',
-              border: '1px solid var(--color-border)',
-              borderRadius: 'var(--radius-xl)',
-              padding: '2.5rem',
-              maxWidth: '640px',
-              margin: '0 auto',
-              boxShadow: 'var(--shadow-lg)'
-            }}
-          >
+          <div className="lead-confirm-card">
             {isSubmitted ? (
-              <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-                <div style={{ width: 64, height: 64, borderRadius: '50%', backgroundColor: 'var(--color-teal-soft)', color: 'var(--color-teal-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>
-                  <CheckCircle2 size={36} />
+              <div style={{ textAlign: 'center', padding: '1.5rem 1rem' }}>
+                <div style={{ width: 56, height: 56, borderRadius: '50%', backgroundColor: 'var(--color-primary-soft)', color: 'var(--color-primary-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem auto' }}>
+                  <CheckCircle2 size={32} />
                 </div>
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.5rem' }}>
-                  Đã Nhận Khung Concept Của {conceptResult.businessName}!
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.4rem' }}>
+                  Đã nhận thông tin của {conceptResult.businessName}!
                 </h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                  Chuyên viên LocalMate sẽ gọi Zalo xác nhận menu, thông tin nhận diện và báo phạm vi cọc 50% trước khi chính thức triển khai code.
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: 1.55, marginBottom: '1.25rem' }}>
+                  Đội ngũ LocalMate sẽ liên hệ Zalo để gửi bạn link xem bản website hoàn chỉnh trên điện thoại.
                 </p>
                 <button
                   onClick={() => {
                     setIsSubmitted(false);
                     setStep(1);
                   }}
-                  style={{
-                    padding: '0.65rem 1.25rem',
-                    backgroundColor: 'var(--color-teal-soft)',
-                    color: 'var(--color-teal-dark)',
-                    border: 'none',
-                    borderRadius: 'var(--radius-full)',
-                    fontWeight: 700,
-                    cursor: 'pointer'
-                  }}
+                  className="btn-try-other-style"
                 >
-                  Tạo concept khác
+                  Tạo mẫu khác
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleLeadSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-teal-dark)', textTransform: 'uppercase' }}>
-                  XÁC NHẬN HƯỚNG THIẾT KẾ MẪU #{conceptResult.styleMeta.label}
-                </span>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--color-navy)', margin: 0 }}>
-                  Liên Hệ Xác Nhận Scope &amp; Cọc 50%
-                </h3>
-                <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', margin: 0 }}>
-                  Nhập số điện thoại Zalo để LocalMate kiểm tra thông tin và gọi xác nhận trước khi làm.
-                </p>
+              <form onSubmit={handleLeadSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem' }}>
+                <div>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--color-primary-dark)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    XÁC NHẬN MẪU: {conceptResult.styleMeta.label}
+                  </span>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-navy)', margin: '0.25rem 0 0 0' }}>
+                    Nhận link xem bản website đầy đủ
+                  </h3>
+                </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
-                    1. Họ và tên của bạn *
+                  <label className="form-label">
+                    Họ và tên của bạn <span style={{ color: 'var(--color-primary)' }}>*</span>
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="VD: Anh Nam / Chị Hồng"
+                    placeholder="Ví dụ: Anh Nam / Chị Hồng"
                     value={leadForm.fullName}
                     onChange={(e) => setLeadForm({ ...leadForm, fullName: e.target.value })}
-                    style={{ width: '100%', padding: '0.8rem 1rem', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', fontSize: '0.9rem' }}
+                    className="form-input"
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.35rem' }}>
-                    2. Số điện thoại / Zalo nhận báo giá *
+                  <label className="form-label">
+                    Số điện thoại hoặc Zalo nhận link <span style={{ color: 'var(--color-primary)' }}>*</span>
                   </label>
                   <input
                     type="tel"
@@ -430,23 +312,172 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
                     placeholder="0988.xxx.xxx"
                     value={leadForm.phone}
                     onChange={(e) => setLeadForm({ ...leadForm, phone: e.target.value })}
-                    style={{ width: '100%', padding: '0.8rem 1rem', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', fontSize: '0.9rem' }}
+                    className="form-input"
                   />
                 </div>
 
-                <div style={{ backgroundColor: '#f0f7f5', padding: '0.85rem 1rem', borderRadius: 'var(--radius-md)', fontSize: '0.8rem', color: 'var(--color-teal-dark)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <ShieldCheck size={16} /> Xem định hướng trước · Cọc 50% khi triển khai · Không phí ẩn
+                <div className="lead-guarantee-pill">
+                  <ShieldCheck size={16} color="var(--color-primary)" />
+                  <span>Xem demo 0đ · Nghiệm thu hài lòng rồi mới thanh toán</span>
                 </div>
 
-                <Button variant="primary" size="lg" type="submit" fullWidth className="btn-primary">
-                  <Send size={18} />
-                  <span>Tôi Muốn Triển Khai Theo Mẫu Này</span>
+                <Button variant="primary" size="lg" type="submit" fullWidth style={{ fontWeight: 800 }}>
+                  <Send size={17} />
+                  <span>Gửi nhận link demo qua Zalo</span>
                 </Button>
               </form>
             )}
           </div>
         )}
       </Container>
+
+      <style>{`
+        .demo-form-card {
+          background-color: #fafbfa;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-2xl);
+          padding: clamp(1.5rem, 3.5vw, 2.5rem);
+          max-width: 780px;
+          margin: 0 auto;
+          box-shadow: var(--shadow-sm);
+        }
+
+        .form-label {
+          display: block;
+          font-size: 0.875rem;
+          font-weight: 700;
+          color: var(--color-navy);
+          margin-bottom: 0.4rem;
+        }
+
+        .form-input, .form-select {
+          width: 100%;
+          min-height: 48px;
+          padding: 0.75rem 1rem;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-md);
+          font-size: 0.925rem;
+          outline: none;
+          background-color: #ffffff;
+          box-sizing: border-box;
+          color: var(--color-navy);
+          transition: border-color var(--transition-fast);
+        }
+
+        .form-input:focus, .form-select:focus {
+          border-color: var(--color-primary);
+        }
+
+        .form-2col-row {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        @media (min-width: 600px) {
+          .form-2col-row {
+            grid-template-columns: 1.15fr 0.85fr;
+          }
+        }
+
+        .form-helper-text {
+          font-size: 0.775rem;
+          color: var(--color-text-muted);
+          margin-top: 0.3rem;
+          display: block;
+        }
+
+        .style-selector-2x2-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0.65rem;
+        }
+
+        @media (min-width: 480px) {
+          .style-selector-2x2-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        .style-option-btn {
+          text-align: left;
+          min-height: 48px;
+          padding: 0.75rem 1rem;
+          border-radius: var(--radius-md);
+          font-size: 0.875rem;
+          font-weight: 600;
+          background-color: #ffffff;
+          color: var(--color-navy);
+          border: 1px solid var(--color-border);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          transition: all var(--transition-fast);
+        }
+
+        .style-option-btn.selected {
+          font-weight: 700;
+          background-color: var(--color-primary-soft);
+          color: var(--color-primary-dark);
+          border-color: var(--color-primary);
+        }
+
+        .cta-trust-microcopy {
+          font-size: 0.825rem;
+          font-weight: 600;
+          color: var(--color-text-muted);
+          text-align: center;
+        }
+
+        .mockup-action-bar {
+          background-color: #fafbfa;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-xl);
+          padding: 1.25rem 1.75rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+
+        .btn-try-other-style {
+          padding: 0.6rem 1.1rem;
+          background-color: #ffffff;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-md);
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--color-navy);
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+        }
+
+        .lead-confirm-card {
+          background-color: #ffffff;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-2xl);
+          padding: clamp(1.5rem, 3.5vw, 2.25rem);
+          max-width: 580px;
+          margin: 0 auto;
+          box-shadow: var(--shadow-md);
+        }
+
+        .lead-guarantee-pill {
+          background-color: var(--color-primary-soft);
+          padding: 0.75rem 1rem;
+          border-radius: var(--radius-md);
+          font-size: 0.8rem;
+          color: var(--color-primary-dark);
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 0.45rem;
+        }
+      `}</style>
     </section>
   );
 };
