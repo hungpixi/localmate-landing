@@ -11,14 +11,10 @@ import {
   Globe,
   FileText,
   Phone,
-  BookOpen,
-  Briefcase,
-  HelpCircle,
-  ShieldCheck,
-  TrendingUp,
   Layout,
-  CheckCircle2,
-  Users
+  TrendingUp,
+  Briefcase,
+  CheckCircle2
 } from 'lucide-react';
 import { useRouter, Link } from './Router';
 import { CONTACT_INFO } from '../../data/landingContent';
@@ -145,7 +141,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                   />
                 </button>
 
-                {/* Mona-style Mega Menu Panel */}
+                {/* Mona-style Full-Width Mega Menu Panel */}
                 {activeDropdown === 'services' && (
                   <div
                     className="mega-menu-overlay"
@@ -167,7 +163,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                               className="mega-card"
                             >
                               <div className="mega-card-icon icon-green">
-                                <Layout size={17} />
+                                <Layout size={16} />
                               </div>
                               <div className="mega-card-content">
                                 <div className="mega-card-title">
@@ -184,7 +180,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                               className="mega-card"
                             >
                               <div className="mega-card-icon icon-blue">
-                                <Globe size={17} />
+                                <Globe size={16} />
                               </div>
                               <div className="mega-card-content">
                                 <div className="mega-card-title">
@@ -201,7 +197,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                               className="mega-card"
                             >
                               <div className="mega-card-icon icon-purple">
-                                <Sparkles size={17} />
+                                <Sparkles size={16} />
                               </div>
                               <div className="mega-card-content">
                                 <div className="mega-card-title">
@@ -226,11 +222,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                               className="mega-card"
                             >
                               <div className="mega-card-icon icon-orange">
-                                <MapPin size={17} />
+                                <MapPin size={16} />
                               </div>
                               <div className="mega-card-content">
                                 <div className="mega-card-title">
-                                  <span>Đưa Tiệm Lên Google Maps</span>
+                                  <span>Đưa Tiệm Lên Maps</span>
                                   <span className="mega-tag tag-save">Từ 299k</span>
                                 </div>
                                 <p className="mega-card-desc">Khách tìm quanh khu vực thấy tiệm ngay.</p>
@@ -243,7 +239,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                               className="mega-card"
                             >
                               <div className="mega-card-icon icon-green">
-                                <TrendingUp size={17} />
+                                <TrendingUp size={16} />
                               </div>
                               <div className="mega-card-content">
                                 <div className="mega-card-title">
@@ -259,7 +255,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                               className="mega-card"
                             >
                               <div className="mega-card-icon icon-blue">
-                                <Sparkles size={17} />
+                                <Sparkles size={16} />
                               </div>
                               <div className="mega-card-content">
                                 <div className="mega-card-title">
@@ -284,7 +280,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                               className="mega-card"
                             >
                               <div className="mega-card-icon icon-orange">
-                                <Sparkles size={17} />
+                                <Sparkles size={16} />
                               </div>
                               <div className="mega-card-content">
                                 <div className="mega-card-title">
@@ -301,7 +297,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                               className="mega-card"
                             >
                               <div className="mega-card-icon icon-pink">
-                                <FileText size={17} />
+                                <FileText size={16} />
                               </div>
                               <div className="mega-card-content">
                                 <div className="mega-card-title">
@@ -318,7 +314,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                               className="mega-card"
                             >
                               <div className="mega-card-icon icon-purple">
-                                <Briefcase size={17} />
+                                <Briefcase size={16} />
                               </div>
                               <div className="mega-card-content">
                                 <div className="mega-card-title">
@@ -331,18 +327,24 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                         </div>
                       </div>
 
-                      {/* Right Promo Rail (Mona Media Signature Feature) */}
+                      {/* Right Promo Rail: Clean & Perfectly Contained Inside Card */}
                       <div className="mega-promo-rail">
                         <div className="mega-promo-box">
-                          <span className="promo-badge">KHUYÊN DÙNG CHO DOANH NGHIỆP MỚI</span>
+                          <span className="promo-badge">GÓI NỔI BẬT KHUYÊN DÙNG</span>
                           <h4 className="promo-title">Gói Khởi Tạo 490.000đ</h4>
                           <p className="promo-desc">
-                            Website 1 trang đầy đủ thông tin + Nút gọi Zalo + Đưa vị trí lên Google Maps.
+                            Website 1 trang chuẩn + Google Maps + Nút gọi Zalo.
                           </p>
-                          <ul className="promo-points">
-                            <li><CheckCircle2 size={13} color="var(--color-primary-light)" /> Báo giá rõ, không phụ phí</li>
-                            <li><CheckCircle2 size={13} color="var(--color-primary-light)" /> Bàn giao toàn bộ tài khoản</li>
-                          </ul>
+                          <div className="promo-points">
+                            <div className="promo-point-item">
+                              <CheckCircle2 size={13} color="var(--color-primary-light)" />
+                              <span>Báo giá rõ, không phụ phí</span>
+                            </div>
+                            <div className="promo-point-item">
+                              <CheckCircle2 size={13} color="var(--color-primary-light)" />
+                              <span>Bàn giao 100% tài khoản</span>
+                            </div>
+                          </div>
                           <Link
                             to="/landing-490k"
                             onClick={closeMenus}
@@ -352,15 +354,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
                           </Link>
                         </div>
 
-                        {/* Hotline Quick Call Card */}
+                        {/* Compact Hotline Card */}
                         <a
                           href={`tel:${CONTACT_INFO.phoneRaw}`}
                           className="mega-hotline-card"
+                          title="Gọi hotline tư vấn"
                         >
                           <div className="hotline-icon-box">
-                            <Phone size={17} color="#ffffff" />
+                            <Phone size={15} color="#ffffff" />
                           </div>
-                          <div>
+                          <div className="hotline-meta">
                             <span className="hotline-label">Tư vấn trực tiếp 24/7</span>
                             <span className="hotline-num">0834.422.439</span>
                           </div>
@@ -799,7 +802,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
           box-sizing: border-box;
         }
 
-        .header-scrolled + .mega-menu-overlay,
         .header-scrolled .mega-menu-overlay {
           top: 64px;
         }
@@ -823,52 +825,54 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
           border: 1px solid var(--color-border);
           border-radius: 20px;
           box-shadow: 0 20px 50px rgba(0, 0, 0, 0.13);
-          padding: 1.75rem 2rem;
+          padding: 1.5rem 1.75rem;
           display: grid;
-          grid-template-columns: 1fr 310px;
-          gap: 2.25rem;
+          grid-template-columns: 1fr 280px;
+          gap: 1.75rem;
+          align-items: stretch;
           box-sizing: border-box;
+          overflow: hidden;
           animation: megaFadeIn 0.18s ease-out;
         }
 
         .mega-menu-main {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 1.75rem;
+          gap: 1.5rem;
         }
 
         .mega-col {
           display: flex;
           flex-direction: column;
-          gap: 0.75rem;
+          gap: 0.55rem;
         }
 
         .mega-col-header {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.45rem;
           font-size: 0.8rem;
           font-weight: 800;
           color: var(--color-primary-dark);
           text-transform: uppercase;
           letter-spacing: 0.05em;
-          padding-bottom: 0.5rem;
+          padding-bottom: 0.4rem;
           border-bottom: 1px solid var(--color-border);
-          margin-bottom: 0.25rem;
+          margin-bottom: 0.15rem;
         }
 
         .mega-items-list {
           display: flex;
           flex-direction: column;
-          gap: 0.4rem;
+          gap: 0.35rem;
         }
 
         .mega-card {
           display: flex;
           align-items: flex-start;
-          gap: 0.85rem;
-          padding: 0.7rem 0.85rem;
-          border-radius: 12px;
+          gap: 0.75rem;
+          padding: 0.55rem 0.7rem;
+          border-radius: 10px;
           text-decoration: none;
           border: 1px solid transparent;
           transition: all 0.15s ease;
@@ -881,9 +885,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         }
 
         .mega-card-icon {
-          width: 36px;
-          height: 36px;
-          border-radius: 10px;
+          width: 34px;
+          height: 34px;
+          border-radius: 8px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -900,32 +904,32 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         .mega-card-content {
           display: flex;
           flex-direction: column;
-          gap: 0.2rem;
+          gap: 0.15rem;
           min-width: 0;
         }
 
         .mega-card-title {
-          font-size: 0.9rem;
+          font-size: 0.875rem;
           font-weight: 800;
           color: var(--color-navy);
           display: flex;
           align-items: center;
-          gap: 0.45rem;
+          gap: 0.4rem;
           white-space: nowrap;
           line-height: 1.3;
         }
 
         .mega-card-desc {
-          font-size: 0.775rem;
+          font-size: 0.725rem;
           color: var(--color-text-muted);
-          line-height: 1.4;
+          line-height: 1.35;
           margin: 0;
         }
 
         .mega-tag {
-          font-size: 0.675rem;
+          font-size: 0.65rem;
           font-weight: 800;
-          padding: 0.15rem 0.45rem;
+          padding: 0.1rem 0.4rem;
           border-radius: 999px;
           line-height: 1;
           white-space: nowrap;
@@ -935,27 +939,30 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         .tag-save { background-color: var(--color-primary-soft); color: var(--color-primary-dark); }
         .tag-standard { background-color: #f3f4f6; color: #4b5563; }
 
-        /* Right Promo Rail */
+        /* Right Promo Rail — Perfectly Fitted Inside Container */
         .mega-promo-rail {
           display: flex;
           flex-direction: column;
-          gap: 0.85rem;
+          justify-content: space-between;
+          gap: 0.65rem;
           border-left: 1px solid var(--color-border);
-          padding-left: 1.75rem;
+          padding-left: 1.5rem;
         }
 
         .mega-promo-box {
           background: linear-gradient(145deg, #072e3b, #0d7647);
-          border-radius: 16px;
-          padding: 1.35rem;
+          border-radius: 14px;
+          padding: 1rem 1.15rem;
           color: #ffffff;
           display: flex;
           flex-direction: column;
-          gap: 0.65rem;
+          gap: 0.45rem;
+          flex: 1;
+          justify-content: space-between;
         }
 
         .promo-badge {
-          font-size: 0.675rem;
+          font-size: 0.65rem;
           font-weight: 800;
           color: var(--color-primary-light);
           letter-spacing: 0.05em;
@@ -963,7 +970,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         }
 
         .promo-title {
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: 800;
           color: #ffffff;
           margin: 0;
@@ -971,37 +978,34 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         }
 
         .promo-desc {
-          font-size: 0.8rem;
+          font-size: 0.75rem;
           color: rgba(255, 255, 255, 0.9);
-          line-height: 1.45;
+          line-height: 1.4;
           margin: 0;
         }
 
         .promo-points {
-          list-style: none;
-          padding: 0;
-          margin: 0;
           display: flex;
           flex-direction: column;
-          gap: 0.4rem;
-          font-size: 0.775rem;
+          gap: 0.3rem;
+          font-size: 0.725rem;
           color: rgba(255, 255, 255, 0.95);
         }
 
-        .promo-points li {
+        .promo-point-item {
           display: flex;
           align-items: center;
-          gap: 0.4rem;
+          gap: 0.35rem;
         }
 
         .promo-btn {
-          margin-top: 0.35rem;
+          margin-top: 0.25rem;
           background-color: #ffffff;
           color: var(--color-navy);
-          font-size: 0.825rem;
+          font-size: 0.775rem;
           font-weight: 800;
           text-align: center;
-          padding: 0.55rem 0.85rem;
+          padding: 0.45rem 0.75rem;
           border-radius: var(--radius-sm);
           text-decoration: none;
           transition: background-color var(--transition-fast);
@@ -1014,11 +1018,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         .mega-hotline-card {
           background-color: #fafbfa;
           border: 1px solid var(--color-border);
-          border-radius: 14px;
-          padding: 0.75rem 1rem;
+          border-radius: 12px;
+          padding: 0.6rem 0.85rem;
           display: flex;
           align-items: center;
-          gap: 0.75rem;
+          gap: 0.65rem;
           text-decoration: none;
           transition: all var(--transition-fast);
         }
@@ -1029,8 +1033,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
         }
 
         .hotline-icon-box {
-          width: 36px;
-          height: 36px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           background-color: var(--color-orange);
           display: flex;
@@ -1039,18 +1043,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDemoForm }) => {
           flex-shrink: 0;
         }
 
+        .hotline-meta {
+          display: flex;
+          flex-direction: column;
+        }
+
         .hotline-label {
-          display: block;
-          font-size: 0.725rem;
+          font-size: 0.675rem;
           color: var(--color-text-muted);
           font-weight: 600;
+          line-height: 1.2;
         }
 
         .hotline-num {
-          display: block;
-          font-size: 1rem;
+          font-size: 0.95rem;
           font-weight: 800;
           color: var(--color-navy);
+          line-height: 1.2;
         }
 
         /* Simple Dropdown for Knowledge */
