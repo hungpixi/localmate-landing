@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { PAIN_POINTS } from '../../data/landingContent';
-import { Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Sparkles, Check, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useRouter } from '../layout/Router';
 
 export const PainPointsSection: React.FC = () => {
@@ -19,10 +19,10 @@ export const PainPointsSection: React.FC = () => {
   };
 
   return (
-    <section id="thuc-trang" style={{ padding: 'clamp(3.5rem, 5vw, 5rem) 0', backgroundColor: 'var(--color-bg)', borderBottom: '1px solid var(--color-border)' }}>
+    <section id="thuc-trang" style={{ padding: 'clamp(3rem, 5vw, 4.5rem) 0', backgroundColor: 'var(--color-bg)', borderBottom: '1px solid var(--color-border)' }}>
       <Container size="lg">
         {/* Section Header */}
-        <div className="section-header">
+        <div className="section-header" style={{ marginBottom: '2.5rem' }}>
           <span className="section-eyebrow">
             <Sparkles size={14} /> BẠN CÓ ĐANG GẶP TÌNH TRẠNG NÀY?
           </span>
@@ -34,51 +34,68 @@ export const PainPointsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 1. Redesigned 2-Column Dark Card */}
-        <div className="dark-solution-banner">
-          <div className="dark-banner-grid">
-            {/* Left Column: Heading, Body & Trust line */}
-            <div className="dark-banner-left">
-              <span className="dark-eyebrow">
-                LOCALMATE GIẢI QUYẾT PHẦN KHÓ NÀY
+        {/* 1. Redesigned Light Premium 2-Column Overview Card */}
+        <div className="solution-overview-card">
+          <div className="solution-overview-grid">
+            {/* Left Column: Heading, Body & Trust lines */}
+            <div className="solution-left-col">
+              <span className="solution-eyebrow">
+                LOCALMATE GIÚP BẠN LÀM RÕ
               </span>
 
-              <h3 className="dark-heading">
-                Giúp khách hiểu bạn bán gì, tin bạn và biết cách liên hệ
+              <h3 className="solution-heading">
+                Giúp khách hiểu bạn bán gì và liên hệ dễ hơn
               </h3>
 
-              <p className="dark-body">
-                LocalMate sắp xếp lại những thứ khách cần thấy: website, Google Maps, thông tin dịch vụ, bảng giá, hình ảnh và nút gọi/Zalo.
+              <p className="solution-body">
+                LocalMate sắp xếp lại website, Google Maps, thông tin dịch vụ, bảng giá và nút gọi/Zalo để khách xem là hiểu ngay.
               </p>
 
-              <p className="dark-supporting">
-                Bạn không cần biết kỹ thuật. Chúng tôi làm từng phần cần thiết và báo giá rõ trước khi bắt đầu.
+              <p className="solution-supporting">
+                Bạn không cần biết kỹ thuật. Mỗi phần đều được báo giá rõ trước khi làm.
               </p>
 
-              <div className="dark-trust-line">
-                <CheckCircle2 size={16} color="var(--color-primary-light)" style={{ flexShrink: 0 }} />
-                <span>Làm đúng phần cần trước, không ép mua cả gói</span>
+              <div className="solution-trust-row">
+                <div className="solution-trust-pill">
+                  <CheckCircle2 size={16} color="var(--color-primary)" className="trust-icon" />
+                  <span>Làm phần cần trước, không ép mua cả gói</span>
+                </div>
+                <div className="solution-trust-pill">
+                  <CheckCircle2 size={16} color="var(--color-primary)" className="trust-icon" />
+                  <span>Báo giá rõ trước khi làm</span>
+                </div>
               </div>
             </div>
 
-            {/* Right Column: 4 Outcomes Checklist */}
-            <div className="dark-banner-right">
-              <div className="dark-outcomes-box">
-                <div className="dark-outcome-item">
-                  <span className="dark-check-icon">✓</span>
-                  <span>Khách hiểu bạn bán gì</span>
+            {/* Right Column: 4 Clean Benefit Rows (No Dark Nested Card) */}
+            <div className="solution-right-col">
+              <div className="solution-benefits-list">
+                <div className="solution-benefit-item">
+                  <div className="benefit-icon-wrapper">
+                    <Check size={16} color="var(--color-primary)" strokeWidth={2.5} />
+                  </div>
+                  <span className="benefit-text">Khách hiểu bạn bán gì</span>
                 </div>
-                <div className="dark-outcome-item">
-                  <span className="dark-check-icon">✓</span>
-                  <span>Dễ tìm trên Google</span>
+
+                <div className="solution-benefit-item">
+                  <div className="benefit-icon-wrapper">
+                    <Check size={16} color="var(--color-primary)" strokeWidth={2.5} />
+                  </div>
+                  <span className="benefit-text">Dễ tìm trên Google</span>
                 </div>
-                <div className="dark-outcome-item">
-                  <span className="dark-check-icon">✓</span>
-                  <span>Có nơi xem dịch vụ &amp; giá</span>
+
+                <div className="solution-benefit-item">
+                  <div className="benefit-icon-wrapper">
+                    <Check size={16} color="var(--color-primary)" strokeWidth={2.5} />
+                  </div>
+                  <span className="benefit-text">Có nơi xem dịch vụ &amp; giá</span>
                 </div>
-                <div className="dark-outcome-item">
-                  <span className="dark-check-icon">✓</span>
-                  <span>Có nút gọi/Zalo rõ ràng</span>
+
+                <div className="solution-benefit-item">
+                  <div className="benefit-icon-wrapper">
+                    <Check size={16} color="var(--color-primary)" strokeWidth={2.5} />
+                  </div>
+                  <span className="benefit-text">Có nút gọi/Zalo rõ ràng</span>
                 </div>
               </div>
             </div>
@@ -111,18 +128,17 @@ export const PainPointsSection: React.FC = () => {
       </Container>
 
       <style>{`
-        /* Dark Solution Banner */
-        .dark-solution-banner {
-          background-color: var(--color-navy);
-          border-radius: var(--radius-2xl);
+        /* Light Premium Solution Overview Card */
+        .solution-overview-card {
+          background-color: var(--color-primary-soft, #F4FBF7);
+          border: 1px solid var(--color-primary-border, #DCEFE4);
+          border-radius: 20px;
           padding: clamp(1.75rem, 3.5vw, 2.75rem);
-          color: #ffffff;
-          box-shadow: var(--shadow-md);
-          margin-bottom: 2.5rem;
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          box-shadow: var(--shadow-sm);
+          margin-bottom: 2.25rem;
         }
 
-        .dark-banner-grid {
+        .solution-overview-grid {
           display: grid;
           grid-template-columns: 1fr;
           gap: 2rem;
@@ -130,92 +146,124 @@ export const PainPointsSection: React.FC = () => {
         }
 
         @media (min-width: 860px) {
-          .dark-banner-grid {
-            grid-template-columns: 1.35fr 0.85fr;
+          .solution-overview-grid {
+            grid-template-columns: 1.35fr 0.95fr;
             gap: 2.5rem;
           }
         }
 
-        .dark-banner-left {
+        .solution-left-col {
           display: flex;
           flex-direction: column;
         }
 
-        .dark-eyebrow {
+        .solution-eyebrow {
           font-size: 0.775rem;
           font-weight: 800;
-          color: var(--color-primary-light);
+          color: var(--color-primary-dark);
           letter-spacing: 0.05em;
           text-transform: uppercase;
-          margin-bottom: 0.65rem;
+          margin-bottom: 0.5rem;
           display: block;
         }
 
-        .dark-heading {
+        .solution-heading {
           font-size: clamp(1.25rem, 2.2vw, 1.65rem);
           font-weight: 800;
-          color: #ffffff;
+          color: var(--color-navy);
           line-height: 1.35;
-          margin: 0 0 0.85rem 0;
-        }
-
-        .dark-body {
-          font-size: 0.925rem;
-          color: rgba(255, 255, 255, 0.9);
-          line-height: 1.6;
           margin: 0 0 0.75rem 0;
         }
 
-        .dark-supporting {
+        .solution-body {
+          font-size: 0.925rem;
+          color: var(--color-navy);
+          line-height: 1.6;
+          margin: 0 0 0.5rem 0;
+        }
+
+        .solution-supporting {
           font-size: 0.875rem;
-          color: rgba(255, 255, 255, 0.75);
+          color: var(--color-text-muted);
           line-height: 1.55;
           margin: 0 0 1.25rem 0;
         }
 
-        .dark-trust-line {
+        .solution-trust-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.6rem;
+        }
+
+        .solution-trust-pill {
           display: inline-flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.45rem;
           font-size: 0.825rem;
           font-weight: 700;
-          color: var(--color-primary-light);
-          background-color: rgba(13, 118, 71, 0.35);
-          border: 1px solid rgba(34, 197, 94, 0.35);
-          padding: 0.4rem 0.85rem;
+          color: var(--color-primary-dark);
+          background-color: #ffffff;
+          border: 1px solid var(--color-primary-border, #DCEFE4);
+          padding: 0.35rem 0.8rem;
           border-radius: var(--radius-full);
           width: fit-content;
         }
 
-        .dark-banner-right {
+        .trust-icon {
+          flex-shrink: 0;
+        }
+
+        /* Right Column: Benefits Checklist */
+        .solution-right-col {
           display: flex;
+          flex-direction: column;
           justify-content: center;
         }
 
-        .dark-outcomes-box {
-          width: 100%;
-          background-color: rgba(255, 255, 255, 0.06);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          border-radius: var(--radius-xl);
-          padding: 1.5rem;
+        @media (min-width: 860px) {
+          .solution-right-col {
+            border-left: 1px solid var(--color-primary-border, #DCEFE4);
+            padding-left: 2.25rem;
+          }
+        }
+
+        @media (max-width: 859px) {
+          .solution-right-col {
+            border-top: 1px dashed var(--color-primary-border, #DCEFE4);
+            padding-top: 1.5rem;
+          }
+        }
+
+        .solution-benefits-list {
           display: flex;
           flex-direction: column;
-          gap: 0.85rem;
+          gap: 1.1rem;
         }
 
-        .dark-outcome-item {
+        .solution-benefit-item {
           display: flex;
           align-items: center;
-          gap: 0.65rem;
-          font-size: 0.9rem;
-          font-weight: 700;
-          color: #ffffff;
+          gap: 0.75rem;
         }
 
-        .dark-check-icon {
-          color: var(--color-primary-light);
-          font-weight: 900;
-          font-size: 1rem;
+        .benefit-icon-wrapper {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background-color: #ffffff;
+          border: 1px solid var(--color-primary-border, #DCEFE4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .benefit-text {
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: var(--color-navy);
+          line-height: 1.4;
         }
 
         /* 4 Pain Cards */

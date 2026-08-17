@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { ShieldCheck, Phone, Mail, MapPin, Building2, FileCheck2 } from 'lucide-react';
+import { ShieldCheck, Phone, Mail, MapPin, Building2 } from 'lucide-react';
 import { CONTACT_INFO, COMPANY_INFO } from '../../data/landingContent';
 import { Link } from '../layout/Router';
 
@@ -16,34 +16,17 @@ export const Footer: React.FC = () => {
       }}
     >
       <Container size="lg">
-        {/* Main Footer Grid */}
+        {/* Main Footer 4 Equal Columns Grid */}
         <div className="footer-main-grid">
-          {/* Column 1: Brand Info, Legal Entity & Tax Info */}
-          <div className="footer-col-company">
-            <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', width: 'fit-content' }}>
-              <img
-                src="/logo.png"
-                alt="LocalMate - Website, Google Maps & Quảng Cáo cho Doanh Nghiệp Nhỏ"
-                style={{
-                  height: '42px',
-                  width: 'auto',
-                  objectFit: 'contain',
-                  backgroundColor: '#ffffff',
-                  padding: '5px 12px',
-                  borderRadius: 'var(--radius-md)'
-                }}
-              />
-            </Link>
-
-            {/* Legal Entity Name */}
-            <div>
-              <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.35rem 0', letterSpacing: '0.01em' }}>
-                {COMPANY_INFO.legalName}
-              </h3>
-              <p style={{ fontSize: '0.825rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.55, margin: 0 }}>
-                Giải pháp làm website, đưa doanh nghiệp lên Google Maps, quảng cáo Google Ads và chăm sóc bài viết Facebook cho doanh nghiệp nhỏ &amp; hộ kinh doanh.
-              </p>
-            </div>
+          {/* Column 1: Corporate Entity & Tax Info (No Top Logo for Equal Balance) */}
+          <div className="footer-col footer-col-company">
+            <h4 className="footer-col-title">
+              {COMPANY_INFO.legalName}
+            </h4>
+            
+            <p style={{ fontSize: '0.825rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.55, margin: '0 0 1rem 0' }}>
+              Giải pháp làm website, đưa doanh nghiệp lên Google Maps, quảng cáo Google Ads và chăm sóc bài viết Facebook cho doanh nghiệp nhỏ.
+            </p>
 
             {/* Structured Legal & Tax Meta */}
             <div className="company-tax-card">
@@ -52,16 +35,8 @@ export const Footer: React.FC = () => {
                 <span><strong>Mã số thuế:</strong> {COMPANY_INFO.taxCode}</span>
               </div>
               <div className="tax-item">
-                <FileCheck2 size={15} color="var(--color-primary-light)" className="tax-icon" />
-                <span><strong>Quản lý bởi:</strong> {COMPANY_INFO.taxAuthority}</span>
-              </div>
-              <div className="tax-item">
                 <MapPin size={15} color="var(--color-primary-light)" className="tax-icon" />
-                <span><strong>Địa chỉ thuế:</strong> {COMPANY_INFO.taxAddress}</span>
-              </div>
-              <div className="tax-item">
-                <MapPin size={15} color="var(--color-primary-light)" className="tax-icon" />
-                <span><strong>Văn phòng:</strong> {COMPANY_INFO.officeAddress}</span>
+                <span><strong>Địa chỉ:</strong> {COMPANY_INFO.taxAddress}</span>
               </div>
               <div className="tax-item">
                 <Phone size={15} color="var(--color-orange)" className="tax-icon" />
@@ -84,7 +59,7 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* Official Badge: ĐÃ THÔNG BÁO BỘ CÔNG THƯƠNG */}
-            <div style={{ marginTop: '0.65rem' }}>
+            <div style={{ marginTop: '0.85rem' }}>
               <a
                 href="http://online.gov.vn"
                 target="_blank"
@@ -140,40 +115,40 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Kiến Thức & Hướng Dẫn */}
+          {/* Column 3: Danh Mục Kiến Thức & Hướng Dẫn */}
           <div className="footer-col">
             <h4 className="footer-col-title">
               Kiến Thức Thực Chiến
             </h4>
             <ul className="footer-links-list">
               <li>
-                <Link to="/kien-thuc/huong-dan-toi-uu-google-business-profile" className="footer-link">
-                  → Cách tối ưu Google Maps cho cửa hàng
-                </Link>
-              </li>
-              <li>
-                <Link to="/kien-thuc/cach-doc-search-terms-google-ads" className="footer-link">
-                  → Cách xem khách tìm gì trên Google
-                </Link>
-              </li>
-              <li>
-                <Link to="/kien-thuc/cau-truc-landing-page-chuyen-doi-cao" className="footer-link">
-                  → Website bán dịch vụ cần những gì?
-                </Link>
-              </li>
-              <li>
-                <Link to="/kien-thuc/cach-len-lich-dang-bai-khong-bi-bi-y-tuong" className="footer-link">
-                  → 15 mẫu bài viết Facebook thu hút
-                </Link>
-              </li>
-              <li>
-                <Link to="/du-an" className="footer-link">
-                  → Dự án thực tế đã triển khai
+                <Link to="/kien-thuc" className="footer-link">
+                  → Hướng dẫn làm Website &amp; Landing Page
                 </Link>
               </li>
               <li>
                 <Link to="/kien-thuc" className="footer-link">
-                  → Toàn bộ cẩm nang kinh doanh
+                  → Tối ưu Google Maps &amp; Tìm kiếm Local
+                </Link>
+              </li>
+              <li>
+                <Link to="/kien-thuc" className="footer-link">
+                  → Kinh nghiệm chạy Google Ads hiệu quả
+                </Link>
+              </li>
+              <li>
+                <Link to="/kien-thuc" className="footer-link">
+                  → Viết bài Facebook &amp; Chăm sóc Kênh
+                </Link>
+              </li>
+              <li>
+                <Link to="/kien-thuc" className="footer-link">
+                  → Đo lường chuyển đổi &amp; Cài đặt Tracking
+                </Link>
+              </li>
+              <li>
+                <Link to="/kien-thuc" className="footer-link footer-link-highlight">
+                  → Xem toàn bộ cẩm nang kinh doanh
                 </Link>
               </li>
             </ul>
@@ -238,7 +213,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar: Copyright & Compliance */}
         <div className="footer-bottom-bar">
           <div style={{ lineHeight: 1.6 }}>
-            © {new Date().getFullYear()} <strong>{COMPANY_INFO.legalName}</strong>. Mã số thuế: <strong>{COMPANY_INFO.taxCode}</strong> do {COMPANY_INFO.taxAuthority} cấp ngày {COMPANY_INFO.establishedDate}.
+            © {new Date().getFullYear()} <strong>{COMPANY_INFO.legalName}</strong>. Mã số thuế: <strong>{COMPANY_INFO.taxCode}</strong>. Bảo lưu mọi quyền.
           </div>
           <div className="footer-bottom-links">
             <Link to="/chinh-sach-bao-mat">Bảo mật</Link>
@@ -256,11 +231,11 @@ export const Footer: React.FC = () => {
         .footer-main-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 2.5rem;
+          gap: 2.25rem;
           margin-bottom: 2.5rem;
         }
 
-        @media (min-width: 680px) {
+        @media (min-width: 640px) {
           .footer-main-grid {
             grid-template-columns: repeat(2, 1fr);
           }
@@ -268,26 +243,34 @@ export const Footer: React.FC = () => {
 
         @media (min-width: 1024px) {
           .footer-main-grid {
-            grid-template-columns: 1.45fr 1fr 1fr 1fr;
-            gap: 2.25rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
           }
         }
 
-        .footer-col-company {
+        .footer-col {
           display: flex;
           flex-direction: column;
-          gap: 1.15rem;
+        }
+
+        .footer-col-title {
+          color: #ffffff;
+          font-size: 0.9rem;
+          font-weight: 800;
+          margin: 0 0 1rem 0;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
         }
 
         .company-tax-card {
           background-color: rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: var(--radius-lg);
-          padding: 0.9rem 1.1rem;
+          padding: 0.85rem 1rem;
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
-          font-size: 0.8rem;
+          gap: 0.45rem;
+          font-size: 0.775rem;
           color: rgba(255, 255, 255, 0.85);
           line-height: 1.5;
         }
@@ -305,9 +288,9 @@ export const Footer: React.FC = () => {
 
         /* Official BCT Image Logo */
         .bct-official-logo {
-          height: 52px;
+          height: 48px;
           width: auto;
-          max-width: 190px;
+          max-width: 160px;
           object-fit: contain;
           display: block;
           filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
@@ -317,21 +300,6 @@ export const Footer: React.FC = () => {
         .bct-official-logo:hover {
           transform: translateY(-2px) scale(1.02);
           filter: drop-shadow(0 4px 12px rgba(0, 150, 255, 0.35));
-        }
-
-        /* Column styles */
-        .footer-col {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .footer-col-title {
-          color: #ffffff;
-          font-size: 0.9rem;
-          font-weight: 800;
-          margin: 0 0 1rem 0;
-          letter-spacing: 0.04em;
-          text-transform: uppercase;
         }
 
         .footer-links-list {

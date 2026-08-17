@@ -82,7 +82,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       image: 'https://localmate.vn/logo.png',
       url: 'https://localmate.vn',
       telephone: '+84834422439',
-      email: 'hotro@localmate.vn',
+      email: 'contact@localmate.vn',
       description: 'Đơn vị thiết kế Website, SEO, Marketing & Phần mềm cho doanh nghiệp nhỏ. Bàn giao rồi mới thanh toán.',
       priceRange: '490.000 - 6.900.000 VNĐ',
       address: {

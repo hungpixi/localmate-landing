@@ -44,7 +44,7 @@ export const LEGAL_POLICIES: Record<string, PolicyDocument> = {
         content: [
           'CÔNG TY TNHH LOCALMATE',
           'Hotline hỗ trợ: 0834.422.439',
-          'Email tiếp nhận: hotro@localmate.vn / hungphamphunguyen@gmail.com',
+          'Email tiếp nhận: contact@localmate.vn',
           'Phạm vi hỗ trợ: Toàn quốc (Online 24/7).'
         ]
       }

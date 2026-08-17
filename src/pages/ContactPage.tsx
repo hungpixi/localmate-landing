@@ -157,8 +157,8 @@ export const ContactPage: React.FC = () => {
                   <Mail size={24} color="var(--color-primary)" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>Email Hỗ Trợ</div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-text)', marginTop: 2 }}>hotro@localmate.vn</div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>Email Liên Hệ</div>
+                  <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-text)', marginTop: 2 }}>contact@localmate.vn</div>
                 </div>
               </a>
             </div>
