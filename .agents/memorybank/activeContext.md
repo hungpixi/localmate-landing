@@ -13,10 +13,11 @@
 
 ## 2. Recent Accomplishments & Updates
 
-### A. Tối Ưu Mega Menu Toàn Màn Hình (1240px Wide):
-- Mở rộng container của Mega Menu từ 960px lên **1240px (Full Container Width)**, căn giữa hoàn hảo dưới Header.
-- Xóa bỏ triệt để hiện tượng rớt chữ và gom cục. Toàn bộ 9 thẻ dịch vụ (`Website 1 Trang`, `Web Doanh Nghiệp`, `Đưa Tiệm Lên Google Maps`, `Quảng Cáo Google Ads`, `Chăm Sóc Facebook`...) đều hiển thị trên **1 dòng duy nhất** kèm badge giá nổi bật.
-- Cột khuyến mãi bên phải (Promo Rail) và Card Hotline được mở rộng thoáng đãng, sang trọng đúng chuẩn Mona Media.
+### A. Sửa Triệt Để Lỗi Tràn Viền Mega Menu (Right Rail Promo & Hotline):
+- Cân bằng chiều cao giữa 3 cột dịch vụ bên trái và cột khuyến mãi bên phải.
+- Tinh chỉnh padding và kích thước của khối `Gói Khởi Tạo 490.000đ` và Card Hotline `0834.422.439`, thêm `align-items: stretch` và `overflow: hidden`.
+- **Kết quả**: Cả 2 card bên phải nằm gọn gàng 100% bên trong viền bo cong của thẻ Mega Menu trắng, có khoảng đệm đáy sạch đẹp, không còn bị lòi/chòi ra ngoài.
 
-### B. Footer Doanh Nghiệp MISA / AMIS Sáng Màu:
-- Nền trắng thanh lịch `#ffffff`, viền nhạt `#e5e7eb`, 4 cột thông tin cân đối, dải nút mạng xã hội + chứng nhận bảo mật + huy hiệu chính thức Bộ Công Thương.
+### B. Header Mega Menu Full Width (1240px) & Footer MISA Light Theme:
+- Header 1240px không bị rớt chữ trên bất kỳ tiêu đề nào.
+- Footer nền sáng chuẩn MISA/AMIS với 4 cột, dải social, trust pills và logo Bộ Công Thương.
