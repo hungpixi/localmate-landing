@@ -115,7 +115,7 @@ export const Footer: React.FC = () => {
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="misa-social-btn" aria-label="YouTube">
               <span className="social-txt">▶</span>
             </a>
-            <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" className="misa-social-btn" aria-label="Zalo">
+            <a href={CONTACT_INFO.zaloUrl} target="_blank" rel="noopener noreferrer" className="misa-social-btn" aria-label="Zalo">
               <span className="social-txt">Z</span>
             </a>
             <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="misa-social-btn" aria-label="Hotline">

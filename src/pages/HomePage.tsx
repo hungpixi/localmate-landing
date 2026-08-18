@@ -16,7 +16,11 @@ import { TrustSection } from '../components/sections/TrustSection';
 import { FAQSection } from '../components/sections/FAQSection';
 import { KnowledgeHubSection } from '../components/sections/KnowledgeHubSection';
 
-export const HomePage: React.FC = () => {
+interface HomePageProps {
+  onOpenConsultForm?: (serviceName?: string) => void;
+}
+
+export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultForm }) => {
   return (
     <>
       {/* 1. Dynamic SEO Meta for Homepage (Optimized for Customer Search Intent) */}
@@ -27,7 +31,7 @@ export const HomePage: React.FC = () => {
       />
 
       {/* 1. Hero — Giúp doanh nghiệp nhỏ có website, lên Google và tìm thêm khách hàng */}
-      <HeroSection />
+      <HeroSection onOpenDemoForm={() => onOpenConsultForm && onOpenConsultForm('Tư vấn Web Demo 0đ')} />
 
       {/* 2. Khách đang cần việc gì? — Phân nhóm theo lời khách hàng nói (Section 18) */}
       <ProblemMapperSection />
@@ -40,7 +44,7 @@ export const HomePage: React.FC = () => {
       <PainPointsSection />
 
       {/* 5. Gói Khởi tạo & Dịch vụ hoạt động thế nào — Website, Google Maps, Nội dung */}
-      <StarterPackageSection />
+      <StarterPackageSection onOpenDemoForm={() => onOpenConsultForm && onOpenConsultForm('Gói Khởi Tạo Đầy Đủ 2.900.000đ')} />
       <ClientRequirementsSection />
       <ContentPackageSection />
 
@@ -51,17 +55,18 @@ export const HomePage: React.FC = () => {
       <ProcessSection />
 
       {/* 8. Bảng giá toàn bộ dịch vụ niêm yết */}
-      <PricingMatrixSection />
+      <PricingMatrixSection onOpenLeadForm={(srvName) => onOpenConsultForm && onOpenConsultForm(srvName || 'Tư vấn Bảng giá dịch vụ')} />
       <DigitalCareSection />
 
       {/* 10. Pháp nhân CÔNG TY TNHH LOCALMATE & Cam kết minh bạch */}
       <TrustSection />
 
       {/* 11. FAQ Giải đáp thắc mắc thường gặp */}
-      <FAQSection />
+      <FAQSection onOpenDemoForm={() => onOpenConsultForm && onOpenConsultForm('Hỗ trợ trực tiếp 1-1')} />
 
       {/* 12. Hướng dẫn tìm khách & Kiến thức Marketing thực chiến */}
       <KnowledgeHubSection />
     </>
   );
 };
+

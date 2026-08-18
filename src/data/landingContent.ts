@@ -43,7 +43,7 @@ export const CONTACT_INFO = {
   phoneDisplay: '0834.422.439 / Zalo 24/7',
   phone: '0834.422.439 / Zalo 24/7',
   phoneRaw: '0834422439',
-  zaloUrl: 'https://zalo.me',
+  zaloUrl: 'https://zalo.me/0834422439',
   mailtoUrl: 'mailto:contact@localmate.vn',
   email: 'contact@localmate.vn',
   address: '03 Trường Chinh, P. Hội An Tây, TP. Đà Nẵng'
@@ -72,7 +72,7 @@ export const PAIN_POINTS = [
     title: 'Không có thời gian viết bài',
     desc: 'Bận rộn phục vụ khách, không kịp chụp ảnh hay cập nhật thông tin lên mạng.',
     cta: 'Xem gói bài viết từ 990k',
-    link: '#goi-cham-soc'
+    link: '#goi-content'
   },
   {
     number: '03',

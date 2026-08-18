@@ -18,6 +18,8 @@ import {
   Check
 } from 'lucide-react';
 
+import { submitLead } from '../../services/leadService';
+
 interface ConceptGeneratorProps {
   onComplete?: () => void;
   compact?: boolean;
@@ -72,8 +74,22 @@ export const ConceptGeneratorSection: React.FC<ConceptGeneratorProps> = ({ onCom
     setConceptResult(res);
   };
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (leadForm.fullName && leadForm.phone) {
+      try {
+        await submitLead({
+          name: leadForm.fullName,
+          phone: leadForm.phone,
+          businessName: businessName,
+          serviceInterest: `Concept Demo: ${businessName} (${industry})`,
+          message: `Style: ${selectedStyle}, Link: ${socialUrl}`,
+          sourcePage: '/concept'
+        });
+      } catch (err) {
+        console.debug('Concept lead catch:', err);
+      }
+    }
     setIsSubmitted(true);
     if (onComplete) onComplete();
   };

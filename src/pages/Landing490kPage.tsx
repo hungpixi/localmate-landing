@@ -24,6 +24,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { CONTACT_INFO } from '../data/landingContent';
+import { submitLead } from '../services/leadService';
 
 export const Landing490kPage: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
@@ -104,11 +105,26 @@ export const Landing490kPage: React.FC = () => {
     }
   ];
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone) {
-      alert('Vui lòng nhập họ tên và số điện thoại!');
+    if (!formData.name.trim() || !formData.phone.trim()) {
+      setToastMessage('⚠️ Vui lòng nhập họ tên và số điện thoại liên hệ!');
+      setTimeout(() => setToastMessage(null), 3000);
       return;
+    }
+
+    // Capture Lead & Conversion Event
+    try {
+      await submitLead({
+        name: formData.name,
+        phone: formData.phone,
+        serviceInterest: 'Website 1 Trang 490k',
+        businessName: formData.service || 'Chưa nhập',
+        message: formData.notes,
+        sourcePage: '/landing-490k'
+      });
+    } catch (err) {
+      console.debug('Lead submission catch:', err);
     }
 
     const message = `Chào LocalMate, tôi muốn đăng ký Gói Landing Page 490k.\n- Họ tên: ${formData.name}\n- SĐT: ${formData.phone}\n- Dịch vụ: ${formData.service || 'Chưa điền'}\n- Ghi chú: ${formData.notes || 'Không'}`;

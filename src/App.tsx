@@ -51,7 +51,7 @@ const MainContent: React.FC = () => {
   const renderPage = () => {
     // 1. Root Homepage
     if (currentPath === '/' || currentPath === '') {
-      return <HomePage />;
+      return <HomePage onOpenConsultForm={handleOpenLeadForm} />;
     }
 
     // 2. Standalone Landing 490k
@@ -129,7 +129,7 @@ const MainContent: React.FC = () => {
     }
 
     // Fallback to HomePage
-    return <HomePage />;
+    return <HomePage onOpenConsultForm={handleOpenLeadForm} />;
   };
 
   return (

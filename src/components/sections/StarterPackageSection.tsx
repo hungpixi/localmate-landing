@@ -5,15 +5,18 @@ import { STARTER_PACKAGE } from '../../data/landingContent';
 import { CheckCircle2, Clock, RotateCcw, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { useRouter } from '../layout/Router';
 
-export const StarterPackageSection: React.FC = () => {
+interface StarterPackageSectionProps {
+  onOpenDemoForm?: () => void;
+}
+
+export const StarterPackageSection: React.FC<StarterPackageSectionProps> = ({ onOpenDemoForm }) => {
   const { navigate } = useRouter();
 
-  const scrollToForm = () => {
-    const el = document.querySelector('#bang-gia');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+  const handleAction = () => {
+    if (onOpenDemoForm) {
+      onOpenDemoForm();
     } else {
-      navigate('/bang-gia');
+      navigate('/lien-he');
     }
   };
 
@@ -106,7 +109,7 @@ export const StarterPackageSection: React.FC = () => {
 
               {/* Action Button & Guarantee */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <Button variant="primary" size="lg" onClick={scrollToForm} fullWidth style={{ fontWeight: 700 }}>
+                <Button variant="primary" size="lg" onClick={handleAction} fullWidth style={{ fontWeight: 700 }}>
                   <span>Nhận website demo 0đ trước</span>
                   <ArrowRight size={17} />
                 </Button>

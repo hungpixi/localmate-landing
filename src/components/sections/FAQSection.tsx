@@ -4,11 +4,21 @@ import { SectionHeader } from '../ui/SectionHeader';
 import { Accordion } from '../ui/Accordion';
 import { FAQ_ITEMS } from '../../data/landingContent';
 import { MessageSquare, PhoneCall } from 'lucide-react';
+import { useRouter } from '../layout/Router';
 
-export const FAQSection: React.FC = () => {
-  const scrollToForm = () => {
-    const el = document.querySelector('#register-form');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+interface FAQSectionProps {
+  onOpenDemoForm?: () => void;
+}
+
+export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenDemoForm }) => {
+  const { navigate } = useRouter();
+
+  const handleAction = () => {
+    if (onOpenDemoForm) {
+      onOpenDemoForm();
+    } else {
+      navigate('/lien-he');
+    }
   };
 
   return (
@@ -66,7 +76,7 @@ export const FAQSection: React.FC = () => {
 
           <button
             type="button"
-            onClick={scrollToForm}
+            onClick={handleAction}
             style={{
               display: 'inline-flex',
               alignItems: 'center',

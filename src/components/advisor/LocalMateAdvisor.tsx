@@ -22,6 +22,7 @@ import {
   Check,
   Star
 } from 'lucide-react';
+import { submitLead } from '../../services/leadService';
 
 interface LocalMateAdvisorProps {
   onComplete?: () => void;
@@ -103,8 +104,21 @@ export const LocalMateAdvisor: React.FC<LocalMateAdvisorProps> = ({ onComplete, 
     }
   };
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (leadForm.fullName && leadForm.phone) {
+      try {
+        await submitLead({
+          name: leadForm.fullName,
+          phone: leadForm.phone,
+          serviceInterest: `Advisor: ${activeTier.title} (${activeTier.totalDisplay})`,
+          message: `Mục tiêu: ${answers.goal}, Ngành: ${answers.businessType}`,
+          sourcePage: '/advisor'
+        });
+      } catch (err) {
+        console.debug('Advisor lead catch:', err);
+      }
+    }
     setIsSubmitted(true);
     if (onComplete) onComplete();
   };

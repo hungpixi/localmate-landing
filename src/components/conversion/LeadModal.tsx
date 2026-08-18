@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/Button';
 import { X, CheckCircle2, ShieldCheck, Phone, MessageSquare, Sparkles } from 'lucide-react';
 import { CONTACT_INFO } from '../../data/landingContent';
-import { trackLeadCreated, trackFormStart } from '../../analytics/tracker';
+import { trackFormStart } from '../../analytics/tracker';
+import { submitLead } from '../../services/leadService';
 
 interface LeadModalProps {
   isOpen: boolean;
@@ -47,7 +48,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.phone.trim()) {
       setErrorMsg('Vui lòng nhập họ tên và số điện thoại liên hệ.');
@@ -57,17 +58,21 @@ export const LeadModal: React.FC<LeadModalProps> = ({
     setIsSubmitting(true);
     setErrorMsg('');
 
-    // Simulate async submission and log lead event
-    setTimeout(() => {
+    try {
+      await submitLead({
+        name: formData.name,
+        phone: formData.phone,
+        businessName: formData.businessName,
+        serviceInterest: formData.service,
+        message: formData.message,
+        sourcePage: window.location.pathname
+      });
+    } catch (err) {
+      console.debug('Lead submission catch:', err);
+    } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      trackLeadCreated({
-        lead_name: formData.name,
-        lead_phone: formData.phone,
-        service_interest: formData.service,
-        page_source: window.location.pathname
-      });
-    }, 500);
+    }
   };
 
   return (

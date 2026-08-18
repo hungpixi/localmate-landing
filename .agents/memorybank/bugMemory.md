@@ -17,3 +17,9 @@
   - Nghiêm cấm cam kết ảo ("Top 1 Google", "Bảo hành trọn đời"). Thay bằng cam kết thực tế: "Nghiệm thu hài lòng rồi mới thanh toán", "Bàn giao 100% tài khoản chính chủ", "Có hỗ trợ kỹ thuật sau bàn giao".
 - **Dynamic Per-Route SEO**: Trong các SPA/Vite apps, nếu không dùng SSR/SSG phức tạp, hãy tạo component `SEOHead` cập nhật ngay lập tức `document.title`, `meta[name="description"]`, canonical `link[rel="canonical"]` và inject JSON-LD script động vào `<head>`.
 - **Type Guard cho quan hệ dữ liệu liên quan (Related Items)**: Khi map danh sách slugs (`relatedServiceSlugs`, `relatedArticleSlugs`) sang entities, luôn sử dụng TypeScript User-Defined Type Guard `filter((item): item is EntityType => Boolean(item))` để tránh lỗi `TS18048: item is possibly undefined`.
+
+## 3. Bài học về Ads Launch, Chuyển Đổi & Kênh Liên Hệ
+- **Không bao giờ dùng link Zalo trần (`https://zalo.me`)**: Link Zalo trần chỉ mở trang chủ hoặc trang tải app của Zalo, không mở hội thoại chat với doanh nghiệp. Luôn dùng định dạng chuẩn: `https://zalo.me/<SỐ_ĐIỆN_THOẠI>` (ví dụ: `https://zalo.me/0834422439`).
+- **Tập trung hóa dịch vụ gửi Lead (`submitLead`)**: Tránh viết hàm fetch phân tán ở nhiều form (`LeadModal`, `ContactPage`, `Landing490kPage`, `FinalCTASection`). Gom tất cả qua 1 service duy nhất (`src/services/leadService.ts`) để tự động kèm UTM attribution, đồng bộ Google Sheets, và kích hoạt conversion event (`generate_lead`, `lead_created`) cho cả Google Ads và Meta Ads.
+- **Không dùng `alert()` trong luồng đăng ký mua hàng/dịch vụ**: Dùng modal state, inline error messages hoặc toast notification để trải nghiệm trên mobile mượt mà, không bị chặn bởi pop-up native của trình duyệt.
+

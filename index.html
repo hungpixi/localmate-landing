@@ -29,6 +29,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
 
+    <!-- Google Tag Manager / Analytics / Meta Pixel Base Initialization -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+
+      // Meta Pixel Base Code
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      // Initialize with Meta Pixel ID (default or env-injected)
+      if (window.VITE_FB_PIXEL_ID) {
+        fbq('init', window.VITE_FB_PIXEL_ID);
+      }
+    </script>
+
     <!-- Schema.org JSON-LD (ProfessionalService + FAQPage) -->
     <script type="application/ld+json">
     [
@@ -39,11 +60,13 @@
         "image": "https://localmate.vn/logo.png",
         "url": "https://localmate.vn",
         "telephone": "+84834422439",
-        "email": "hungphamphunguyen@gmail.com",
+        "email": "contact@localmate.vn",
         "description": "Đơn vị thiết kế Website, SEO, Marketing & Phần mềm cho doanh nghiệp nhỏ. Bàn giao rồi mới thanh toán.",
-        "priceRange": "2.900.000 - 6.900.000 VNĐ",
+        "priceRange": "490.000 - 6.900.000 VNĐ",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "03 Trường Chinh, P. Hội An Tây",
+          "addressLocality": "Đà Nẵng",
           "addressCountry": "VN"
         },
         "knowsAbout": [
@@ -89,6 +112,12 @@
     </script>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript fallback container) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-LOCALMATE"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
     <div id="root"></div>
 
     <!-- Fallback Content for Crawlers & Non-JS Clients -->

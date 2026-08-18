@@ -8,7 +8,11 @@ import {
 } from 'lucide-react';
 import { useRouter } from '../layout/Router';
 
-export const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onOpenDemoForm?: () => void;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDemoForm }) => {
   const { navigate } = useRouter();
 
   return (
@@ -49,9 +53,8 @@ export const HeroSection: React.FC = () => {
               variant="primary"
               size="lg"
               onClick={() => {
-                const el = document.getElementById('goi-490k') || document.getElementById('bang-gia');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
+                if (onOpenDemoForm) {
+                  onOpenDemoForm();
                 } else {
                   navigate('/lien-he');
                 }
@@ -67,7 +70,7 @@ export const HeroSection: React.FC = () => {
               variant="white"
               size="lg"
               onClick={() => {
-                const el = document.getElementById('bang-gia');
+                const el = document.getElementById('can-lam-gi') || document.getElementById('bang-gia');
                 if (el) {
                   el.scrollIntoView({ behavior: 'smooth' });
                 } else {

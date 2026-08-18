@@ -21,7 +21,11 @@ import {
 } from 'lucide-react';
 import { useRouter } from '../layout/Router';
 
-export const PricingMatrixSection: React.FC = () => {
+interface PricingMatrixSectionProps {
+  onOpenLeadForm?: (serviceName?: string) => void;
+}
+
+export const PricingMatrixSection: React.FC<PricingMatrixSectionProps> = ({ onOpenLeadForm }) => {
   const { navigate } = useRouter();
   const [services, setServices] = useState<CatalogServiceItem[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -225,7 +229,13 @@ export const PricingMatrixSection: React.FC = () => {
                     </div>
 
                     <button
-                      onClick={() => navigate('/lien-he')}
+                      onClick={() => {
+                        if (onOpenLeadForm) {
+                          onOpenLeadForm(srv.name);
+                        } else {
+                          navigate('/lien-he');
+                        }
+                      }}
                       className="matrix-action-btn"
                       title={`Tư vấn dịch vụ ${srv.name}`}
                     >

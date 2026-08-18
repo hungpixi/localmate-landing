@@ -5,7 +5,7 @@ import { SEOHead } from '../components/seo/SEOHead';
 import { Button } from '../components/ui/Button';
 import { Sparkles, Phone, Mail, MessageSquare, CheckCircle2, ShieldCheck, Clock } from 'lucide-react';
 import { CONTACT_INFO } from '../data/landingContent';
-import { trackLeadCreated } from '../analytics/tracker';
+import { submitLead } from '../services/leadService';
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +20,7 @@ export const ContactPage: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.phone.trim()) {
       setErrorMessage('Vui lòng điền họ tên và số điện thoại liên hệ.');
@@ -30,17 +30,21 @@ export const ContactPage: React.FC = () => {
     setIsSubmitting(true);
     setErrorMessage('');
 
-    // Simulate async submission and track lead
-    setTimeout(() => {
+    try {
+      await submitLead({
+        name: formData.name,
+        phone: formData.phone,
+        businessName: formData.businessName,
+        serviceInterest: formData.serviceInterest,
+        message: formData.message,
+        sourcePage: '/lien-he'
+      });
+    } catch (err) {
+      console.debug('Lead submission catch:', err);
+    } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      trackLeadCreated({
-        lead_name: formData.name,
-        lead_phone: formData.phone,
-        service_interest: formData.serviceInterest,
-        page_source: '/lien-he'
-      });
-    }, 600);
+    }
   };
 
   return (

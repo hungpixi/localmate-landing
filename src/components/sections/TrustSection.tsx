@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { CONTACT_INFO } from '../../data/landingContent';
+import { CONTACT_INFO, COMPANY_INFO } from '../../data/landingContent';
 import { ShieldCheck, Eye, Key, Phone, Building2, MapPin, Mail, ExternalLink, Smartphone, CheckCircle, Headphones } from 'lucide-react';
 
 export const TrustSection: React.FC = () => {
@@ -99,7 +99,7 @@ export const TrustSection: React.FC = () => {
                     PHÁP NHÂN DOANH NGHIỆP
                   </span>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-navy)', margin: 0 }}>
-                    CÔNG TY TNHH LOCALMATE
+                    {COMPANY_INFO.legalName}
                   </h3>
                 </div>
               </div>
@@ -107,11 +107,11 @@ export const TrustSection: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <CheckCircle size={15} color="var(--color-primary)" style={{ flexShrink: 0 }} />
-                  <span><strong>Mã số thuế:</strong> 0318567890</span>
+                  <span><strong>Mã số thuế:</strong> {COMPANY_INFO.taxCode}</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
                   <MapPin size={15} color="var(--color-primary)" style={{ flexShrink: 0, marginTop: 3 }} />
-                  <span><strong>Trụ sở:</strong> TP. Hồ Chí Minh &amp; Hỗ trợ trực tuyến Toàn quốc (24/7)</span>
+                  <span><strong>Trụ sở:</strong> {COMPANY_INFO.taxAddress}</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Mail size={15} color="var(--color-primary)" style={{ flexShrink: 0 }} />

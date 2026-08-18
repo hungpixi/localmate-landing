@@ -3,6 +3,7 @@ import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { CheckCircle2, ShieldCheck, Send, Loader2, Clock, Sparkles } from 'lucide-react';
+import { submitLead } from '../../services/leadService';
 
 export const FinalCTASection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -49,74 +50,15 @@ export const FinalCTASection: React.FC = () => {
 
     setStatus('loading');
 
-    // 1. Google Apps Script Web App Webhook URL
-    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxH5cdJvXwsQZ0wvIfY5SW1MU_JwYdPQz0izBPiOezapBIZnlu1WmwEXTItIA1mKnwg/exec';
-
-    // 2. Telegram Bot Config
-    const TELEGRAM_BOT_TOKEN = '8124976722:AAEqT8L98wO5eYq9F3tU6N88w_EXAMPLE';
-    const TELEGRAM_CHAT_ID = '123456789';
-
-    const leadId = 'LEAD-' + Date.now();
-    const createdAt = new Date().toISOString();
-
-    const leadPayload = {
-      id: leadId,
-      createdAt: createdAt,
-      fullName: formData.fullName.trim(),
-      phone: formData.phone.trim(),
-      businessName: formData.industry.trim() || 'Chưa nhập',
-      cityCountry: 'Việt Nam',
-      businessCategory: formData.industry.trim() || 'Chưa phân loại',
-      priorityGoal: 'Nhận Web Demo 24h',
-      packageInterest: 'Gói Khởi Tạo 2.900.000đ',
-      status: 'new',
-      source: 'landing_page',
-      utmSource: '',
-      utmMedium: '',
-      utmCampaign: '',
-      referrer: typeof document !== 'undefined' ? document.referrer : '',
-      ipAddress: '',
-      userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
-      note: formData.facebookUrl.trim() ? `Link Fanpage: ${formData.facebookUrl.trim()}` : 'Khách đăng ký qua Form Web Demo',
-      telegramNotified: true,
-      sheetSynced: true
-    };
-
     try {
-      // Send Webhook to Google Apps Script (Google Sheets Sync)
-      if (GOOGLE_APPS_SCRIPT_URL) {
-        fetch(GOOGLE_APPS_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors', // Apps Script requires no-cors mode for cross-origin browser requests
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(leadPayload)
-        }).catch(err => console.error('Apps Script Sync Error:', err));
-      }
-
-      // Send Telegram Bot Notification
-      if (TELEGRAM_BOT_TOKEN && !TELEGRAM_BOT_TOKEN.includes('EXAMPLE')) {
-        const textMessage = `🔔 *LOCALMATE - CÓ LEAD MỚI VỀ GOOGLE SHEET!*
-----------------------------------------
-🆔 *Lead ID:* ${leadId}
-👤 *Họ và tên:* ${formData.fullName.trim()}
-📞 *Số điện thoại:* ${formData.phone.trim()}
-🏢 *Sản phẩm/Ngành:* ${formData.industry.trim() || 'Chưa nhập'}
-🔗 *Facebook/Fanpage:* ${formData.facebookUrl.trim() || 'Không có'}
-⏰ *Thời gian:* ${new Date().toLocaleString('vi-VN')}
-----------------------------------------
-⚡ *Sheet Status:* Đã tự động ghi dữ liệu vào Google Sheet!`;
-
-        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: textMessage,
-            parse_mode: 'Markdown'
-          })
-        });
-      }
-
+      await submitLead({
+        name: formData.fullName,
+        phone: formData.phone,
+        businessName: formData.industry,
+        facebookUrl: formData.facebookUrl,
+        serviceInterest: 'Gói Khởi Tạo 2.900.000đ',
+        sourcePage: window.location.pathname
+      });
       setStatus('success');
     } catch (err) {
       console.error('Submission Error:', err);
